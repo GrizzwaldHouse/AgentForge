@@ -1,0 +1,8 @@
+Initialize Modular AI System using SYSTEM_PROMPT.md
+
+- Load system
+- Create all system files
+- Activate job extraction
+- Generate skills and tasks
+- Spawn agents
+- Begin execution

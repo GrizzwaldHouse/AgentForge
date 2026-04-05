@@ -1,0 +1,21 @@
+Claude, execute FULL SYSTEM BUILD.
+
+Steps:
+1. Read MASTER.md
+2. Start ALL systems in parallel:
+   - SaaS
+   - Plugins
+   - Enterprise
+   - Offline AI
+   - Recording system
+   - Simulation system
+   - Security testing
+3. Spawn MissingFeatureAgent to verify completeness
+4. Build UI with live progress widget
+5. Enable token monitoring and sub-agent splitting
+6. Record progress using OBS agent
+7. Run simulation test (13 minutes minimum)
+8. Ensure zero errors/warnings
+9. Generate investor assets
+
+Log everything clearly and keep system stable at all times.
