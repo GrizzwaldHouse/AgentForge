@@ -7,7 +7,10 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "resume": "node scripts/session-resume.mjs",
+    "ollama:resume": "node scripts/ollama-resume.mjs",
+    "ollama:dry-run": "node scripts/ollama-resume.mjs --dry-run"
   },
   "dependencies": {
     "next": "^15.1.0",

@@ -1,0 +1,127 @@
+{
+  "task": "CONTEXT_AWARE_EXECUTION_WITH_AUTO_CHECKPOINTING",
+  "version": "1.0.0",
+  "mode": "multi_agent",
+  "priority": "critical",
+  "description": "Paste this entire JSON block at the START of any new Claude Code session to enable automatic context monitoring, checkpoint commits, and seamless session handoff.",
+
+  "agents": {
+    "primary_executor": {
+      "role": "implementation",
+      "behavior": "Execute development tasks with minimal verbosity. Reuse prior work from SESSION_HANDOFF.md and memory-index.json. Never re-read completed files. Prefer Edit over Write. Prefer diff updates over full rewrites."
+    },
+    "context_monitor": {
+      "role": "supervisor",
+      "behavior": "After every 3-5 tool calls, self-assess context usage. When approaching 75%, reduce output verbosity and finalize small tasks. When approaching 90%, immediately trigger checkpoint sequence. Track via internal heuristic: count of messages, file reads, and tool calls as proxy for context consumption.",
+      "heuristics": {
+        "low_usage_indicators": ["< 20 tool calls", "< 10 file reads", "< 30 messages"],
+        "medium_usage_indicators": ["20-40 tool calls", "10-20 file reads", "30-60 messages"],
+        "high_usage_indicators": ["> 40 tool calls", "> 20 file reads", "> 60 messages"],
+        "critical_indicators": ["> 60 tool calls", "> 30 file reads", "> 80 messages"]
+      }
+    },
+    "checkpoint_manager": {
+      "role": "stabilization",
+      "behavior": "When triggered by context_monitor, execute the checkpoint sequence: finish in-progress unit, run build, update SESSION_HANDOFF.md, update memory-index.json, commit with structured message. Never start new features during checkpoint."
+    }
+  },
+
+  "context_management": {
+    "track_usage": true,
+    "soft_limit_threshold": 0.75,
+    "hard_limit_threshold": 0.90,
+    "behavior": {
+      "below_soft_limit": "Normal execution. Full tool usage. Read files as needed.",
+      "approaching_soft_limit": "Reduce output length. Finish current task only. No new file reads unless critical. Summarize instead of quoting.",
+      "approaching_hard_limit": "STOP new work immediately. Complete only the current in-progress unit. Run checkpoint sequence. Commit and document.",
+      "at_limit": "If checkpoint not yet done, write SESSION_HANDOFF.md and commit with whatever is stable. Do not attempt new work."
+    }
+  },
+
+  "execution_rules": {
+    "no_scope_expansion": "Never add features, refactors, or improvements beyond the current task",
+    "prefer_small_iterations": "Complete one file/feature at a time before starting next",
+    "reuse_existing_outputs": "Always read SESSION_HANDOFF.md and memory-index.json before starting work",
+    "avoid_reprocessing": "Never re-read files already summarized in memory-index.json",
+    "minimize_file_reads": "Use Grep/Glob for targeted lookups, not full file reads",
+    "favor_stable_over_perfect": "A working implementation beats a perfect one that runs out of context",
+    "batch_parallel_writes": "Write multiple independent files in a single tool call batch"
+  },
+
+  "checkpoint_strategy": {
+    "trigger_conditions": [
+      "Context monitor estimates >= 75% usage",
+      "A logical task boundary is reached (feature complete, phase complete)",
+      "3+ files have been modified since last commit",
+      "Build passes after meaningful changes"
+    ],
+    "hard_trigger": "Context monitor estimates >= 90% usage",
+    "checkpoint_sequence": [
+      "1. Finish current in-progress unit (no new units)",
+      "2. Run npm run build — verify pass",
+      "3. Update SESSION_HANDOFF.md with current state",
+      "4. Update memory-index.json with new/modified files",
+      "5. Update task-queue.json with remaining work",
+      "6. Git add + commit with structured message",
+      "7. Output next-session resume prompt"
+    ]
+  },
+
+  "documentation_updates": {
+    "SESSION_HANDOFF.md": {
+      "update_frequency": "Every checkpoint and session end",
+      "sections": ["Current Phase", "Completed This Session", "Build Status", "What Remains", "Known Issues", "Next Session Prompt"]
+    },
+    "memory-index.json": {
+      "update_frequency": "Every checkpoint — append only, never rewrite completed entries",
+      "purpose": "Machine-readable index of all files, their purpose, status, and dependencies"
+    },
+    "task-queue.json": {
+      "update_frequency": "Every checkpoint",
+      "purpose": "Persistent task queue that survives session boundaries"
+    }
+  },
+
+  "commit_format": {
+    "type_prefix": "checkpoint|phase-complete|safe-stop",
+    "template": "[type]: [brief description]\n\nCompleted:\n- [items]\n\nFiles changed:\n- [list]\n\nPending:\n- [items]\n\nNext session: [prompt]\n\nCo-Authored-By: Claude Sonnet 4.5 <noreply@anthropic.com>"
+  },
+
+  "session_resume_protocol": {
+    "on_new_session_start": [
+      "1. Read SESSION_HANDOFF.md for current state",
+      "2. Read memory-index.json for file inventory",
+      "3. Read task-queue.json for pending work",
+      "4. Run git log --oneline -5 for recent history",
+      "5. Do NOT re-read any file marked 'complete' in memory-index.json",
+      "6. Resume from first pending task in task-queue.json"
+    ]
+  },
+
+  "efficiency_rules": {
+    "never_reopen_completed_files": true,
+    "never_reanalyze_finished_tasks": true,
+    "summarize_instead_of_repeat": true,
+    "prefer_edit_over_write": true,
+    "batch_independent_operations": true,
+    "no_exploratory_reads_after_soft_limit": true
+  },
+
+  "ollama_background_continuation": {
+    "enabled": true,
+    "trigger": "When Claude Code session ends or context limit approached",
+    "endpoint": "http://localhost:11434",
+    "model_preference": ["llama3.3:70b", "glm-4.7-flash", "llama3:8b"],
+    "handoff_method": "Read task-queue.json, execute simple tasks (file generation, boilerplate) via local script",
+    "script_path": "scripts/ollama-resume.mjs"
+  },
+
+  "stop_conditions": [
+    "Checkpoint completed successfully",
+    "Context usage >= hard_limit_threshold",
+    "No safe tasks remaining",
+    "Build fails and cannot be quickly fixed"
+  ],
+
+  "usage_instructions": "Copy this entire JSON and paste it at the start of a new Claude Code session along with: 'Resume work on SeniorDevBuddy using this execution protocol. Read SESSION_HANDOFF.md first.'"
+}

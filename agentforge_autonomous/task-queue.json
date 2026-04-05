@@ -1,0 +1,124 @@
+{
+  "version": "1.0.0",
+  "lastUpdated": "2026-04-05T00:00:00Z",
+  "completedPhases": ["Phase 1: Foundation", "Phase 2: Event System"],
+  "queue": [
+    {
+      "id": "P3-1",
+      "phase": 3,
+      "title": "Create ExecutionBackend interface",
+      "file": "src/backend/execution/ExecutionBackend.ts",
+      "status": "pending",
+      "blockedBy": [],
+      "complexity": "low",
+      "ollamaEligible": true
+    },
+    {
+      "id": "P3-2",
+      "phase": 3,
+      "title": "Create SimulatedBackend implementation",
+      "file": "src/backend/execution/SimulatedBackend.ts",
+      "status": "pending",
+      "blockedBy": ["P3-1"],
+      "complexity": "low",
+      "ollamaEligible": true
+    },
+    {
+      "id": "P3-3",
+      "phase": 3,
+      "title": "Create OllamaBackend implementation",
+      "file": "src/backend/execution/OllamaBackend.ts",
+      "status": "pending",
+      "blockedBy": ["P3-1"],
+      "complexity": "medium",
+      "ollamaEligible": false
+    },
+    {
+      "id": "P3-4",
+      "phase": 3,
+      "title": "Extract ObservableOrchestrator from run/route.ts",
+      "file": "src/backend/services/ObservableOrchestrator.ts",
+      "status": "pending",
+      "blockedBy": ["P3-1"],
+      "complexity": "medium",
+      "ollamaEligible": false
+    },
+    {
+      "id": "P3-5",
+      "phase": 3,
+      "title": "Refactor run/route.ts to use ObservableOrchestrator",
+      "file": "src/app/api/agent/run/route.ts",
+      "status": "pending",
+      "blockedBy": ["P3-4"],
+      "complexity": "low",
+      "ollamaEligible": false
+    },
+    {
+      "id": "P4-1",
+      "phase": 4,
+      "title": "Create SessionPersistence service",
+      "file": "src/backend/services/SessionPersistence.ts",
+      "status": "pending",
+      "blockedBy": ["P3-4"],
+      "complexity": "medium",
+      "ollamaEligible": true
+    },
+    {
+      "id": "P4-2",
+      "phase": 4,
+      "title": "Create GET /api/agent/sessions endpoint",
+      "file": "src/app/api/agent/sessions/route.ts",
+      "status": "pending",
+      "blockedBy": ["P4-1"],
+      "complexity": "low",
+      "ollamaEligible": true
+    },
+    {
+      "id": "P4-3",
+      "phase": 4,
+      "title": "Create GET /api/agent/sessions/[id] endpoint",
+      "file": "src/app/api/agent/sessions/[id]/route.ts",
+      "status": "pending",
+      "blockedBy": ["P4-1"],
+      "complexity": "low",
+      "ollamaEligible": true
+    },
+    {
+      "id": "P5-1",
+      "phase": 5,
+      "title": "Build Live View dashboard UI",
+      "file": "src/app/(dashboard)/page.tsx",
+      "status": "pending",
+      "blockedBy": ["P3-5", "P4-1"],
+      "complexity": "high",
+      "ollamaEligible": false
+    },
+    {
+      "id": "P6-1",
+      "phase": 6,
+      "title": "Build Timeline Replay UI",
+      "status": "pending",
+      "blockedBy": ["P4-3", "P5-1"],
+      "complexity": "high",
+      "ollamaEligible": false
+    },
+    {
+      "id": "P7-1",
+      "phase": 7,
+      "title": "Floating Widget + Demo Mode",
+      "status": "pending",
+      "blockedBy": ["P5-1"],
+      "complexity": "medium",
+      "ollamaEligible": false
+    },
+    {
+      "id": "P8-1",
+      "phase": 8,
+      "title": "Integration verification",
+      "status": "pending",
+      "blockedBy": ["P6-1", "P7-1"],
+      "complexity": "medium",
+      "ollamaEligible": false
+    }
+  ]
+}

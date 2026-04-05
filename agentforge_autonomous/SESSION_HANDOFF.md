@@ -1,52 +1,55 @@
-# Session Handoff - Phase 2 Event System
+# Session Handoff - AgentForge Observability
 
 ## Current Project Phase
 **Phase 2: Event System — COMPLETE**
+**Infrastructure: Context-aware execution system — COMPLETE**
 
 ## Completed This Session
 
-### Phase 2 Files Created (6 new files)
-1. `src/core/events/types.ts` — Discriminated union event types (8 event types: AgentStart, AgentProgress, AgentLog, AgentComplete, AgentError, SessionStart, SessionEnd, Heartbeat)
-2. `src/core/events/agent-event-bus.ts` — EventEmitter singleton with subscribe/unsubscribe/emit, 200-event buffer for late-joining SSE clients
-3. `src/app/api/agent/events/route.ts` — SSE endpoint (GET), streams events via ReadableStream, 30s heartbeat, catch-up on connect
-4. `src/app/api/agent/run/route.ts` — POST endpoint, runs all 6 agents sequentially, emits start/log/complete/error events per agent, session start/end events
-5. `src/hooks/use-agent-events.ts` — React hook with EventSource, auto-reconnect (3s), 500-event cap, connection status tracking
-6. `src/agents/registry.ts` — Exports allAgents array and agentRegistry Map for ID lookup
+### Phase 2 Files (6 files)
+1. `src/core/events/types.ts` — 8 discriminated union event types + createEventId
+2. `src/core/events/agent-event-bus.ts` — EventEmitter singleton, 200-event buffer
+3. `src/app/api/agent/events/route.ts` — SSE endpoint, 30s heartbeat, catch-up
+4. `src/app/api/agent/run/route.ts` — POST runs all 6 agents, emits events
+5. `src/hooks/use-agent-events.ts` — React hook, EventSource, auto-reconnect
+6. `src/agents/registry.ts` — allAgents array + agentRegistry Map
 
-### Build Verification
-- `npm run build` passes clean (0 errors, 0 type errors)
-- Routes confirmed: `/api/agent/events` (dynamic), `/api/agent/run` (dynamic)
+### Infrastructure Files (5 files)
+1. `CONTEXT_AWARE_EXECUTION.json` — Reusable prompt for context-aware sessions
+2. `memory-index.json` — Machine-readable file inventory with exports/deps
+3. `task-queue.json` — Persistent task queue with dependency graph
+4. `scripts/ollama-resume.mjs` — Background Ollama agent for eligible tasks
+5. `scripts/session-resume.mjs` — Generates paste-ready resume prompt
 
-## What Remains (Phase 3+)
+### npm Scripts Added
+- `npm run resume` — Generate Claude Code resume prompt
+- `npm run ollama:resume` — Run Ollama on eligible tasks
+- `npm run ollama:dry-run` — Preview without executing
+
+## Build Status
+`npm run build` — PASS (0 errors)
+
+## What Remains
 
 ### Phase 3: Execution Backends + ObservableOrchestrator
-- `src/backend/execution/ExecutionBackend.ts` — Interface
-- `src/backend/execution/OllamaBackend.ts` — Real Ollama integration
-- `src/backend/execution/SimulatedBackend.ts` — Mock for testing/demos
-- `src/backend/services/ObservableOrchestrator.ts` — Wraps AgentOrchestrator with event emission (currently inlined in run/route.ts, should be extracted)
+- P3-1: ExecutionBackend interface
+- P3-2: SimulatedBackend (ollama-eligible)
+- P3-3: OllamaBackend
+- P3-4: ObservableOrchestrator
+- P3-5: Refactor run/route.ts
 
-### Phase 4: Session Persistence + Replay APIs
-- `src/backend/services/SessionPersistence.ts` — Write session JSON to data/sessions/
-- `src/app/api/agent/sessions/route.ts` — GET list sessions
-- `src/app/api/agent/sessions/[id]/route.ts` — GET session detail
-- `data/sessions/` directory
-
-### Phase 5: UI Components - Live View Dashboard
-- Replace placeholder `(dashboard)/page.tsx` with real-time agent monitoring UI
-- Agent cards with status indicators
-- Log stream display
-- Connection status indicator
-
-### Phase 6: Timeline Replay UI
-### Phase 7: Floating Widget + Demo Mode
-### Phase 8: Integration Verification
+### Phase 4-8: See task-queue.json for full dependency graph
 
 ## Known Issues
-- Next.js warning about multiple lockfiles (`C:\Users\daley\package-lock.json` vs project lockfile) — cosmetic only
-- Orchestration logic is inlined in `run/route.ts` — should be extracted to ObservableOrchestrator in Phase 3
-- No session persistence yet — events only live in memory buffer (200 max)
+- Next.js lockfile warning (cosmetic)
+- Orchestration logic inlined in run/route.ts (extract in P3-4)
+- No session persistence yet (P4-1)
 
-## Next Session Prompt
+## How to Resume
+```bash
+cd agentforge_autonomous
+npm run resume    # Generates paste-ready Claude Code prompt
 ```
-Continue SeniorDevBuddy Phase 3: Extract ObservableOrchestrator from run/route.ts, create ExecutionBackend interface with Ollama and Simulated implementations. Then start Phase 4 session persistence.
-```
+
+Or paste CONTEXT_AWARE_EXECUTION.json at session start with:
+"Resume work on SeniorDevBuddy using this execution protocol."
