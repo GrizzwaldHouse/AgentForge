@@ -79,6 +79,12 @@
 | SK-041 | Drizzle ORM Storage Layer | Agent-Alexander | ACTIVE | Type-safe SQLite with 17-table schema, audit logging hooks, cascading deletes |
 | SK-042 | Knowledge Graph (Nodes + Edges) | Agent-Alexander | ACTIVE | Entity/relationship extraction with force-directed visualization |
 
+## Development Automation Skills (C:\ClaudeSkills\skills\agentforge-autopilot\)
+
+| ID | Skill | Source | Status | Description |
+|----|-------|--------|--------|-------------|
+| SK-043 | AgentForge Autopilot | C:\ClaudeSkills\skills\agentforge-autopilot | ACTIVE | 3-mode dev workflow (spawn/resume/auto-build) with phase detection, verification, and pipeline |
+
 ## Utility Skills
 
 | ID | Skill | Source | Status | Description |
@@ -108,7 +114,7 @@
 
 ## Statistics
 
-- **Total Skills:** 44 (3 production + 5 reference + 14 Bob/WizardJam/Portfolio + 5 Ollama audit + 15 Agent-Alexander + 2 utility)
+- **Total Skills:** 45 (3 production + 5 reference + 14 Bob/WizardJam/Portfolio + 5 Ollama audit + 15 Agent-Alexander + 1 dev automation + 2 utility)
 - **Total Task Templates:** 3
-- **Active:** 43 | Available: 1 | Gaps: 0
+- **Active:** 44 | Available: 1 | Gaps: 0
 - **Last Updated:** 2026-04-05
