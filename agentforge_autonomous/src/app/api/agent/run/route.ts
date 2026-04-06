@@ -1,124 +1,46 @@
 import { NextRequest, NextResponse } from "next/server";
-import { agentEventBus } from "@/core/events/agent-event-bus";
 import { allAgents } from "@/agents/registry";
-import { createEventId } from "@/core/events/types";
-import { EVENT_TYPES } from "@/lib/constants";
-import type {
-  SessionStartEvent,
-  AgentStartEvent,
-  AgentLogEvent,
-  AgentCompleteEvent,
-  AgentErrorEvent,
-  SessionEndEvent,
-} from "@/core/events/types";
+import { ObservableOrchestrator } from "@/backend/services/ObservableOrchestrator";
+import { attachLoggingMiddleware } from "@/core/observability/event-middleware";
+
+// Attach observability on module load
+attachLoggingMiddleware();
+
+const orchestrator = new ObservableOrchestrator(allAgents);
 
 export async function POST(request: NextRequest) {
-  const body = await request.json().catch(() => ({}));
-  const taskId = (body.taskId as string) || `task_${Date.now()}`;
-  const context = (body.context as Record<string, unknown>) || {};
-  const sessionId = `sess_${Date.now()}`;
-
-  // Session start
-  const sessionStart: SessionStartEvent = {
-    id: createEventId(),
-    type: EVENT_TYPES.SESSION_START,
-    timestamp: Date.now(),
-    sessionId,
-    agentIds: allAgents.map((a) => a.id),
-    taskId,
-  };
-  agentEventBus.emit(sessionStart);
-
-  const agentResults: SessionEndEvent["agentResults"] = [];
-  const sessionStartTime = Date.now();
-
-  // Run agents sequentially so events stream in order
-  for (const agent of allAgents) {
-    const start = Date.now();
-
-    const startEvent: AgentStartEvent = {
-      id: createEventId(),
-      type: EVENT_TYPES.AGENT_START,
-      timestamp: Date.now(),
-      sessionId,
-      agentId: agent.id,
-      taskId,
-    };
-    agentEventBus.emit(startEvent);
-
-    try {
-      const result = await agent.execute({ taskId, context });
-
-      // Emit individual logs
-      for (const log of result.logs) {
-        const logEvent: AgentLogEvent = {
-          id: createEventId(),
-          type: EVENT_TYPES.AGENT_LOG,
-          timestamp: Date.now(),
-          sessionId,
-          agentId: agent.id,
-          taskId,
-          message: log,
-          level: "info",
-        };
-        agentEventBus.emit(logEvent);
-      }
-
-      const durationMs = Date.now() - start;
-      const completeEvent: AgentCompleteEvent = {
-        id: createEventId(),
-        type: EVENT_TYPES.AGENT_COMPLETE,
-        timestamp: Date.now(),
-        sessionId,
-        agentId: agent.id,
-        taskId,
-        durationMs,
-        success: result.success,
-        data: result.data,
-      };
-      agentEventBus.emit(completeEvent);
-
-      agentResults.push({
-        agentId: agent.id,
-        success: result.success,
-        durationMs,
-      });
-    } catch (err) {
-      const errorEvent: AgentErrorEvent = {
-        id: createEventId(),
-        type: EVENT_TYPES.AGENT_ERROR,
-        timestamp: Date.now(),
-        sessionId,
-        agentId: agent.id,
-        taskId,
-        error: err instanceof Error ? err.message : String(err),
-        stack: err instanceof Error ? err.stack : undefined,
-      };
-      agentEventBus.emit(errorEvent);
-
-      agentResults.push({
-        agentId: agent.id,
-        success: false,
-        durationMs: Date.now() - start,
-      });
-    }
+  let body: Record<string, unknown>;
+  try {
+    body = await request.json();
+  } catch {
+    return NextResponse.json({ error: "Invalid JSON body" }, { status: 400 });
   }
 
-  // Session end
-  const sessionEnd: SessionEndEvent = {
-    id: createEventId(),
-    type: EVENT_TYPES.SESSION_END,
-    timestamp: Date.now(),
-    sessionId,
-    totalDurationMs: Date.now() - sessionStartTime,
-    agentResults,
-  };
-  agentEventBus.emit(sessionEnd);
+  if (body === null || typeof body !== "object" || Array.isArray(body)) {
+    return NextResponse.json({ error: "Request body must be a JSON object" }, { status: 400 });
+  }
 
-  return NextResponse.json({
-    sessionId,
-    taskId,
-    totalDurationMs: sessionEnd.totalDurationMs,
-    agentResults,
-  });
+  const taskId = typeof body.taskId === "string" && body.taskId.trim().length > 0
+    ? body.taskId
+    : `task_${Date.now()}`;
+
+  const context = body.context != null && typeof body.context === "object" && !Array.isArray(body.context)
+    ? (body.context as Record<string, unknown>)
+    : {};
+
+  const parallel = body.parallel === true;
+
+  try {
+    const orch = parallel
+      ? new ObservableOrchestrator(allAgents, { parallel: true })
+      : orchestrator;
+
+    const result = await orch.run(taskId, context);
+    return NextResponse.json(result);
+  } catch (err) {
+    return NextResponse.json(
+      { error: err instanceof Error ? err.message : "Internal server error" },
+      { status: 500 },
+    );
+  }
 }
