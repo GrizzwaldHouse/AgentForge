@@ -10,7 +10,7 @@
  * Usage: node scripts/ollama-resume.mjs [--dry-run] [--model llama3.3:70b]
  */
 
-import { readFileSync, writeFileSync, existsSync } from "fs";
+import { readFileSync, writeFileSync, mkdirSync, existsSync } from "fs";
 import { execSync } from "child_process";
 import { resolve, dirname } from "path";
 import { fileURLToPath } from "url";
@@ -103,6 +103,7 @@ async function main() {
 
   if (response && task.file) {
     const filePath = resolve(ROOT, task.file);
+    mkdirSync(dirname(filePath), { recursive: true });
     writeFileSync(filePath, response, "utf-8");
     console.log(`Wrote: ${task.file}`);
 
