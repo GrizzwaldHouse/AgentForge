@@ -4,4 +4,10 @@ node_modules/
 .env.local
 .env.*.local
 *.zip
+*.pdf
 nul
+
+# User scratchpads and reference docs (not part of the codebase)
+gmail_extracted/
+reasearchAndUnite.txt
+.claude/

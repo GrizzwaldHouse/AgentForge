@@ -1,4 +1,6 @@
 node_modules/
 .next/
 .env.local
-data/sessions/
+data/
+tsconfig.tsbuildinfo
+memory-index.json
