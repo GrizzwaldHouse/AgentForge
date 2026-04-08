@@ -3,6 +3,7 @@ import type { ExecutionBackend } from "@/backend/execution/ExecutionBackend";
 import { agentEventBus } from "@/core/events/agent-event-bus";
 import { createEventId } from "@/core/events/types";
 import { EVENT_TYPES } from "@/lib/constants";
+import { emitProgress } from "@/agents/progress-helper";
 
 const SYSTEM_PROMPT = [
   "You are the ReviewerAgent in a multi-agent development system.",
@@ -26,6 +27,15 @@ export class ReviewerAgent implements Agent {
     const prompt = `${SYSTEM_PROMPT}\n\nCode to review:\n${JSON.stringify(code, null, 2)}`;
     logs.push(`Prompt constructed (${prompt.length} chars)`);
 
+    emitProgress({
+      sessionId: "",
+      agentId: this.id,
+      taskId: input.taskId,
+      progress: 10,
+      humanMessage: "Analyzing code for quality issues...",
+      stepName: "Reviewing",
+    });
+
     if (!this.backend) {
       logs.push("No backend configured — returning prompt-only output");
       return { success: true, logs, data: { prompt, review: null } };
@@ -36,6 +46,15 @@ export class ReviewerAgent implements Agent {
         { id: input.taskId, context: input.context },
         { taskId: input.taskId, context: { ...input.context, prompt } },
       );
+
+      emitProgress({
+        sessionId: "",
+        agentId: this.id,
+        taskId: input.taskId,
+        progress: 70,
+        humanMessage: "Processing review results...",
+        stepName: "Reviewing",
+      });
 
       const review = this.parseResponse(result.data?.response ?? result.data);
       logs.push(...result.logs);
@@ -50,6 +69,7 @@ export class ReviewerAgent implements Agent {
         taskId: input.taskId,
         message: `Review: ${review.approved ? "approved" : "changes requested"}`,
         level: review.approved ? "info" : "warn",
+        humanMessage: `Code review: ${review.approved ? "approved" : "changes requested"} \u2014 ${review.summary ?? ""}`,
       });
 
       return { success: true, logs, data: { prompt, review } };

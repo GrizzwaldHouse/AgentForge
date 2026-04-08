@@ -13,6 +13,7 @@ class AgentEventBus {
     if (this.buffer.length > MAX_BUFFER) {
       this.buffer = this.buffer.slice(-MAX_BUFFER);
     }
+
     this.emitter.emit("event", event);
   }
 
@@ -45,3 +46,17 @@ class AgentEventBus {
 
 // Singleton
 export const agentEventBus = new AgentEventBus();
+
+// Wire up session persistence as an independent subscriber — server-only.
+// Dynamic import keeps fs/promises out of the client bundle, since this module
+// is transitively imported by client components through the agent registry.
+if (typeof window === "undefined") {
+  import("./session-persistence")
+    .then(({ SessionPersistence }) => {
+      const sessionPersistence = new SessionPersistence();
+      agentEventBus.subscribe(sessionPersistence.handle);
+    })
+    .catch(() => {
+      // Best-effort: persistence is non-critical
+    });
+}

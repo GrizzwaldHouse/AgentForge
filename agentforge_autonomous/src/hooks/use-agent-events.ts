@@ -14,6 +14,7 @@ export function useAgentEvents() {
   const [lastTimestamp, setLastTimestamp] = useState<number | null>(null);
   const esRef = useRef<EventSource | null>(null);
   const reconnectRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const hydratedRef = useRef(false);
 
   const connect = useCallback(() => {
     if (esRef.current) {
@@ -48,9 +49,31 @@ export function useAgentEvents() {
   }, []);
 
   useEffect(() => {
-    connect();
+    // Hydrate from last session before connecting to SSE
+    if (!hydratedRef.current) {
+      hydratedRef.current = true;
+      fetch("/api/agent/last-session")
+        .then((res) => res.json())
+        .then((saved: AgentEvent[]) => {
+          if (Array.isArray(saved) && saved.length > 0) {
+            setEvents(saved.slice(-MAX_EVENTS));
+            const last = saved[saved.length - 1];
+            if (last) setLastTimestamp(last.timestamp);
+          }
+        })
+        .catch(() => {
+          // No saved session — proceed normally
+        })
+        .finally(() => {
+          connect();
+        });
+    } else {
+      connect();
+    }
+
     return () => {
       esRef.current?.close();
+      esRef.current = null;
       if (reconnectRef.current) clearTimeout(reconnectRef.current);
     };
   }, [connect]);

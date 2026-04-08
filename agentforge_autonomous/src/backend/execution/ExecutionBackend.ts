@@ -21,7 +21,7 @@ export type ExecutionErrorCode =
   | "INVALID_INPUT"
   | "EXECUTION_FAILED";
 
-export type BackendType = "simulated" | "ollama" | "mock";
+export type BackendType = "simulated" | "ollama" | "mock" | "provider-chain";
 
 export type TaskStatus = "pending" | "running" | "completed" | "cancelled" | "failed";
 

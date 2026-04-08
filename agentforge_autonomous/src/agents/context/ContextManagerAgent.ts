@@ -3,6 +3,7 @@ import type { ExecutionBackend } from "@/backend/execution/ExecutionBackend";
 import { agentEventBus } from "@/core/events/agent-event-bus";
 import { createEventId } from "@/core/events/types";
 import { EVENT_TYPES } from "@/lib/constants";
+import { emitProgress } from "@/agents/progress-helper";
 
 const MAX_LOGS = 100;
 const MAX_HISTORY = 20;
@@ -17,6 +18,15 @@ export class ContextManagerAgent implements Agent {
   async execute(input: AgentInput): Promise<AgentOutput> {
     const logs: string[] = [];
     const ctx = input.context;
+
+    emitProgress({
+      sessionId: "",
+      agentId: this.id,
+      taskId: input.taskId,
+      progress: 10,
+      humanMessage: "Analyzing context for pruning opportunities...",
+      stepName: "Cleanup",
+    });
 
     // Prune logs — deduplicate and cap
     const prunedLogs = [...new Set(ctx.logs as string[] ?? [])].slice(-MAX_LOGS);
@@ -61,6 +71,15 @@ export class ContextManagerAgent implements Agent {
     const totalPruned = (logsBefore - logsAfter) + (histBefore - history.length) + removedKeys.length;
     logs.push(`Context managed: ${totalPruned} items pruned`);
 
+    emitProgress({
+      sessionId: "",
+      agentId: this.id,
+      taskId: input.taskId,
+      progress: 70,
+      humanMessage: "Finalizing context cleanup...",
+      stepName: "Cleanup",
+    });
+
     agentEventBus.emit({
       id: createEventId(),
       type: EVENT_TYPES.AGENT_LOG,
@@ -70,6 +89,7 @@ export class ContextManagerAgent implements Agent {
       taskId: input.taskId,
       message: `Context pruned: ${totalPruned} items`,
       level: "info",
+      humanMessage: `Context cleanup complete: ${totalPruned} items pruned`,
     });
 
     return { success: true, logs, data: pruned };

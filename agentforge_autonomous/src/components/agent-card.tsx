@@ -13,6 +13,7 @@ export interface AgentCardProps {
   status: AgentStatus;
   lastRunAt?: number | null;
   lastDurationMs?: number | null;
+  progress?: number;
 }
 
 const statusConfig: Record<AgentStatus, { label: string; dotClass: string }> = {
@@ -21,7 +22,7 @@ const statusConfig: Record<AgentStatus, { label: string; dotClass: string }> = {
   error: { label: "Error", dotClass: "bg-[var(--accent-red)]" },
 };
 
-export function AgentCard({ id, name, status, lastRunAt, lastDurationMs }: AgentCardProps) {
+export function AgentCard({ id, name, status, lastRunAt, lastDurationMs, progress }: AgentCardProps) {
   const color = AGENT_COLORS[id] ?? "var(--accent-blue)";
   const { label, dotClass } = statusConfig[status];
 
@@ -50,12 +51,24 @@ export function AgentCard({ id, name, status, lastRunAt, lastDurationMs }: Agent
         {lastRunAt ? (
           <div>Last run: {formatRelativeTime(lastRunAt)}</div>
         ) : (
-          <div>No runs yet</div>
+          <div className="opacity-70">Click &apos;Run&apos; to start</div>
         )}
         {lastDurationMs != null && (
           <div>Duration: {lastDurationMs < 1000 ? `${lastDurationMs}ms` : `${(lastDurationMs / 1000).toFixed(1)}s`}</div>
         )}
       </div>
+
+      {status === "running" && progress != null && (
+        <div className="mt-2 h-1 rounded-full bg-[var(--bg-tertiary)] overflow-hidden">
+          <div
+            className="h-full rounded-full transition-all duration-500 ease-out"
+            style={{
+              width: `${progress}%`,
+              backgroundColor: color,
+            }}
+          />
+        </div>
+      )}
     </motion.div>
   );
 }

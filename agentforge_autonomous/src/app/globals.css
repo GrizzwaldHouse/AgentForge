@@ -21,18 +21,27 @@ body {
     "Liberation Mono", monospace;
 }
 
-/* Demo mode overrides */
+/* Demo Mode — OBS-ready large text, clean visuals */
 .demo-mode {
-  --bg-primary: #000000;
-  --bg-secondary: #0d0d14;
-  --text-primary: #ffffff;
-  --text-secondary: #aaaacc;
-  font-size: 110%;
+  font-size: 18px;
 }
+.demo-mode .text-xs { font-size: 14px; }
+.demo-mode .text-sm { font-size: 16px; }
+.demo-mode [class*="text-[10px]"] { font-size: 13px; }
 
-.demo-mode .dev-only {
-  display: none !important;
-}
+/* Hide technical details in demo mode */
+.demo-mode [data-demo-hide] { display: none; }
+
+/* Smoother animations */
+.demo-mode * { transition-duration: 0.5s !important; }
+
+/* More padding */
+.demo-mode .p-3 { padding: 1rem; }
+.demo-mode .p-4 { padding: 1.25rem; }
+.demo-mode .gap-3 { gap: 1rem; }
+
+/* Larger agent flow nodes */
+.demo-mode .global-progress { padding: 0.75rem 1.25rem; }
 
 /* Scrollbar styling */
 ::-webkit-scrollbar {

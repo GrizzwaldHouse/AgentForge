@@ -64,6 +64,7 @@ export class ObservableOrchestrator {
       sessionId,
       agentIds: this.agents.map((a) => a.id),
       taskId,
+      humanMessage: `Starting execution pipeline with ${this.agents.length} agents...`,
     };
     agentEventBus.emit(startEvent);
 
@@ -78,6 +79,10 @@ export class ObservableOrchestrator {
 
     const totalDurationMs = Date.now() - sessionStart;
 
+    const succeeded = agentResults.filter((r) => r.success).length;
+    const total = agentResults.length;
+    const seconds = (totalDurationMs / 1000).toFixed(1);
+
     // Session end event
     const endEvent: SessionEndEvent = {
       id: createEventId(),
@@ -86,6 +91,7 @@ export class ObservableOrchestrator {
       sessionId,
       totalDurationMs,
       agentResults,
+      humanMessage: `Pipeline complete \u2014 ${succeeded}/${total} agents succeeded in ${seconds}s`,
     };
     agentEventBus.emit(endEvent);
 
@@ -129,6 +135,10 @@ export class ObservableOrchestrator {
     );
   }
 
+  private agentIndex(agentId: string): number {
+    return this.agents.findIndex((a) => a.id === agentId);
+  }
+
   private async executeAgent(
     agent: Agent,
     sessionId: string,
@@ -137,6 +147,8 @@ export class ObservableOrchestrator {
   ): Promise<SessionEndEvent["agentResults"][number]> {
     const span = childSpan(parentTrace);
     const start = Date.now();
+    const stepIndex = this.agentIndex(agent.id);
+    const stepName = agent.name.replace("Agent", "");
 
     // Start event
     const startEvent: AgentStartEvent = {
@@ -146,6 +158,10 @@ export class ObservableOrchestrator {
       sessionId,
       agentId: agent.id,
       taskId: input.taskId,
+      humanMessage: `Starting ${agent.name}...`,
+      stepName,
+      stepIndex,
+      totalSteps: this.agents.length,
     };
     agentEventBus.emit(startEvent);
 
@@ -154,7 +170,7 @@ export class ObservableOrchestrator {
     try {
       const result = await agent.execute(input);
 
-      // Emit progress at midpoint
+      // Emit progress at completion
       const progressEvent: AgentProgressEvent = {
         id: createEventId(),
         type: EVENT_TYPES.AGENT_PROGRESS,
@@ -164,6 +180,8 @@ export class ObservableOrchestrator {
         taskId: input.taskId,
         progress: 100,
         message: result.success ? "Complete" : "Failed",
+        humanMessage: `${agent.name} ${result.success ? "finished processing" : "encountered issues"}`,
+        stepName,
       };
       agentEventBus.emit(progressEvent);
 
@@ -178,11 +196,14 @@ export class ObservableOrchestrator {
           taskId: input.taskId,
           message: log,
           level: "info",
+          humanMessage: log,
         };
         agentEventBus.emit(logEvent);
       }
 
       const durationMs = Date.now() - start;
+
+      const durLabel = durationMs < 1000 ? `${durationMs}ms` : `${(durationMs / 1000).toFixed(1)}s`;
 
       // Complete event
       const completeEvent: AgentCompleteEvent = {
@@ -195,6 +216,8 @@ export class ObservableOrchestrator {
         durationMs,
         success: result.success,
         data: result.data,
+        humanMessage: `${agent.name} ${result.success ? "complete" : "failed"} (${durLabel})`,
+        stepName,
       };
       agentEventBus.emit(completeEvent);
 
@@ -209,6 +232,7 @@ export class ObservableOrchestrator {
     } catch (err) {
       const durationMs = Date.now() - start;
 
+      const errorMsg = err instanceof Error ? err.message : String(err);
       const errorEvent: AgentErrorEvent = {
         id: createEventId(),
         type: EVENT_TYPES.AGENT_ERROR,
@@ -216,8 +240,9 @@ export class ObservableOrchestrator {
         sessionId,
         agentId: agent.id,
         taskId: input.taskId,
-        error: err instanceof Error ? err.message : String(err),
+        error: errorMsg,
         stack: err instanceof Error ? err.stack : undefined,
+        humanMessage: `${agent.name} failed: ${errorMsg}`,
       };
       agentEventBus.emit(errorEvent);
 

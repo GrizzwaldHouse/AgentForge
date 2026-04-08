@@ -1,13 +1,23 @@
 "use client";
 
-import { useState, useMemo } from "react";
+import { useState, useMemo, useCallback } from "react";
 import { useAgentEvents } from "@/hooks/use-agent-events";
 import { allAgents } from "@/agents/registry";
 import { DashboardHeader } from "@/components/dashboard-header";
 import { AgentCard, type AgentStatus } from "@/components/agent-card";
 import { TaskListPanel, type TaskItem, type TaskStatus } from "@/components/task-list";
-import { EventStream } from "@/components/event-stream";
+import { AgentFlowView } from "@/components/agent-flow-view";
+import { GlobalProgressBar } from "@/components/global-progress";
+import { RightPanel } from "@/components/right-panel";
+import { FloatingProgress } from "@/components/floating-progress";
+import { InlineTaskInput } from "@/components/inline-task-input";
+import { StatusBanners } from "@/components/status-banners";
+import { narrativeMap } from "@/lib/narrative";
+import { deriveProgress } from "@/lib/progress";
+import { runPipeline } from "@/lib/run-pipeline";
 import type { AgentEvent } from "@/core/events/types";
+
+const AGENT_IDS = allAgents.map((a) => a.id);
 
 // Derive agent status from event stream
 function deriveAgentState(events: AgentEvent[]) {
@@ -96,17 +106,96 @@ export default function DashboardPage() {
 
   const agentState = useMemo(() => deriveAgentState(events), [events]);
   const tasks = useMemo(() => deriveTasks(events), [events]);
+  const progressState = useMemo(() => deriveProgress(events, AGENT_IDS), [events]);
+
+  const narrativeEntries = useMemo(
+    () => events.map(narrativeMap).filter((e): e is NonNullable<typeof e> => e !== null),
+    [events],
+  );
+
+  // Pipeline is running between session:start and session:end
+  const pipelineRunning = useMemo(() => {
+    let running = false;
+    for (const event of events) {
+      if (event.type === "session:start") running = true;
+      else if (event.type === "session:end") running = false;
+    }
+    return running;
+  }, [events]);
+
+  const completedAgentIds = useMemo(() => {
+    const set = new Set<string>();
+    progressState.agentProgress.forEach((ap, id) => {
+      if (ap.status === "complete") set.add(id);
+    });
+    return set;
+  }, [progressState]);
+
+  const errorAgentIds = useMemo(() => {
+    const set = new Set<string>();
+    progressState.agentProgress.forEach((ap, id) => {
+      if (ap.status === "error") set.add(id);
+    });
+    return set;
+  }, [progressState]);
+
+  // Show the inline CTA when there are no events and nothing is running
+  const showInlineCTA = events.length === 0 && !pipelineRunning;
+
+  const handleInlineSubmit = useCallback(async (description: string) => {
+    await runPipeline(description);
+  }, []);
+
+  // Collect the most recent agent error message for prominent display
+  const lastError = useMemo(() => {
+    for (let i = events.length - 1; i >= 0; i--) {
+      const e = events[i];
+      if (e.type === "agent:error") {
+        return { agentId: e.agentId, error: e.error };
+      }
+    }
+    return null;
+  }, [events]);
+
+  // Pipeline starting but no agent-level events yet (delay between Run click and first event)
+  const pipelineStarting = pipelineRunning && !events.some(
+    (e) => e.type === "agent:start" || e.type === "agent:progress",
+  );
 
   return (
     <>
       <DashboardHeader
         connectionStatus={status}
         eventCount={events.length}
+        pipelineRunning={pipelineRunning}
         onClear={clearEvents}
       />
 
-      <div className="flex-1 grid grid-cols-1 lg:grid-cols-[1fr_380px] gap-0">
-        {/* Main content */}
+      <StatusBanners
+        connectionStatus={status}
+        pipelineStarting={pipelineStarting}
+        lastError={lastError}
+      />
+
+      {/* Agent flow visualization */}
+      <AgentFlowView
+        agentIds={AGENT_IDS}
+        completedIds={completedAgentIds}
+        activeId={progressState.currentAgentId}
+        errorIds={errorAgentIds}
+        hasRun={events.length > 0}
+      />
+
+      {/* Global progress bar */}
+      <GlobalProgressBar progress={progressState} />
+
+      {/* Inline CTA — primary action when dashboard is empty */}
+      {showInlineCTA && (
+        <InlineTaskInput onSubmit={handleInlineSubmit} />
+      )}
+
+      <div className="flex-1 grid grid-cols-1 lg:grid-cols-[1fr_420px] gap-0 min-h-0">
+        {/* Left panel: Agent cards + Task list */}
         <div className="flex flex-col overflow-hidden">
           {/* Agent cards */}
           <section className="p-4 border-b border-[var(--border-color)]">
@@ -116,6 +205,7 @@ export default function DashboardPage() {
             <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
               {allAgents.map((agent) => {
                 const s = agentState.get(agent.id);
+                const ap = progressState.agentProgress.get(agent.id);
                 return (
                   <AgentCard
                     key={agent.id}
@@ -124,35 +214,37 @@ export default function DashboardPage() {
                     status={s?.status ?? "idle"}
                     lastRunAt={s?.lastRunAt}
                     lastDurationMs={s?.lastDurationMs}
+                    progress={ap?.status === "running" ? ap.progress : undefined}
                   />
                 );
               })}
             </div>
           </section>
 
-          {/* Event stream */}
-          <section className="flex-1 flex flex-col min-h-0 p-4">
+          {/* Task list */}
+          <section className="flex-1 p-4 overflow-y-auto">
             <h2 className="text-xs font-semibold text-[var(--text-secondary)] uppercase tracking-wider mb-3">
-              Event Stream
+              Tasks
             </h2>
-            <div className="flex-1 min-h-0 rounded-lg border border-[var(--border-color)] bg-[var(--bg-secondary)] overflow-hidden">
-              <EventStream events={events} />
-            </div>
+            <TaskListPanel
+              tasks={tasks}
+              filter={taskFilter}
+              onFilterChange={setTaskFilter}
+            />
           </section>
         </div>
 
-        {/* Sidebar — task list */}
-        <aside className="border-l border-[var(--border-color)] p-4 overflow-y-auto">
-          <h2 className="text-xs font-semibold text-[var(--text-secondary)] uppercase tracking-wider mb-3">
-            Tasks
-          </h2>
-          <TaskListPanel
-            tasks={tasks}
-            filter={taskFilter}
-            onFilterChange={setTaskFilter}
+        {/* Right panel: Tabbed view (Narrative, Logs, Reasoning, Outputs) */}
+        <aside className="border-l border-[var(--border-color)] flex flex-col min-h-0">
+          <RightPanel
+            narrativeEntries={narrativeEntries}
+            events={events}
           />
         </aside>
       </div>
+
+      {/* Floating progress widget */}
+      <FloatingProgress progress={progressState} />
     </>
   );
 }

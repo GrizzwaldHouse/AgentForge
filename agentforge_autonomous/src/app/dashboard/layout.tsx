@@ -1,8 +1,6 @@
-import type { Metadata } from "next";
+"use client";
 
-export const metadata: Metadata = {
-  title: "Dashboard | AgentForge",
-};
+import { DemoModeProvider } from "@/hooks/use-demo-mode";
 
 export default function DashboardLayout({
   children,
@@ -10,8 +8,10 @@ export default function DashboardLayout({
   children: React.ReactNode;
 }) {
   return (
-    <div className="flex flex-col min-h-screen">
-      {children}
-    </div>
+    <DemoModeProvider>
+      <div className="flex flex-col min-h-screen">
+        {children}
+      </div>
+    </DemoModeProvider>
   );
 }

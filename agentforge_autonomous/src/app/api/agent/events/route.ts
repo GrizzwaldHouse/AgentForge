@@ -6,6 +6,8 @@ export const dynamic = "force-dynamic";
 
 export async function GET(): Promise<Response> {
   const encoder = new TextEncoder();
+  let heartbeatInterval: ReturnType<typeof setInterval> | null = null;
+  let subscriptionId: string | null = null;
 
   const stream = new ReadableStream({
     start(controller) {
@@ -18,34 +20,31 @@ export async function GET(): Promise<Response> {
       }
 
       // Subscribe to new events
-      const subId = agentEventBus.subscribe((event: AgentEvent) => {
+      subscriptionId = agentEventBus.subscribe((event: AgentEvent) => {
         try {
           controller.enqueue(
             encoder.encode(`data: ${JSON.stringify(event)}\n\n`)
           );
         } catch {
           // Stream closed
-          agentEventBus.unsubscribe(subId);
+          if (subscriptionId) agentEventBus.unsubscribe(subscriptionId);
         }
       });
 
       // Heartbeat to keep connection alive
-      const heartbeat = setInterval(() => {
+      heartbeatInterval = setInterval(() => {
         try {
           controller.enqueue(encoder.encode(`: heartbeat\n\n`));
         } catch {
-          clearInterval(heartbeat);
-          agentEventBus.unsubscribe(subId);
+          if (heartbeatInterval) clearInterval(heartbeatInterval);
+          if (subscriptionId) agentEventBus.unsubscribe(subscriptionId);
         }
       }, SSE_HEARTBEAT_MS);
-
-      // Cleanup when stream is cancelled
-      const originalCancel = stream.cancel?.bind(stream);
-      stream.cancel = async (reason) => {
-        clearInterval(heartbeat);
-        agentEventBus.unsubscribe(subId);
-        if (originalCancel) await originalCancel(reason);
-      };
+    },
+    cancel() {
+      // Cleanup when client disconnects
+      if (heartbeatInterval) clearInterval(heartbeatInterval);
+      if (subscriptionId) agentEventBus.unsubscribe(subscriptionId);
     },
   });
 

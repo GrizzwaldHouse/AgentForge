@@ -70,7 +70,7 @@ export function TaskListPanel({ tasks, filter, onFilterChange }: TaskListPanelPr
       <div className="space-y-1.5">
         {filtered.length === 0 && (
           <div className="text-xs text-[var(--text-secondary)] text-center py-4">
-            No tasks
+            Tasks will appear when a pipeline runs
           </div>
         )}
         {filtered.map((task) => {

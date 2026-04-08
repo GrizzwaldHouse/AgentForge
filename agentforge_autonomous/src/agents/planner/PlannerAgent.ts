@@ -3,6 +3,7 @@ import type { ExecutionBackend } from "@/backend/execution/ExecutionBackend";
 import { agentEventBus } from "@/core/events/agent-event-bus";
 import { createEventId } from "@/core/events/types";
 import { EVENT_TYPES } from "@/lib/constants";
+import { emitProgress } from "@/agents/progress-helper";
 
 const SYSTEM_PROMPT = [
   "You are the PlannerAgent in a multi-agent development system.",
@@ -26,6 +27,15 @@ export class PlannerAgent implements Agent {
     const prompt = `${SYSTEM_PROMPT}\n\nTask: ${taskDescription}`;
     logs.push(`Prompt constructed (${prompt.length} chars)`);
 
+    emitProgress({
+      sessionId: "",
+      agentId: this.id,
+      taskId: input.taskId,
+      progress: 10,
+      humanMessage: "Analyzing task and constructing plan...",
+      stepName: "Planning",
+    });
+
     if (!this.backend) {
       logs.push("No backend configured — returning prompt-only output");
       return { success: true, logs, data: { prompt, plan: null } };
@@ -36,6 +46,15 @@ export class PlannerAgent implements Agent {
         { id: input.taskId, context: input.context },
         { taskId: input.taskId, context: { ...input.context, prompt } },
       );
+
+      emitProgress({
+        sessionId: "",
+        agentId: this.id,
+        taskId: input.taskId,
+        progress: 70,
+        humanMessage: "Processing plan response...",
+        stepName: "Planning",
+      });
 
       const plan = this.parseResponse(result.data?.response ?? result.data);
       logs.push(...result.logs);
@@ -50,6 +69,7 @@ export class PlannerAgent implements Agent {
         taskId: input.taskId,
         message: `Plan: ${plan.summary ?? "generated"}`,
         level: "info",
+        humanMessage: `Plan generated: ${plan.summary ?? "ready for execution"}`,
       });
 
       return { success: true, logs, data: { prompt, plan } };

@@ -12,6 +12,10 @@ export interface AgentStartEvent extends BaseEvent {
   type: typeof EVENT_TYPES.AGENT_START;
   agentId: string;
   taskId: string;
+  humanMessage?: string;
+  stepName?: string;
+  stepIndex?: number;
+  totalSteps?: number;
 }
 
 export interface AgentProgressEvent extends BaseEvent {
@@ -20,6 +24,8 @@ export interface AgentProgressEvent extends BaseEvent {
   taskId: string;
   progress: number; // 0-100
   message?: string;
+  humanMessage?: string;
+  stepName?: string;
 }
 
 export interface AgentLogEvent extends BaseEvent {
@@ -28,6 +34,7 @@ export interface AgentLogEvent extends BaseEvent {
   taskId: string;
   message: string;
   level: "info" | "warn" | "error" | "debug";
+  humanMessage?: string;
 }
 
 export interface AgentCompleteEvent extends BaseEvent {
@@ -37,6 +44,8 @@ export interface AgentCompleteEvent extends BaseEvent {
   durationMs: number;
   success: boolean;
   data?: unknown;
+  humanMessage?: string;
+  stepName?: string;
 }
 
 export interface AgentErrorEvent extends BaseEvent {
@@ -45,6 +54,7 @@ export interface AgentErrorEvent extends BaseEvent {
   taskId: string;
   error: string;
   stack?: string;
+  humanMessage?: string;
 }
 
 // Session-scoped events
@@ -52,6 +62,7 @@ export interface SessionStartEvent extends BaseEvent {
   type: typeof EVENT_TYPES.SESSION_START;
   agentIds: string[];
   taskId: string;
+  humanMessage?: string;
 }
 
 export interface SessionEndEvent extends BaseEvent {
@@ -62,6 +73,7 @@ export interface SessionEndEvent extends BaseEvent {
     success: boolean;
     durationMs: number;
   }>;
+  humanMessage?: string;
 }
 
 // Heartbeat (keep-alive)
