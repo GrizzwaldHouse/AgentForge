@@ -4,14 +4,23 @@ import { agentEventBus } from "@/core/events/agent-event-bus";
 import { createEventId } from "@/core/events/types";
 import { EVENT_TYPES } from "@/lib/constants";
 import { emitProgress } from "@/agents/progress-helper";
+import { parseResponse, extractBackendResponse } from "@/lib/response-parser";
+import {
+  type PlannerOutput,
+  PLANNER_DEFAULTS,
+  PLANNER_REQUIRED,
+} from "@/agents/schemas";
 
 const SYSTEM_PROMPT = [
   "You are the PlannerAgent in a multi-agent development system.",
   "Given a task description, produce a step-by-step implementation plan.",
-  "Output a JSON object with:",
-  '  "steps": array of { "id": number, "action": string, "details": string }',
-  '  "summary": one-line summary of the plan',
-  '  "estimatedFiles": array of file paths that will be created or modified',
+  "You MUST respond with ONLY a valid JSON object (no markdown, no explanation).",
+  "Schema:",
+  '{',
+  '  "steps": [{ "id": number, "action": string, "details": string }],',
+  '  "summary": "one-line summary of the plan",',
+  '  "estimatedFiles": ["path/to/file.ts", ...]',
+  '}',
 ].join("\n");
 
 export class PlannerAgent implements Agent {
@@ -22,7 +31,8 @@ export class PlannerAgent implements Agent {
 
   async execute(input: AgentInput): Promise<AgentOutput> {
     const logs: string[] = [];
-    const taskDescription = input.context.description ?? input.context.task ?? JSON.stringify(input.context);
+    const taskDescription =
+      input.context.description ?? input.context.task ?? JSON.stringify(input.context);
 
     const prompt = `${SYSTEM_PROMPT}\n\nTask: ${taskDescription}`;
     logs.push(`Prompt constructed (${prompt.length} chars)`);
@@ -56,9 +66,14 @@ export class PlannerAgent implements Agent {
         stepName: "Planning",
       });
 
-      const plan = this.parseResponse(result.data?.response ?? result.data);
+      const plan = parseResponse<PlannerOutput>(
+        extractBackendResponse(result.data),
+        PLANNER_REQUIRED,
+        PLANNER_DEFAULTS,
+      );
+
       logs.push(...result.logs);
-      logs.push(`Plan generated: ${plan.summary ?? "no summary"}`);
+      logs.push(`Plan generated: ${plan.summary} (${plan.steps.length} steps, ${plan.estimatedFiles.length} files)`);
 
       agentEventBus.emit({
         id: createEventId(),
@@ -67,9 +82,9 @@ export class PlannerAgent implements Agent {
         sessionId: "",
         agentId: this.id,
         taskId: input.taskId,
-        message: `Plan: ${plan.summary ?? "generated"}`,
+        message: `Plan: ${plan.summary}`,
         level: "info",
-        humanMessage: `Plan generated: ${plan.summary ?? "ready for execution"}`,
+        humanMessage: `Plan generated: ${plan.summary}`,
       });
 
       return { success: true, logs, data: { prompt, plan } };
@@ -78,19 +93,5 @@ export class PlannerAgent implements Agent {
       logs.push(`Execution failed: ${message}`);
       return { success: false, logs, data: { prompt, error: message } };
     }
-  }
-
-  private parseResponse(raw: unknown): Record<string, unknown> {
-    if (typeof raw === "string") {
-      try {
-        return JSON.parse(raw);
-      } catch {
-        return { summary: raw, steps: [], estimatedFiles: [] };
-      }
-    }
-    if (raw && typeof raw === "object") {
-      return raw as Record<string, unknown>;
-    }
-    return { summary: "No response", steps: [], estimatedFiles: [] };
   }
 }

@@ -14,6 +14,7 @@
 
 import { NextRequest, NextResponse } from "next/server";
 import { createBackend, type BackendConfig } from "@/backend/execution/ExecutionBackend";
+import { getEnvConfig } from "@/config/env";
 import {
   ClassificationAgent,
   PriorityAgent,
@@ -30,6 +31,14 @@ import "@/backend/execution/SimulatedBackend";
 import "@/backend/execution/ProviderChainBackend";
 
 const modelService = new ModelService();
+
+/** Narrow AgentOutput.data (unknown) to a plain object for property access. */
+function asRecord(data: unknown): Record<string, unknown> {
+  if (data !== null && typeof data === "object" && !Array.isArray(data)) {
+    return data as Record<string, unknown>;
+  }
+  return {};
+}
 
 // Max payload size guardrails
 const MAX_SUBJECT_LENGTH = 500;
@@ -158,7 +167,7 @@ export async function POST(request: NextRequest) {
     const backendConfig: BackendConfig = {
       type: ollamaAvailable ? "ollama" : "simulated",
       timeoutMs: 30_000,
-      ollamaBaseUrl: "http://127.0.0.1:11434",
+      ollamaBaseUrl: getEnvConfig().ollamaBaseUrl,
       ollamaModel: recommendedModel,
     };
     const backend = createBackend(backendConfig);
@@ -175,20 +184,24 @@ export async function POST(request: NextRequest) {
       taskId,
       context: { email },
     });
-    const classification = classificationResult.data?.classification;
+    const classificationData = asRecord(classificationResult.data);
+    const classification = classificationData["classification"];
 
     // Step 2: Priority (needs classification)
     const priorityResult = await prioritizer.execute({
       taskId,
       context: { email, classification },
     });
-    const priority = priorityResult.data?.priority;
+    const priorityData = asRecord(priorityResult.data);
+    const priority = priorityData["priority"];
 
     // Step 3: Response (needs classification + priority)
     const responseResult = await responder.execute({
       taskId,
       context: { email, classification, priority },
     });
+    const responseData = asRecord(responseResult.data);
+    const responseSafety = asRecord(responseData["safety"]);
 
     auditLogger.log({
       actionId: `gmail-webhook-${email.messageId}`,
@@ -198,10 +211,10 @@ export async function POST(request: NextRequest) {
       details: {
         messageId: email.messageId,
         from: email.from,
-        classification: classification?.labels,
-        priority: priority?.priority,
-        draftGenerated: !!responseResult.data?.draft,
-        requiresApproval: !!responseResult.data?.safety?.requiresApproval,
+        classification: asRecord(classification)["labels"],
+        priority: asRecord(priority)["priority"],
+        draftGenerated: !!responseData["draft"],
+        requiresApproval: !!responseSafety["requiresApproval"],
       },
     });
 
@@ -210,8 +223,8 @@ export async function POST(request: NextRequest) {
       messageId: email.messageId,
       classification,
       priority,
-      draft: responseResult.data?.draft,
-      safety: responseResult.data?.safety,
+      draft: responseData["draft"],
+      safety: responseData["safety"],
     });
   } catch (err) {
     const message = err instanceof Error ? err.message : "Internal server error";

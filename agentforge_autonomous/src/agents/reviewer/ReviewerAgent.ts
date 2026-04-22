@@ -4,14 +4,23 @@ import { agentEventBus } from "@/core/events/agent-event-bus";
 import { createEventId } from "@/core/events/types";
 import { EVENT_TYPES } from "@/lib/constants";
 import { emitProgress } from "@/agents/progress-helper";
+import { parseResponse, extractBackendResponse } from "@/lib/response-parser";
+import {
+  type ReviewerOutput,
+  REVIEWER_DEFAULTS,
+  REVIEWER_REQUIRED,
+} from "@/agents/schemas";
 
 const SYSTEM_PROMPT = [
   "You are the ReviewerAgent in a multi-agent development system.",
   "Given code output from the BuilderAgent, review it for quality issues.",
-  "Output a JSON object with:",
-  '  "issues": array of { "severity": "critical" | "warning" | "info", "file": string, "line": number, "message": string }',
-  '  "approved": boolean',
-  '  "summary": one-line review summary',
+  "You MUST respond with ONLY a valid JSON object (no markdown, no explanation).",
+  "Schema:",
+  '{',
+  '  "issues": [{ "severity": "critical" | "warning" | "info", "file": string, "line": number, "message": string }],',
+  '  "approved": boolean,',
+  '  "summary": "one-line review summary"',
+  '}',
 ].join("\n");
 
 export class ReviewerAgent implements Agent {
@@ -56,9 +65,16 @@ export class ReviewerAgent implements Agent {
         stepName: "Reviewing",
       });
 
-      const review = this.parseResponse(result.data?.response ?? result.data);
+      const review = parseResponse<ReviewerOutput>(
+        extractBackendResponse(result.data),
+        REVIEWER_REQUIRED,
+        REVIEWER_DEFAULTS,
+      );
+
       logs.push(...result.logs);
-      logs.push(`Review: ${review.approved ? "APPROVED" : "CHANGES REQUESTED"} — ${review.summary ?? ""}`);
+      logs.push(
+        `Review: ${review.approved ? "APPROVED" : "CHANGES REQUESTED"} — ${review.summary} (${review.issues.length} issues)`,
+      );
 
       agentEventBus.emit({
         id: createEventId(),
@@ -69,7 +85,7 @@ export class ReviewerAgent implements Agent {
         taskId: input.taskId,
         message: `Review: ${review.approved ? "approved" : "changes requested"}`,
         level: review.approved ? "info" : "warn",
-        humanMessage: `Code review: ${review.approved ? "approved" : "changes requested"} \u2014 ${review.summary ?? ""}`,
+        humanMessage: `Code review: ${review.approved ? "approved" : "changes requested"} — ${review.summary}`,
       });
 
       return { success: true, logs, data: { prompt, review } };
@@ -78,19 +94,5 @@ export class ReviewerAgent implements Agent {
       logs.push(`Execution failed: ${message}`);
       return { success: false, logs, data: { prompt, error: message } };
     }
-  }
-
-  private parseResponse(raw: unknown): Record<string, unknown> {
-    if (typeof raw === "string") {
-      try {
-        return JSON.parse(raw);
-      } catch {
-        return { summary: raw, issues: [], approved: true };
-      }
-    }
-    if (raw && typeof raw === "object") {
-      return raw as Record<string, unknown>;
-    }
-    return { summary: "No response", issues: [], approved: true };
   }
 }

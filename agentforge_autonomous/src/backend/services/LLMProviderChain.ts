@@ -2,15 +2,17 @@
  * LLMProviderChain - Multi-provider LLM fallback service
  *
  * TypeScript adaptation of BrightForge's UniversalLLMClient.
- * Implements free-first provider chain: Ollama → Groq → Cerebras → Together → Mistral
+ * Implements free-first provider chain: Ollama → Groq → Cerebras → Together → Mistral → Claude → OpenAI
  *
  * @author Marcus Daley (GrizzwaldHouse)
  * @date April 6, 2026
  */
 
+import { getEnvConfig } from "@/config/env";
+
 export interface ProviderConfig {
   name: string;
-  type: 'ollama' | 'groq' | 'cerebras' | 'together' | 'mistral';
+  type: 'ollama' | 'groq' | 'cerebras' | 'together' | 'mistral' | 'claude' | 'openai';
   baseUrl: string;
   apiKey?: string;  // from env vars
   model: string;
@@ -67,14 +69,15 @@ export class LLMProviderChain {
   }
 
   /**
-   * Get default provider chain (free-tier priority)
+   * Get default provider chain (free-tier priority, paid providers as last resort)
    */
   private getDefaultProviders(): ProviderConfig[] {
+    const env = getEnvConfig();
     return [
       {
         name: 'ollama',
         type: 'ollama',
-        baseUrl: process.env.OLLAMA_BASE_URL ?? 'http://127.0.0.1:11434',
+        baseUrl: env.ollamaBaseUrl,
         model: 'llama3:8b',
         maxTokens: 2048,
         costPerToken: 0,
@@ -84,7 +87,7 @@ export class LLMProviderChain {
         name: 'groq',
         type: 'groq',
         baseUrl: 'https://api.groq.com/openai/v1',
-        apiKey: process.env.GROQ_API_KEY,
+        apiKey: env.groqApiKey,
         model: 'llama-3.3-70b-versatile',
         maxTokens: 2048,
         costPerToken: 0,
@@ -94,7 +97,7 @@ export class LLMProviderChain {
         name: 'cerebras',
         type: 'cerebras',
         baseUrl: 'https://api.cerebras.ai/v1',
-        apiKey: process.env.CEREBRAS_API_KEY,
+        apiKey: env.cerebrasApiKey,
         model: 'llama-3.3-70b',
         maxTokens: 2048,
         costPerToken: 0,
@@ -104,7 +107,7 @@ export class LLMProviderChain {
         name: 'together',
         type: 'together',
         baseUrl: 'https://api.together.xyz/v1',
-        apiKey: process.env.TOGETHER_API_KEY,
+        apiKey: env.togetherApiKey,
         model: 'meta-llama/Llama-3.3-70B-Instruct-Turbo',
         maxTokens: 2048,
         costPerToken: 0.0008,
@@ -114,11 +117,31 @@ export class LLMProviderChain {
         name: 'mistral',
         type: 'mistral',
         baseUrl: 'https://api.mistral.ai/v1',
-        apiKey: process.env.MISTRAL_API_KEY,
+        apiKey: env.mistralApiKey,
         model: 'mistral-small-latest',
         maxTokens: 2048,
         costPerToken: 0,
         priority: 5
+      },
+      {
+        name: 'claude',
+        type: 'claude',
+        baseUrl: 'https://api.anthropic.com/v1',
+        apiKey: env.claudeApiKey,
+        model: 'claude-haiku-4-5-20251001',
+        maxTokens: 2048,
+        costPerToken: 0.0008,
+        priority: 6
+      },
+      {
+        name: 'openai',
+        type: 'openai',
+        baseUrl: 'https://api.openai.com/v1',
+        apiKey: env.openaiApiKey,
+        model: 'gpt-4o-mini',
+        maxTokens: 2048,
+        costPerToken: 0.00015,
+        priority: 7
       }
     ];
   }
@@ -188,6 +211,8 @@ export class LLMProviderChain {
 
     if (config.type === 'ollama') {
       return await this.callOllama(config, prompt, systemPrompt, startTime);
+    } else if (config.type === 'claude') {
+      return await this.callClaude(config, prompt, systemPrompt, startTime);
     } else {
       return await this.callOpenAICompatible(config, prompt, systemPrompt, startTime);
     }
@@ -240,7 +265,52 @@ export class LLMProviderChain {
   }
 
   /**
-   * Call OpenAI-compatible API (Groq, Cerebras, Together, Mistral)
+   * Call Anthropic Claude API (distinct auth header and request format)
+   */
+  private async callClaude(
+    config: ProviderConfig,
+    prompt: string,
+    systemPrompt: string | undefined,
+    startTime: number
+  ): Promise<ProviderResult> {
+    const body: Record<string, unknown> = {
+      model: config.model,
+      max_tokens: config.maxTokens,
+      messages: [{ role: 'user', content: prompt }],
+    };
+    if (systemPrompt) body['system'] = systemPrompt;
+
+    const response = await fetch(`${config.baseUrl}/messages`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'x-api-key': config.apiKey ?? '',
+        'anthropic-version': '2023-06-01',
+      },
+      body: JSON.stringify(body),
+      signal: AbortSignal.timeout(60_000),
+    });
+
+    if (!response.ok) {
+      const errorText = await response.text();
+      throw new Error(`claude returned ${response.status}: ${errorText}`);
+    }
+
+    const data = await response.json() as {
+      content: Array<{ text: string }>;
+      usage?: { input_tokens: number; output_tokens: number };
+    };
+    const latencyMs = Date.now() - startTime;
+    const content = data.content?.[0]?.text ?? '';
+    const tokensUsed = (data.usage?.input_tokens ?? 0) + (data.usage?.output_tokens ?? 0);
+    const cost = config.costPerToken ? (tokensUsed / 1000) * config.costPerToken : 0;
+
+    this.trackUsage(config.name, tokensUsed, cost);
+    return { provider: config.name, response: content, tokensUsed, cost, latencyMs };
+  }
+
+  /**
+   * Call OpenAI-compatible API (Groq, Cerebras, Together, Mistral, OpenAI)
    */
   private async callOpenAICompatible(
     config: ProviderConfig,

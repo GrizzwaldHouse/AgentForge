@@ -11,6 +11,7 @@ import { createEventId } from "@/core/events/types";
 import { EVENT_TYPES } from "@/lib/constants";
 import { emitProgress } from "@/agents/progress-helper";
 import { guardAction } from "@/safety";
+import { extractBackendResponse } from "@/lib/response-parser";
 import type {
   GmailMessage,
   ResponseDraft,
@@ -98,7 +99,7 @@ export class GmailResponseAgent implements Agent {
           }
         );
         draft = this.parseResponse(
-          result.data?.response ?? result.data,
+          extractBackendResponse(result.data),
           email
         );
         logs.push(...result.logs);

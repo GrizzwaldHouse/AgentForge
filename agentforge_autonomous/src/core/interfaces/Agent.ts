@@ -1,12 +1,12 @@
 
 export interface AgentInput {
   taskId: string;
-  context: Record<string, any>;
+  context: Record<string, unknown>;
 }
 
 export interface AgentOutput {
   success: boolean;
-  data?: any;
+  data?: unknown;
   logs: string[];
 }
 

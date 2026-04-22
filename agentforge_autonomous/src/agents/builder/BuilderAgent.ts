@@ -4,13 +4,22 @@ import { agentEventBus } from "@/core/events/agent-event-bus";
 import { createEventId } from "@/core/events/types";
 import { EVENT_TYPES } from "@/lib/constants";
 import { emitProgress } from "@/agents/progress-helper";
+import { parseResponse, extractBackendResponse } from "@/lib/response-parser";
+import {
+  type BuilderOutput,
+  BUILDER_DEFAULTS,
+  BUILDER_REQUIRED,
+} from "@/agents/schemas";
 
 const SYSTEM_PROMPT = [
   "You are the BuilderAgent in a multi-agent development system.",
   "Given an implementation plan, produce the code changes.",
-  "Output a JSON object with:",
-  '  "files": array of { "path": string, "content": string, "action": "create" | "modify" }',
-  '  "summary": one-line summary of what was built',
+  "You MUST respond with ONLY a valid JSON object (no markdown, no explanation).",
+  "Schema:",
+  '{',
+  '  "files": [{ "path": string, "content": string, "action": "create" | "modify" }],',
+  '  "summary": "one-line summary of what was built"',
+  '}',
 ].join("\n");
 
 export class BuilderAgent implements Agent {
@@ -36,8 +45,8 @@ export class BuilderAgent implements Agent {
     });
 
     if (!this.backend) {
-      logs.push("No backend configured — returning prompt-only output");
-      return { success: true, logs, data: { prompt, build: null } };
+      logs.push("No backend configured — returning stub output");
+      return { success: true, logs, data: { build: null } };
     }
 
     try {
@@ -55,9 +64,14 @@ export class BuilderAgent implements Agent {
         stepName: "Building",
       });
 
-      const build = this.parseResponse(result.data?.response ?? result.data);
+      const build = parseResponse<BuilderOutput>(
+        extractBackendResponse(result.data),
+        BUILDER_REQUIRED,
+        BUILDER_DEFAULTS,
+      );
+
       logs.push(...result.logs);
-      logs.push(`Build output: ${build.summary ?? "complete"}`);
+      logs.push(`Build output: ${build.summary} (${build.files.length} files)`);
 
       agentEventBus.emit({
         id: createEventId(),
@@ -66,9 +80,9 @@ export class BuilderAgent implements Agent {
         sessionId: "",
         agentId: this.id,
         taskId: input.taskId,
-        message: `Built: ${build.summary ?? "code generated"}`,
+        message: `Built: ${build.summary}`,
         level: "info",
-        humanMessage: `Code generated: ${build.summary ?? "build complete"}`,
+        humanMessage: `Code generated: ${build.summary}`,
       });
 
       return { success: true, logs, data: { prompt, build } };
@@ -77,19 +91,5 @@ export class BuilderAgent implements Agent {
       logs.push(`Execution failed: ${message}`);
       return { success: false, logs, data: { prompt, error: message } };
     }
-  }
-
-  private parseResponse(raw: unknown): Record<string, unknown> {
-    if (typeof raw === "string") {
-      try {
-        return JSON.parse(raw);
-      } catch {
-        return { summary: raw, files: [] };
-      }
-    }
-    if (raw && typeof raw === "object") {
-      return raw as Record<string, unknown>;
-    }
-    return { summary: "No response", files: [] };
   }
 }

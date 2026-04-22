@@ -4,6 +4,8 @@ import { createEventId } from "@/core/events/types";
 import { EVENT_TYPES } from "@/lib/constants";
 import { createTraceContext, childSpan } from "@/core/observability/trace";
 import { logger } from "@/core/observability/logger";
+import { guardAction } from "@/safety/safety-guard";
+import type { PolicyConfig } from "@/safety/types";
 import type {
   SessionStartEvent,
   SessionEndEvent,
@@ -16,6 +18,8 @@ import type {
 
 export interface OrchestratorConfig {
   parallel?: boolean; // Run agents in parallel (default: false for ordered streaming)
+  safetyEnabled?: boolean; // Gate agent execution through SafetyGuard (default: true)
+  safetyPolicy?: PolicyConfig; // Custom safety policy (uses defaults if omitted)
 }
 
 export interface SessionResult {
@@ -168,6 +172,43 @@ export class ObservableOrchestrator {
     logger.info("Agent executing", { trace: span, agentId: agent.id, taskId: input.taskId });
 
     try {
+      // Safety gate — check before agent execution
+      if (this.config.safetyEnabled !== false) {
+        const safetyResult = await guardAction(
+          {
+            id: `${sessionId}_${agent.id}`,
+            type: "AGENT_EXECUTE",
+            agentId: agent.id,
+            taskId: input.taskId,
+            payload: { context: input.context },
+            timestamp: Date.now(),
+          },
+          this.config.safetyPolicy,
+        );
+
+        if (!safetyResult.allowed) {
+          logger.warn(`Agent blocked by safety guard: ${safetyResult.reason}`, {
+            trace: span,
+            agentId: agent.id,
+            taskId: input.taskId,
+          });
+
+          const blockedEvent: AgentErrorEvent = {
+            id: createEventId(),
+            type: EVENT_TYPES.AGENT_ERROR,
+            timestamp: Date.now(),
+            sessionId,
+            agentId: agent.id,
+            taskId: input.taskId,
+            error: `Safety guard blocked: ${safetyResult.reason}`,
+            humanMessage: `${agent.name} blocked by safety system: ${safetyResult.reason}`,
+          };
+          agentEventBus.emit(blockedEvent);
+
+          return { agentId: agent.id, success: false, durationMs: Date.now() - start };
+        }
+      }
+
       const result = await agent.execute(input);
 
       // Emit progress at completion

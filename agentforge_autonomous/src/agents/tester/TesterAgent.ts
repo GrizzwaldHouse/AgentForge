@@ -4,14 +4,23 @@ import { agentEventBus } from "@/core/events/agent-event-bus";
 import { createEventId } from "@/core/events/types";
 import { EVENT_TYPES } from "@/lib/constants";
 import { emitProgress } from "@/agents/progress-helper";
+import { parseResponse, extractBackendResponse } from "@/lib/response-parser";
+import {
+  type TesterOutput,
+  TESTER_DEFAULTS,
+  TESTER_REQUIRED,
+} from "@/agents/schemas";
 
 const SYSTEM_PROMPT = [
   "You are the TesterAgent in a multi-agent development system.",
   "Given code from the BuilderAgent, generate test cases.",
-  "Output a JSON object with:",
-  '  "tests": array of { "name": string, "file": string, "type": "unit" | "integration", "code": string }',
-  '  "coverage": { "estimated": number, "notes": string }',
-  '  "summary": one-line summary of test coverage',
+  "You MUST respond with ONLY a valid JSON object (no markdown, no explanation).",
+  "Schema:",
+  '{',
+  '  "tests": [{ "name": string, "file": string, "type": "unit" | "integration", "code": string }],',
+  '  "coverage": { "estimated": number (0-100), "notes": string },',
+  '  "summary": "one-line summary of test coverage"',
+  '}',
 ].join("\n");
 
 export class TesterAgent implements Agent {
@@ -56,9 +65,16 @@ export class TesterAgent implements Agent {
         stepName: "Testing",
       });
 
-      const testPlan = this.parseResponse(result.data?.response ?? result.data);
+      const testPlan = parseResponse<TesterOutput>(
+        extractBackendResponse(result.data),
+        TESTER_REQUIRED,
+        TESTER_DEFAULTS,
+      );
+
       logs.push(...result.logs);
-      logs.push(`Tests generated: ${testPlan.summary ?? "complete"}`);
+      logs.push(
+        `Tests generated: ${testPlan.summary} (${testPlan.tests.length} tests, ${testPlan.coverage.estimated}% estimated coverage)`,
+      );
 
       agentEventBus.emit({
         id: createEventId(),
@@ -67,9 +83,9 @@ export class TesterAgent implements Agent {
         sessionId: "",
         agentId: this.id,
         taskId: input.taskId,
-        message: `Tests: ${testPlan.summary ?? "generated"}`,
+        message: `Tests: ${testPlan.summary}`,
         level: "info",
-        humanMessage: `Tests generated: ${testPlan.summary ?? "test suite ready"}`,
+        humanMessage: `Tests generated: ${testPlan.summary}`,
       });
 
       return { success: true, logs, data: { prompt, testPlan } };
@@ -78,19 +94,5 @@ export class TesterAgent implements Agent {
       logs.push(`Execution failed: ${message}`);
       return { success: false, logs, data: { prompt, error: message } };
     }
-  }
-
-  private parseResponse(raw: unknown): Record<string, unknown> {
-    if (typeof raw === "string") {
-      try {
-        return JSON.parse(raw);
-      } catch {
-        return { summary: raw, tests: [], coverage: { estimated: 0, notes: "unknown" } };
-      }
-    }
-    if (raw && typeof raw === "object") {
-      return raw as Record<string, unknown>;
-    }
-    return { summary: "No response", tests: [], coverage: { estimated: 0, notes: "unknown" } };
   }
 }

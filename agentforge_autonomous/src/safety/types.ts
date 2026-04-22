@@ -9,6 +9,7 @@ export type ActionType =
   | "MODIFY_FILE"
   | "DELETE_FILE"
   | "EXECUTE_COMMAND"
+  | "AGENT_EXECUTE"
   | "API_CALL"
   | "CUSTOM";
 

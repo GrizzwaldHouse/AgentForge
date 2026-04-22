@@ -100,13 +100,19 @@ export class ProviderChainBackend implements ExecutionBackend {
   }
 
   private buildPrompt(task: Task, input: AgentInput): string {
+    // Use the agent's constructed prompt if available (contains system prompt + task context)
+    if (typeof input.context.prompt === "string") {
+      return input.context.prompt;
+    }
+
+    // Fallback: generic prompt from raw context
     const contextStr = JSON.stringify(input.context, null, 2);
     return [
       `Task ID: ${task.id}`,
       `Context:`,
       contextStr,
       ``,
-      `Execute the task described above. Return a structured response.`,
+      `Execute the task described above. Return a structured JSON response.`,
     ].join("\n");
   }
 }

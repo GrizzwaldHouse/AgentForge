@@ -9,6 +9,7 @@ import { agentEventBus } from "@/core/events/agent-event-bus";
 import { createEventId } from "@/core/events/types";
 import { EVENT_TYPES } from "@/lib/constants";
 import { emitProgress } from "@/agents/progress-helper";
+import { extractBackendResponse } from "@/lib/response-parser";
 import type {
   GmailMessage,
   ClassificationResult,
@@ -113,7 +114,7 @@ export class ClassificationAgent implements Agent {
         }
       );
 
-      const parsed = this.parseResponse(result.data?.response ?? result.data);
+      const parsed = this.parseResponse(extractBackendResponse(result.data));
       logs.push(...result.logs);
       logs.push(`Labels: ${parsed.labels.join(", ")}`);
 
