@@ -1,0 +1,16 @@
+{
+  "version": "2.0",
+  "description": "AgentForge DSL",
+  "features": {
+    "event_driven": true,
+    "async": true,
+    "parallel": true
+  },
+  "example": {
+    "event": "USER_INPUT",
+    "actions": [
+      {"type": "route", "target": "Brain"},
+      {"type": "execute", "target": "Muscles"}
+    ]
+  }
+}

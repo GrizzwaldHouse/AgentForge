@@ -1,0 +1,1 @@
+export type ForgeEventType = 'AGENT_START' | 'AGENT_COMPLETE';

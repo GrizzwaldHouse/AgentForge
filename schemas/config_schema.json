@@ -1,0 +1,6 @@
+{
+  "config": {
+    "retry_limit": 3,
+    "timeout_ms": 5000
+  }
+}
