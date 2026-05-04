@@ -1,6 +1,6 @@
-import { EventBus, EventHandler } from "../core/event-bus.interface";
-import { SystemEvent } from "@agentforge/contracts";
-import { isSystemEvent } from "@agentforge/validation";
+import { EventBus, EventHandler } from "./event-bus.interface";
+import { SystemEvent } from "../contracts";
+import { isSystemEvent } from "./event-guard";
 
 export class SSEEventBus implements EventBus {
   private eventSource?: EventSource;
