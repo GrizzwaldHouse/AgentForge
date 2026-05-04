@@ -1,0 +1,202 @@
+[
+  {
+    "event_name_or_type": "SSE",
+    "producer_file": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\AgentForge\\runtime\\sse-event-bus.ts",
+    "consumer_file": "UNKNOWN",
+    "transport": "SSE",
+    "status": "DETECTED",
+    "flow_type": "SSE"
+  },
+  {
+    "event_name_or_type": "SSE",
+    "producer_file": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\app\\api\\agent\\events\\route.ts",
+    "consumer_file": "UNKNOWN",
+    "transport": "SSE",
+    "status": "DETECTED",
+    "flow_type": "SSE"
+  },
+  {
+    "event_name_or_type": "polling",
+    "producer_file": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\app\\api\\agent\\events\\route.ts",
+    "consumer_file": "UNKNOWN",
+    "transport": "polling",
+    "status": "DETECTED",
+    "flow_type": "polling"
+  },
+  {
+    "event_name_or_type": "polling",
+    "producer_file": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\app\\api\\agent\\events\\route.ts",
+    "consumer_file": "UNKNOWN",
+    "transport": "polling",
+    "status": "DETECTED",
+    "flow_type": "polling"
+  },
+  {
+    "event_name_or_type": "polling",
+    "producer_file": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\app\\safety\\page.tsx",
+    "consumer_file": "UNKNOWN",
+    "transport": "polling",
+    "status": "DETECTED",
+    "flow_type": "polling"
+  },
+  {
+    "event_name_or_type": "polling",
+    "producer_file": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\backend\\execution\\SimulatedBackend.ts",
+    "consumer_file": "UNKNOWN",
+    "transport": "polling",
+    "status": "DETECTED",
+    "flow_type": "polling"
+  },
+  {
+    "event_name_or_type": "polling",
+    "producer_file": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\backend\\services\\__tests__\\failure-recovery.test.ts",
+    "consumer_file": "UNKNOWN",
+    "transport": "polling",
+    "status": "DETECTED",
+    "flow_type": "polling"
+  },
+  {
+    "event_name_or_type": "polling",
+    "producer_file": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\backend\\services\\__tests__\\integration.test.ts",
+    "consumer_file": "UNKNOWN",
+    "transport": "polling",
+    "status": "DETECTED",
+    "flow_type": "polling"
+  },
+  {
+    "event_name_or_type": "polling",
+    "producer_file": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\components\\inline-task-input.tsx",
+    "consumer_file": "UNKNOWN",
+    "transport": "polling",
+    "status": "DETECTED",
+    "flow_type": "polling"
+  },
+  {
+    "event_name_or_type": "polling",
+    "producer_file": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\components\\run-pipeline-dialog.tsx",
+    "consumer_file": "UNKNOWN",
+    "transport": "polling",
+    "status": "DETECTED",
+    "flow_type": "polling"
+  },
+  {
+    "event_name_or_type": "emitter",
+    "producer_file": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\core\\events\\agent-event-bus.ts",
+    "consumer_file": "UNKNOWN",
+    "transport": "in-memory",
+    "status": "DETECTED",
+    "flow_type": "emitter"
+  },
+  {
+    "event_name_or_type": "emitter",
+    "producer_file": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\core\\events\\agent-event-bus.ts",
+    "consumer_file": "UNKNOWN",
+    "transport": "in-memory",
+    "status": "DETECTED",
+    "flow_type": "emitter"
+  },
+  {
+    "event_name_or_type": "polling",
+    "producer_file": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\core\\events\\session-persistence.ts",
+    "consumer_file": "UNKNOWN",
+    "transport": "polling",
+    "status": "DETECTED",
+    "flow_type": "polling"
+  },
+  {
+    "event_name_or_type": "polling",
+    "producer_file": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\core\\events\\session-persistence.ts",
+    "consumer_file": "UNKNOWN",
+    "transport": "polling",
+    "status": "DETECTED",
+    "flow_type": "polling"
+  },
+  {
+    "event_name_or_type": "polling",
+    "producer_file": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\healing\\AutoDebugLoop.ts",
+    "consumer_file": "UNKNOWN",
+    "transport": "polling",
+    "status": "DETECTED",
+    "flow_type": "polling"
+  },
+  {
+    "event_name_or_type": "polling",
+    "producer_file": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\healing\\SelfHealingEngine.ts",
+    "consumer_file": "UNKNOWN",
+    "transport": "polling",
+    "status": "DETECTED",
+    "flow_type": "polling"
+  },
+  {
+    "event_name_or_type": "polling",
+    "producer_file": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\healing\\SelfHealingEngine.ts",
+    "consumer_file": "UNKNOWN",
+    "transport": "polling",
+    "status": "DETECTED",
+    "flow_type": "polling"
+  },
+  {
+    "event_name_or_type": "SSE",
+    "producer_file": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\hooks\\use-agent-events.ts",
+    "consumer_file": "UNKNOWN",
+    "transport": "SSE",
+    "status": "DETECTED",
+    "flow_type": "SSE"
+  },
+  {
+    "event_name_or_type": "polling",
+    "producer_file": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\hooks\\use-agent-events.ts",
+    "consumer_file": "UNKNOWN",
+    "transport": "polling",
+    "status": "DETECTED",
+    "flow_type": "polling"
+  },
+  {
+    "event_name_or_type": "polling",
+    "producer_file": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\hooks\\use-agent-events.ts",
+    "consumer_file": "UNKNOWN",
+    "transport": "polling",
+    "status": "DETECTED",
+    "flow_type": "polling"
+  },
+  {
+    "event_name_or_type": "polling",
+    "producer_file": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\lib\\pipeline-runner.ts",
+    "consumer_file": "UNKNOWN",
+    "transport": "polling",
+    "status": "DETECTED",
+    "flow_type": "polling"
+  },
+  {
+    "event_name_or_type": "polling",
+    "producer_file": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\lib\\__tests__\\failure-injection.test.ts",
+    "consumer_file": "UNKNOWN",
+    "transport": "polling",
+    "status": "DETECTED",
+    "flow_type": "polling"
+  },
+  {
+    "event_name_or_type": "polling",
+    "producer_file": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\lib\\__tests__\\failure-injection.test.ts",
+    "consumer_file": "UNKNOWN",
+    "transport": "polling",
+    "status": "DETECTED",
+    "flow_type": "polling"
+  },
+  {
+    "event_name_or_type": "polling",
+    "producer_file": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\lib\\__tests__\\failure-injection.test.ts",
+    "consumer_file": "UNKNOWN",
+    "transport": "polling",
+    "status": "DETECTED",
+    "flow_type": "polling"
+  },
+  {
+    "event_name_or_type": "polling",
+    "producer_file": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\lib\\__tests__\\failure-injection.test.ts",
+    "consumer_file": "UNKNOWN",
+    "transport": "polling",
+    "status": "DETECTED",
+    "flow_type": "polling"
+  }
+]

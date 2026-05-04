@@ -1,0 +1,124 @@
+{
+  "hardcoded_values": [
+    {
+      "value_preview": "http://custom:8080",
+      "file": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\config\\__tests__\\env.test.ts"
+    },
+    {
+      "value_preview": "gsk_test",
+      "file": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\config\\__tests__\\env.test.ts"
+    },
+    {
+      "value_preview": "csk_test",
+      "file": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\config\\__tests__\\env.test.ts"
+    },
+    {
+      "value_preview": "http://changed:9999",
+      "file": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\config\\__tests__\\env.test.ts"
+    },
+    {
+      "value_preview": "test_key",
+      "file": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\config\\__tests__\\env.test.ts"
+    }
+  ],
+  "env_driven": [
+    {
+      "var": "OLLAMA_BASE_URL",
+      "file": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\config\\env.ts"
+    },
+    {
+      "var": "GROQ_API_KEY",
+      "file": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\config\\env.ts"
+    },
+    {
+      "var": "CEREBRAS_API_KEY",
+      "file": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\config\\env.ts"
+    },
+    {
+      "var": "TOGETHER_API_KEY",
+      "file": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\config\\env.ts"
+    },
+    {
+      "var": "MISTRAL_API_KEY",
+      "file": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\config\\env.ts"
+    },
+    {
+      "var": "CLAUDE_API_KEY",
+      "file": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\config\\env.ts"
+    },
+    {
+      "var": "OPENAI_API_KEY",
+      "file": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\config\\env.ts"
+    },
+    {
+      "var": "OPENROUTER_API_KEY",
+      "file": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\config\\env.ts"
+    },
+    {
+      "var": "AGENT_TOKEN",
+      "file": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\config\\env.ts"
+    },
+    {
+      "var": "DAILY_BUDGET_USD",
+      "file": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\config\\env.ts"
+    },
+    {
+      "var": "NODE_ENV",
+      "file": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\config\\env.ts"
+    },
+    {
+      "var": "OLLAMA_BASE_URL",
+      "file": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\config\\__tests__\\env.test.ts"
+    },
+    {
+      "var": "GROQ_API_KEY",
+      "file": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\config\\__tests__\\env.test.ts"
+    },
+    {
+      "var": "DAILY_BUDGET_USD",
+      "file": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\config\\__tests__\\env.test.ts"
+    },
+    {
+      "var": "OLLAMA_BASE_URL",
+      "file": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\config\\__tests__\\env.test.ts"
+    },
+    {
+      "var": "GROQ_API_KEY",
+      "file": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\config\\__tests__\\env.test.ts"
+    },
+    {
+      "var": "CEREBRAS_API_KEY",
+      "file": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\config\\__tests__\\env.test.ts"
+    },
+    {
+      "var": "GROQ_API_KEY",
+      "file": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\config\\__tests__\\env.test.ts"
+    },
+    {
+      "var": "OLLAMA_BASE_URL",
+      "file": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\config\\__tests__\\env.test.ts"
+    },
+    {
+      "var": "DAILY_BUDGET_USD",
+      "file": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\config\\__tests__\\env.test.ts"
+    },
+    {
+      "var": "DAILY_BUDGET_USD",
+      "file": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\config\\__tests__\\env.test.ts"
+    },
+    {
+      "var": "GROQ_API_KEY",
+      "file": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\config\\__tests__\\env.test.ts"
+    },
+    {
+      "var": "CEREBRAS_API_KEY",
+      "file": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\config\\__tests__\\env.test.ts"
+    }
+  ],
+  "config_files": [
+    "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\AgentForge\\schemas\\config_schema.json",
+    "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\config\\env.ts",
+    "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\config\\__tests__\\env.test.ts",
+    "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\lib\\constants.ts"
+  ]
+}

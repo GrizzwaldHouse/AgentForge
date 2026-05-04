@@ -1,0 +1,73 @@
+{
+  "duplicates": [
+    {
+      "canonical": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\AgentForge\\contracts\\index.ts",
+      "duplicates": [
+        "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\agents\\gmail\\index.ts",
+        "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\backend\\execution\\index.ts",
+        "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\core\\observability\\index.ts",
+        "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\safety\\index.ts"
+      ],
+      "recommendation": "Review and consolidate \u2014 keep the most recent version"
+    },
+    {
+      "canonical": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\agents\\brainstorm\\types.ts",
+      "duplicates": [
+        "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\agents\\gmail\\types.ts",
+        "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\core\\events\\types.ts",
+        "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\healing\\types.ts",
+        "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\job-system\\types.ts",
+        "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\routing\\types.ts",
+        "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\safety\\types.ts"
+      ],
+      "recommendation": "Review and consolidate \u2014 keep the most recent version"
+    },
+    {
+      "canonical": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\app\\layout.tsx",
+      "duplicates": [
+        "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\app\\dashboard\\layout.tsx",
+        "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\app\\jobs\\layout.tsx",
+        "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\app\\safety\\layout.tsx"
+      ],
+      "recommendation": "Review and consolidate \u2014 keep the most recent version"
+    },
+    {
+      "canonical": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\app\\page.tsx",
+      "duplicates": [
+        "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\app\\dashboard\\page.tsx",
+        "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\app\\jobs\\page.tsx",
+        "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\app\\safety\\page.tsx"
+      ],
+      "recommendation": "Review and consolidate \u2014 keep the most recent version"
+    },
+    {
+      "canonical": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\app\\api\\agent\\events\\route.ts",
+      "duplicates": [
+        "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\app\\api\\agent\\last-session\\route.ts",
+        "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\app\\api\\agent\\run\\route.ts",
+        "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\app\\api\\brainstorm\\route.ts",
+        "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\app\\api\\gmail\\webhook\\route.ts",
+        "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\app\\api\\jobs\\route.ts",
+        "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\app\\api\\jobs\\generate-cover-letter\\route.ts",
+        "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\app\\api\\jobs\\generate-resume\\route.ts",
+        "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\app\\api\\jobs\\stats\\route.ts",
+        "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\app\\api\\jobs\\[id]\\route.ts",
+        "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\app\\api\\pipeline\\route.ts",
+        "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\app\\api\\safety\\route.ts"
+      ],
+      "recommendation": "Review and consolidate \u2014 keep the most recent version"
+    },
+    {
+      "canonical": "See PRD version list",
+      "duplicates": [
+        "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\AgentForge\\docs\\prd\\AGENTFORGE_PRD_v2.md",
+        "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\AgentForge\\docs\\prd\\PRD_v2.md",
+        "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\AgentForge\\docs\\prd\\PRD_v3.md",
+        "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\AgentForge\\docs\\prd\\PRD_v3_FULL.md"
+      ],
+      "recommendation": "Multiple PRD versions detected \u2014 establish single source of truth",
+      "note": "PRD variants found"
+    }
+  ],
+  "total_duplicate_groups": 6
+}

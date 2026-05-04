@@ -1,0 +1,1122 @@
+[
+  {
+    "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\AgentForge\\contracts\\base-event.ts",
+    "size_bytes": 292,
+    "extension": ".ts",
+    "type": "code",
+    "origin": "AgentForge_zip"
+  },
+  {
+    "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\AgentForge\\contracts\\graph.ts",
+    "size_bytes": 215,
+    "extension": ".ts",
+    "type": "code",
+    "origin": "AgentForge_zip"
+  },
+  {
+    "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\AgentForge\\contracts\\index.ts",
+    "size_bytes": 107,
+    "extension": ".ts",
+    "type": "code",
+    "origin": "AgentForge_zip"
+  },
+  {
+    "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\AgentForge\\contracts\\system-events.ts",
+    "size_bytes": 980,
+    "extension": ".ts",
+    "type": "code",
+    "origin": "AgentForge_zip"
+  },
+  {
+    "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\AgentForge\\docs\\DEPENDENCY_GRAPH.md",
+    "size_bytes": 151,
+    "extension": ".md",
+    "type": "doc",
+    "origin": "AgentForge_zip"
+  },
+  {
+    "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\AgentForge\\docs\\DSL_v2.md",
+    "size_bytes": 430,
+    "extension": ".md",
+    "type": "doc",
+    "origin": "AgentForge_zip"
+  },
+  {
+    "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\AgentForge\\docs\\event_driven_model.md",
+    "size_bytes": 32,
+    "extension": ".md",
+    "type": "doc",
+    "origin": "AgentForge_zip"
+  },
+  {
+    "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\AgentForge\\docs\\playwright_layer.md",
+    "size_bytes": 65,
+    "extension": ".md",
+    "type": "doc",
+    "origin": "AgentForge_zip"
+  },
+  {
+    "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\AgentForge\\docs\\repo_integration_plan.md",
+    "size_bytes": 11,
+    "extension": ".md",
+    "type": "doc",
+    "origin": "AgentForge_zip"
+  },
+  {
+    "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\AgentForge\\docs\\SEQUENCE_DIAGRAMS.md",
+    "size_bytes": 195,
+    "extension": ".md",
+    "type": "doc",
+    "origin": "AgentForge_zip"
+  },
+  {
+    "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\AgentForge\\docs\\sequence_event_flow.md",
+    "size_bytes": 71,
+    "extension": ".md",
+    "type": "doc",
+    "origin": "AgentForge_zip"
+  },
+  {
+    "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\AgentForge\\docs\\sequence_execution_flow.md",
+    "size_bytes": 70,
+    "extension": ".md",
+    "type": "doc",
+    "origin": "AgentForge_zip"
+  },
+  {
+    "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\AgentForge\\docs\\prd\\AGENTFORGE_PRD_v2.md",
+    "size_bytes": 20158,
+    "extension": ".md",
+    "type": "doc",
+    "origin": "AgentForge_zip"
+  },
+  {
+    "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\AgentForge\\docs\\prd\\PRD_v2.md",
+    "size_bytes": 1571,
+    "extension": ".md",
+    "type": "doc",
+    "origin": "AgentForge_zip"
+  },
+  {
+    "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\AgentForge\\docs\\prd\\PRD_v3.md",
+    "size_bytes": 1101,
+    "extension": ".md",
+    "type": "doc",
+    "origin": "AgentForge_zip"
+  },
+  {
+    "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\AgentForge\\docs\\prd\\PRD_v3_FULL.md",
+    "size_bytes": 307,
+    "extension": ".md",
+    "type": "doc",
+    "origin": "AgentForge_zip"
+  },
+  {
+    "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\AgentForge\\prompts\\AGENTFORGE_WORKFLOWS.md",
+    "size_bytes": 6755,
+    "extension": ".md",
+    "type": "doc",
+    "origin": "AgentForge_zip"
+  },
+  {
+    "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\AgentForge\\prompts\\CLAUDE_CODE_ONBOARDING.md",
+    "size_bytes": 5338,
+    "extension": ".md",
+    "type": "doc",
+    "origin": "AgentForge_zip"
+  },
+  {
+    "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\AgentForge\\prompts\\claude_system_prompt.md",
+    "size_bytes": 26,
+    "extension": ".md",
+    "type": "doc",
+    "origin": "AgentForge_zip"
+  },
+  {
+    "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\AgentForge\\runtime\\container.ts",
+    "size_bytes": 641,
+    "extension": ".ts",
+    "type": "code",
+    "origin": "AgentForge_zip"
+  },
+  {
+    "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\AgentForge\\runtime\\event-bus.interface.ts",
+    "size_bytes": 367,
+    "extension": ".ts",
+    "type": "code",
+    "origin": "AgentForge_zip"
+  },
+  {
+    "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\AgentForge\\runtime\\event-guard.ts",
+    "size_bytes": 460,
+    "extension": ".ts",
+    "type": "code",
+    "origin": "AgentForge_zip"
+  },
+  {
+    "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\AgentForge\\runtime\\in-memory-event-bus.ts",
+    "size_bytes": 772,
+    "extension": ".ts",
+    "type": "code",
+    "origin": "AgentForge_zip"
+  },
+  {
+    "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\AgentForge\\runtime\\sse-event-bus.ts",
+    "size_bytes": 1224,
+    "extension": ".ts",
+    "type": "code",
+    "origin": "AgentForge_zip"
+  },
+  {
+    "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\AgentForge\\runtime\\websocket-event-bus.ts",
+    "size_bytes": 1341,
+    "extension": ".ts",
+    "type": "code",
+    "origin": "AgentForge_zip"
+  },
+  {
+    "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\AgentForge\\schemas\\config_schema.json",
+    "size_bytes": 66,
+    "extension": ".json",
+    "type": "config",
+    "origin": "AgentForge_zip"
+  },
+  {
+    "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\AgentForge\\schemas\\DSL_SCHEMA.md",
+    "size_bytes": 919,
+    "extension": ".md",
+    "type": "doc",
+    "origin": "AgentForge_zip"
+  },
+  {
+    "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\AgentForge\\schemas\\DSL_v2.json",
+    "size_bytes": 305,
+    "extension": ".json",
+    "type": "config",
+    "origin": "AgentForge_zip"
+  },
+  {
+    "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\AgentForge\\schemas\\forge-event.schema.ts",
+    "size_bytes": 62,
+    "extension": ".ts",
+    "type": "code",
+    "origin": "AgentForge_zip"
+  },
+  {
+    "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\AgentForge\\schemas\\forge-state.schema.ts",
+    "size_bytes": 43,
+    "extension": ".ts",
+    "type": "code",
+    "origin": "AgentForge_zip"
+  },
+  {
+    "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\AgentForge\\tasks\\claude_tasks.json",
+    "size_bytes": 43,
+    "extension": ".json",
+    "type": "config",
+    "origin": "AgentForge_zip"
+  },
+  {
+    "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\AgentForge\\tasks\\TASK_BREAKDOWN.md",
+    "size_bytes": 985,
+    "extension": ".md",
+    "type": "doc",
+    "origin": "AgentForge_zip"
+  },
+  {
+    "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\agents\\progress-helper.ts",
+    "size_bytes": 832,
+    "extension": ".ts",
+    "type": "code",
+    "origin": "agentforge_autonomous"
+  },
+  {
+    "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\agents\\registry.ts",
+    "size_bytes": 1433,
+    "extension": ".ts",
+    "type": "code",
+    "origin": "agentforge_autonomous"
+  },
+  {
+    "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\agents\\schemas.ts",
+    "size_bytes": 2859,
+    "extension": ".ts",
+    "type": "code",
+    "origin": "agentforge_autonomous"
+  },
+  {
+    "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\agents\\brainstorm\\BrainstormAgent.ts",
+    "size_bytes": 13020,
+    "extension": ".ts",
+    "type": "code",
+    "origin": "agentforge_autonomous"
+  },
+  {
+    "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\agents\\brainstorm\\types.ts",
+    "size_bytes": 827,
+    "extension": ".ts",
+    "type": "code",
+    "origin": "agentforge_autonomous"
+  },
+  {
+    "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\agents\\builder\\BuilderAgent.ts",
+    "size_bytes": 3100,
+    "extension": ".ts",
+    "type": "code",
+    "origin": "agentforge_autonomous"
+  },
+  {
+    "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\agents\\context\\ContextManagerAgent.ts",
+    "size_bytes": 3126,
+    "extension": ".ts",
+    "type": "code",
+    "origin": "agentforge_autonomous"
+  },
+  {
+    "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\agents\\gmail\\ClassificationAgent.ts",
+    "size_bytes": 5517,
+    "extension": ".ts",
+    "type": "code",
+    "origin": "agentforge_autonomous"
+  },
+  {
+    "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\agents\\gmail\\GmailResponseAgent.ts",
+    "size_bytes": 6367,
+    "extension": ".ts",
+    "type": "code",
+    "origin": "agentforge_autonomous"
+  },
+  {
+    "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\agents\\gmail\\index.ts",
+    "size_bytes": 867,
+    "extension": ".ts",
+    "type": "code",
+    "origin": "agentforge_autonomous"
+  },
+  {
+    "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\agents\\gmail\\PriorityAgent.ts",
+    "size_bytes": 6027,
+    "extension": ".ts",
+    "type": "code",
+    "origin": "agentforge_autonomous"
+  },
+  {
+    "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\agents\\gmail\\types.ts",
+    "size_bytes": 844,
+    "extension": ".ts",
+    "type": "code",
+    "origin": "agentforge_autonomous"
+  },
+  {
+    "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\agents\\learning\\LearningAgent.ts",
+    "size_bytes": 3330,
+    "extension": ".ts",
+    "type": "code",
+    "origin": "agentforge_autonomous"
+  },
+  {
+    "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\agents\\pipeline\\PipelineAgent.ts",
+    "size_bytes": 2250,
+    "extension": ".ts",
+    "type": "code",
+    "origin": "agentforge_autonomous"
+  },
+  {
+    "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\agents\\planner\\PlannerAgent.ts",
+    "size_bytes": 3230,
+    "extension": ".ts",
+    "type": "code",
+    "origin": "agentforge_autonomous"
+  },
+  {
+    "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\agents\\reviewer\\ReviewerAgent.ts",
+    "size_bytes": 3411,
+    "extension": ".ts",
+    "type": "code",
+    "origin": "agentforge_autonomous"
+  },
+  {
+    "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\agents\\tester\\TesterAgent.ts",
+    "size_bytes": 3305,
+    "extension": ".ts",
+    "type": "code",
+    "origin": "agentforge_autonomous"
+  },
+  {
+    "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\agents\\__tests__\\agents.test.ts",
+    "size_bytes": 8797,
+    "extension": ".ts",
+    "type": "code",
+    "origin": "agentforge_autonomous"
+  },
+  {
+    "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\agents\\__tests__\\brainstorm.test.ts",
+    "size_bytes": 6021,
+    "extension": ".ts",
+    "type": "code",
+    "origin": "agentforge_autonomous"
+  },
+  {
+    "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\app\\globals.css",
+    "size_bytes": 1429,
+    "extension": ".css",
+    "type": "other",
+    "origin": "agentforge_autonomous"
+  },
+  {
+    "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\app\\layout.tsx",
+    "size_bytes": 429,
+    "extension": ".tsx",
+    "type": "code",
+    "origin": "agentforge_autonomous"
+  },
+  {
+    "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\app\\page.tsx",
+    "size_bytes": 106,
+    "extension": ".tsx",
+    "type": "code",
+    "origin": "agentforge_autonomous"
+  },
+  {
+    "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\app\\api\\agent\\events\\route.ts",
+    "size_bytes": 1843,
+    "extension": ".ts",
+    "type": "code",
+    "origin": "agentforge_autonomous"
+  },
+  {
+    "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\app\\api\\agent\\last-session\\route.ts",
+    "size_bytes": 498,
+    "extension": ".ts",
+    "type": "code",
+    "origin": "agentforge_autonomous"
+  },
+  {
+    "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\app\\api\\agent\\run\\route.ts",
+    "size_bytes": 6947,
+    "extension": ".ts",
+    "type": "code",
+    "origin": "agentforge_autonomous"
+  },
+  {
+    "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\app\\api\\brainstorm\\route.ts",
+    "size_bytes": 2769,
+    "extension": ".ts",
+    "type": "code",
+    "origin": "agentforge_autonomous"
+  },
+  {
+    "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\app\\api\\gmail\\webhook\\route.ts",
+    "size_bytes": 7460,
+    "extension": ".ts",
+    "type": "code",
+    "origin": "agentforge_autonomous"
+  },
+  {
+    "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\app\\api\\jobs\\route.ts",
+    "size_bytes": 1124,
+    "extension": ".ts",
+    "type": "code",
+    "origin": "agentforge_autonomous"
+  },
+  {
+    "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\app\\api\\jobs\\generate-cover-letter\\route.ts",
+    "size_bytes": 1840,
+    "extension": ".ts",
+    "type": "code",
+    "origin": "agentforge_autonomous"
+  },
+  {
+    "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\app\\api\\jobs\\generate-resume\\route.ts",
+    "size_bytes": 1611,
+    "extension": ".ts",
+    "type": "code",
+    "origin": "agentforge_autonomous"
+  },
+  {
+    "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\app\\api\\jobs\\stats\\route.ts",
+    "size_bytes": 391,
+    "extension": ".ts",
+    "type": "code",
+    "origin": "agentforge_autonomous"
+  },
+  {
+    "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\app\\api\\jobs\\[id]\\route.ts",
+    "size_bytes": 2640,
+    "extension": ".ts",
+    "type": "code",
+    "origin": "agentforge_autonomous"
+  },
+  {
+    "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\app\\api\\pipeline\\route.ts",
+    "size_bytes": 2681,
+    "extension": ".ts",
+    "type": "code",
+    "origin": "agentforge_autonomous"
+  },
+  {
+    "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\app\\api\\safety\\route.ts",
+    "size_bytes": 2617,
+    "extension": ".ts",
+    "type": "code",
+    "origin": "agentforge_autonomous"
+  },
+  {
+    "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\app\\dashboard\\layout.tsx",
+    "size_bytes": 315,
+    "extension": ".tsx",
+    "type": "code",
+    "origin": "agentforge_autonomous"
+  },
+  {
+    "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\app\\dashboard\\page.tsx",
+    "size_bytes": 8358,
+    "extension": ".tsx",
+    "type": "code",
+    "origin": "agentforge_autonomous"
+  },
+  {
+    "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\app\\jobs\\layout.tsx",
+    "size_bytes": 769,
+    "extension": ".tsx",
+    "type": "code",
+    "origin": "agentforge_autonomous"
+  },
+  {
+    "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\app\\jobs\\page.tsx",
+    "size_bytes": 15019,
+    "extension": ".tsx",
+    "type": "code",
+    "origin": "agentforge_autonomous"
+  },
+  {
+    "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\app\\safety\\layout.tsx",
+    "size_bytes": 900,
+    "extension": ".tsx",
+    "type": "code",
+    "origin": "agentforge_autonomous"
+  },
+  {
+    "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\app\\safety\\page.tsx",
+    "size_bytes": 13991,
+    "extension": ".tsx",
+    "type": "code",
+    "origin": "agentforge_autonomous"
+  },
+  {
+    "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\archive\\AgentOrchestrator-duplicate.ts.bak",
+    "size_bytes": 326,
+    "extension": ".bak",
+    "type": "other",
+    "origin": "agentforge_autonomous"
+  },
+  {
+    "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\archive\\AgentOrchestrator.ts.bak",
+    "size_bytes": 324,
+    "extension": ".bak",
+    "type": "other",
+    "origin": "agentforge_autonomous"
+  },
+  {
+    "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\archive\\ModelService-duplicate.ts.bak",
+    "size_bytes": 111,
+    "extension": ".bak",
+    "type": "other",
+    "origin": "agentforge_autonomous"
+  },
+  {
+    "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\archive\\README.md",
+    "size_bytes": 1478,
+    "extension": ".md",
+    "type": "doc",
+    "origin": "agentforge_autonomous"
+  },
+  {
+    "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\backend\\execution\\ExecutionBackend.ts",
+    "size_bytes": 1802,
+    "extension": ".ts",
+    "type": "code",
+    "origin": "agentforge_autonomous"
+  },
+  {
+    "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\backend\\execution\\index.ts",
+    "size_bytes": 496,
+    "extension": ".ts",
+    "type": "code",
+    "origin": "agentforge_autonomous"
+  },
+  {
+    "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\backend\\execution\\OllamaBackend.ts",
+    "size_bytes": 5007,
+    "extension": ".ts",
+    "type": "code",
+    "origin": "agentforge_autonomous"
+  },
+  {
+    "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\backend\\execution\\ProviderChainBackend.ts",
+    "size_bytes": 3652,
+    "extension": ".ts",
+    "type": "code",
+    "origin": "agentforge_autonomous"
+  },
+  {
+    "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\backend\\execution\\SimulatedBackend.ts",
+    "size_bytes": 1935,
+    "extension": ".ts",
+    "type": "code",
+    "origin": "agentforge_autonomous"
+  },
+  {
+    "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\backend\\execution\\__tests__\\ExecutionBackend.test.ts",
+    "size_bytes": 1994,
+    "extension": ".ts",
+    "type": "code",
+    "origin": "agentforge_autonomous"
+  },
+  {
+    "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\backend\\execution\\__tests__\\SimulatedBackend.test.ts",
+    "size_bytes": 2222,
+    "extension": ".ts",
+    "type": "code",
+    "origin": "agentforge_autonomous"
+  },
+  {
+    "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\backend\\services\\LLMProviderChain.ts",
+    "size_bytes": 12854,
+    "extension": ".ts",
+    "type": "code",
+    "origin": "agentforge_autonomous"
+  },
+  {
+    "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\backend\\services\\ModelService.ts",
+    "size_bytes": 1975,
+    "extension": ".ts",
+    "type": "code",
+    "origin": "agentforge_autonomous"
+  },
+  {
+    "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\backend\\services\\ObservableOrchestrator.ts",
+    "size_bytes": 9391,
+    "extension": ".ts",
+    "type": "code",
+    "origin": "agentforge_autonomous"
+  },
+  {
+    "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\backend\\services\\__tests__\\failure-recovery.test.ts",
+    "size_bytes": 8681,
+    "extension": ".ts",
+    "type": "code",
+    "origin": "agentforge_autonomous"
+  },
+  {
+    "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\backend\\services\\__tests__\\integration.test.ts",
+    "size_bytes": 7109,
+    "extension": ".ts",
+    "type": "code",
+    "origin": "agentforge_autonomous"
+  },
+  {
+    "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\backend\\services\\__tests__\\ObservableOrchestrator.test.ts",
+    "size_bytes": 4291,
+    "extension": ".ts",
+    "type": "code",
+    "origin": "agentforge_autonomous"
+  },
+  {
+    "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\backend\\services\\__tests__\\validation.test.ts",
+    "size_bytes": 1772,
+    "extension": ".ts",
+    "type": "code",
+    "origin": "agentforge_autonomous"
+  },
+  {
+    "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\components\\activity-feed.tsx",
+    "size_bytes": 3230,
+    "extension": ".tsx",
+    "type": "code",
+    "origin": "agentforge_autonomous"
+  },
+  {
+    "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\components\\agent-card.tsx",
+    "size_bytes": 2539,
+    "extension": ".tsx",
+    "type": "code",
+    "origin": "agentforge_autonomous"
+  },
+  {
+    "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\components\\agent-flow-view.tsx",
+    "size_bytes": 7261,
+    "extension": ".tsx",
+    "type": "code",
+    "origin": "agentforge_autonomous"
+  },
+  {
+    "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\components\\dashboard-header.tsx",
+    "size_bytes": 3751,
+    "extension": ".tsx",
+    "type": "code",
+    "origin": "agentforge_autonomous"
+  },
+  {
+    "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\components\\demo-mode-switch.tsx",
+    "size_bytes": 776,
+    "extension": ".tsx",
+    "type": "code",
+    "origin": "agentforge_autonomous"
+  },
+  {
+    "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\components\\event-stream.tsx",
+    "size_bytes": 3407,
+    "extension": ".tsx",
+    "type": "code",
+    "origin": "agentforge_autonomous"
+  },
+  {
+    "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\components\\floating-progress.tsx",
+    "size_bytes": 5431,
+    "extension": ".tsx",
+    "type": "code",
+    "origin": "agentforge_autonomous"
+  },
+  {
+    "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\components\\global-progress.tsx",
+    "size_bytes": 1449,
+    "extension": ".tsx",
+    "type": "code",
+    "origin": "agentforge_autonomous"
+  },
+  {
+    "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\components\\inline-task-input.tsx",
+    "size_bytes": 3309,
+    "extension": ".tsx",
+    "type": "code",
+    "origin": "agentforge_autonomous"
+  },
+  {
+    "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\components\\narrative-panel.tsx",
+    "size_bytes": 3103,
+    "extension": ".tsx",
+    "type": "code",
+    "origin": "agentforge_autonomous"
+  },
+  {
+    "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\components\\outputs-panel.tsx",
+    "size_bytes": 1831,
+    "extension": ".tsx",
+    "type": "code",
+    "origin": "agentforge_autonomous"
+  },
+  {
+    "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\components\\reasoning-panel.tsx",
+    "size_bytes": 3125,
+    "extension": ".tsx",
+    "type": "code",
+    "origin": "agentforge_autonomous"
+  },
+  {
+    "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\components\\right-panel.tsx",
+    "size_bytes": 1910,
+    "extension": ".tsx",
+    "type": "code",
+    "origin": "agentforge_autonomous"
+  },
+  {
+    "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\components\\run-pipeline-dialog.tsx",
+    "size_bytes": 5256,
+    "extension": ".tsx",
+    "type": "code",
+    "origin": "agentforge_autonomous"
+  },
+  {
+    "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\components\\status-banners.tsx",
+    "size_bytes": 1341,
+    "extension": ".tsx",
+    "type": "code",
+    "origin": "agentforge_autonomous"
+  },
+  {
+    "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\components\\task-list.tsx",
+    "size_bytes": 3697,
+    "extension": ".tsx",
+    "type": "code",
+    "origin": "agentforge_autonomous"
+  },
+  {
+    "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\config\\env.ts",
+    "size_bytes": 2570,
+    "extension": ".ts",
+    "type": "code",
+    "origin": "agentforge_autonomous"
+  },
+  {
+    "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\config\\__tests__\\env.test.ts",
+    "size_bytes": 2581,
+    "extension": ".ts",
+    "type": "code",
+    "origin": "agentforge_autonomous"
+  },
+  {
+    "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\core\\entities\\Task.ts",
+    "size_bytes": 52,
+    "extension": ".ts",
+    "type": "code",
+    "origin": "agentforge_autonomous"
+  },
+  {
+    "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\core\\events\\agent-event-bus.ts",
+    "size_bytes": 1761,
+    "extension": ".ts",
+    "type": "code",
+    "origin": "agentforge_autonomous"
+  },
+  {
+    "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\core\\events\\session-persistence.ts",
+    "size_bytes": 1745,
+    "extension": ".ts",
+    "type": "code",
+    "origin": "agentforge_autonomous"
+  },
+  {
+    "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\core\\events\\types.ts",
+    "size_bytes": 2334,
+    "extension": ".ts",
+    "type": "code",
+    "origin": "agentforge_autonomous"
+  },
+  {
+    "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\core\\events\\__tests__\\agent-event-bus.test.ts",
+    "size_bytes": 2373,
+    "extension": ".ts",
+    "type": "code",
+    "origin": "agentforge_autonomous"
+  },
+  {
+    "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\core\\interfaces\\Agent.ts",
+    "size_bytes": 287,
+    "extension": ".ts",
+    "type": "code",
+    "origin": "agentforge_autonomous"
+  },
+  {
+    "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\core\\observability\\event-middleware.ts",
+    "size_bytes": 2009,
+    "extension": ".ts",
+    "type": "code",
+    "origin": "agentforge_autonomous"
+  },
+  {
+    "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\core\\observability\\index.ts",
+    "size_bytes": 268,
+    "extension": ".ts",
+    "type": "code",
+    "origin": "agentforge_autonomous"
+  },
+  {
+    "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\core\\observability\\logger.ts",
+    "size_bytes": 2408,
+    "extension": ".ts",
+    "type": "code",
+    "origin": "agentforge_autonomous"
+  },
+  {
+    "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\core\\observability\\trace.ts",
+    "size_bytes": 783,
+    "extension": ".ts",
+    "type": "code",
+    "origin": "agentforge_autonomous"
+  },
+  {
+    "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\core\\observability\\__tests__\\observability.test.ts",
+    "size_bytes": 3004,
+    "extension": ".ts",
+    "type": "code",
+    "origin": "agentforge_autonomous"
+  },
+  {
+    "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\healing\\AutoDebugLoop.ts",
+    "size_bytes": 6267,
+    "extension": ".ts",
+    "type": "code",
+    "origin": "agentforge_autonomous"
+  },
+  {
+    "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\healing\\SelfHealingEngine.ts",
+    "size_bytes": 7910,
+    "extension": ".ts",
+    "type": "code",
+    "origin": "agentforge_autonomous"
+  },
+  {
+    "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\healing\\types.ts",
+    "size_bytes": 1246,
+    "extension": ".ts",
+    "type": "code",
+    "origin": "agentforge_autonomous"
+  },
+  {
+    "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\hooks\\use-agent-events.ts",
+    "size_bytes": 2441,
+    "extension": ".ts",
+    "type": "code",
+    "origin": "agentforge_autonomous"
+  },
+  {
+    "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\hooks\\use-demo-mode.ts",
+    "size_bytes": 1077,
+    "extension": ".ts",
+    "type": "code",
+    "origin": "agentforge_autonomous"
+  },
+  {
+    "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\job-system\\cover-letter-generator.ts",
+    "size_bytes": 6032,
+    "extension": ".ts",
+    "type": "code",
+    "origin": "agentforge_autonomous"
+  },
+  {
+    "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\job-system\\resume-generator.ts",
+    "size_bytes": 12193,
+    "extension": ".ts",
+    "type": "code",
+    "origin": "agentforge_autonomous"
+  },
+  {
+    "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\job-system\\store.ts",
+    "size_bytes": 5128,
+    "extension": ".ts",
+    "type": "code",
+    "origin": "agentforge_autonomous"
+  },
+  {
+    "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\job-system\\types.ts",
+    "size_bytes": 871,
+    "extension": ".ts",
+    "type": "code",
+    "origin": "agentforge_autonomous"
+  },
+  {
+    "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\lib\\animation-variants.ts",
+    "size_bytes": 962,
+    "extension": ".ts",
+    "type": "code",
+    "origin": "agentforge_autonomous"
+  },
+  {
+    "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\lib\\cn.ts",
+    "size_bytes": 169,
+    "extension": ".ts",
+    "type": "code",
+    "origin": "agentforge_autonomous"
+  },
+  {
+    "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\lib\\constants.ts",
+    "size_bytes": 579,
+    "extension": ".ts",
+    "type": "code",
+    "origin": "agentforge_autonomous"
+  },
+  {
+    "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\lib\\format.ts",
+    "size_bytes": 814,
+    "extension": ".ts",
+    "type": "code",
+    "origin": "agentforge_autonomous"
+  },
+  {
+    "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\lib\\markdown-sync.ts",
+    "size_bytes": 4229,
+    "extension": ".ts",
+    "type": "code",
+    "origin": "agentforge_autonomous"
+  },
+  {
+    "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\lib\\narrative.ts",
+    "size_bytes": 5233,
+    "extension": ".ts",
+    "type": "code",
+    "origin": "agentforge_autonomous"
+  },
+  {
+    "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\lib\\pipeline-runner.ts",
+    "size_bytes": 2608,
+    "extension": ".ts",
+    "type": "code",
+    "origin": "agentforge_autonomous"
+  },
+  {
+    "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\lib\\progress.ts",
+    "size_bytes": 3364,
+    "extension": ".ts",
+    "type": "code",
+    "origin": "agentforge_autonomous"
+  },
+  {
+    "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\lib\\response-parser.ts",
+    "size_bytes": 4207,
+    "extension": ".ts",
+    "type": "code",
+    "origin": "agentforge_autonomous"
+  },
+  {
+    "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\lib\\run-pipeline.ts",
+    "size_bytes": 717,
+    "extension": ".ts",
+    "type": "code",
+    "origin": "agentforge_autonomous"
+  },
+  {
+    "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\lib\\sanitize.ts",
+    "size_bytes": 9208,
+    "extension": ".ts",
+    "type": "code",
+    "origin": "agentforge_autonomous"
+  },
+  {
+    "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\lib\\__tests__\\failure-injection.test.ts",
+    "size_bytes": 11041,
+    "extension": ".ts",
+    "type": "code",
+    "origin": "agentforge_autonomous"
+  },
+  {
+    "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\lib\\__tests__\\gmail-agents.test.ts",
+    "size_bytes": 5254,
+    "extension": ".ts",
+    "type": "code",
+    "origin": "agentforge_autonomous"
+  },
+  {
+    "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\lib\\__tests__\\job-system.test.ts",
+    "size_bytes": 3977,
+    "extension": ".ts",
+    "type": "code",
+    "origin": "agentforge_autonomous"
+  },
+  {
+    "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\lib\\__tests__\\narrative.test.ts",
+    "size_bytes": 5673,
+    "extension": ".ts",
+    "type": "code",
+    "origin": "agentforge_autonomous"
+  },
+  {
+    "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\lib\\__tests__\\progress.test.ts",
+    "size_bytes": 5283,
+    "extension": ".ts",
+    "type": "code",
+    "origin": "agentforge_autonomous"
+  },
+  {
+    "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\lib\\__tests__\\real-llm-pipeline.test.ts",
+    "size_bytes": 4594,
+    "extension": ".ts",
+    "type": "code",
+    "origin": "agentforge_autonomous"
+  },
+  {
+    "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\lib\\__tests__\\response-parser.test.ts",
+    "size_bytes": 4034,
+    "extension": ".ts",
+    "type": "code",
+    "origin": "agentforge_autonomous"
+  },
+  {
+    "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\lib\\__tests__\\safety-integration.test.ts",
+    "size_bytes": 2643,
+    "extension": ".ts",
+    "type": "code",
+    "origin": "agentforge_autonomous"
+  },
+  {
+    "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\lib\\__tests__\\safety.test.ts",
+    "size_bytes": 5941,
+    "extension": ".ts",
+    "type": "code",
+    "origin": "agentforge_autonomous"
+  },
+  {
+    "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\lib\\__tests__\\structured-output.test.ts",
+    "size_bytes": 7220,
+    "extension": ".ts",
+    "type": "code",
+    "origin": "agentforge_autonomous"
+  },
+  {
+    "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\orchestrator\\SupervisorOrchestrator.ts",
+    "size_bytes": 11935,
+    "extension": ".ts",
+    "type": "code",
+    "origin": "agentforge_autonomous"
+  },
+  {
+    "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\orchestrator\\__tests__\\self-healing.test.ts",
+    "size_bytes": 14797,
+    "extension": ".ts",
+    "type": "code",
+    "origin": "agentforge_autonomous"
+  },
+  {
+    "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\routing\\ModelRouter.ts",
+    "size_bytes": 8570,
+    "extension": ".ts",
+    "type": "code",
+    "origin": "agentforge_autonomous"
+  },
+  {
+    "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\routing\\types.ts",
+    "size_bytes": 1257,
+    "extension": ".ts",
+    "type": "code",
+    "origin": "agentforge_autonomous"
+  },
+  {
+    "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\safety\\approval-service.ts",
+    "size_bytes": 1638,
+    "extension": ".ts",
+    "type": "code",
+    "origin": "agentforge_autonomous"
+  },
+  {
+    "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\safety\\audit-logger.ts",
+    "size_bytes": 1140,
+    "extension": ".ts",
+    "type": "code",
+    "origin": "agentforge_autonomous"
+  },
+  {
+    "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\safety\\index.ts",
+    "size_bytes": 513,
+    "extension": ".ts",
+    "type": "code",
+    "origin": "agentforge_autonomous"
+  },
+  {
+    "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\safety\\kill-switch.ts",
+    "size_bytes": 846,
+    "extension": ".ts",
+    "type": "code",
+    "origin": "agentforge_autonomous"
+  },
+  {
+    "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\safety\\policy-engine.ts",
+    "size_bytes": 2814,
+    "extension": ".ts",
+    "type": "code",
+    "origin": "agentforge_autonomous"
+  },
+  {
+    "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\safety\\safety-guard.ts",
+    "size_bytes": 2797,
+    "extension": ".ts",
+    "type": "code",
+    "origin": "agentforge_autonomous"
+  },
+  {
+    "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\safety\\types.ts",
+    "size_bytes": 1336,
+    "extension": ".ts",
+    "type": "code",
+    "origin": "agentforge_autonomous"
+  }
+]

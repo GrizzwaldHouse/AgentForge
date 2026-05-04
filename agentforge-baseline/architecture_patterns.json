@@ -1,0 +1,26 @@
+{
+  "patterns_found": [
+    {
+      "pattern": "polling",
+      "evidence_file_count": 13,
+      "confidence": "HIGH"
+    },
+    {
+      "pattern": "REST-api",
+      "evidence_file_count": 12,
+      "confidence": "HIGH"
+    },
+    {
+      "pattern": "SSE",
+      "evidence_file_count": 1,
+      "confidence": "HIGH"
+    },
+    {
+      "pattern": "modular",
+      "evidence_file_count": 19,
+      "confidence": "MEDIUM"
+    }
+  ],
+  "violations": [],
+  "recommendation": "Consolidate event bus into a single Nervous System module; move all polling to event-driven triggers."
+}

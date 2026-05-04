@@ -1,0 +1,217 @@
+[
+  {
+    "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\AgentForge\\runtime\\container.ts",
+    "type": "runtime",
+    "description": "runtime: container.ts"
+  },
+  {
+    "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\AgentForge\\runtime\\event-bus.interface.ts",
+    "type": "runtime",
+    "description": "runtime: event-bus.interface.ts"
+  },
+  {
+    "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\AgentForge\\runtime\\event-guard.ts",
+    "type": "runtime",
+    "description": "runtime: event-guard.ts"
+  },
+  {
+    "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\AgentForge\\runtime\\in-memory-event-bus.ts",
+    "type": "runtime",
+    "description": "runtime: in-memory-event-bus.ts"
+  },
+  {
+    "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\AgentForge\\runtime\\sse-event-bus.ts",
+    "type": "runtime",
+    "description": "runtime: sse-event-bus.ts"
+  },
+  {
+    "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\AgentForge\\runtime\\websocket-event-bus.ts",
+    "type": "runtime",
+    "description": "runtime: websocket-event-bus.ts"
+  },
+  {
+    "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\agents\\brainstorm\\BrainstormAgent.ts",
+    "type": "agent",
+    "description": "agent: BrainstormAgent.ts"
+  },
+  {
+    "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\agents\\brainstorm\\types.ts",
+    "type": "agent",
+    "description": "agent: types.ts"
+  },
+  {
+    "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\agents\\builder\\BuilderAgent.ts",
+    "type": "agent",
+    "description": "agent: BuilderAgent.ts"
+  },
+  {
+    "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\agents\\context\\ContextManagerAgent.ts",
+    "type": "agent",
+    "description": "agent: ContextManagerAgent.ts"
+  },
+  {
+    "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\agents\\gmail\\ClassificationAgent.ts",
+    "type": "agent",
+    "description": "agent: ClassificationAgent.ts"
+  },
+  {
+    "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\agents\\gmail\\GmailResponseAgent.ts",
+    "type": "agent",
+    "description": "agent: GmailResponseAgent.ts"
+  },
+  {
+    "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\agents\\gmail\\index.ts",
+    "type": "agent",
+    "description": "agent: index.ts"
+  },
+  {
+    "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\agents\\gmail\\PriorityAgent.ts",
+    "type": "agent",
+    "description": "agent: PriorityAgent.ts"
+  },
+  {
+    "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\agents\\gmail\\types.ts",
+    "type": "agent",
+    "description": "agent: types.ts"
+  },
+  {
+    "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\agents\\learning\\LearningAgent.ts",
+    "type": "agent",
+    "description": "agent: LearningAgent.ts"
+  },
+  {
+    "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\agents\\pipeline\\PipelineAgent.ts",
+    "type": "agent",
+    "description": "agent: PipelineAgent.ts"
+  },
+  {
+    "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\agents\\planner\\PlannerAgent.ts",
+    "type": "agent",
+    "description": "agent: PlannerAgent.ts"
+  },
+  {
+    "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\agents\\reviewer\\ReviewerAgent.ts",
+    "type": "agent",
+    "description": "agent: ReviewerAgent.ts"
+  },
+  {
+    "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\agents\\tester\\TesterAgent.ts",
+    "type": "agent",
+    "description": "agent: TesterAgent.ts"
+  },
+  {
+    "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\agents\\__tests__\\agents.test.ts",
+    "type": "agent",
+    "description": "agent: agents.test.ts"
+  },
+  {
+    "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\agents\\__tests__\\brainstorm.test.ts",
+    "type": "agent",
+    "description": "agent: brainstorm.test.ts"
+  },
+  {
+    "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\app\\api\\agent\\events\\route.ts",
+    "type": "api_route",
+    "description": "api_route: route.ts"
+  },
+  {
+    "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\app\\api\\agent\\last-session\\route.ts",
+    "type": "api_route",
+    "description": "api_route: route.ts"
+  },
+  {
+    "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\app\\api\\agent\\run\\route.ts",
+    "type": "api_route",
+    "description": "api_route: route.ts"
+  },
+  {
+    "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\app\\api\\brainstorm\\route.ts",
+    "type": "api_route",
+    "description": "api_route: route.ts"
+  },
+  {
+    "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\app\\api\\gmail\\webhook\\route.ts",
+    "type": "api_route",
+    "description": "api_route: route.ts"
+  },
+  {
+    "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\app\\api\\jobs\\route.ts",
+    "type": "api_route",
+    "description": "api_route: route.ts"
+  },
+  {
+    "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\app\\api\\jobs\\generate-cover-letter\\route.ts",
+    "type": "api_route",
+    "description": "api_route: route.ts"
+  },
+  {
+    "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\app\\api\\jobs\\generate-resume\\route.ts",
+    "type": "api_route",
+    "description": "api_route: route.ts"
+  },
+  {
+    "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\app\\api\\jobs\\stats\\route.ts",
+    "type": "api_route",
+    "description": "api_route: route.ts"
+  },
+  {
+    "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\app\\api\\jobs\\[id]\\route.ts",
+    "type": "api_route",
+    "description": "api_route: route.ts"
+  },
+  {
+    "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\app\\api\\pipeline\\route.ts",
+    "type": "api_route",
+    "description": "api_route: route.ts"
+  },
+  {
+    "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\app\\api\\safety\\route.ts",
+    "type": "api_route",
+    "description": "api_route: route.ts"
+  },
+  {
+    "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\backend\\services\\LLMProviderChain.ts",
+    "type": "service",
+    "description": "service: LLMProviderChain.ts"
+  },
+  {
+    "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\backend\\services\\ModelService.ts",
+    "type": "service",
+    "description": "service: ModelService.ts"
+  },
+  {
+    "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\backend\\services\\ObservableOrchestrator.ts",
+    "type": "orchestrator",
+    "description": "service: ObservableOrchestrator.ts"
+  },
+  {
+    "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\backend\\services\\__tests__\\failure-recovery.test.ts",
+    "type": "service",
+    "description": "service: failure-recovery.test.ts"
+  },
+  {
+    "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\backend\\services\\__tests__\\integration.test.ts",
+    "type": "service",
+    "description": "service: integration.test.ts"
+  },
+  {
+    "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\backend\\services\\__tests__\\ObservableOrchestrator.test.ts",
+    "type": "orchestrator",
+    "description": "service: ObservableOrchestrator.test.ts"
+  },
+  {
+    "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\backend\\services\\__tests__\\validation.test.ts",
+    "type": "service",
+    "description": "service: validation.test.ts"
+  },
+  {
+    "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\orchestrator\\SupervisorOrchestrator.ts",
+    "type": "orchestrator",
+    "description": "orchestrator: SupervisorOrchestrator.ts"
+  },
+  {
+    "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\orchestrator\\__tests__\\self-healing.test.ts",
+    "type": "orchestrator",
+    "description": "orchestrator: self-healing.test.ts"
+  }
+]
