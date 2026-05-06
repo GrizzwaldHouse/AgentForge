@@ -1,0 +1,197 @@
+{
+  "session_purpose": "Resume and complete the multi-project launch started by Sonnet 4.6 on 2026-05-02. Read the handoff document FIRST before doing anything.",
+  "developer": "Marcus Daley",
+  "handoff_document": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\SESSION_HANDOFF_2026-05-05.md",
+  "context": {
+    "outgoing_model": "Claude Sonnet 4.6",
+    "incoming_model": "Claude Opus 4.7",
+    "session_date": "2026-05-05",
+    "active_branch": "main",
+    "outstanding_worktrees": [
+      "agent-a3c7d1f8b3a1dc856 — BrainstormAgent (READY TO MERGE)",
+      "agent-adcadd95caeaedcff — Pipeline fixes (READY TO MERGE FIRST)"
+    ]
+  },
+  "non_negotiable_standards": {
+    "observer_pattern": "All state changes emit events. Zero polling. Always.",
+    "no_hardcoding": "Everything configurable via JSON or constructor.",
+    "defaults_in_constructors": "All defaults set at init time, never scattered.",
+    "comments": "Explain WHY only. One line max. No block comments.",
+    "file_headers": "Every file: filename, developer, date, purpose, dependencies",
+    "es_modules_only": "No CommonJS anywhere",
+    "npm_only": "Never yarn",
+    "free_tier_first": "Ollama before Groq before Cerebras before paid",
+    "daily_budget": "$1.00 LLM spend max",
+    "modular_system_sync": "grizz_modular_system and grizz_modular_system_fixed must mirror exactly"
+  },
+  "work_priority_order": [
+    {
+      "step": 1,
+      "task": "Merge ready worktrees",
+      "estimated_time_min": 5,
+      "instructions": [
+        "cd C:\\Users\\daley\\Projects\\SeniorDevBuddy",
+        "git merge worktree-agent-adcadd95caeaedcff (pipeline fixes — must come first because it updates test assertions)",
+        "git merge worktree-agent-a3c7d1f8b3a1dc856 (BrainstormAgent)",
+        "cd agentforge_autonomous && npm test (expect 241+ pass, 1 pre-existing self-healing test fail)",
+        "npm run build (must pass clean)"
+      ]
+    },
+    {
+      "step": 2,
+      "task": "Write ui-wireframe-spec skill",
+      "estimated_time_min": 10,
+      "target": "C:\\ClaudeSkills\\skills\\ui-wireframe-spec\\SKILL.md",
+      "spec_source": "Task 1 in C:\\Users\\daley\\Projects\\SeniorDevBuddy\\docs\\superpowers\\plans\\2026-05-02-blender-agentforge-vetassist-upwork.md (lines 50-200)",
+      "post_action": "cd C:\\ClaudeSkills && git add skills/ui-wireframe-spec/SKILL.md && git commit -m \"feat(skills): add ui-wireframe-spec skill\""
+    },
+    {
+      "step": 3,
+      "task": "Sync SKILLS.md in both modular system directories",
+      "estimated_time_min": 5,
+      "files": [
+        "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\grizz_modular_system\\SKILLS.md",
+        "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\grizz_modular_system_fixed\\SKILLS.md"
+      ],
+      "change": "Add row | SK-047 | UI Wireframe Spec | C:\\ClaudeSkills\\skills\\ui-wireframe-spec | ACTIVE | ChatGPT image gen prompt to Lovable handoff for any UI surface | under Utility Skills section. Update Statistics: Total Skills 49, Last Updated 2026-05-05",
+      "verify": "Compare-Object on both files — must return no diff"
+    },
+    {
+      "step": 4,
+      "task": "Write Blender INSTALL.md and LOOM_SCRIPT.md",
+      "estimated_time_min": 2,
+      "instruction": "Content is already drafted in SESSION_HANDOFF_2026-05-05.md section B. Copy that content verbatim into the two files at C:\\Users\\daley\\Projects\\BlenderWorkflowForge\\"
+    },
+    {
+      "step": 5,
+      "task": "Build VetAssist brainstorm wizard (BLOCKED in previous session — needs new working directory)",
+      "estimated_time_min": 60,
+      "blocker": "Project is at C:\\Users\\daley\\Projects\\VA  Work\\vetassist-extracted\\vetassist-project (note TWO spaces in 'VA  Work'). Previous session ran from SeniorDevBuddy and Write tool denied access.",
+      "fix_option_a": "Open a NEW Claude Code session with cwd set to C:\\Users\\daley\\Projects\\VA  Work\\vetassist-extracted\\vetassist-project — then run the vetassist-session-prompt.json instructions",
+      "fix_option_b": "Use update-config skill to add C:\\Users\\daley\\Projects\\VA  Work\\ to allowed paths in .claude/settings.json, then retry",
+      "files_to_create": [
+        "apps/web/src/components/brainstorm/theme/vetassist-tactical.ts",
+        "apps/web/src/components/brainstorm/gamification/XPEngine.ts",
+        "apps/web/src/components/brainstorm/affordances/VoiceInput.tsx",
+        "apps/web/src/components/brainstorm/data/vetassist-intake.ts",
+        "apps/web/src/components/brainstorm/QuestionRenderer.tsx",
+        "apps/web/src/components/brainstorm/BrainstormWizard.tsx",
+        "apps/web/src/components/brainstorm/USAGE.md"
+      ],
+      "specs_source": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\session-prompts\\vetassist-session-prompt.json",
+      "project_conventions": {
+        "framework": "Next.js 14 + React 18 + TypeScript strict",
+        "styling": "inline React.CSSProperties with CSS custom properties — NOT Tailwind",
+        "client_directive": "'use client' at top of every interactive component",
+        "exports": "Named exports only — no default exports",
+        "strings": "All display strings in const at top of file — no inline literals in JSX",
+        "memo": "React.memo for sub-components, useCallback/useMemo for handlers",
+        "path_alias": "@/* maps to ./src/*",
+        "file_header": "// filename\\n// Developer: Marcus Daley\\n// Date: 2026-05-05\\n// Purpose: ..."
+      },
+      "reference_implementation": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\agents\\brainstorm\\BrainstormAgent.ts (the artifact schema is identical — types match exactly)"
+    },
+    {
+      "step": 6,
+      "task": "Apply for the Blender Upwork job",
+      "estimated_time_min": 10,
+      "blocker_check": "Confirm job posting is still open before applying",
+      "deliverables_ready": [
+        "C:\\Users\\daley\\Projects\\BlenderWorkflowForge\\client_intake\\upwork_proposal.md (paste into Upwork apply box)",
+        "C:\\Users\\daley\\Projects\\BlenderWorkflowForge\\client_intake\\intake_form.md (attach as file or convert to Notion)"
+      ],
+      "manual_actions": [
+        "Sign in to Upwork",
+        "Open the Blender Plugin Development for Workflow Optimization posting",
+        "Click Apply now",
+        "Paste proposal text",
+        "Attach intake form (or share as Notion link)",
+        "Submit"
+      ]
+    },
+    {
+      "step": 7,
+      "task": "Update Upwork profile",
+      "estimated_time_min": 20,
+      "current_state": "Profile is empty despite having multiple GitHub projects",
+      "instructions_source": "C:\\Users\\daley\\Projects\\BlenderWorkflowForge\\client_intake\\upwork_proposal.md (Profile sections at bottom)",
+      "actions": [
+        "Set title: Blender Plugin Developer | Workflow Automation | Tool Programming | UE5",
+        "Set overview line 1-2: I build configurable workflow automation tools for 3D software and game engines. Navy veteran, Full Sail CS grad, tool programming specialist with production-grade architecture standards.",
+        "Add skills: Blender Python API, Workflow Automation, Plugin Development, Unreal Engine 5, Tool Programming, Python, Event-Driven Architecture",
+        "Add 4 portfolio items per the table — capture screenshots from each GitHub README"
+      ],
+      "portfolio_items": [
+        "WorkflowForge — github.com/GrizzwaldHouse/BlenderWorkflowForge (after pushed)",
+        "AgentForge — github.com/GrizzwaldHouse/SeniorDevBuddy",
+        "WizardJam 2.0 — github.com/GrizzwaldHouse/BaseGame",
+        "Portfolio — github.com/GrizzwaldHouse/portfolio-website"
+      ]
+    },
+    {
+      "step": 8,
+      "task": "Record Loom demo of WorkflowForge",
+      "estimated_time_min": 15,
+      "script": "C:\\Users\\daley\\Projects\\BlenderWorkflowForge\\LOOM_SCRIPT.md (after step 4)",
+      "actions": [
+        "Install addon zip in Blender per INSTALL.md",
+        "Test that Optimize Mesh and Batch Export Prep workflows work",
+        "Record at 1920x1080 with Blender dark theme",
+        "Target 55-60 seconds",
+        "Upload to Loom",
+        "Add link to Upwork portfolio item for WorkflowForge"
+      ]
+    },
+    {
+      "step": 9,
+      "task": "Address remaining important code review issues",
+      "estimated_time_min": 30,
+      "items": [
+        "I-2: Add required-message validation to PipelineAgent for sync/full commands",
+        "I-3: Replace module-level pipelineRunning flag with globalThis-namespaced version (Next.js HMR safety)",
+        "I-4: Export VALID_COMMANDS from pipeline-runner.ts, remove duplicates in PipelineAgent.ts and route.ts",
+        "I-5: Add scrubAgentData equivalent to /api/pipeline route response"
+      ],
+      "verify": "npm test, npm run build"
+    },
+    {
+      "step": 10,
+      "task": "Investigate pre-existing self-healing test failure",
+      "estimated_time_min": 20,
+      "failing_test": "src/orchestrator/__tests__/self-healing.test.ts — auto-debug loop fails after exhausting retries — expected 2 to be 3",
+      "hypothesis": "AutoDebugLoop.maxRetries default value drifted from test expectation",
+      "approach": "Use the researcher agent to trace AutoDebugLoop history via git log, identify when the discrepancy was introduced, fix either the test or the impl"
+    }
+  ],
+  "files_to_read_first": [
+    {
+      "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\SESSION_HANDOFF_2026-05-05.md",
+      "purpose": "Complete handoff context — read this before anything else"
+    },
+    {
+      "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\docs\\superpowers\\plans\\2026-05-02-blender-agentforge-vetassist-upwork.md",
+      "purpose": "Original 878-line plan with all task specs"
+    },
+    {
+      "path": "C:\\Users\\daley\\.claude\\projects\\C--Users-daley-Projects-SeniorDevBuddy\\memory\\MEMORY.md",
+      "purpose": "Persistent memory — project structure, integrations, preferences"
+    },
+    {
+      "path": "C:\\Users\\daley\\.claude\\projects\\C--Users-daley-Projects-SeniorDevBuddy\\memory\\user_brainstorm_preferences.md",
+      "purpose": "Theme/schema/format preferences — saved this session"
+    },
+    {
+      "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\session-prompts\\vetassist-session-prompt.json",
+      "purpose": "Detailed VetAssist build spec — for step 5"
+    }
+  ],
+  "completion_check": "After all steps done: run npm test in agentforge_autonomous (must be 241+ passing), verify both SKILLS.md files match exactly, confirm WorkflowForge installs in Blender, confirm Upwork proposal submitted, confirm 4 portfolio items visible on profile.",
+  "fallback_strategy": "If any step blocks: write a new handoff document explaining what completed, what's left, and where the blocker is. Marcus prefers progress documentation over silent failure.",
+  "reminders": [
+    "Use the Skill tool for any skill mentioned (don't read SKILL.md files directly)",
+    "Check for relevant skills BEFORE responding to any request",
+    "Brainstorm artifact format wins over generic brainstorming when both apply",
+    "Marcus is on PST, has 10-15 hrs/week available, has an infant — keep responses focused, avoid scope creep",
+    "When you finish a step, mark it done in TaskCreate/TaskUpdate, don't just announce completion"
+  ]
+}

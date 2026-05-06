@@ -1,0 +1,26 @@
+{
+  "title": "MarcusDaleyUniversalCodingStandards",
+  "core": {
+    "rule95_5": "95% reusable, 5% config. Separate logic from configuration.",
+    "quality": "Quality over speed. No shortcuts. Refactoring encouraged.",
+    "explain_why": true,
+    "brainstorm_first": "Check built-ins \u2192 compare approaches \u2192 design \u2192 implement.",
+    "config_driven": "No hardcoded values."
+  },
+  "architecture": {
+    "event_driven_only": true,
+    "nopolling": true,
+    "prefer_composition": true,
+    "dependency_injection": true,
+    "code_to_interfaces": true,
+    "separation_of_concerns": true,
+    "data_driven": true,
+    "repository_pattern": true
+  },
+  "error_handling": {
+    "validate_boundaries": true,
+    "typed_errors": true,
+    "fail_fast": true,
+    "nosilent_errors": true
+  }
+}

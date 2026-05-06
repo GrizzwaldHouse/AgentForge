@@ -45,12 +45,14 @@ describe("Real LLM Pipeline (Ollama)", () => {
 
     const result = await orch.run("baseline-test", {
       description: "Build a simple REST API endpoint for user registration",
+      projectDescription: "Build a simple REST API endpoint for user registration",
+      command: "status",
     });
 
     agentEventBus.unsubscribe(subId);
 
-    // All 6 agents should complete
-    expect(result.agentResults).toHaveLength(6);
+    // All 8 agents should complete
+    expect(result.agentResults).toHaveLength(8);
     expect(result.agentResults.every((r) => r.success)).toBe(true);
 
     // Should emit session:start, agent events, session:end
@@ -62,16 +64,16 @@ describe("Real LLM Pipeline (Ollama)", () => {
     // Each agent should have start + complete events
     const agentStarts = events.filter((e) => e.type === "agent:start");
     const agentCompletes = events.filter((e) => e.type === "agent:complete");
-    expect(agentStarts).toHaveLength(6);
-    expect(agentCompletes).toHaveLength(6);
+    expect(agentStarts).toHaveLength(8);
+    expect(agentCompletes).toHaveLength(8);
   });
 
   it("multi-run stability: 3 sequential runs produce consistent results", async () => {
     const backend = new SimulatedBackend({ type: "simulated", timeoutMs: 10 });
     const tasks = [
-      { description: "Build login page" },
-      { description: "Add database schema" },
-      { description: "Create unit tests" },
+      { description: "Build login page", projectDescription: "Build login page", command: "status" },
+      { description: "Add database schema", projectDescription: "Add database schema", command: "status" },
+      { description: "Create unit tests", projectDescription: "Create unit tests", command: "status" },
     ];
 
     const results = [];
@@ -84,7 +86,7 @@ describe("Real LLM Pipeline (Ollama)", () => {
 
     // All runs should complete with all agents succeeding
     for (const r of results) {
-      expect(r.agentResults).toHaveLength(6);
+      expect(r.agentResults).toHaveLength(8);
       expect(r.agentResults.every((a) => a.success)).toBe(true);
     }
 

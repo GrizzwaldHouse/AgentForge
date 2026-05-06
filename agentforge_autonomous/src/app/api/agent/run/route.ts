@@ -156,9 +156,10 @@ export async function POST(request: NextRequest) {
     const recommendedModel = await modelService.recommend();
 
     // Create backend config — read Ollama URL from env, never hardcode
+    // SimulatedBackend uses timeoutMs as its per-agent delay, so keep it short
     const backendConfig: BackendConfig = {
       type: backendType,
-      timeoutMs: 60_000,
+      timeoutMs: backendType === "simulated" ? 50 : 60_000,
       ollamaBaseUrl: env.ollamaBaseUrl,
       ollamaModel: recommendedModel,
     };

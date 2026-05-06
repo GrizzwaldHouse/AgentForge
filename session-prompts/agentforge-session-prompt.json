@@ -1,0 +1,98 @@
+{
+  "session_context": {
+    "project": "AgentForge — Brainstorm Artifact Feature Integration",
+    "developer": "Marcus Daley",
+    "working_directory": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous",
+    "target": "Add a BrainstormAgent to the AgentForge pipeline that generates interactive brainstorm artifacts using the May 2026 schema. Theme: game_dev_arcade (neon/cyberpunk). No stubs. Full production implementation.",
+    "existing_system": {
+      "agent_interface": "src/core/interfaces/Agent.ts — Agent.execute(input: AgentInput): Promise<AgentOutput>",
+      "registry": "src/agents/registry.ts — add BrainstormAgent to createAgents()",
+      "test_pattern": "src/agents/__tests__/agents.test.ts — add BrainstormAgent test",
+      "safety": "src/safety/safety-guard.ts — all agents run through guardAction()",
+      "tests_must_pass": "npm test must pass at 230+ tests before and after"
+    }
+  },
+  "coding_standards": {
+    "observer_pattern": "Emit agent events through agentEventBus. No polling.",
+    "es_modules": "Use @/* imports. No CommonJS.",
+    "safety": "Never bypass guardAction. Never bypass kill switch.",
+    "agent_contract": "Return { success, data?, logs[] } from every execute() path.",
+    "no_ui_in_agents": "BrainstormAgent returns structured data only. UI renders in Next.js components.",
+    "tdd": "Write failing test first. Then implement. Then confirm pass."
+  },
+  "deliverables": [
+    {
+      "file": "src/agents/brainstorm/types.ts",
+      "purpose": "TypeScript types for brainstorm artifact schema.",
+      "types": [
+        "BrainstormOption: { id: string, label: string, rationale: string, locked: boolean }",
+        "BrainstormQuestion: { id: string, text: string, type: 'single'|'multi'|'true_false'|'ranked'|'numeric_scale'|'abc_match', options: BrainstormOption[] }",
+        "BrainstormSection: { id: string, title: string, questions: BrainstormQuestion[] }",
+        "BrainstormArtifact: { title: string, theme: string, sections: BrainstormSection[], metadata: { capturedAt: string, projectSlug: string } }"
+      ]
+    },
+    {
+      "file": "src/agents/brainstorm/BrainstormAgent.ts",
+      "purpose": "Generates a structured brainstorm artifact from a project description.",
+      "interface": "implements Agent { id: 'brainstorm-agent', name: 'Brainstorm Agent' }",
+      "execute_input": "input.context.projectDescription: string, input.context.theme?: string",
+      "execute_output": {
+        "success": true,
+        "data": { "artifact": "BrainstormArtifact" },
+        "logs": ["Brainstorm artifact generated: N sections, M questions"]
+      },
+      "requirements": [
+        "Validate input.context.projectDescription is non-empty string — return success:false if missing",
+        "Default theme to 'game_dev_arcade' when not provided",
+        "Generate minimum 4 sections with minimum 3 questions each",
+        "Use backend LLM if available via input.context.prompt pattern, fall back to deterministic template",
+        "Generate projectSlug from first 5 words of projectDescription kebab-cased",
+        "All question types used across sections: single, multi, true_false, ranked"
+      ]
+    },
+    {
+      "file": "src/agents/__tests__/brainstorm.test.ts",
+      "purpose": "Vitest tests — write these FIRST, run to confirm fail, then implement agent.",
+      "required_tests": [
+        "execute() with valid projectDescription returns success: true and artifact with sections",
+        "execute() with missing projectDescription returns success: false with descriptive log",
+        "artifact has minimum 4 sections",
+        "each section has minimum 3 questions",
+        "each question type is one of the 6 allowed values",
+        "theme defaults to game_dev_arcade when not provided",
+        "projectSlug is kebab-case derived from projectDescription"
+      ]
+    },
+    {
+      "file": "src/agents/registry.ts",
+      "change": "Add import { BrainstormAgent } from './brainstorm/BrainstormAgent' and new BrainstormAgent() in createAgents() array"
+    },
+    {
+      "file": "src/app/api/brainstorm/route.ts",
+      "purpose": "POST /api/brainstorm — generates and returns a brainstorm artifact.",
+      "requirements": [
+        "Auth: check AGENT_TOKEN header same pattern as /api/agent/run",
+        "Safety: check killSwitch.isActive() — return 503 if active",
+        "Body: { projectDescription: string, theme?: string }",
+        "Validate projectDescription non-empty, max 2000 chars",
+        "Call BrainstormAgent.execute() directly",
+        "Return artifact JSON with 200 on success, 400 on validation error, 500 on execution error"
+      ]
+    }
+  ],
+  "tdd_order": [
+    "1. Write src/agents/__tests__/brainstorm.test.ts",
+    "2. Run: cd agentforge_autonomous && npm test -- src/agents/__tests__/brainstorm.test.ts",
+    "3. Confirm: tests fail with 'cannot find module' or similar — correct failure",
+    "4. Write src/agents/brainstorm/types.ts",
+    "5. Write src/agents/brainstorm/BrainstormAgent.ts",
+    "6. Run: npm test -- src/agents/__tests__/brainstorm.test.ts",
+    "7. Confirm: all brainstorm tests pass",
+    "8. Run: npm test",
+    "9. Confirm: all 230+ tests still pass",
+    "10. Add to registry.ts",
+    "11. Write route.ts",
+    "12. Run: npm run build",
+    "13. Confirm: TypeScript compilation passes"
+  ]
+}

@@ -85,6 +85,14 @@
 |----|-------|--------|--------|-------------|
 | SK-043 | AgentForge Autopilot | C:\ClaudeSkills\skills\agentforge-autopilot | ACTIVE | 3-mode dev workflow (spawn/resume/auto-build) with phase detection, verification, and pipeline |
 
+## Project-Local AgentForge Skills (skills\)
+
+| ID | Skill | Source | Status | Description |
+|----|-------|--------|--------|-------------|
+| SK-044 | AgentForge Agent Contracts | skills\agentforge-agent-contracts | ACTIVE | Preserve agent interfaces, outputs, registry wiring, pipeline behavior, and tests |
+| SK-045 | AgentForge Model Routing | skills\agentforge-model-routing | ACTIVE | Maintain provider selection, fallback behavior, health tracking, cost rules, and task classification |
+| SK-046 | AgentForge Safety Policy | skills\agentforge-safety-policy | ACTIVE | Maintain safety gates, approval policy, kill switch behavior, audit logging, and guarded automation |
+
 ## Utility Skills
 
 | ID | Skill | Source | Status | Description |
@@ -114,7 +122,7 @@
 
 ## Statistics
 
-- **Total Skills:** 45 (3 production + 5 reference + 14 Bob/WizardJam/Portfolio + 5 Ollama audit + 15 Agent-Alexander + 1 dev automation + 2 utility)
+- **Total Skills:** 48 (3 production + 5 reference + 14 Bob/WizardJam/Portfolio + 5 Ollama audit + 15 Agent-Alexander + 1 dev automation + 3 project-local AgentForge + 2 utility)
 - **Total Task Templates:** 3
-- **Active:** 44 | Available: 1 | Gaps: 0
-- **Last Updated:** 2026-04-05
+- **Active:** 47 | Available: 1 | Gaps: 0
+- **Last Updated:** 2026-05-01

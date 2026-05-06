@@ -305,7 +305,7 @@ describe("AutoDebugLoop", () => {
     );
 
     expect(result.success).toBe(false);
-    expect(result.attempts).toBe(3); // initial + 2 retries
+    expect(result.attempts).toBe(2); // maxRetries counts total attempts in AutoDebugLoop
     expect(result.errors.length).toBeGreaterThan(0);
   });
 });

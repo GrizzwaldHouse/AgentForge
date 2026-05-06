@@ -1,0 +1,42 @@
+{
+  "auto_apply": {
+    "enabled": false,
+    "autonomy_mode": "assisted_review",
+    "target_sources": ["greenhouse", "lever", "ashby"],
+    "daily_cap": 10,
+    "min_match_score": 0.75,
+    "captcha_strategy": "pause_notify",
+    "audit_sinks": ["outputs_jsonl", "sqlite"],
+    "session_strategy": "persistent_profile",
+    "trigger_event": "ApplicationReadyEvent",
+    "selector_strategy": "hybrid",
+    "document_source": "hybrid_static_resume",
+    "hard_rules": {
+      "blocklist_domains": [],
+      "skip_if_requires_takehome": true,
+      "skip_if_requires_account_creation": true
+    },
+    "browser": {
+      "headless": false,
+      "profile_dir": "data/playwright_profile",
+      "viewport": { "width": 1280, "height": 800 },
+      "slowmo_ms": 250,
+      "navigation_timeout_ms": 30000
+    },
+    "rate_limits": {
+      "min_delay_between_actions_ms": 800,
+      "max_delay_between_actions_ms": 2400,
+      "max_retries_on_network_error": 3,
+      "retry_backoff_seconds": [5, 15, 45]
+    },
+    "audit": {
+      "screenshot_before_submit": true,
+      "screenshot_after_submit": true,
+      "jsonl_path": "outputs/applications.jsonl",
+      "sqlite_path": "data/applications.db",
+      "screenshot_dir": "outputs/screenshots"
+    },
+    "kill_switch_file": "apps/job-agent/.killswitch",
+    "selector_config_dir": "apps/job-agent/config/selectors"
+  }
+}

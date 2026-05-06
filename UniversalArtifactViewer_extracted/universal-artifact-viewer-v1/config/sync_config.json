@@ -1,0 +1,11 @@
+{
+  "paths": {
+    "source": "C:/Users/daley/UnrealProjects/UnrealEditorGuideBookClaudeDesign",
+    "target": "C:/ClaudeSkills"
+  },
+  "manifest": [
+    "guidebook_core.md",
+    "agent_instructions.json"
+  ],
+  "fail_fast": true
+}

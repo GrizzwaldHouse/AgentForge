@@ -19,7 +19,11 @@ describe("SafetyGuard integration with ObservableOrchestrator", () => {
     const agents = createAgents(backend);
     const orch = new ObservableOrchestrator(agents, { safetyEnabled: true });
 
-    const result = await orch.run("safety-test-1", { description: "test task" });
+    const result = await orch.run("safety-test-1", {
+      description: "test task",
+      projectDescription: "test task",
+      command: "status",
+    });
     const succeeded = result.agentResults.filter((r) => r.success).length;
 
     expect(succeeded).toBe(agents.length);
@@ -46,7 +50,11 @@ describe("SafetyGuard integration with ObservableOrchestrator", () => {
     const agents = createAgents(backend);
     const orch = new ObservableOrchestrator(agents, { safetyEnabled: false });
 
-    const result = await orch.run("safety-test-3", { description: "test task" });
+    const result = await orch.run("safety-test-3", {
+      description: "test task",
+      projectDescription: "test task",
+      command: "status",
+    });
     const succeeded = result.agentResults.filter((r) => r.success).length;
 
     expect(succeeded).toBe(agents.length);

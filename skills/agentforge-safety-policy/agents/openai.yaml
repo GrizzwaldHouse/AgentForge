@@ -1,0 +1,4 @@
+interface:
+  display_name: "AgentForge Safety Policy"
+  short_description: "Keep safety policy conservative."
+  default_prompt: "Use AgentForge Safety Policy to modify safety rules, approvals, kill switch behavior, audit logging, or guarded automation in AgentForge."

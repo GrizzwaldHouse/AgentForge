@@ -1,0 +1,121 @@
+{
+  "session_context": {
+    "project": "VetAssist — Brainstorm Artifact Integration with Tactical Theme",
+    "developer": "Marcus Daley",
+    "working_directory": "C:\\Users\\daley\\Projects\\VA Work",
+    "target": "Integrate the May 2026 brainstorm artifact schema into VetAssist. Theme: vetassist_tactical (dark forest green, military precision). Build the intake wizard as an interactive React component. No stubs. Full production implementation.",
+    "brainstorm_schema_version": "May 2026"
+  },
+  "theme": {
+    "name": "vetassist_tactical",
+    "bg_primary": "#0f1a0f",
+    "bg_secondary": "#1a2b1a",
+    "bg_panel": "#142214",
+    "accent": "#4a9e4a",
+    "accent_hover": "#5cb85c",
+    "text_primary": "#d4e6d4",
+    "text_muted": "#7a9e7a",
+    "text_success": "#4a9e4a",
+    "text_error": "#c0392b",
+    "font_display": "Playfair Display",
+    "font_body": "Inter",
+    "font_mono": "JetBrains Mono",
+    "rank_progression": ["Recruit", "Seaman", "Petty Officer 3rd", "Petty Officer 2nd", "Petty Officer 1st", "Chief", "Senior Chief", "Master Chief"],
+    "aesthetic": "military precision, dark forest green, veteran services, no gratuitous decoration"
+  },
+  "coding_standards": {
+    "observer_pattern": "All state changes emit events. No polling. React state plus event emission.",
+    "no_hardcoding": "All brainstorm content loaded from a data file. Theme tokens in a constants file.",
+    "gamification": "XP system optional toggle. Defaults on. Stored in localStorage.",
+    "accessibility": "All interactive elements keyboard navigable. ARIA labels on all controls.",
+    "privacy": "Voice input uses Web Speech API only — no external service. Graceful degradation if unsupported."
+  },
+  "deliverables": [
+    {
+      "file": "src/components/brainstorm/theme/vetassist-tactical.ts",
+      "purpose": "Theme token constants. No logic — pure data.",
+      "requirements": [
+        "Export VETASSIST_TACTICAL_THEME as ThemeConfig typed object",
+        "All tokens from theme section above",
+        "Sound cue frequencies as constants: SELECT_HZ=880, LOCK_HZ=[523,659], ACHIEVE_HZ=[523,659,784], RANK_HZ=[523,659,784,1047]"
+      ]
+    },
+    {
+      "file": "src/components/brainstorm/gamification/XPEngine.ts",
+      "purpose": "XP calculation, rank progression, achievement tracking. Pure logic, no React.",
+      "xp_rules": {
+        "single_select": 10,
+        "multi_select_per_option": 10,
+        "ranked_reorder": 10,
+        "numeric_scale_per_row": 10,
+        "abc_match_per_row": 10,
+        "free_text_override": 5,
+        "hybrid_composer": 5,
+        "feedback_flag": 5
+      },
+      "rank_thresholds": "200 XP per rank, names from theme.rank_progression array",
+      "achievements": [
+        {"id": "first_decision", "name": "First Decision Locked", "xp": 25, "trigger": "first_answer"},
+        {"id": "voice_recon", "name": "Voice Recon", "xp": 50, "trigger": "first_voice"},
+        {"id": "field_notes", "name": "Field Notes", "xp": 30, "trigger": "first_free_text"},
+        {"id": "after_action", "name": "After Action Review", "xp": 30, "trigger": "first_flag"},
+        {"id": "section_cleared", "name": "Section Cleared", "xp": 75, "trigger": "section_complete"},
+        {"id": "field_manual", "name": "Field Manual Complete", "xp": 200, "trigger": "all_complete"}
+      ]
+    },
+    {
+      "file": "src/components/brainstorm/affordances/VoiceInput.tsx",
+      "purpose": "Web Speech API voice capture. Appends transcript to free-text field.",
+      "requirements": [
+        "Uses window.SpeechRecognition || window.webkitSpeechRecognition",
+        "Returns null (renders nothing) if API not supported — no error shown",
+        "Microphone icon idle, pulsing CSS animation while listening",
+        "On transcript: calls onTranscript(text) prop callback",
+        "Never sends audio to external service — browser-native only"
+      ]
+    },
+    {
+      "file": "src/components/brainstorm/QuestionRenderer.tsx",
+      "purpose": "Renders any of the 6 question types. Delegates to sub-components.",
+      "question_types": ["single", "multi", "true_false", "ranked", "numeric_scale", "abc_match"],
+      "requirements": [
+        "Props: question, value, onChange, theme",
+        "Each type is a separate internal component or import",
+        "All 4 affordances rendered below every question: FreeTextOverride, VoiceInput, HybridComposer, FeedbackFlag",
+        "Affordances always visible — not hidden, not in a menu"
+      ]
+    },
+    {
+      "file": "src/components/brainstorm/data/vetassist-intake.ts",
+      "purpose": "Brainstorm content for VetAssist veteran intake wizard.",
+      "requirements": [
+        "Minimum 4 sections: veteran background, service needs, tech comfort, goals",
+        "Each section minimum 3 questions",
+        "Use at least 4 different question types across the artifact",
+        "All options include rationale explaining the trade-off",
+        "Pre-lock obvious decisions with locked: true"
+      ]
+    },
+    {
+      "file": "src/components/brainstorm/BrainstormWizard.tsx",
+      "purpose": "Top-level wizard. Section nav left, active question right, XP bar top.",
+      "requirements": [
+        "Props: data (intake data), theme (ThemeConfig), onComplete (answers callback)",
+        "useState for answers Record<string, unknown>",
+        "XPEngine integrated — award XP on every answer change",
+        "Section completion detection — mark section done when all questions answered",
+        "Export button when all sections complete — calls onComplete(answers)",
+        "Achievement toast: upper right, 4 seconds, then auto-dismiss"
+      ]
+    }
+  ],
+  "build_order": [
+    "1. theme/vetassist-tactical.ts (no deps)",
+    "2. gamification/XPEngine.ts (no deps)",
+    "3. affordances/VoiceInput.tsx (no deps)",
+    "4. data/vetassist-intake.ts (no deps)",
+    "5. QuestionRenderer.tsx (deps: affordances, theme)",
+    "6. BrainstormWizard.tsx (deps: all above)",
+    "7. USAGE.md — one page for the VetAssist dev team"
+  ]
+}

@@ -1,0 +1,4 @@
+interface:
+  display_name: "AgentForge Agent Contracts"
+  short_description: "Preserve agent contracts and tests."
+  default_prompt: "Use AgentForge Agent Contracts to add or modify an AgentForge agent while preserving the local Agent interface, registry wiring, logs, and verification."

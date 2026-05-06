@@ -243,23 +243,34 @@ describe("ContextManagerAgent", () => {
 // --- Registry ---
 
 describe("createAgents", () => {
-  it("creates 6 agents with backend injection", () => {
+  it("creates 8 agents with backend injection", () => {
     const agents = createAgents(backend);
-    expect(agents).toHaveLength(6);
+    expect(agents).toHaveLength(8);
     expect(agents.map((a) => a.id)).toEqual([
-      "planner", "builder", "reviewer", "tester", "learning", "context",
+      "planner", "builder", "reviewer", "tester", "learning", "context", "pipeline-agent", "brainstorm-agent",
     ]);
   });
 
-  it("creates 6 agents without backend", () => {
+  it("creates 8 agents without backend", () => {
     const agents = createAgents();
-    expect(agents).toHaveLength(6);
+    expect(agents).toHaveLength(8);
   });
 
   it("all agents execute successfully with simulated backend", async () => {
     const agents = createAgents(backend);
+    // Use an input that satisfies all agents, including PipelineAgent (needs command)
+    // and BrainstormAgent (needs projectDescription). Agents that don't use these
+    // fields ignore them gracefully.
+    const universalInput: AgentInput = {
+      taskId: "test-task-all",
+      context: {
+        description: "Build a login page",
+        projectDescription: "Build a login page",
+        command: "status",
+      },
+    };
     const results = await Promise.all(
-      agents.map((a) => a.execute(baseInput)),
+      agents.map((a) => a.execute(universalInput)),
     );
 
     for (const result of results) {

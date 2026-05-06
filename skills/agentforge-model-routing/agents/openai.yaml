@@ -1,0 +1,4 @@
+interface:
+  display_name: "AgentForge Model Routing"
+  short_description: "Maintain provider routing safely."
+  default_prompt: "Use AgentForge Model Routing to change provider selection, fallback, task classification, model health, or budget behavior in AgentForge."

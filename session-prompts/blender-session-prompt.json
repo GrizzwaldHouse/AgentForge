@@ -1,0 +1,126 @@
+{
+  "session_context": {
+    "project": "WorkflowForge — Blender Workflow Automation Addon",
+    "developer": "Marcus Daley",
+    "working_directory": "C:\\Users\\daley\\Projects\\BlenderWorkflowForge",
+    "target": "Production-grade Blender Python addon. No stubs. No minimal code. Full working implementation.",
+    "portfolio_purpose": "Upwork demo + sellable product. Every line must reflect senior-level architecture."
+  },
+  "coding_standards": {
+    "observer_pattern": "All state changes emit events through event_bus.py. Zero polling.",
+    "no_hardcoding": "All workflow names, paths, and config loaded from JSON files. Nothing hardcoded.",
+    "defaults_in_init": "All class defaults set in __init__. Never scattered.",
+    "separation_of_concerns": "UI in ui_panel.py, logic in workflow_engine.py, data in config_loader.py, ops in operators.py.",
+    "comments": "Explain WHY only. No block comments. One line max.",
+    "blender_conventions": "Follow bpy registration conventions exactly. bl_info required. register()/unregister() required.",
+    "no_global_state": "Scene properties via bpy.props only. No module-level mutable state."
+  },
+  "deliverables": [
+    {
+      "file": "addon/__init__.py",
+      "purpose": "Blender addon entry point. Defines bl_info. Calls register/unregister for all classes.",
+      "requirements": [
+        "bl_info with name WorkflowForge, version 1.0.0, blender 3.0.0, category Object",
+        "Imports and registers: operators, ui_panel, event_bus, config_loader, workflow_engine",
+        "Registers bpy.types.Scene.wf_selected_workflow as EnumProperty populated from config_loader",
+        "Registers bpy.types.Scene.wf_log as StringProperty for log output",
+        "Clean unregister removes all registered classes and scene properties"
+      ]
+    },
+    {
+      "file": "addon/event_bus.py",
+      "purpose": "Lightweight observer event bus. Zero polling. All workflow state changes emit here.",
+      "requirements": [
+        "EventBus class with on(event_type, fn), off(event_type, fn), emit(event_type, data)",
+        "Listeners stored as dict of lists. on() returns unsubscribe lambda.",
+        "emit() wraps each listener in try/except to prevent one failure from blocking others",
+        "Module-level singleton: event_bus = EventBus()",
+        "Event types: workflow:started, workflow:step:complete, workflow:step:error, workflow:complete, workflow:failed, workflows:reloaded"
+      ]
+    },
+    {
+      "file": "addon/config_loader.py",
+      "purpose": "Loads and validates workflow JSON files from the addon workflows/ directory.",
+      "requirements": [
+        "get_workflows_dir() returns Path to addon/workflows/ relative to __file__",
+        "load_workflows() reads all .json files, validates required keys: workflow_id, name, steps",
+        "Each step must have: action (str), optional params (dict)",
+        "Returns list of dicts. Emits workflows:reloaded on the event_bus after load.",
+        "get_workflow_enum_items() returns list of (identifier, name, description) tuples for EnumProperty",
+        "Handles missing directory, malformed JSON, missing keys — logs error, skips file, never crashes"
+      ]
+    },
+    {
+      "file": "addon/workflow_engine.py",
+      "purpose": "Executes ordered workflow steps defined in JSON. No UI logic here.",
+      "requirements": [
+        "WorkflowEngine class with execute(workflow_dict, context) method",
+        "Iterates steps in order. For each step: dispatch to action handler, emit workflow:step:complete or workflow:step:error",
+        "Action handlers as dict mapping action string to handler function",
+        "Supported actions: apply_modifier(type, params), recalculate_normals(), apply_transform(location, rotation, scale), decimate(ratio), rename_object(name), set_origin(type)",
+        "Each handler takes (context, params) and returns (success: bool, message: str)",
+        "emit workflow:started before first step, workflow:complete or workflow:failed after last step",
+        "Never import from ui_panel.py or operators.py"
+      ]
+    },
+    {
+      "file": "addon/operators.py",
+      "purpose": "Blender Operator classes. Thin wrappers that call WorkflowEngine and update scene log.",
+      "requirements": [
+        "WF_OT_RunWorkflow: bl_idname wf.run, bl_label Run Workflow. execute() gets selected workflow from scene.wf_selected_workflow, calls WorkflowEngine.execute(), returns FINISHED or CANCELLED",
+        "WF_OT_ReloadWorkflows: bl_idname wf.reload, bl_label Reload Workflows. execute() calls config_loader.load_workflows(), refreshes EnumProperty items, returns FINISHED",
+        "WF_OT_ClearLog: bl_idname wf.clear_log, bl_label Clear. execute() sets scene.wf_log to empty string, returns FINISHED",
+        "All operators subscribe to event_bus to append log lines to scene.wf_log",
+        "Log line format: [checkmark|X|ellipsis] step_name — message",
+        "Operators register via classes list exported for __init__.py"
+      ]
+    },
+    {
+      "file": "addon/ui_panel.py",
+      "purpose": "Blender N-panel sidebar UI. Pure layout code — no business logic.",
+      "requirements": [
+        "WORKFLOWFORGE_PT_Panel: bl_label WorkflowForge, bl_space_type VIEW_3D, bl_region_type UI, bl_category WorkflowForge",
+        "draw() renders: header row (title + gear), workflow dropdown (scene.wf_selected_workflow), info box (step count), run button (wf.run full width), reload button (wf.reload), log box (scene.wf_log split by newline last 20 lines), status bar (version)",
+        "Use layout.box() for log and info sections",
+        "Use layout.operator() for all buttons — never call Python functions directly from draw()",
+        "Status color: green if last log line starts with checkmark, red if X, grey otherwise"
+      ]
+    },
+    {
+      "file": "addon/workflows/optimize_mesh.json",
+      "purpose": "Example workflow — mesh optimization pipeline.",
+      "content": {
+        "workflow_id": "optimize_mesh",
+        "name": "Optimize Mesh",
+        "description": "Decimate, recalculate normals, apply transforms",
+        "steps": [
+          {"action": "decimate", "params": {"ratio": 0.5}},
+          {"action": "recalculate_normals", "params": {}},
+          {"action": "apply_transform", "params": {"location": true, "rotation": true, "scale": true}}
+        ]
+      }
+    },
+    {
+      "file": "addon/workflows/batch_export.json",
+      "purpose": "Example workflow — prep for export.",
+      "content": {
+        "workflow_id": "batch_export",
+        "name": "Batch Export Prep",
+        "description": "Set origin, apply scale, recalculate normals",
+        "steps": [
+          {"action": "set_origin", "params": {"type": "ORIGIN_GEOMETRY"}},
+          {"action": "apply_transform", "params": {"location": false, "rotation": false, "scale": true}},
+          {"action": "recalculate_normals", "params": {}}
+        ]
+      }
+    }
+  ],
+  "instructions": [
+    "Write every file completely. No stubs. No TODO placeholders. No implement later.",
+    "Test mentally: if I zip the addon/ folder and install in Blender 4.x, it must work.",
+    "Follow the coding_standards above on every file.",
+    "Order: event_bus.py, config_loader.py, workflow_engine.py, operators.py, ui_panel.py, __init__.py.",
+    "After all files: write INSTALL.md with exact Blender installation steps.",
+    "After INSTALL.md: write a 60-second Loom script to read aloud while recording the demo."
+  ]
+}
