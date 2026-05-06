@@ -1,11 +1,21 @@
 node_modules/
 .next/
+**/.next/
+**/node_modules/
+**/tsconfig.tsbuildinfo
 .env
 .env.local
 .env.*.local
 *.zip
 *.pdf
 nul
+logs/
+**/logs/
+**/graphify-out/
+**/.omc/
+agentforge_autonomous/FINAL_VALIDATION_REPORT.md
+agentforge_autonomous/SYSTEM_READINESS_REPORT.md
+agentforge_autonomous/SYSTEM_SELF_HEALING_REPORT.md
 
 # User scratchpads and reference docs (not part of the codebase)
 gmail_extracted/

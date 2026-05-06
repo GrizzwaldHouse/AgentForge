@@ -1,0 +1,1375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AgentForge Control Panel — GrizzwaldHouse</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Rajdhani:wght@300;400;500;600;700&family=Orbitron:wght@400;700;900&display=swap');
+
+  :root {
+    --bg-deep:    #050810;
+    --bg-panel:   #080d18;
+    --bg-card:    #0d1525;
+    --bg-hover:   #121e30;
+    --border:     #1a2a40;
+    --border-lit: #2a4a6a;
+    --cyan:       #00c8ff;
+    --cyan-dim:   #0080aa;
+    --green:      #00ff88;
+    --green-dim:  #006644;
+    --amber:      #ffaa00;
+    --amber-dim:  #664400;
+    --red:        #ff3355;
+    --red-dim:    #441122;
+    --purple:     #aa44ff;
+    --text-bright:#e8f4ff;
+    --text-mid:   #7a9ab8;
+    --text-dim:   #3a5268;
+    --mono:       'Share Tech Mono', monospace;
+    --display:    'Orbitron', monospace;
+    --body:       'Rajdhani', sans-serif;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--bg-deep);
+    color: var(--text-mid);
+    font-family: var(--body);
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  /* GRID LINES BACKGROUND */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(0,200,255,0.025) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0,200,255,0.025) 1px, transparent 1px);
+    background-size: 40px 40px;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  /* SCAN LINE EFFECT */
+  body::after {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background: repeating-linear-gradient(
+      0deg, transparent, transparent 2px,
+      rgba(0,0,0,0.08) 2px, rgba(0,0,0,0.08) 4px
+    );
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  #app { position: relative; z-index: 1; }
+
+  /* HEADER */
+  header {
+    border-bottom: 1px solid var(--border-lit);
+    background: linear-gradient(180deg, rgba(0,200,255,0.04) 0%, transparent 100%);
+    padding: 16px 24px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    backdrop-filter: blur(8px);
+  }
+
+  .logo {
+    font-family: var(--display);
+    font-size: 11px;
+    font-weight: 900;
+    color: var(--cyan);
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    line-height: 1.2;
+  }
+
+  .logo small {
+    display: block;
+    font-size: 8px;
+    color: var(--text-dim);
+    letter-spacing: 4px;
+    font-weight: 400;
+  }
+
+  .header-status {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .status-pill {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 14px;
+    border: 1px solid;
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+
+  .pulse-dot {
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    animation: pulse 1.5s ease-in-out infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.4; transform: scale(0.7); }
+  }
+
+  /* MAIN LAYOUT */
+  .main-grid {
+    display: grid;
+    grid-template-columns: 340px 1fr;
+    gap: 0;
+    min-height: calc(100vh - 60px);
+  }
+
+  /* SIDEBAR */
+  .sidebar {
+    border-right: 1px solid var(--border);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  /* LAUNCH BUTTON */
+  .launch-btn {
+    width: 100%;
+    padding: 18px;
+    background: linear-gradient(135deg, #001a30 0%, #003a60 100%);
+    border: 1px solid var(--cyan);
+    color: var(--cyan);
+    font-family: var(--display);
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    cursor: pointer;
+    text-transform: uppercase;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.2s;
+  }
+
+  .launch-btn::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(0,200,255,0.1), transparent);
+    opacity: 0;
+    transition: opacity 0.2s;
+  }
+
+  .launch-btn:hover:not(:disabled)::before { opacity: 1; }
+  .launch-btn:hover:not(:disabled) { box-shadow: 0 0 20px rgba(0,200,255,0.2); }
+  .launch-btn:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+    border-color: var(--text-dim);
+    color: var(--text-dim);
+  }
+
+  .launch-icon { font-size: 20px; display: block; margin-bottom: 6px; }
+
+  /* SECTION HEADER */
+  .section-label {
+    font-family: var(--mono);
+    font-size: 9px;
+    letter-spacing: 3px;
+    color: var(--text-dim);
+    text-transform: uppercase;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 8px;
+  }
+
+  /* METRIC CARDS */
+  .metric-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+  }
+
+  .metric-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    padding: 10px 12px;
+  }
+
+  .metric-label {
+    font-family: var(--mono);
+    font-size: 8px;
+    letter-spacing: 2px;
+    color: var(--text-dim);
+    text-transform: uppercase;
+    margin-bottom: 4px;
+  }
+
+  .metric-value {
+    font-family: var(--display);
+    font-size: 22px;
+    font-weight: 700;
+    line-height: 1;
+  }
+
+  /* REPO LIST */
+  .repo-list {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .repo-item {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    padding: 10px 12px;
+    cursor: pointer;
+    transition: all 0.15s;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .repo-item::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 0; bottom: 0;
+    width: 3px;
+    background: currentColor;
+    opacity: 0;
+    transition: opacity 0.15s;
+  }
+
+  .repo-item:hover { background: var(--bg-hover); }
+  .repo-item.active { border-color: var(--cyan-dim); }
+  .repo-item.active::before { opacity: 1; color: var(--cyan); }
+
+  .repo-name {
+    font-family: var(--body);
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text-bright);
+    margin-bottom: 3px;
+  }
+
+  .repo-role {
+    font-family: var(--mono);
+    font-size: 9px;
+    letter-spacing: 1px;
+    color: var(--text-dim);
+  }
+
+  .repo-badges {
+    display: flex;
+    gap: 6px;
+    margin-top: 6px;
+    flex-wrap: wrap;
+  }
+
+  .badge {
+    font-family: var(--mono);
+    font-size: 8px;
+    letter-spacing: 1px;
+    padding: 2px 6px;
+    border: 1px solid;
+    text-transform: uppercase;
+  }
+
+  .badge-ready { color: var(--green); border-color: var(--green-dim); background: rgba(0,255,136,0.05); }
+  .badge-partial { color: var(--amber); border-color: var(--amber-dim); background: rgba(255,170,0,0.05); }
+  .badge-not-ready { color: var(--red); border-color: var(--red-dim); background: rgba(255,51,85,0.05); }
+  .badge-missing { color: var(--text-dim); border-color: var(--border); }
+  .badge-scanning { color: var(--cyan); border-color: var(--cyan-dim); background: rgba(0,200,255,0.05); }
+  .badge-pending { color: var(--text-dim); border-color: var(--border); }
+
+  /* MAIN CONTENT */
+  .content {
+    padding: 24px;
+    overflow-y: auto;
+  }
+
+  /* TAB NAV */
+  .tab-nav {
+    display: flex;
+    gap: 2px;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 24px;
+  }
+
+  .tab-btn {
+    background: transparent;
+    border: none;
+    color: var(--text-dim);
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 8px 20px;
+    cursor: pointer;
+    border-bottom: 2px solid transparent;
+    margin-bottom: -1px;
+    transition: all 0.15s;
+  }
+
+  .tab-btn:hover { color: var(--text-mid); }
+  .tab-btn.active {
+    color: var(--cyan);
+    border-bottom-color: var(--cyan);
+  }
+
+  /* DETAIL PANEL */
+  .detail-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    margin-bottom: 24px;
+    gap: 20px;
+  }
+
+  .detail-title {
+    font-family: var(--display);
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--text-bright);
+    letter-spacing: 2px;
+    margin-bottom: 4px;
+  }
+
+  .detail-subtitle {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 2px;
+    color: var(--text-dim);
+  }
+
+  .readiness-orb {
+    width: 80px; height: 80px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--mono);
+    font-size: 9px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    text-align: center;
+    flex-shrink: 0;
+    border: 2px solid;
+  }
+
+  .orb-ready { border-color: var(--green); color: var(--green); box-shadow: 0 0 20px rgba(0,255,136,0.2); }
+  .orb-partial { border-color: var(--amber); color: var(--amber); box-shadow: 0 0 20px rgba(255,170,0,0.2); }
+  .orb-not-ready { border-color: var(--red); color: var(--red); box-shadow: 0 0 20px rgba(255,51,85,0.2); }
+  .orb-pending { border-color: var(--border); color: var(--text-dim); }
+
+  /* COMPLIANCE GRID */
+  .compliance-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 8px;
+    margin-bottom: 24px;
+  }
+
+  .compliance-item {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    padding: 12px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .compliance-icon { font-size: 16px; flex-shrink: 0; }
+  .compliance-label {
+    font-family: var(--mono);
+    font-size: 9px;
+    letter-spacing: 1px;
+    color: var(--text-dim);
+    text-transform: uppercase;
+  }
+  .compliance-result {
+    font-family: var(--mono);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1px;
+  }
+  .pass { color: var(--green); }
+  .fail { color: var(--red); }
+  .na { color: var(--text-dim); }
+
+  /* GAP REPORT */
+  .gap-section {
+    margin-bottom: 20px;
+  }
+
+  .gap-section-title {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 2px;
+    color: var(--text-dim);
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    padding-bottom: 6px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .gap-item {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    padding: 12px 16px;
+    margin-bottom: 6px;
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+  }
+
+  .gap-checkbox {
+    width: 16px; height: 16px;
+    border: 1px solid var(--border-lit);
+    flex-shrink: 0;
+    margin-top: 2px;
+    display: flex; align-items: center; justify-content: center;
+    cursor: pointer;
+    font-size: 10px;
+  }
+
+  .gap-checkbox.checked { color: var(--green); border-color: var(--green); }
+
+  .gap-component {
+    font-family: var(--body);
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text-bright);
+    margin-bottom: 2px;
+  }
+
+  .gap-layer {
+    font-family: var(--mono);
+    font-size: 9px;
+    letter-spacing: 1px;
+    color: var(--cyan-dim);
+    margin-bottom: 4px;
+  }
+
+  .gap-reason {
+    font-size: 12px;
+    color: var(--text-mid);
+    line-height: 1.5;
+  }
+
+  .violation-tag {
+    font-family: var(--mono);
+    font-size: 9px;
+    padding: 2px 8px;
+    background: rgba(255,51,85,0.1);
+    border: 1px solid var(--red-dim);
+    color: var(--red);
+    letter-spacing: 1px;
+    margin-right: 6px;
+  }
+
+  /* OVERVIEW STATS */
+  .overview-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: 12px;
+    margin-bottom: 28px;
+  }
+
+  .big-stat {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    padding: 16px;
+    text-align: center;
+  }
+
+  .big-stat-value {
+    font-family: var(--display);
+    font-size: 36px;
+    font-weight: 900;
+    line-height: 1;
+    margin-bottom: 6px;
+  }
+
+  .big-stat-label {
+    font-family: var(--mono);
+    font-size: 9px;
+    letter-spacing: 2px;
+    color: var(--text-dim);
+    text-transform: uppercase;
+  }
+
+  /* LAYER MAP */
+  .layer-map {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: 8px;
+    margin-bottom: 24px;
+  }
+
+  .layer-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    padding: 12px;
+    text-align: center;
+  }
+
+  .layer-icon { font-size: 20px; margin-bottom: 6px; }
+  .layer-name {
+    font-family: var(--mono);
+    font-size: 9px;
+    letter-spacing: 1px;
+    color: var(--text-dim);
+    text-transform: uppercase;
+    margin-bottom: 4px;
+  }
+  .layer-repo {
+    font-family: var(--body);
+    font-size: 11px;
+    font-weight: 600;
+  }
+  .layer-covered { border-color: var(--green-dim); }
+  .layer-covered .layer-name { color: var(--green); }
+  .layer-missing { border-color: var(--red-dim); }
+  .layer-missing .layer-name { color: var(--red); }
+
+  /* BUILD PRIORITY */
+  .priority-item {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-left: 3px solid;
+    padding: 14px 16px;
+    margin-bottom: 8px;
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+  }
+
+  .priority-num {
+    font-family: var(--display);
+    font-size: 24px;
+    font-weight: 900;
+    color: var(--text-dim);
+    flex-shrink: 0;
+    width: 40px;
+    text-align: center;
+  }
+
+  .priority-task {
+    font-family: var(--body);
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text-bright);
+    margin-bottom: 4px;
+  }
+  .priority-why { font-size: 12px; color: var(--text-mid); line-height: 1.5; }
+
+  /* LOG */
+  .log-panel {
+    background: var(--bg-deep);
+    border: 1px solid var(--border);
+    padding: 16px;
+    font-family: var(--mono);
+    font-size: 11px;
+    line-height: 1.8;
+    color: var(--text-dim);
+    max-height: 400px;
+    overflow-y: auto;
+  }
+
+  .log-line { margin-bottom: 2px; }
+  .log-line.info { color: var(--cyan-dim); }
+  .log-line.success { color: var(--green); }
+  .log-line.warn { color: var(--amber); }
+  .log-line.error { color: var(--red); }
+
+  /* PROGRESS BAR */
+  .progress-bar {
+    height: 3px;
+    background: var(--border);
+    margin: 8px 0;
+    overflow: hidden;
+  }
+
+  .progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--cyan), var(--green));
+    transition: width 0.5s ease;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .progress-fill::after {
+    content: '';
+    position: absolute;
+    top: 0; bottom: 0;
+    width: 40px;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+    animation: shimmer 1.5s linear infinite;
+  }
+
+  @keyframes shimmer {
+    0% { left: -40px; }
+    100% { left: 100%; }
+  }
+
+  /* SCROLLBAR */
+  ::-webkit-scrollbar { width: 6px; }
+  ::-webkit-scrollbar-track { background: var(--bg-deep); }
+  ::-webkit-scrollbar-thumb { background: var(--border-lit); border-radius: 3px; }
+  ::-webkit-scrollbar-thumb:hover { background: var(--cyan-dim); }
+
+  /* EMPTY STATE */
+  .empty-state {
+    text-align: center;
+    padding: 60px 20px;
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--text-dim);
+    letter-spacing: 1px;
+  }
+
+  .empty-icon { font-size: 40px; margin-bottom: 16px; opacity: 0.4; }
+</style>
+</head>
+<body>
+<div id="app">
+
+  <!-- HEADER -->
+  <header>
+    <div class="logo">
+      AGENTFORGE
+      <small>GRIZZWALDHOUSE CONTROL PANEL · PRD v2</small>
+    </div>
+    <div class="header-status">
+      <div id="clock" style="font-family:var(--mono);font-size:11px;color:var(--text-dim);letter-spacing:2px;"></div>
+      <div id="header-status-pill" class="status-pill" style="border-color:var(--border);color:var(--text-dim)">
+        <div class="pulse-dot" style="background:var(--text-dim)"></div>
+        <span>IDLE</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- MAIN GRID -->
+  <div class="main-grid">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+
+      <!-- LAUNCH BUTTON -->
+      <button class="launch-btn" id="launch-btn" onclick="startAudit()">
+        <span class="launch-icon">⚡</span>
+        LAUNCH AUDIT
+      </button>
+
+      <!-- PROGRESS -->
+      <div>
+        <div class="section-label">Progress</div>
+        <div class="progress-bar"><div class="progress-fill" id="progress-bar" style="width:0%"></div></div>
+        <div style="font-family:var(--mono);font-size:10px;color:var(--text-dim);margin-top:4px" id="progress-text">Ready</div>
+      </div>
+
+      <!-- METRICS -->
+      <div>
+        <div class="section-label">Summary</div>
+        <div class="metric-grid">
+          <div class="metric-card">
+            <div class="metric-label">Repos</div>
+            <div class="metric-value" id="m-repos" style="color:var(--cyan)">0</div>
+          </div>
+          <div class="metric-card">
+            <div class="metric-label">Ready</div>
+            <div class="metric-value" id="m-ready" style="color:var(--green)">0</div>
+          </div>
+          <div class="metric-card">
+            <div class="metric-label">Gaps</div>
+            <div class="metric-value" id="m-gaps" style="color:var(--amber)">0</div>
+          </div>
+          <div class="metric-card">
+            <div class="metric-label">Violations</div>
+            <div class="metric-value" id="m-violations" style="color:var(--red)">0</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- REPO LIST -->
+      <div style="flex:1;overflow-y:auto">
+        <div class="section-label">Repositories</div>
+        <div class="repo-list" id="repo-list">
+          <!-- populated by JS -->
+        </div>
+      </div>
+
+    </aside>
+
+    <!-- CONTENT -->
+    <main class="content">
+      <div class="tab-nav">
+        <button class="tab-btn active" onclick="switchTab('overview')">Overview</button>
+        <button class="tab-btn" onclick="switchTab('detail')">Repo Detail</button>
+        <button class="tab-btn" onclick="switchTab('gaps')">Gap Report</button>
+        <button class="tab-btn" onclick="switchTab('build')">Build Plan</button>
+        <button class="tab-btn" onclick="switchTab('log')">Agent Log</button>
+      </div>
+
+      <div id="tab-overview">
+        <!-- LAYER MAP -->
+        <div class="section-label" style="margin-bottom:12px">AgentForge Biomechanical Layer Coverage</div>
+        <div class="layer-map" id="layer-map"></div>
+
+        <!-- STATS ROW -->
+        <div class="section-label" style="margin-bottom:12px">Audit Statistics</div>
+        <div class="overview-grid" id="stats-grid">
+          <div class="big-stat"><div class="big-stat-value" style="color:var(--cyan)" id="ov-total">0</div><div class="big-stat-label">Repos Targeted</div></div>
+          <div class="big-stat"><div class="big-stat-value" style="color:var(--green)" id="ov-ready">0</div><div class="big-stat-label">AF Ready</div></div>
+          <div class="big-stat"><div class="big-stat-value" style="color:var(--amber)" id="ov-partial">0</div><div class="big-stat-label">Partial</div></div>
+          <div class="big-stat"><div class="big-stat-value" style="color:var(--red)" id="ov-not-ready">0</div><div class="big-stat-label">Not Ready</div></div>
+          <div class="big-stat"><div class="big-stat-value" style="color:var(--purple)" id="ov-missing">0</div><div class="big-stat-label">Missing Repos</div></div>
+          <div class="big-stat"><div class="big-stat-value" style="color:var(--red)" id="ov-violations">0</div><div class="big-stat-label">PRD Violations</div></div>
+        </div>
+
+        <div class="empty-state" id="overview-empty">
+          <div class="empty-icon">🦉</div>
+          <div>Click LAUNCH AUDIT to begin.</div>
+          <div style="margin-top:8px;opacity:0.6">All repos will be scanned and classified against the AgentForge PRD v2 biomechanical model.</div>
+        </div>
+      </div>
+
+      <div id="tab-detail" style="display:none">
+        <div id="detail-content">
+          <div class="empty-state">
+            <div class="empty-icon">📋</div>
+            <div>Select a repo from the sidebar to view its audit detail.</div>
+          </div>
+        </div>
+      </div>
+
+      <div id="tab-gaps" style="display:none">
+        <div id="gaps-content">
+          <div class="empty-state">
+            <div class="empty-icon">🔍</div>
+            <div>Run an audit to generate the AgentForge gap report.</div>
+          </div>
+        </div>
+      </div>
+
+      <div id="tab-build" style="display:none">
+        <div id="build-content">
+          <div class="empty-state">
+            <div class="empty-icon">🏗</div>
+            <div>Run an audit to generate the AgentForge build priority plan.</div>
+          </div>
+        </div>
+      </div>
+
+      <div id="tab-log" style="display:none">
+        <div class="log-panel" id="log-panel">
+          <div class="log-line">// AgentForge Control Panel ready.</div>
+          <div class="log-line">// Click LAUNCH AUDIT to begin multi-repo scan.</div>
+        </div>
+      </div>
+
+    </main>
+  </div>
+</div>
+
+<script>
+// ─── STATE ──────────────────────────────────────────────────────────────────
+let _state = null;
+let _selectedRepo = null;
+let _activeTab = 'overview';
+let _checkedGaps = {};
+let _pollInterval = null;
+
+const LAYER_META = {
+  HEART:          { icon: '❤️',  label: 'Heart',         desc: 'Orchestrator / DSL State Machine' },
+  NERVOUS_SYSTEM: { icon: '⚡',  label: 'Nervous System', desc: 'OwlWatcher / Event Bus' },
+  BRAIN:          { icon: '🧠',  label: 'Brain',          desc: 'Knowledge Graph / RAG' },
+  MUSCLES:        { icon: '💪',  label: 'Muscles',        desc: 'Execution / Playwright / n8n' },
+  SKIN:           { icon: '🛡',  label: 'Skin',           desc: 'Auth / Validation / API Gateway' },
+  ENDOCRINE:      { icon: '⚙️',  label: 'Endocrine',      desc: 'Config / Feature Flags' },
+  SKELETAL:       { icon: '🦴',  label: 'Skeletal',       desc: 'Contracts / Interfaces / Events' },
+  LYMPHATIC:      { icon: '📊',  label: 'Lymphatic',      desc: 'Observability / Metrics / Logs' },
+  UI:             { icon: '🖥',  label: 'UI',             desc: 'Frontend / Dashboard / Controls' },
+};
+
+const REPO_LAYER_MAP = {
+  'AgentForge':        ['HEART', 'NERVOUS_SYSTEM', 'SKELETAL'],
+  'cowork-skills':     ['BRAIN', 'SKELETAL'],
+  'BrightForge':       ['MUSCLES', 'UI'],
+  'portfolio-website': ['UI', 'SKIN'],
+  'StructuredLogging': ['LYMPHATIC'],
+  'Bob-AICompanion':   ['MUSCLES', 'NERVOUS_SYSTEM'],
+  'VetAssist':         ['MUSCLES'],
+  'grizz-optimizer':   ['ENDOCRINE', 'BRAIN'],
+};
+
+// ─── CLOCK ──────────────────────────────────────────────────────────────────
+setInterval(() => {
+  const now = new Date();
+  document.getElementById('clock').textContent =
+    now.toLocaleTimeString('en-US', { hour12: false }) + ' UTC' +
+    (now.getTimezoneOffset() > 0 ? '-' : '+') +
+    String(Math.abs(now.getTimezoneOffset() / 60)).padStart(2, '0');
+}, 1000);
+
+// ─── TAB SWITCHING ──────────────────────────────────────────────────────────
+function switchTab(tab) {
+  _activeTab = tab;
+  ['overview','detail','gaps','build','log'].forEach(t => {
+    document.getElementById('tab-' + t).style.display = t === tab ? 'block' : 'none';
+  });
+  document.querySelectorAll('.tab-btn').forEach((btn, i) => {
+    const tabs = ['overview','detail','gaps','build','log'];
+    btn.classList.toggle('active', tabs[i] === tab);
+  });
+  if (tab === 'log') scrollLog();
+}
+
+// ─── API ────────────────────────────────────────────────────────────────────
+async function fetchState() {
+  try {
+    const r = await fetch('/api/state');
+    _state = await r.json();
+    render();
+  } catch(e) {
+    // Server might not be running in artifact mode
+    renderDemo();
+  }
+}
+
+async function startAudit() {
+  const btn = document.getElementById('launch-btn');
+  btn.disabled = true;
+  btn.textContent = '⏳ LAUNCHING...';
+  try {
+    await fetch('/api/run', { method: 'POST' });
+    if (!_pollInterval) {
+      _pollInterval = setInterval(fetchState, 1000);
+    }
+  } catch(e) {
+    // Demo mode
+    runDemoMode();
+  }
+}
+
+// ─── RENDER ─────────────────────────────────────────────────────────────────
+function render() {
+  if (!_state) return;
+  updateHeaderStatus();
+  updateSidebar();
+  updateOverview();
+  updateGaps();
+  updateBuildPlan();
+  updateLog();
+  if (_selectedRepo) renderDetail(_selectedRepo);
+}
+
+function updateHeaderStatus() {
+  const pill = document.getElementById('header-status-pill');
+  const status = _state.status || 'IDLE';
+  const colors = {
+    IDLE: ['var(--text-dim)', 'var(--border)'],
+    CLONING: ['var(--amber)', 'var(--amber-dim)'],
+    SCANNING: ['var(--cyan)', 'var(--cyan-dim)'],
+    COMPLETE: ['var(--green)', 'var(--green-dim)'],
+    ERROR: ['var(--red)', 'var(--red-dim)'],
+  };
+  const [color, border] = colors[status] || colors.IDLE;
+  pill.style.borderColor = border;
+  pill.style.color = color;
+  pill.innerHTML = `<div class="pulse-dot" style="background:${color};${status==='COMPLETE'?'animation:none':''}"></div><span>${status}</span>`;
+
+  if (status === 'COMPLETE' || status === 'IDLE') {
+    const btn = document.getElementById('launch-btn');
+    btn.disabled = false;
+    btn.innerHTML = '<span class="launch-icon">⚡</span>LAUNCH AUDIT';
+    if (_pollInterval) { clearInterval(_pollInterval); _pollInterval = null; }
+  }
+}
+
+function updateSidebar() {
+  const repos = _state.repos || {};
+  const names = Object.keys(repos).length > 0 ? Object.keys(repos) :
+    ['AgentForge','cowork-skills','BrightForge','portfolio-website',
+     'StructuredLogging','Bob-AICompanion','VetAssist','grizz-optimizer'];
+
+  let ready = 0, violations = 0, gaps = 0;
+  Object.values(repos).forEach(r => {
+    if (r.readiness === 'READY') ready++;
+    violations += r.prd_violations || 0;
+    const g = r.gaps || {};
+    gaps += (g.missing_components || []).length;
+  });
+
+  document.getElementById('m-repos').textContent = names.length;
+  document.getElementById('m-ready').textContent = ready;
+  document.getElementById('m-gaps').textContent = gaps;
+  document.getElementById('m-violations').textContent = violations;
+
+  // Progress
+  const total = names.length;
+  const done = Object.values(repos).filter(r =>
+    ['COMPLETE','ERROR','MISSING'].includes(r.status)).length;
+  const pct = total > 0 ? Math.round((done / total) * 100) : 0;
+  document.getElementById('progress-bar').style.width = pct + '%';
+  document.getElementById('progress-text').textContent =
+    _state.status === 'COMPLETE' ? 'Audit Complete' :
+    _state.status === 'IDLE' ? 'Ready' :
+    `${done} / ${total} repos scanned`;
+
+  // Repo list
+  const list = document.getElementById('repo-list');
+  list.innerHTML = names.map(name => {
+    const r = repos[name] || { name, status: 'PENDING',
+      expected_role: (REPO_LAYER_MAP[name] || []).join(' + ') };
+    const isActive = _selectedRepo === name;
+    const badgeClass = {
+      COMPLETE: r.readiness === 'READY' ? 'badge-ready' :
+                r.readiness === 'PARTIAL' ? 'badge-partial' : 'badge-not-ready',
+      SCANNING: 'badge-scanning',
+      ERROR: 'badge-not-ready',
+      MISSING: 'badge-missing',
+      CLONING: 'badge-scanning',
+    }[r.status] || 'badge-pending';
+
+    const badgeText = r.status === 'COMPLETE' ? (r.readiness || 'UNKNOWN') :
+                      r.status === 'MISSING' ? 'NOT FOUND' : r.status;
+
+    return `<div class="repo-item${isActive?' active':''}" onclick="selectRepo('${name}')">
+      <div class="repo-name">${name}</div>
+      <div class="repo-role">${(r.expected_role || '').split(' + ').slice(0,2).join(' · ')}</div>
+      <div class="repo-badges">
+        <span class="badge ${badgeClass}">${badgeText}</span>
+        ${(r.prd_violations || 0) > 0 ? `<span class="badge badge-not-ready">${r.prd_violations} VIOLATIONS</span>` : ''}
+      </div>
+    </div>`;
+  }).join('');
+}
+
+function updateOverview() {
+  const repos = _state.repos || {};
+  const gap = _state.agentforge_gap_report || {};
+
+  const total = Object.keys(repos).length || 8;
+  const ready = Object.values(repos).filter(r => r.readiness === 'READY').length;
+  const partial = Object.values(repos).filter(r => r.readiness === 'PARTIAL').length;
+  const notReady = Object.values(repos).filter(r => r.readiness === 'NOT_READY').length;
+  const missing = Object.values(repos).filter(r => r.status === 'MISSING').length;
+  const violations = Object.values(repos).reduce((s, r) => s + (r.prd_violations || 0), 0);
+
+  document.getElementById('ov-total').textContent = total;
+  document.getElementById('ov-ready').textContent = ready;
+  document.getElementById('ov-partial').textContent = partial;
+  document.getElementById('ov-not-ready').textContent = notReady;
+  document.getElementById('ov-missing').textContent = missing;
+  document.getElementById('ov-violations').textContent = violations;
+
+  // Layer map
+  const covered = gap.monorepo_layers_covered || [];
+  const missingLayers = gap.monorepo_layers_missing || [];
+  const layerMap = document.getElementById('layer-map');
+  layerMap.innerHTML = Object.entries(LAYER_META).map(([key, meta]) => {
+    const isCovered = covered.includes(key);
+    const repos_with_layer = Object.entries(REPO_LAYER_MAP)
+      .filter(([, layers]) => layers.includes(key))
+      .map(([name]) => name);
+    const isMissing = missingLayers.includes(key);
+    const cls = isCovered ? 'layer-covered' : (isMissing ? 'layer-missing' : '');
+    const repoLabel = repos_with_layer[0] || '—';
+    return `<div class="layer-card ${cls}">
+      <div class="layer-icon">${meta.icon}</div>
+      <div class="layer-name">${meta.label}</div>
+      <div class="layer-repo" style="color:${isCovered?'var(--green)':isMissing?'var(--red)':'var(--text-dim)'}">${repoLabel}</div>
+    </div>`;
+  }).join('');
+
+  // Hide empty state if audit ran
+  const empty = document.getElementById('overview-empty');
+  if (empty) empty.style.display = Object.keys(repos).length > 0 ? 'none' : 'block';
+}
+
+function selectRepo(name) {
+  _selectedRepo = name;
+  updateSidebar();
+  renderDetail(name);
+  switchTab('detail');
+}
+
+function renderDetail(name) {
+  const repos = _state ? _state.repos || {} : {};
+  const r = repos[name];
+  const container = document.getElementById('detail-content');
+
+  if (!r || r.status === 'PENDING' || r.status === 'QUEUED') {
+    container.innerHTML = `<div class="empty-state"><div class="empty-icon">⏳</div><div>${name} — waiting to be scanned...</div></div>`;
+    return;
+  }
+
+  if (r.status === 'MISSING') {
+    container.innerHTML = `<div class="empty-state">
+      <div class="empty-icon">⚠️</div>
+      <div style="color:var(--amber)">${name} — Repository Not Found</div>
+      <div style="margin-top:12px;font-size:12px">${r.error || ''}</div>
+      <div style="margin-top:16px;font-family:var(--mono);font-size:10px;color:var(--text-dim)">
+        Create it at: <span style="color:var(--cyan)">github.com/GrizzwaldHouse/${name}</span><br>
+        Then re-run the audit.
+      </div>
+    </div>`;
+    return;
+  }
+
+  const compliance = r.compliance || {};
+  const stats = r.stats || {};
+  const gaps = r.gaps || {};
+  const readiness = r.readiness || 'UNKNOWN';
+  const orbClass = readiness === 'READY' ? 'orb-ready' :
+                   readiness === 'PARTIAL' ? 'orb-partial' :
+                   readiness === 'NOT_READY' ? 'orb-not-ready' : 'orb-pending';
+
+  const complianceItems = [
+    { label: 'No Polling', pass: compliance.no_polling_loops, na: false },
+    { label: 'No Hardcode', pass: compliance.no_hardcoded_values, na: false },
+    { label: 'Config File', pass: compliance.config_file_present, na: false },
+    { label: 'Observer Pattern', pass: compliance.observer_pattern_used, na: false },
+    { label: 'VRAM Watchdog', pass: compliance.vram_watchdog_present, na: !stats.stack?.includes('Python') },
+    { label: 'No EM Dashes', pass: compliance.no_em_dashes, na: false },
+    { label: '.env.example', pass: compliance.env_example_present, na: false },
+  ];
+
+  const missingComponents = gaps.missing_components || [];
+  const prdViolations = gaps.prd_violations || [];
+
+  container.innerHTML = `
+    <div class="detail-header">
+      <div>
+        <div class="detail-title">${name}</div>
+        <div class="detail-subtitle">${r.expected_role || ''}</div>
+        <div style="margin-top:8px;font-family:var(--mono);font-size:10px;color:var(--text-dim)">
+          Stack: ${(stats.stack || []).join(', ') || 'Detecting...'}
+        </div>
+      </div>
+      <div class="readiness-orb ${orbClass}">${readiness.replace('_',' ')}</div>
+    </div>
+
+    <div class="section-label">Compliance Scorecard</div>
+    <div class="compliance-grid" style="margin-bottom:24px">
+      ${complianceItems.map(c => `<div class="compliance-item">
+        <div class="compliance-icon">${c.na ? '➖' : c.pass ? '✅' : '❌'}</div>
+        <div>
+          <div class="compliance-label">${c.label}</div>
+          <div class="compliance-result ${c.na ? 'na' : c.pass ? 'pass' : 'fail'}">
+            ${c.na ? 'N/A' : c.pass ? 'PASS' : 'FAIL'}
+          </div>
+        </div>
+      </div>`).join('')}
+    </div>
+
+    <div class="section-label">Audit Statistics</div>
+    <div class="metric-grid" style="margin-bottom:24px">
+      <div class="metric-card"><div class="metric-label">Files Scanned</div><div class="metric-value" style="color:var(--cyan)">${stats.filesScanned || 0}</div></div>
+      <div class="metric-card"><div class="metric-label">Functions</div><div class="metric-value" style="color:var(--cyan)">${stats.functionsFound || 0}</div></div>
+      <div class="metric-card"><div class="metric-label">Open TODOs</div><div class="metric-value" style="color:var(--amber)">${stats.openTodos || 0}</div></div>
+      <div class="metric-card"><div class="metric-label">Test Files</div><div class="metric-value" style="color:${(stats.testFiles||0)>0?'var(--green)':'var(--red)'}">${stats.testFiles || 0}</div></div>
+    </div>
+
+    ${prdViolations.length > 0 ? `
+    <div class="section-label">PRD Violations (${prdViolations.length})</div>
+    <div style="margin-bottom:24px">
+      ${prdViolations.map(v => `<div class="gap-item">
+        <span class="violation-tag">${v.type}</span>
+        <div>
+          <div style="font-family:var(--mono);font-size:10px;color:var(--text-dim);margin-bottom:4px">${v.location}</div>
+          <div class="gap-reason">Fix: ${v.fix}</div>
+        </div>
+      </div>`).join('')}
+    </div>` : ''}
+
+    ${missingComponents.length > 0 ? `
+    <div class="section-label">Missing Components (${missingComponents.length})</div>
+    <div>
+      ${missingComponents.map((m, i) => `<div class="gap-item">
+        <div class="gap-checkbox ${_checkedGaps[name+'_'+i]?'checked':''}" onclick="toggleGap('${name}',${i})">
+          ${_checkedGaps[name+'_'+i]?'✓':''}
+        </div>
+        <div>
+          <div class="gap-component">${m.component}</div>
+          <div class="gap-layer">${m.layer}</div>
+          <div class="gap-reason">${m.reason}</div>
+        </div>
+      </div>`).join('')}
+    </div>` : '<div style="font-family:var(--mono);font-size:11px;color:var(--green)">✓ No missing components detected</div>'}
+  `;
+}
+
+function toggleGap(repo, idx) {
+  const key = repo + '_' + idx;
+  _checkedGaps[key] = !_checkedGaps[key];
+  if (_selectedRepo) renderDetail(_selectedRepo);
+}
+
+function updateGaps() {
+  const repos = _state ? _state.repos || {} : {};
+  const gap = _state ? _state.agentforge_gap_report || {} : {};
+  const container = document.getElementById('gaps-content');
+
+  if (Object.keys(repos).length === 0) {
+    container.innerHTML = '<div class="empty-state"><div class="empty-icon">🔍</div><div>Run an audit to generate the AgentForge gap report.</div></div>';
+    return;
+  }
+
+  let html = '';
+
+  // Overall layers missing
+  const missingLayers = gap.monorepo_layers_missing || [];
+  if (missingLayers.length > 0) {
+    html += `<div class="gap-section">
+      <div class="gap-section-title">⚠ AgentForge Biomechanical Layers Not Yet Covered</div>
+      ${missingLayers.map(l => {
+        const meta = LAYER_META[l] || { icon: '?', label: l, desc: '' };
+        return `<div class="gap-item">
+          <div style="font-size:20px">${meta.icon}</div>
+          <div>
+            <div class="gap-component">${meta.label} (${l})</div>
+            <div class="gap-reason">${meta.desc} — No repo currently covers this layer.</div>
+          </div>
+        </div>`;
+      }).join('')}
+    </div>`;
+  }
+
+  // Per-repo gaps
+  Object.entries(repos).forEach(([name, r]) => {
+    const gaps = r.gaps || {};
+    const missing = gaps.missing_components || [];
+    const violations = gaps.prd_violations || [];
+    const configNeeded = gaps.config_files_needed || [];
+
+    if (missing.length + violations.length + configNeeded.length === 0) return;
+
+    html += `<div class="gap-section">
+      <div class="gap-section-title">${name} — ${missing.length + violations.length + configNeeded.length} items</div>
+      ${violations.map(v => `<div class="gap-item">
+        <span class="violation-tag">PRD VIOLATION</span>
+        <div>
+          <div class="gap-component">${v.type}</div>
+          <div class="gap-layer">${v.location || ''}</div>
+          <div class="gap-reason">${v.fix}</div>
+        </div>
+      </div>`).join('')}
+      ${missing.map(m => `<div class="gap-item">
+        <div style="font-size:16px">❌</div>
+        <div>
+          <div class="gap-component">${m.component}</div>
+          <div class="gap-layer">${m.layer}</div>
+          <div class="gap-reason">${m.reason}</div>
+        </div>
+      </div>`).join('')}
+      ${configNeeded.map(c => `<div class="gap-item">
+        <div style="font-size:16px">📄</div>
+        <div>
+          <div class="gap-component">${c.filename}</div>
+          <div class="gap-layer">ENDOCRINE / Config</div>
+          <div class="gap-reason">${c.purpose}</div>
+        </div>
+      </div>`).join('')}
+    </div>`;
+  });
+
+  container.innerHTML = html || '<div style="font-family:var(--mono);font-size:12px;color:var(--green);padding:20px">✓ No gaps detected.</div>';
+}
+
+function updateBuildPlan() {
+  const gap = _state ? _state.agentforge_gap_report || {} : {};
+  const container = document.getElementById('build-content');
+
+  const priority = gap.build_priority || [];
+  if (priority.length === 0) {
+    container.innerHTML = '<div class="empty-state"><div class="empty-icon">🏗</div><div>Run an audit to generate the AgentForge build priority plan.</div></div>';
+    return;
+  }
+
+  const borderColors = ['var(--red)', 'var(--amber)', 'var(--cyan)', 'var(--green)', 'var(--purple)'];
+
+  container.innerHTML = `
+    <div class="section-label" style="margin-bottom:16px">AgentForge MVS Build Priority — Ordered by Dependency</div>
+    ${priority.map((item, i) => `
+      <div class="priority-item" style="border-left-color:${borderColors[i % borderColors.length]}">
+        <div class="priority-num" style="color:${borderColors[i % borderColors.length]}">${item.priority}</div>
+        <div>
+          <div class="priority-task">${item.task}</div>
+          <div class="gap-layer">${item.layer}</div>
+          <div class="priority-why">${item.why}</div>
+        </div>
+      </div>
+    `).join('')}
+
+    <div style="margin-top:24px;padding:16px;background:var(--bg-card);border:1px solid var(--border)">
+      <div class="section-label" style="margin-bottom:12px">AgentForge MVS Agent Checklist (PRD v2)</div>
+      ${[
+        { id: 'A1', label: 'Job Ingestion Agent', layer: 'MUSCLES', desc: 'Reads job listings, emits JOB_DISCOVERED events, deduplicates by job ID' },
+        { id: 'A2', label: 'Job Matching Agent', layer: 'MUSCLES', desc: 'Scores jobs against Marcus profile, emits JOB_MATCHED or JOB_REJECTED' },
+        { id: 'A3', label: 'Proposal Generator', layer: 'MUSCLES', desc: 'Calls Qwen3-Coder-30B locally or HF Inference fallback, emits PROPOSAL_GENERATED' },
+        { id: 'A4', label: 'Output Formatter', layer: 'MUSCLES', desc: 'Formats for Upwork/LinkedIn/email, emits APPLICATION_READY' },
+        { id: 'A5', label: 'Token Optimizer', layer: 'ENDOCRINE', desc: 'Monitors token budget, switches models, logs all MODEL_SWITCHED events' },
+      ].map(a => `<div class="gap-item" style="margin-bottom:4px">
+        <div class="gap-checkbox" style="background:var(--bg-deep)"></div>
+        <div>
+          <div class="gap-component">${a.id}: ${a.label}</div>
+          <div class="gap-layer">${a.layer}</div>
+          <div class="gap-reason">${a.desc}</div>
+        </div>
+      </div>`).join('')}
+    </div>
+  `;
+}
+
+function updateLog() {
+  const log = _state ? _state.log || [] : [];
+  const panel = document.getElementById('log-panel');
+  if (log.length === 0) return;
+
+  panel.innerHTML = log.map(line => {
+    const cls = line.includes('ERROR') || line.includes('FAIL') || line.includes('Exception') ? 'error' :
+                line.includes('COMPLETE') || line.includes('SUCCESS') || line.includes('OK') ? 'success' :
+                line.includes('WARN') || line.includes('timeout') ? 'warn' : 'info';
+    return `<div class="log-line ${cls}">${escHtml(line)}</div>`;
+  }).join('');
+
+  scrollLog();
+}
+
+function scrollLog() {
+  const panel = document.getElementById('log-panel');
+  panel.scrollTop = panel.scrollHeight;
+}
+
+function escHtml(s) {
+  return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+}
+
+// ─── DEMO MODE (when not connected to Python server) ─────────────────────────
+function renderDemo() {
+  const DEMO_REPOS = ['AgentForge','cowork-skills','BrightForge','portfolio-website',
+                      'StructuredLogging','Bob-AICompanion','VetAssist','grizz-optimizer'];
+  _state = {
+    status: 'IDLE',
+    repos: Object.fromEntries(DEMO_REPOS.map(name => [name, {
+      name, status: 'PENDING', expected_role: (REPO_LAYER_MAP[name] || []).join(' + '),
+      readiness: null, prd_violations: 0,
+    }])),
+    log: ['// AgentForge Control Panel — Demo Mode', '// Start Python server: python3 agentforge_control.py', '// Then open: http://localhost:8765'],
+    agentforge_gap_report: {},
+  };
+  render();
+}
+
+function runDemoMode() {
+  // Simulate a scan for demo purposes
+  const DEMO_REPOS = ['AgentForge','cowork-skills','BrightForge','portfolio-website',
+                      'StructuredLogging','Bob-AICompanion','VetAssist','grizz-optimizer'];
+  const READINESS = ['NOT_READY','PARTIAL','PARTIAL','NOT_READY','PARTIAL','PARTIAL','NOT_READY','PARTIAL'];
+
+  _state = { status: 'SCANNING', repos: {}, log: [], agentforge_gap_report: {} };
+
+  DEMO_REPOS.forEach((name, i) => {
+    _state.repos[name] = {
+      name, status: 'QUEUED',
+      expected_role: (REPO_LAYER_MAP[name] || []).join(' + '),
+      readiness: null, prd_violations: 0, gaps: {}, compliance: {}, stats: {},
+    };
+  });
+
+  render();
+
+  let i = 0;
+  const interval = setInterval(() => {
+    if (i >= DEMO_REPOS.length) {
+      clearInterval(interval);
+      _state.status = 'COMPLETE';
+      _state.agentforge_gap_report = {
+        monorepo_layers_covered: ['MUSCLES', 'LYMPHATIC', 'BRAIN', 'UI'],
+        monorepo_layers_missing: ['HEART', 'NERVOUS_SYSTEM', 'SKIN', 'ENDOCRINE', 'SKELETAL'],
+        total_prd_violations: 7,
+        total_missing_components: 23,
+        repos_ready: [],
+        repos_partial: ['cowork-skills','BrightForge','StructuredLogging','Bob-AICompanion','grizz-optimizer'],
+        repos_not_ready: ['AgentForge','portfolio-website','VetAssist'],
+        repos_missing: [],
+        build_priority: [
+          { priority:1, task:'Define AgentForge event contracts (SKELETAL layer)', layer:'SKELETAL', why:'All other layers depend on shared event types and interfaces' },
+          { priority:2, task:'Build OwlWatcher event bus (NERVOUS_SYSTEM layer)', layer:'NERVOUS_SYSTEM', why:'All agents communicate through this. Required before any agent can run.' },
+          { priority:3, task:'Create config module (ENDOCRINE layer)', layer:'ENDOCRINE', why:'No hardcoded values. All settings must load from config.' },
+          { priority:4, task:'Build AgenticOS state machine (HEART layer)', layer:'HEART', why:'Orchestrates all agents. Required for MVS pipeline to run.' },
+          { priority:5, task:'Implement execution layer — A1-A5 agents (MUSCLES layer)', layer:'MUSCLES', why:'This IS the MVS. A1-A5 = Find Money pipeline.' },
+        ],
+      };
+      render();
+      return;
+    }
+
+    const name = DEMO_REPOS[i];
+    const readiness = READINESS[i];
+    _state.repos[name] = {
+      name, status: 'COMPLETE',
+      expected_role: (REPO_LAYER_MAP[name] || []).join(' + '),
+      readiness,
+      prd_violations: Math.floor(Math.random() * 4),
+      stats: { filesScanned: Math.floor(Math.random()*30)+5, functionsFound: Math.floor(Math.random()*60)+8,
+               openTodos: Math.floor(Math.random()*10), testFiles: Math.floor(Math.random()*3), stack: ['Python','TypeScript'] },
+      compliance: {
+        no_polling_loops: Math.random() > 0.3,
+        no_hardcoded_values: Math.random() > 0.4,
+        config_file_present: Math.random() > 0.3,
+        observer_pattern_used: Math.random() > 0.5,
+        vram_watchdog_present: false,
+        no_em_dashes: Math.random() > 0.2,
+        env_example_present: Math.random() > 0.5,
+        em_dash_count: 0, hardcoded_count: Math.floor(Math.random()*5),
+      },
+      gaps: {
+        missing_components: [
+          { component: 'OwlWatcher integration', layer: 'NERVOUS_SYSTEM', reason: 'No event bus detected. Required by PRD v2.' },
+          { component: 'SESSION_HANDOFF.md', layer: 'LYMPHATIC', reason: 'Required by Marcus Check-In Protocol' },
+          { component: '.env.example', layer: 'ENDOCRINE', reason: 'Secrets management template missing' },
+        ].slice(0, Math.floor(Math.random()*3)+1),
+        prd_violations: [
+          { type: 'POLLING_LOOP', location: 'src/watcher.py:45', fix: 'Replace with event listener' },
+          { type: 'HARDCODED_VALUE', location: 'src/config.py:12', fix: 'Move to config.json' },
+        ].slice(0, Math.floor(Math.random()*2)),
+        config_files_needed: [],
+        event_contracts_needed: [],
+      },
+      error: null, elapsed_seconds: (Math.random() * 8 + 1).toFixed(1),
+    };
+    _state.log.push(`[${new Date().toLocaleTimeString()}] [${name}] Audit complete — ${readiness}`);
+    render();
+    i++;
+  }, 500);
+}
+
+// ─── INIT ────────────────────────────────────────────────────────────────────
+renderDemo();
+
+// Try to connect to real server
+fetchState().catch(() => {});
+setInterval(() => {
+  if (_state && _state.status === 'SCANNING') fetchState().catch(() => {});
+}, 2000);
+</script>
+</body>
+</html>

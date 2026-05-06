@@ -1,0 +1,392 @@
+[
+  {
+    "name": "progress-helper.ts",
+    "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\agents\\progress-helper.ts",
+    "category": "agent",
+    "organ_hint": "Unmapped"
+  },
+  {
+    "name": "registry.ts",
+    "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\agents\\registry.ts",
+    "category": "agent",
+    "organ_hint": "Unmapped"
+  },
+  {
+    "name": "schemas.ts",
+    "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\agents\\schemas.ts",
+    "category": "agent",
+    "organ_hint": "Unmapped"
+  },
+  {
+    "name": "BrainstormAgent.ts",
+    "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\agents\\brainstorm\\BrainstormAgent.ts",
+    "category": "agent",
+    "organ_hint": "Unmapped"
+  },
+  {
+    "name": "types.ts",
+    "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\agents\\brainstorm\\types.ts",
+    "category": "agent",
+    "organ_hint": "Skeletal"
+  },
+  {
+    "name": "BuilderAgent.ts",
+    "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\agents\\builder\\BuilderAgent.ts",
+    "category": "agent",
+    "organ_hint": "Unmapped"
+  },
+  {
+    "name": "ContextManagerAgent.ts",
+    "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\agents\\context\\ContextManagerAgent.ts",
+    "category": "agent",
+    "organ_hint": "Unmapped"
+  },
+  {
+    "name": "ClassificationAgent.ts",
+    "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\agents\\gmail\\ClassificationAgent.ts",
+    "category": "agent",
+    "organ_hint": "Unmapped"
+  },
+  {
+    "name": "GmailResponseAgent.ts",
+    "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\agents\\gmail\\GmailResponseAgent.ts",
+    "category": "agent",
+    "organ_hint": "Unmapped"
+  },
+  {
+    "name": "index.ts",
+    "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\agents\\gmail\\index.ts",
+    "category": "agent",
+    "organ_hint": "Unmapped"
+  },
+  {
+    "name": "PriorityAgent.ts",
+    "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\agents\\gmail\\PriorityAgent.ts",
+    "category": "agent",
+    "organ_hint": "Unmapped"
+  },
+  {
+    "name": "types.ts",
+    "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\agents\\gmail\\types.ts",
+    "category": "agent",
+    "organ_hint": "Skeletal"
+  },
+  {
+    "name": "LearningAgent.ts",
+    "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\agents\\learning\\LearningAgent.ts",
+    "category": "agent",
+    "organ_hint": "Unmapped"
+  },
+  {
+    "name": "PipelineAgent.ts",
+    "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\agents\\pipeline\\PipelineAgent.ts",
+    "category": "agent",
+    "organ_hint": "Unmapped"
+  },
+  {
+    "name": "PlannerAgent.ts",
+    "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\agents\\planner\\PlannerAgent.ts",
+    "category": "agent",
+    "organ_hint": "Unmapped"
+  },
+  {
+    "name": "ReviewerAgent.ts",
+    "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\agents\\reviewer\\ReviewerAgent.ts",
+    "category": "agent",
+    "organ_hint": "Unmapped"
+  },
+  {
+    "name": "TesterAgent.ts",
+    "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\agents\\tester\\TesterAgent.ts",
+    "category": "agent",
+    "organ_hint": "Unmapped"
+  },
+  {
+    "name": "agents.test.ts",
+    "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\agents\\__tests__\\agents.test.ts",
+    "category": "agent",
+    "organ_hint": "Unmapped"
+  },
+  {
+    "name": "brainstorm.test.ts",
+    "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\agents\\__tests__\\brainstorm.test.ts",
+    "category": "agent",
+    "organ_hint": "Unmapped"
+  },
+  {
+    "name": "LLMProviderChain.ts",
+    "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\backend\\services\\LLMProviderChain.ts",
+    "category": "service",
+    "organ_hint": "Unmapped"
+  },
+  {
+    "name": "ModelService.ts",
+    "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\backend\\services\\ModelService.ts",
+    "category": "service",
+    "organ_hint": "Unmapped"
+  },
+  {
+    "name": "ObservableOrchestrator.ts",
+    "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\backend\\services\\ObservableOrchestrator.ts",
+    "category": "service",
+    "organ_hint": "Heart"
+  },
+  {
+    "name": "failure-recovery.test.ts",
+    "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\backend\\services\\__tests__\\failure-recovery.test.ts",
+    "category": "service",
+    "organ_hint": "Unmapped"
+  },
+  {
+    "name": "integration.test.ts",
+    "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\backend\\services\\__tests__\\integration.test.ts",
+    "category": "service",
+    "organ_hint": "Unmapped"
+  },
+  {
+    "name": "ObservableOrchestrator.test.ts",
+    "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\backend\\services\\__tests__\\ObservableOrchestrator.test.ts",
+    "category": "service",
+    "organ_hint": "Heart"
+  },
+  {
+    "name": "validation.test.ts",
+    "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\backend\\services\\__tests__\\validation.test.ts",
+    "category": "service",
+    "organ_hint": "Skin"
+  },
+  {
+    "name": "approval-service.ts",
+    "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\safety\\approval-service.ts",
+    "category": "service",
+    "organ_hint": "Skin"
+  },
+  {
+    "name": "audit-logger.ts",
+    "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\safety\\audit-logger.ts",
+    "category": "service",
+    "organ_hint": "Skin"
+  },
+  {
+    "name": "index.ts",
+    "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\safety\\index.ts",
+    "category": "service",
+    "organ_hint": "Skin"
+  },
+  {
+    "name": "kill-switch.ts",
+    "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\safety\\kill-switch.ts",
+    "category": "service",
+    "organ_hint": "Skin"
+  },
+  {
+    "name": "policy-engine.ts",
+    "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\safety\\policy-engine.ts",
+    "category": "service",
+    "organ_hint": "Skin"
+  },
+  {
+    "name": "safety-guard.ts",
+    "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\safety\\safety-guard.ts",
+    "category": "service",
+    "organ_hint": "Skin"
+  },
+  {
+    "name": "types.ts",
+    "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\safety\\types.ts",
+    "category": "service",
+    "organ_hint": "Skin"
+  },
+  {
+    "name": "AutoDebugLoop.ts",
+    "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\healing\\AutoDebugLoop.ts",
+    "category": "service",
+    "organ_hint": "Lymphatic"
+  },
+  {
+    "name": "SelfHealingEngine.ts",
+    "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\healing\\SelfHealingEngine.ts",
+    "category": "service",
+    "organ_hint": "Lymphatic"
+  },
+  {
+    "name": "types.ts",
+    "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\healing\\types.ts",
+    "category": "service",
+    "organ_hint": "Skeletal"
+  },
+  {
+    "name": "SupervisorOrchestrator.ts",
+    "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\orchestrator\\SupervisorOrchestrator.ts",
+    "category": "orchestrator",
+    "organ_hint": "Heart"
+  },
+  {
+    "name": "self-healing.test.ts",
+    "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\orchestrator\\__tests__\\self-healing.test.ts",
+    "category": "orchestrator",
+    "organ_hint": "Heart"
+  },
+  {
+    "name": "ModelRouter.ts",
+    "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\routing\\ModelRouter.ts",
+    "category": "service",
+    "organ_hint": "Unmapped"
+  },
+  {
+    "name": "types.ts",
+    "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\routing\\types.ts",
+    "category": "service",
+    "organ_hint": "Skeletal"
+  },
+  {
+    "name": "cover-letter-generator.ts",
+    "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\job-system\\cover-letter-generator.ts",
+    "category": "service",
+    "organ_hint": "Unmapped"
+  },
+  {
+    "name": "resume-generator.ts",
+    "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\job-system\\resume-generator.ts",
+    "category": "service",
+    "organ_hint": "Unmapped"
+  },
+  {
+    "name": "store.ts",
+    "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\job-system\\store.ts",
+    "category": "service",
+    "organ_hint": "Unmapped"
+  },
+  {
+    "name": "types.ts",
+    "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\job-system\\types.ts",
+    "category": "service",
+    "organ_hint": "Skeletal"
+  },
+  {
+    "name": "Task.ts",
+    "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\core\\entities\\Task.ts",
+    "category": "contract",
+    "organ_hint": "Unmapped"
+  },
+  {
+    "name": "agent-event-bus.ts",
+    "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\core\\events\\agent-event-bus.ts",
+    "category": "contract",
+    "organ_hint": "Nervous_System"
+  },
+  {
+    "name": "session-persistence.ts",
+    "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\core\\events\\session-persistence.ts",
+    "category": "contract",
+    "organ_hint": "Nervous_System"
+  },
+  {
+    "name": "types.ts",
+    "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\core\\events\\types.ts",
+    "category": "contract",
+    "organ_hint": "Nervous_System"
+  },
+  {
+    "name": "agent-event-bus.test.ts",
+    "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\core\\events\\__tests__\\agent-event-bus.test.ts",
+    "category": "contract",
+    "organ_hint": "Nervous_System"
+  },
+  {
+    "name": "Agent.ts",
+    "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\core\\interfaces\\Agent.ts",
+    "category": "contract",
+    "organ_hint": "Skeletal"
+  },
+  {
+    "name": "event-middleware.ts",
+    "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\core\\observability\\event-middleware.ts",
+    "category": "contract",
+    "organ_hint": "Nervous_System"
+  },
+  {
+    "name": "index.ts",
+    "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\core\\observability\\index.ts",
+    "category": "contract",
+    "organ_hint": "Lymphatic"
+  },
+  {
+    "name": "logger.ts",
+    "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\core\\observability\\logger.ts",
+    "category": "contract",
+    "organ_hint": "Lymphatic"
+  },
+  {
+    "name": "trace.ts",
+    "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\core\\observability\\trace.ts",
+    "category": "contract",
+    "organ_hint": "Lymphatic"
+  },
+  {
+    "name": "observability.test.ts",
+    "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\core\\observability\\__tests__\\observability.test.ts",
+    "category": "contract",
+    "organ_hint": "Lymphatic"
+  },
+  {
+    "name": "container.ts",
+    "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\AgentForge\\runtime\\container.ts",
+    "category": "runtime",
+    "organ_hint": "Unmapped"
+  },
+  {
+    "name": "event-bus.interface.ts",
+    "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\AgentForge\\runtime\\event-bus.interface.ts",
+    "category": "runtime",
+    "organ_hint": "Nervous_System"
+  },
+  {
+    "name": "event-guard.ts",
+    "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\AgentForge\\runtime\\event-guard.ts",
+    "category": "runtime",
+    "organ_hint": "Nervous_System"
+  },
+  {
+    "name": "in-memory-event-bus.ts",
+    "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\AgentForge\\runtime\\in-memory-event-bus.ts",
+    "category": "runtime",
+    "organ_hint": "Nervous_System"
+  },
+  {
+    "name": "sse-event-bus.ts",
+    "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\AgentForge\\runtime\\sse-event-bus.ts",
+    "category": "runtime",
+    "organ_hint": "Nervous_System"
+  },
+  {
+    "name": "websocket-event-bus.ts",
+    "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\AgentForge\\runtime\\websocket-event-bus.ts",
+    "category": "runtime",
+    "organ_hint": "Nervous_System"
+  },
+  {
+    "name": "base-event.ts",
+    "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\AgentForge\\contracts\\base-event.ts",
+    "category": "contract",
+    "organ_hint": "Nervous_System"
+  },
+  {
+    "name": "graph.ts",
+    "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\AgentForge\\contracts\\graph.ts",
+    "category": "contract",
+    "organ_hint": "Brain"
+  },
+  {
+    "name": "index.ts",
+    "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\AgentForge\\contracts\\index.ts",
+    "category": "contract",
+    "organ_hint": "Skeletal"
+  },
+  {
+    "name": "system-events.ts",
+    "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\AgentForge\\contracts\\system-events.ts",
+    "category": "contract",
+    "organ_hint": "Nervous_System"
+  }
+]

@@ -1,0 +1,2763 @@
+{
+  "nodes": [
+    {
+      "id": 0,
+      "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\agents\\progress-helper.ts"
+    },
+    {
+      "id": 1,
+      "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\agents\\registry.ts"
+    },
+    {
+      "id": 2,
+      "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\agents\\schemas.ts"
+    },
+    {
+      "id": 3,
+      "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\agents\\brainstorm\\BrainstormAgent.ts"
+    },
+    {
+      "id": 4,
+      "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\agents\\brainstorm\\types.ts"
+    },
+    {
+      "id": 5,
+      "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\agents\\builder\\BuilderAgent.ts"
+    },
+    {
+      "id": 6,
+      "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\agents\\context\\ContextManagerAgent.ts"
+    },
+    {
+      "id": 7,
+      "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\agents\\gmail\\ClassificationAgent.ts"
+    },
+    {
+      "id": 8,
+      "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\agents\\gmail\\GmailResponseAgent.ts"
+    },
+    {
+      "id": 9,
+      "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\agents\\gmail\\index.ts"
+    },
+    {
+      "id": 10,
+      "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\agents\\gmail\\PriorityAgent.ts"
+    },
+    {
+      "id": 11,
+      "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\agents\\gmail\\types.ts"
+    },
+    {
+      "id": 12,
+      "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\agents\\learning\\LearningAgent.ts"
+    },
+    {
+      "id": 13,
+      "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\agents\\pipeline\\PipelineAgent.ts"
+    },
+    {
+      "id": 14,
+      "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\agents\\planner\\PlannerAgent.ts"
+    },
+    {
+      "id": 15,
+      "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\agents\\reviewer\\ReviewerAgent.ts"
+    },
+    {
+      "id": 16,
+      "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\agents\\tester\\TesterAgent.ts"
+    },
+    {
+      "id": 17,
+      "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\agents\\__tests__\\agents.test.ts"
+    },
+    {
+      "id": 18,
+      "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\agents\\__tests__\\brainstorm.test.ts"
+    },
+    {
+      "id": 19,
+      "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\app\\layout.tsx"
+    },
+    {
+      "id": 20,
+      "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\app\\page.tsx"
+    },
+    {
+      "id": 21,
+      "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\app\\api\\agent\\events\\route.ts"
+    },
+    {
+      "id": 22,
+      "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\app\\api\\agent\\last-session\\route.ts"
+    },
+    {
+      "id": 23,
+      "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\app\\api\\agent\\run\\route.ts"
+    },
+    {
+      "id": 24,
+      "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\app\\api\\brainstorm\\route.ts"
+    },
+    {
+      "id": 25,
+      "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\app\\api\\gmail\\webhook\\route.ts"
+    },
+    {
+      "id": 26,
+      "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\app\\api\\jobs\\route.ts"
+    },
+    {
+      "id": 27,
+      "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\app\\api\\jobs\\generate-cover-letter\\route.ts"
+    },
+    {
+      "id": 28,
+      "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\app\\api\\jobs\\generate-resume\\route.ts"
+    },
+    {
+      "id": 29,
+      "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\app\\api\\jobs\\stats\\route.ts"
+    },
+    {
+      "id": 30,
+      "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\app\\api\\jobs\\[id]\\route.ts"
+    },
+    {
+      "id": 31,
+      "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\app\\api\\pipeline\\route.ts"
+    },
+    {
+      "id": 32,
+      "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\app\\api\\safety\\route.ts"
+    },
+    {
+      "id": 33,
+      "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\app\\dashboard\\layout.tsx"
+    },
+    {
+      "id": 34,
+      "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\app\\dashboard\\page.tsx"
+    },
+    {
+      "id": 35,
+      "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\app\\jobs\\layout.tsx"
+    },
+    {
+      "id": 36,
+      "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\app\\jobs\\page.tsx"
+    },
+    {
+      "id": 37,
+      "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\app\\safety\\layout.tsx"
+    },
+    {
+      "id": 38,
+      "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\app\\safety\\page.tsx"
+    },
+    {
+      "id": 39,
+      "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\backend\\execution\\ExecutionBackend.ts"
+    },
+    {
+      "id": 40,
+      "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\backend\\execution\\index.ts"
+    },
+    {
+      "id": 41,
+      "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\backend\\execution\\OllamaBackend.ts"
+    },
+    {
+      "id": 42,
+      "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\backend\\execution\\ProviderChainBackend.ts"
+    },
+    {
+      "id": 43,
+      "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\backend\\execution\\SimulatedBackend.ts"
+    },
+    {
+      "id": 44,
+      "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\backend\\execution\\__tests__\\ExecutionBackend.test.ts"
+    },
+    {
+      "id": 45,
+      "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\backend\\execution\\__tests__\\SimulatedBackend.test.ts"
+    },
+    {
+      "id": 46,
+      "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\backend\\services\\LLMProviderChain.ts"
+    },
+    {
+      "id": 47,
+      "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\backend\\services\\ModelService.ts"
+    },
+    {
+      "id": 48,
+      "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\backend\\services\\ObservableOrchestrator.ts"
+    },
+    {
+      "id": 49,
+      "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\backend\\services\\__tests__\\failure-recovery.test.ts"
+    },
+    {
+      "id": 50,
+      "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\backend\\services\\__tests__\\integration.test.ts"
+    },
+    {
+      "id": 51,
+      "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\backend\\services\\__tests__\\ObservableOrchestrator.test.ts"
+    },
+    {
+      "id": 52,
+      "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\backend\\services\\__tests__\\validation.test.ts"
+    },
+    {
+      "id": 53,
+      "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\components\\activity-feed.tsx"
+    },
+    {
+      "id": 54,
+      "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\components\\agent-card.tsx"
+    },
+    {
+      "id": 55,
+      "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\components\\agent-flow-view.tsx"
+    },
+    {
+      "id": 56,
+      "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\components\\dashboard-header.tsx"
+    },
+    {
+      "id": 57,
+      "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\components\\demo-mode-switch.tsx"
+    },
+    {
+      "id": 58,
+      "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\components\\event-stream.tsx"
+    },
+    {
+      "id": 59,
+      "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\components\\floating-progress.tsx"
+    },
+    {
+      "id": 60,
+      "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\components\\global-progress.tsx"
+    },
+    {
+      "id": 61,
+      "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\components\\inline-task-input.tsx"
+    },
+    {
+      "id": 62,
+      "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\components\\narrative-panel.tsx"
+    },
+    {
+      "id": 63,
+      "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\components\\outputs-panel.tsx"
+    },
+    {
+      "id": 64,
+      "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\components\\reasoning-panel.tsx"
+    },
+    {
+      "id": 65,
+      "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\components\\right-panel.tsx"
+    },
+    {
+      "id": 66,
+      "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\components\\run-pipeline-dialog.tsx"
+    },
+    {
+      "id": 67,
+      "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\components\\status-banners.tsx"
+    },
+    {
+      "id": 68,
+      "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\components\\task-list.tsx"
+    },
+    {
+      "id": 69,
+      "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\config\\env.ts"
+    },
+    {
+      "id": 70,
+      "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\config\\__tests__\\env.test.ts"
+    },
+    {
+      "id": 71,
+      "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\core\\entities\\Task.ts"
+    },
+    {
+      "id": 72,
+      "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\core\\events\\agent-event-bus.ts"
+    },
+    {
+      "id": 73,
+      "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\core\\events\\session-persistence.ts"
+    },
+    {
+      "id": 74,
+      "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\core\\events\\types.ts"
+    },
+    {
+      "id": 75,
+      "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\core\\events\\__tests__\\agent-event-bus.test.ts"
+    },
+    {
+      "id": 76,
+      "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\core\\interfaces\\Agent.ts"
+    },
+    {
+      "id": 77,
+      "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\core\\observability\\event-middleware.ts"
+    },
+    {
+      "id": 78,
+      "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\core\\observability\\index.ts"
+    },
+    {
+      "id": 79,
+      "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\core\\observability\\logger.ts"
+    },
+    {
+      "id": 80,
+      "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\core\\observability\\trace.ts"
+    },
+    {
+      "id": 81,
+      "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\core\\observability\\__tests__\\observability.test.ts"
+    },
+    {
+      "id": 82,
+      "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\healing\\AutoDebugLoop.ts"
+    },
+    {
+      "id": 83,
+      "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\healing\\SelfHealingEngine.ts"
+    },
+    {
+      "id": 84,
+      "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\healing\\types.ts"
+    },
+    {
+      "id": 85,
+      "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\hooks\\use-agent-events.ts"
+    },
+    {
+      "id": 86,
+      "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\hooks\\use-demo-mode.ts"
+    },
+    {
+      "id": 87,
+      "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\job-system\\cover-letter-generator.ts"
+    },
+    {
+      "id": 88,
+      "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\job-system\\resume-generator.ts"
+    },
+    {
+      "id": 89,
+      "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\job-system\\store.ts"
+    },
+    {
+      "id": 90,
+      "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\job-system\\types.ts"
+    },
+    {
+      "id": 91,
+      "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\lib\\animation-variants.ts"
+    },
+    {
+      "id": 92,
+      "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\lib\\cn.ts"
+    },
+    {
+      "id": 93,
+      "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\lib\\constants.ts"
+    },
+    {
+      "id": 94,
+      "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\lib\\format.ts"
+    },
+    {
+      "id": 95,
+      "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\lib\\markdown-sync.ts"
+    },
+    {
+      "id": 96,
+      "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\lib\\narrative.ts"
+    },
+    {
+      "id": 97,
+      "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\lib\\pipeline-runner.ts"
+    },
+    {
+      "id": 98,
+      "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\lib\\progress.ts"
+    },
+    {
+      "id": 99,
+      "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\lib\\response-parser.ts"
+    },
+    {
+      "id": 100,
+      "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\lib\\run-pipeline.ts"
+    },
+    {
+      "id": 101,
+      "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\lib\\sanitize.ts"
+    },
+    {
+      "id": 102,
+      "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\lib\\__tests__\\failure-injection.test.ts"
+    },
+    {
+      "id": 103,
+      "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\lib\\__tests__\\gmail-agents.test.ts"
+    },
+    {
+      "id": 104,
+      "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\lib\\__tests__\\job-system.test.ts"
+    },
+    {
+      "id": 105,
+      "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\lib\\__tests__\\narrative.test.ts"
+    },
+    {
+      "id": 106,
+      "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\lib\\__tests__\\progress.test.ts"
+    },
+    {
+      "id": 107,
+      "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\lib\\__tests__\\real-llm-pipeline.test.ts"
+    },
+    {
+      "id": 108,
+      "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\lib\\__tests__\\response-parser.test.ts"
+    },
+    {
+      "id": 109,
+      "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\lib\\__tests__\\safety-integration.test.ts"
+    },
+    {
+      "id": 110,
+      "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\lib\\__tests__\\safety.test.ts"
+    },
+    {
+      "id": 111,
+      "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\lib\\__tests__\\structured-output.test.ts"
+    },
+    {
+      "id": 112,
+      "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\orchestrator\\SupervisorOrchestrator.ts"
+    },
+    {
+      "id": 113,
+      "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\orchestrator\\__tests__\\self-healing.test.ts"
+    },
+    {
+      "id": 114,
+      "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\routing\\ModelRouter.ts"
+    },
+    {
+      "id": 115,
+      "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\routing\\types.ts"
+    },
+    {
+      "id": 116,
+      "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\safety\\approval-service.ts"
+    },
+    {
+      "id": 117,
+      "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\safety\\audit-logger.ts"
+    },
+    {
+      "id": 118,
+      "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\safety\\index.ts"
+    },
+    {
+      "id": 119,
+      "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\safety\\kill-switch.ts"
+    },
+    {
+      "id": 120,
+      "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\safety\\policy-engine.ts"
+    },
+    {
+      "id": 121,
+      "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\safety\\safety-guard.ts"
+    },
+    {
+      "id": 122,
+      "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\safety\\types.ts"
+    }
+  ],
+  "edges": [
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\agents\\progress-helper.ts",
+      "to": "@/core/events/agent-event-bus",
+      "import_path": "@/core/events/agent-event-bus"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\agents\\progress-helper.ts",
+      "to": "@/core/events/types",
+      "import_path": "@/core/events/types"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\agents\\progress-helper.ts",
+      "to": "@/lib/constants",
+      "import_path": "@/lib/constants"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\agents\\progress-helper.ts",
+      "to": "@/core/events/types",
+      "import_path": "@/core/events/types"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\agents\\registry.ts",
+      "to": "@/core/interfaces/Agent",
+      "import_path": "@/core/interfaces/Agent"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\agents\\registry.ts",
+      "to": "@/backend/execution/ExecutionBackend",
+      "import_path": "@/backend/execution/ExecutionBackend"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\agents\\registry.ts",
+      "to": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\agents\\planner\\PlannerAgent.ts",
+      "import_path": "./planner/PlannerAgent"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\agents\\registry.ts",
+      "to": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\agents\\builder\\BuilderAgent.ts",
+      "import_path": "./builder/BuilderAgent"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\agents\\registry.ts",
+      "to": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\agents\\reviewer\\ReviewerAgent.ts",
+      "import_path": "./reviewer/ReviewerAgent"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\agents\\registry.ts",
+      "to": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\agents\\tester\\TesterAgent.ts",
+      "import_path": "./tester/TesterAgent"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\agents\\registry.ts",
+      "to": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\agents\\learning\\LearningAgent.ts",
+      "import_path": "./learning/LearningAgent"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\agents\\registry.ts",
+      "to": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\agents\\context\\ContextManagerAgent.ts",
+      "import_path": "./context/ContextManagerAgent"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\agents\\registry.ts",
+      "to": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\agents\\pipeline\\PipelineAgent.ts",
+      "import_path": "./pipeline/PipelineAgent"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\agents\\registry.ts",
+      "to": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\agents\\brainstorm\\BrainstormAgent.ts",
+      "import_path": "./brainstorm/BrainstormAgent"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\agents\\brainstorm\\BrainstormAgent.ts",
+      "to": "@/core/interfaces/Agent",
+      "import_path": "@/core/interfaces/Agent"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\agents\\brainstorm\\BrainstormAgent.ts",
+      "to": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\agents\\brainstorm\\types.ts",
+      "import_path": "./types"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\agents\\builder\\BuilderAgent.ts",
+      "to": "@/core/interfaces/Agent",
+      "import_path": "@/core/interfaces/Agent"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\agents\\builder\\BuilderAgent.ts",
+      "to": "@/backend/execution/ExecutionBackend",
+      "import_path": "@/backend/execution/ExecutionBackend"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\agents\\builder\\BuilderAgent.ts",
+      "to": "@/core/events/agent-event-bus",
+      "import_path": "@/core/events/agent-event-bus"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\agents\\builder\\BuilderAgent.ts",
+      "to": "@/core/events/types",
+      "import_path": "@/core/events/types"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\agents\\builder\\BuilderAgent.ts",
+      "to": "@/lib/constants",
+      "import_path": "@/lib/constants"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\agents\\builder\\BuilderAgent.ts",
+      "to": "@/agents/progress-helper",
+      "import_path": "@/agents/progress-helper"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\agents\\builder\\BuilderAgent.ts",
+      "to": "@/lib/response-parser",
+      "import_path": "@/lib/response-parser"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\agents\\builder\\BuilderAgent.ts",
+      "to": "@/agents/schemas",
+      "import_path": "@/agents/schemas"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\agents\\context\\ContextManagerAgent.ts",
+      "to": "@/core/interfaces/Agent",
+      "import_path": "@/core/interfaces/Agent"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\agents\\context\\ContextManagerAgent.ts",
+      "to": "@/backend/execution/ExecutionBackend",
+      "import_path": "@/backend/execution/ExecutionBackend"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\agents\\context\\ContextManagerAgent.ts",
+      "to": "@/core/events/agent-event-bus",
+      "import_path": "@/core/events/agent-event-bus"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\agents\\context\\ContextManagerAgent.ts",
+      "to": "@/core/events/types",
+      "import_path": "@/core/events/types"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\agents\\context\\ContextManagerAgent.ts",
+      "to": "@/lib/constants",
+      "import_path": "@/lib/constants"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\agents\\context\\ContextManagerAgent.ts",
+      "to": "@/agents/progress-helper",
+      "import_path": "@/agents/progress-helper"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\agents\\gmail\\ClassificationAgent.ts",
+      "to": "@/core/interfaces/Agent",
+      "import_path": "@/core/interfaces/Agent"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\agents\\gmail\\ClassificationAgent.ts",
+      "to": "@/backend/execution/ExecutionBackend",
+      "import_path": "@/backend/execution/ExecutionBackend"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\agents\\gmail\\ClassificationAgent.ts",
+      "to": "@/core/events/agent-event-bus",
+      "import_path": "@/core/events/agent-event-bus"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\agents\\gmail\\ClassificationAgent.ts",
+      "to": "@/core/events/types",
+      "import_path": "@/core/events/types"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\agents\\gmail\\ClassificationAgent.ts",
+      "to": "@/lib/constants",
+      "import_path": "@/lib/constants"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\agents\\gmail\\ClassificationAgent.ts",
+      "to": "@/agents/progress-helper",
+      "import_path": "@/agents/progress-helper"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\agents\\gmail\\ClassificationAgent.ts",
+      "to": "@/lib/response-parser",
+      "import_path": "@/lib/response-parser"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\agents\\gmail\\ClassificationAgent.ts",
+      "to": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\agents\\gmail\\types.ts",
+      "import_path": "./types"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\agents\\gmail\\GmailResponseAgent.ts",
+      "to": "@/core/interfaces/Agent",
+      "import_path": "@/core/interfaces/Agent"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\agents\\gmail\\GmailResponseAgent.ts",
+      "to": "@/backend/execution/ExecutionBackend",
+      "import_path": "@/backend/execution/ExecutionBackend"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\agents\\gmail\\GmailResponseAgent.ts",
+      "to": "@/core/events/agent-event-bus",
+      "import_path": "@/core/events/agent-event-bus"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\agents\\gmail\\GmailResponseAgent.ts",
+      "to": "@/core/events/types",
+      "import_path": "@/core/events/types"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\agents\\gmail\\GmailResponseAgent.ts",
+      "to": "@/lib/constants",
+      "import_path": "@/lib/constants"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\agents\\gmail\\GmailResponseAgent.ts",
+      "to": "@/agents/progress-helper",
+      "import_path": "@/agents/progress-helper"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\agents\\gmail\\GmailResponseAgent.ts",
+      "to": "@/safety",
+      "import_path": "@/safety"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\agents\\gmail\\GmailResponseAgent.ts",
+      "to": "@/lib/response-parser",
+      "import_path": "@/lib/response-parser"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\agents\\gmail\\GmailResponseAgent.ts",
+      "to": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\agents\\gmail\\types.ts",
+      "import_path": "./types"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\agents\\gmail\\index.ts",
+      "to": "@/core/interfaces/Agent",
+      "import_path": "@/core/interfaces/Agent"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\agents\\gmail\\index.ts",
+      "to": "@/backend/execution/ExecutionBackend",
+      "import_path": "@/backend/execution/ExecutionBackend"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\agents\\gmail\\index.ts",
+      "to": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\agents\\gmail\\ClassificationAgent.ts",
+      "import_path": "./ClassificationAgent"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\agents\\gmail\\index.ts",
+      "to": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\agents\\gmail\\PriorityAgent.ts",
+      "import_path": "./PriorityAgent"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\agents\\gmail\\index.ts",
+      "to": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\agents\\gmail\\GmailResponseAgent.ts",
+      "import_path": "./GmailResponseAgent"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\agents\\gmail\\index.ts",
+      "to": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\agents\\gmail\\types.ts",
+      "import_path": "./types"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\agents\\gmail\\PriorityAgent.ts",
+      "to": "@/core/interfaces/Agent",
+      "import_path": "@/core/interfaces/Agent"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\agents\\gmail\\PriorityAgent.ts",
+      "to": "@/backend/execution/ExecutionBackend",
+      "import_path": "@/backend/execution/ExecutionBackend"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\agents\\gmail\\PriorityAgent.ts",
+      "to": "@/core/events/agent-event-bus",
+      "import_path": "@/core/events/agent-event-bus"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\agents\\gmail\\PriorityAgent.ts",
+      "to": "@/core/events/types",
+      "import_path": "@/core/events/types"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\agents\\gmail\\PriorityAgent.ts",
+      "to": "@/lib/constants",
+      "import_path": "@/lib/constants"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\agents\\gmail\\PriorityAgent.ts",
+      "to": "@/agents/progress-helper",
+      "import_path": "@/agents/progress-helper"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\agents\\gmail\\PriorityAgent.ts",
+      "to": "@/lib/response-parser",
+      "import_path": "@/lib/response-parser"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\agents\\gmail\\PriorityAgent.ts",
+      "to": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\agents\\gmail\\types.ts",
+      "import_path": "./types"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\agents\\learning\\LearningAgent.ts",
+      "to": "@/core/interfaces/Agent",
+      "import_path": "@/core/interfaces/Agent"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\agents\\learning\\LearningAgent.ts",
+      "to": "@/backend/execution/ExecutionBackend",
+      "import_path": "@/backend/execution/ExecutionBackend"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\agents\\learning\\LearningAgent.ts",
+      "to": "@/core/events/agent-event-bus",
+      "import_path": "@/core/events/agent-event-bus"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\agents\\learning\\LearningAgent.ts",
+      "to": "@/core/events/types",
+      "import_path": "@/core/events/types"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\agents\\learning\\LearningAgent.ts",
+      "to": "@/lib/constants",
+      "import_path": "@/lib/constants"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\agents\\learning\\LearningAgent.ts",
+      "to": "@/agents/progress-helper",
+      "import_path": "@/agents/progress-helper"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\agents\\learning\\LearningAgent.ts",
+      "to": "@/lib/response-parser",
+      "import_path": "@/lib/response-parser"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\agents\\learning\\LearningAgent.ts",
+      "to": "@/agents/schemas",
+      "import_path": "@/agents/schemas"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\agents\\pipeline\\PipelineAgent.ts",
+      "to": "@/core/interfaces/Agent",
+      "import_path": "@/core/interfaces/Agent"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\agents\\pipeline\\PipelineAgent.ts",
+      "to": "@/lib/pipeline-runner",
+      "import_path": "@/lib/pipeline-runner"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\agents\\planner\\PlannerAgent.ts",
+      "to": "@/core/interfaces/Agent",
+      "import_path": "@/core/interfaces/Agent"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\agents\\planner\\PlannerAgent.ts",
+      "to": "@/backend/execution/ExecutionBackend",
+      "import_path": "@/backend/execution/ExecutionBackend"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\agents\\planner\\PlannerAgent.ts",
+      "to": "@/core/events/agent-event-bus",
+      "import_path": "@/core/events/agent-event-bus"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\agents\\planner\\PlannerAgent.ts",
+      "to": "@/core/events/types",
+      "import_path": "@/core/events/types"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\agents\\planner\\PlannerAgent.ts",
+      "to": "@/lib/constants",
+      "import_path": "@/lib/constants"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\agents\\planner\\PlannerAgent.ts",
+      "to": "@/agents/progress-helper",
+      "import_path": "@/agents/progress-helper"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\agents\\planner\\PlannerAgent.ts",
+      "to": "@/lib/response-parser",
+      "import_path": "@/lib/response-parser"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\agents\\planner\\PlannerAgent.ts",
+      "to": "@/agents/schemas",
+      "import_path": "@/agents/schemas"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\agents\\reviewer\\ReviewerAgent.ts",
+      "to": "@/core/interfaces/Agent",
+      "import_path": "@/core/interfaces/Agent"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\agents\\reviewer\\ReviewerAgent.ts",
+      "to": "@/backend/execution/ExecutionBackend",
+      "import_path": "@/backend/execution/ExecutionBackend"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\agents\\reviewer\\ReviewerAgent.ts",
+      "to": "@/core/events/agent-event-bus",
+      "import_path": "@/core/events/agent-event-bus"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\agents\\reviewer\\ReviewerAgent.ts",
+      "to": "@/core/events/types",
+      "import_path": "@/core/events/types"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\agents\\reviewer\\ReviewerAgent.ts",
+      "to": "@/lib/constants",
+      "import_path": "@/lib/constants"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\agents\\reviewer\\ReviewerAgent.ts",
+      "to": "@/agents/progress-helper",
+      "import_path": "@/agents/progress-helper"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\agents\\reviewer\\ReviewerAgent.ts",
+      "to": "@/lib/response-parser",
+      "import_path": "@/lib/response-parser"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\agents\\reviewer\\ReviewerAgent.ts",
+      "to": "@/agents/schemas",
+      "import_path": "@/agents/schemas"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\agents\\tester\\TesterAgent.ts",
+      "to": "@/core/interfaces/Agent",
+      "import_path": "@/core/interfaces/Agent"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\agents\\tester\\TesterAgent.ts",
+      "to": "@/backend/execution/ExecutionBackend",
+      "import_path": "@/backend/execution/ExecutionBackend"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\agents\\tester\\TesterAgent.ts",
+      "to": "@/core/events/agent-event-bus",
+      "import_path": "@/core/events/agent-event-bus"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\agents\\tester\\TesterAgent.ts",
+      "to": "@/core/events/types",
+      "import_path": "@/core/events/types"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\agents\\tester\\TesterAgent.ts",
+      "to": "@/lib/constants",
+      "import_path": "@/lib/constants"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\agents\\tester\\TesterAgent.ts",
+      "to": "@/agents/progress-helper",
+      "import_path": "@/agents/progress-helper"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\agents\\tester\\TesterAgent.ts",
+      "to": "@/lib/response-parser",
+      "import_path": "@/lib/response-parser"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\agents\\tester\\TesterAgent.ts",
+      "to": "@/agents/schemas",
+      "import_path": "@/agents/schemas"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\agents\\__tests__\\agents.test.ts",
+      "to": "vitest",
+      "import_path": "vitest"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\agents\\__tests__\\agents.test.ts",
+      "to": "@/core/interfaces/Agent",
+      "import_path": "@/core/interfaces/Agent"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\agents\\__tests__\\agents.test.ts",
+      "to": "@/backend/execution/ExecutionBackend",
+      "import_path": "@/backend/execution/ExecutionBackend"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\agents\\__tests__\\agents.test.ts",
+      "to": "@/backend/execution/SimulatedBackend",
+      "import_path": "@/backend/execution/SimulatedBackend"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\agents\\__tests__\\agents.test.ts",
+      "to": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\agents\\planner\\PlannerAgent.ts",
+      "import_path": "../planner/PlannerAgent"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\agents\\__tests__\\agents.test.ts",
+      "to": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\agents\\builder\\BuilderAgent.ts",
+      "import_path": "../builder/BuilderAgent"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\agents\\__tests__\\agents.test.ts",
+      "to": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\agents\\reviewer\\ReviewerAgent.ts",
+      "import_path": "../reviewer/ReviewerAgent"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\agents\\__tests__\\agents.test.ts",
+      "to": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\agents\\tester\\TesterAgent.ts",
+      "import_path": "../tester/TesterAgent"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\agents\\__tests__\\agents.test.ts",
+      "to": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\agents\\learning\\LearningAgent.ts",
+      "import_path": "../learning/LearningAgent"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\agents\\__tests__\\agents.test.ts",
+      "to": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\agents\\context\\ContextManagerAgent.ts",
+      "import_path": "../context/ContextManagerAgent"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\agents\\__tests__\\agents.test.ts",
+      "to": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\agents\\registry.ts",
+      "import_path": "../registry"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\agents\\__tests__\\brainstorm.test.ts",
+      "to": "vitest",
+      "import_path": "vitest"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\agents\\__tests__\\brainstorm.test.ts",
+      "to": "@/core/interfaces/Agent",
+      "import_path": "@/core/interfaces/Agent"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\agents\\__tests__\\brainstorm.test.ts",
+      "to": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\agents\\brainstorm\\BrainstormAgent.ts",
+      "import_path": "../brainstorm/BrainstormAgent"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\agents\\__tests__\\brainstorm.test.ts",
+      "to": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\agents\\brainstorm\\types.ts",
+      "import_path": "../brainstorm/types"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\app\\layout.tsx",
+      "to": "next",
+      "import_path": "next"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\app\\layout.tsx",
+      "to": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\app\\globals.css",
+      "import_path": "./globals.css"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\app\\page.tsx",
+      "to": "next/navigation",
+      "import_path": "next/navigation"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\app\\api\\agent\\events\\route.ts",
+      "to": "@/core/events/agent-event-bus",
+      "import_path": "@/core/events/agent-event-bus"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\app\\api\\agent\\events\\route.ts",
+      "to": "@/lib/constants",
+      "import_path": "@/lib/constants"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\app\\api\\agent\\events\\route.ts",
+      "to": "@/core/events/types",
+      "import_path": "@/core/events/types"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\app\\api\\agent\\last-session\\route.ts",
+      "to": "fs/promises",
+      "import_path": "fs/promises"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\app\\api\\agent\\last-session\\route.ts",
+      "to": "path",
+      "import_path": "path"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\app\\api\\agent\\last-session\\route.ts",
+      "to": "next/server",
+      "import_path": "next/server"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\app\\api\\agent\\run\\route.ts",
+      "to": "next/server",
+      "import_path": "next/server"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\app\\api\\agent\\run\\route.ts",
+      "to": "@/agents/registry",
+      "import_path": "@/agents/registry"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\app\\api\\agent\\run\\route.ts",
+      "to": "@/backend/services/ObservableOrchestrator",
+      "import_path": "@/backend/services/ObservableOrchestrator"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\app\\api\\agent\\run\\route.ts",
+      "to": "@/orchestrator/SupervisorOrchestrator",
+      "import_path": "@/orchestrator/SupervisorOrchestrator"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\app\\api\\agent\\run\\route.ts",
+      "to": "@/core/observability/event-middleware",
+      "import_path": "@/core/observability/event-middleware"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\app\\api\\agent\\run\\route.ts",
+      "to": "@/backend/execution/ExecutionBackend",
+      "import_path": "@/backend/execution/ExecutionBackend"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\app\\api\\agent\\run\\route.ts",
+      "to": "@/backend/services/ModelService",
+      "import_path": "@/backend/services/ModelService"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\app\\api\\agent\\run\\route.ts",
+      "to": "@/config/env",
+      "import_path": "@/config/env"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\app\\api\\agent\\run\\route.ts",
+      "to": "@/backend/execution/OllamaBackend",
+      "import_path": "@/backend/execution/OllamaBackend"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\app\\api\\agent\\run\\route.ts",
+      "to": "@/backend/execution/SimulatedBackend",
+      "import_path": "@/backend/execution/SimulatedBackend"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\app\\api\\agent\\run\\route.ts",
+      "to": "@/backend/execution/ProviderChainBackend",
+      "import_path": "@/backend/execution/ProviderChainBackend"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\app\\api\\brainstorm\\route.ts",
+      "to": "next/server",
+      "import_path": "next/server"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\app\\api\\brainstorm\\route.ts",
+      "to": "@/agents/brainstorm/BrainstormAgent",
+      "import_path": "@/agents/brainstorm/BrainstormAgent"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\app\\api\\brainstorm\\route.ts",
+      "to": "@/safety/kill-switch",
+      "import_path": "@/safety/kill-switch"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\app\\api\\brainstorm\\route.ts",
+      "to": "@/config/env",
+      "import_path": "@/config/env"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\app\\api\\gmail\\webhook\\route.ts",
+      "to": "next/server",
+      "import_path": "next/server"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\app\\api\\gmail\\webhook\\route.ts",
+      "to": "@/backend/execution/ExecutionBackend",
+      "import_path": "@/backend/execution/ExecutionBackend"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\app\\api\\gmail\\webhook\\route.ts",
+      "to": "@/config/env",
+      "import_path": "@/config/env"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\app\\api\\gmail\\webhook\\route.ts",
+      "to": "@/agents/gmail",
+      "import_path": "@/agents/gmail"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\app\\api\\gmail\\webhook\\route.ts",
+      "to": "@/safety",
+      "import_path": "@/safety"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\app\\api\\gmail\\webhook\\route.ts",
+      "to": "@/lib/sanitize",
+      "import_path": "@/lib/sanitize"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\app\\api\\gmail\\webhook\\route.ts",
+      "to": "@/backend/services/ModelService",
+      "import_path": "@/backend/services/ModelService"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\app\\api\\gmail\\webhook\\route.ts",
+      "to": "@/backend/execution/OllamaBackend",
+      "import_path": "@/backend/execution/OllamaBackend"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\app\\api\\gmail\\webhook\\route.ts",
+      "to": "@/backend/execution/SimulatedBackend",
+      "import_path": "@/backend/execution/SimulatedBackend"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\app\\api\\gmail\\webhook\\route.ts",
+      "to": "@/backend/execution/ProviderChainBackend",
+      "import_path": "@/backend/execution/ProviderChainBackend"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\app\\api\\jobs\\route.ts",
+      "to": "next/server",
+      "import_path": "next/server"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\app\\api\\jobs\\route.ts",
+      "to": "@/job-system/store",
+      "import_path": "@/job-system/store"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\app\\api\\jobs\\route.ts",
+      "to": "@/lib/sanitize",
+      "import_path": "@/lib/sanitize"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\app\\api\\jobs\\generate-cover-letter\\route.ts",
+      "to": "next/server",
+      "import_path": "next/server"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\app\\api\\jobs\\generate-cover-letter\\route.ts",
+      "to": "@/job-system/cover-letter-generator",
+      "import_path": "@/job-system/cover-letter-generator"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\app\\api\\jobs\\generate-cover-letter\\route.ts",
+      "to": "@/lib/sanitize",
+      "import_path": "@/lib/sanitize"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\app\\api\\jobs\\generate-resume\\route.ts",
+      "to": "next/server",
+      "import_path": "next/server"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\app\\api\\jobs\\generate-resume\\route.ts",
+      "to": "@/job-system/resume-generator",
+      "import_path": "@/job-system/resume-generator"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\app\\api\\jobs\\generate-resume\\route.ts",
+      "to": "@/lib/sanitize",
+      "import_path": "@/lib/sanitize"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\app\\api\\jobs\\stats\\route.ts",
+      "to": "next/server",
+      "import_path": "next/server"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\app\\api\\jobs\\stats\\route.ts",
+      "to": "@/job-system/store",
+      "import_path": "@/job-system/store"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\app\\api\\jobs\\[id]\\route.ts",
+      "to": "next/server",
+      "import_path": "next/server"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\app\\api\\jobs\\[id]\\route.ts",
+      "to": "@/job-system/store",
+      "import_path": "@/job-system/store"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\app\\api\\jobs\\[id]\\route.ts",
+      "to": "@/lib/sanitize",
+      "import_path": "@/lib/sanitize"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\app\\api\\pipeline\\route.ts",
+      "to": "next/server",
+      "import_path": "next/server"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\app\\api\\pipeline\\route.ts",
+      "to": "@/config/env",
+      "import_path": "@/config/env"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\app\\api\\pipeline\\route.ts",
+      "to": "@/safety",
+      "import_path": "@/safety"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\app\\api\\pipeline\\route.ts",
+      "to": "@/lib/pipeline-runner",
+      "import_path": "@/lib/pipeline-runner"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\app\\api\\safety\\route.ts",
+      "to": "next/server",
+      "import_path": "next/server"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\app\\api\\safety\\route.ts",
+      "to": "@/safety",
+      "import_path": "@/safety"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\app\\api\\safety\\route.ts",
+      "to": "@/lib/sanitize",
+      "import_path": "@/lib/sanitize"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\app\\dashboard\\layout.tsx",
+      "to": "@/hooks/use-demo-mode",
+      "import_path": "@/hooks/use-demo-mode"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\app\\dashboard\\page.tsx",
+      "to": "react",
+      "import_path": "react"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\app\\dashboard\\page.tsx",
+      "to": "@/hooks/use-agent-events",
+      "import_path": "@/hooks/use-agent-events"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\app\\dashboard\\page.tsx",
+      "to": "@/agents/registry",
+      "import_path": "@/agents/registry"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\app\\dashboard\\page.tsx",
+      "to": "@/components/dashboard-header",
+      "import_path": "@/components/dashboard-header"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\app\\dashboard\\page.tsx",
+      "to": "@/components/agent-card",
+      "import_path": "@/components/agent-card"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\app\\dashboard\\page.tsx",
+      "to": "@/components/task-list",
+      "import_path": "@/components/task-list"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\app\\dashboard\\page.tsx",
+      "to": "@/components/agent-flow-view",
+      "import_path": "@/components/agent-flow-view"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\app\\dashboard\\page.tsx",
+      "to": "@/components/global-progress",
+      "import_path": "@/components/global-progress"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\app\\dashboard\\page.tsx",
+      "to": "@/components/right-panel",
+      "import_path": "@/components/right-panel"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\app\\dashboard\\page.tsx",
+      "to": "@/components/floating-progress",
+      "import_path": "@/components/floating-progress"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\app\\dashboard\\page.tsx",
+      "to": "@/components/inline-task-input",
+      "import_path": "@/components/inline-task-input"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\app\\dashboard\\page.tsx",
+      "to": "@/components/status-banners",
+      "import_path": "@/components/status-banners"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\app\\dashboard\\page.tsx",
+      "to": "@/lib/narrative",
+      "import_path": "@/lib/narrative"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\app\\dashboard\\page.tsx",
+      "to": "@/lib/progress",
+      "import_path": "@/lib/progress"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\app\\dashboard\\page.tsx",
+      "to": "@/lib/run-pipeline",
+      "import_path": "@/lib/run-pipeline"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\app\\dashboard\\page.tsx",
+      "to": "@/core/events/types",
+      "import_path": "@/core/events/types"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\app\\jobs\\layout.tsx",
+      "to": "next/link",
+      "import_path": "next/link"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\app\\jobs\\page.tsx",
+      "to": "react",
+      "import_path": "react"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\app\\jobs\\page.tsx",
+      "to": "framer-motion",
+      "import_path": "framer-motion"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\app\\jobs\\page.tsx",
+      "to": "@/lib/cn",
+      "import_path": "@/lib/cn"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\app\\jobs\\page.tsx",
+      "to": "@/job-system/types",
+      "import_path": "@/job-system/types"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\app\\safety\\layout.tsx",
+      "to": "next/link",
+      "import_path": "next/link"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\app\\safety\\page.tsx",
+      "to": "react",
+      "import_path": "react"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\app\\safety\\page.tsx",
+      "to": "framer-motion",
+      "import_path": "framer-motion"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\app\\safety\\page.tsx",
+      "to": "@/lib/cn",
+      "import_path": "@/lib/cn"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\app\\safety\\page.tsx",
+      "to": "@/safety",
+      "import_path": "@/safety"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\backend\\execution\\ExecutionBackend.ts",
+      "to": "@/core/interfaces/Agent",
+      "import_path": "@/core/interfaces/Agent"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\backend\\execution\\ExecutionBackend.ts",
+      "to": "@/core/entities/Task",
+      "import_path": "@/core/entities/Task"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\backend\\execution\\index.ts",
+      "to": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\backend\\execution\\SimulatedBackend.ts",
+      "import_path": "./SimulatedBackend"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\backend\\execution\\index.ts",
+      "to": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\backend\\execution\\OllamaBackend.ts",
+      "import_path": "./OllamaBackend"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\backend\\execution\\index.ts",
+      "to": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\backend\\execution\\ProviderChainBackend.ts",
+      "import_path": "./ProviderChainBackend"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\backend\\execution\\index.ts",
+      "to": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\backend\\execution\\ExecutionBackend.ts",
+      "import_path": "./ExecutionBackend"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\backend\\execution\\index.ts",
+      "to": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\backend\\execution\\SimulatedBackend.ts",
+      "import_path": "./SimulatedBackend"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\backend\\execution\\index.ts",
+      "to": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\backend\\execution\\OllamaBackend.ts",
+      "import_path": "./OllamaBackend"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\backend\\execution\\index.ts",
+      "to": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\backend\\execution\\ProviderChainBackend.ts",
+      "import_path": "./ProviderChainBackend"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\backend\\execution\\OllamaBackend.ts",
+      "to": "@/core/interfaces/Agent",
+      "import_path": "@/core/interfaces/Agent"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\backend\\execution\\OllamaBackend.ts",
+      "to": "@/core/entities/Task",
+      "import_path": "@/core/entities/Task"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\backend\\execution\\OllamaBackend.ts",
+      "to": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\backend\\execution\\ExecutionBackend.ts",
+      "import_path": "./ExecutionBackend"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\backend\\execution\\ProviderChainBackend.ts",
+      "to": "@/core/interfaces/Agent",
+      "import_path": "@/core/interfaces/Agent"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\backend\\execution\\ProviderChainBackend.ts",
+      "to": "@/core/entities/Task",
+      "import_path": "@/core/entities/Task"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\backend\\execution\\ProviderChainBackend.ts",
+      "to": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\backend\\execution\\ExecutionBackend.ts",
+      "import_path": "./ExecutionBackend"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\backend\\execution\\ProviderChainBackend.ts",
+      "to": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\backend\\services\\LLMProviderChain.ts",
+      "import_path": "../services/LLMProviderChain"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\backend\\execution\\SimulatedBackend.ts",
+      "to": "@/core/interfaces/Agent",
+      "import_path": "@/core/interfaces/Agent"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\backend\\execution\\SimulatedBackend.ts",
+      "to": "@/core/entities/Task",
+      "import_path": "@/core/entities/Task"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\backend\\execution\\SimulatedBackend.ts",
+      "to": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\backend\\execution\\ExecutionBackend.ts",
+      "import_path": "./ExecutionBackend"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\backend\\execution\\__tests__\\ExecutionBackend.test.ts",
+      "to": "vitest",
+      "import_path": "vitest"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\backend\\execution\\__tests__\\ExecutionBackend.test.ts",
+      "to": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\backend\\execution\\ExecutionBackend.ts",
+      "import_path": "../ExecutionBackend"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\backend\\execution\\__tests__\\ExecutionBackend.test.ts",
+      "to": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\backend\\execution\\ExecutionBackend.ts",
+      "import_path": "../ExecutionBackend"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\backend\\execution\\__tests__\\ExecutionBackend.test.ts",
+      "to": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\backend\\execution\\SimulatedBackend.ts",
+      "import_path": "../SimulatedBackend"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\backend\\execution\\__tests__\\SimulatedBackend.test.ts",
+      "to": "vitest",
+      "import_path": "vitest"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\backend\\execution\\__tests__\\SimulatedBackend.test.ts",
+      "to": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\backend\\execution\\SimulatedBackend.ts",
+      "import_path": "../SimulatedBackend"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\backend\\execution\\__tests__\\SimulatedBackend.test.ts",
+      "to": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\backend\\execution\\ExecutionBackend.ts",
+      "import_path": "../ExecutionBackend"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\backend\\services\\LLMProviderChain.ts",
+      "to": "@/config/env",
+      "import_path": "@/config/env"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\backend\\services\\ObservableOrchestrator.ts",
+      "to": "@/core/interfaces/Agent",
+      "import_path": "@/core/interfaces/Agent"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\backend\\services\\ObservableOrchestrator.ts",
+      "to": "@/core/events/agent-event-bus",
+      "import_path": "@/core/events/agent-event-bus"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\backend\\services\\ObservableOrchestrator.ts",
+      "to": "@/core/events/types",
+      "import_path": "@/core/events/types"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\backend\\services\\ObservableOrchestrator.ts",
+      "to": "@/lib/constants",
+      "import_path": "@/lib/constants"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\backend\\services\\ObservableOrchestrator.ts",
+      "to": "@/core/observability/trace",
+      "import_path": "@/core/observability/trace"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\backend\\services\\ObservableOrchestrator.ts",
+      "to": "@/core/observability/logger",
+      "import_path": "@/core/observability/logger"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\backend\\services\\ObservableOrchestrator.ts",
+      "to": "@/safety/safety-guard",
+      "import_path": "@/safety/safety-guard"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\backend\\services\\ObservableOrchestrator.ts",
+      "to": "@/safety/types",
+      "import_path": "@/safety/types"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\backend\\services\\ObservableOrchestrator.ts",
+      "to": "@/core/events/types",
+      "import_path": "@/core/events/types"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\backend\\services\\__tests__\\failure-recovery.test.ts",
+      "to": "vitest",
+      "import_path": "vitest"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\backend\\services\\__tests__\\failure-recovery.test.ts",
+      "to": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\backend\\services\\ObservableOrchestrator.ts",
+      "import_path": "../ObservableOrchestrator"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\backend\\services\\__tests__\\failure-recovery.test.ts",
+      "to": "@/backend/execution/SimulatedBackend",
+      "import_path": "@/backend/execution/SimulatedBackend"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\backend\\services\\__tests__\\failure-recovery.test.ts",
+      "to": "@/backend/execution/ExecutionBackend",
+      "import_path": "@/backend/execution/ExecutionBackend"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\backend\\services\\__tests__\\failure-recovery.test.ts",
+      "to": "@/core/events/agent-event-bus",
+      "import_path": "@/core/events/agent-event-bus"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\backend\\services\\__tests__\\failure-recovery.test.ts",
+      "to": "@/core/interfaces/Agent",
+      "import_path": "@/core/interfaces/Agent"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\backend\\services\\__tests__\\failure-recovery.test.ts",
+      "to": "@/core/events/types",
+      "import_path": "@/core/events/types"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\backend\\services\\__tests__\\integration.test.ts",
+      "to": "vitest",
+      "import_path": "vitest"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\backend\\services\\__tests__\\integration.test.ts",
+      "to": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\backend\\services\\ObservableOrchestrator.ts",
+      "import_path": "../ObservableOrchestrator"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\backend\\services\\__tests__\\integration.test.ts",
+      "to": "@/backend/execution/SimulatedBackend",
+      "import_path": "@/backend/execution/SimulatedBackend"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\backend\\services\\__tests__\\integration.test.ts",
+      "to": "@/core/events/agent-event-bus",
+      "import_path": "@/core/events/agent-event-bus"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\backend\\services\\__tests__\\integration.test.ts",
+      "to": "@/core/observability/logger",
+      "import_path": "@/core/observability/logger"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\backend\\services\\__tests__\\integration.test.ts",
+      "to": "@/core/interfaces/Agent",
+      "import_path": "@/core/interfaces/Agent"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\backend\\services\\__tests__\\integration.test.ts",
+      "to": "@/core/events/types",
+      "import_path": "@/core/events/types"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\backend\\services\\__tests__\\integration.test.ts",
+      "to": "@/core/observability/logger",
+      "import_path": "@/core/observability/logger"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\backend\\services\\__tests__\\ObservableOrchestrator.test.ts",
+      "to": "vitest",
+      "import_path": "vitest"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\backend\\services\\__tests__\\ObservableOrchestrator.test.ts",
+      "to": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\backend\\services\\ObservableOrchestrator.ts",
+      "import_path": "../ObservableOrchestrator"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\backend\\services\\__tests__\\ObservableOrchestrator.test.ts",
+      "to": "@/core/events/agent-event-bus",
+      "import_path": "@/core/events/agent-event-bus"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\backend\\services\\__tests__\\ObservableOrchestrator.test.ts",
+      "to": "@/core/interfaces/Agent",
+      "import_path": "@/core/interfaces/Agent"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\backend\\services\\__tests__\\ObservableOrchestrator.test.ts",
+      "to": "@/core/events/types",
+      "import_path": "@/core/events/types"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\backend\\services\\__tests__\\validation.test.ts",
+      "to": "vitest",
+      "import_path": "vitest"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\backend\\services\\__tests__\\validation.test.ts",
+      "to": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\backend\\services\\ObservableOrchestrator.ts",
+      "import_path": "../ObservableOrchestrator"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\backend\\services\\__tests__\\validation.test.ts",
+      "to": "@/core/interfaces/Agent",
+      "import_path": "@/core/interfaces/Agent"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\components\\activity-feed.tsx",
+      "to": "react",
+      "import_path": "react"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\components\\activity-feed.tsx",
+      "to": "framer-motion",
+      "import_path": "framer-motion"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\components\\activity-feed.tsx",
+      "to": "@/lib/format",
+      "import_path": "@/lib/format"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\components\\activity-feed.tsx",
+      "to": "@/lib/narrative",
+      "import_path": "@/lib/narrative"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\components\\activity-feed.tsx",
+      "to": "@/lib/animation-variants",
+      "import_path": "@/lib/animation-variants"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\components\\activity-feed.tsx",
+      "to": "@/lib/constants",
+      "import_path": "@/lib/constants"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\components\\agent-card.tsx",
+      "to": "framer-motion",
+      "import_path": "framer-motion"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\components\\agent-card.tsx",
+      "to": "@/lib/cn",
+      "import_path": "@/lib/cn"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\components\\agent-card.tsx",
+      "to": "@/lib/constants",
+      "import_path": "@/lib/constants"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\components\\agent-card.tsx",
+      "to": "@/lib/format",
+      "import_path": "@/lib/format"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\components\\agent-flow-view.tsx",
+      "to": "@/lib/constants",
+      "import_path": "@/lib/constants"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\components\\dashboard-header.tsx",
+      "to": "react",
+      "import_path": "react"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\components\\dashboard-header.tsx",
+      "to": "@/lib/cn",
+      "import_path": "@/lib/cn"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\components\\dashboard-header.tsx",
+      "to": "@/hooks/use-agent-events",
+      "import_path": "@/hooks/use-agent-events"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\components\\dashboard-header.tsx",
+      "to": "@/components/demo-mode-switch",
+      "import_path": "@/components/demo-mode-switch"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\components\\dashboard-header.tsx",
+      "to": "@/components/run-pipeline-dialog",
+      "import_path": "@/components/run-pipeline-dialog"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\components\\dashboard-header.tsx",
+      "to": "@/lib/run-pipeline",
+      "import_path": "@/lib/run-pipeline"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\components\\dashboard-header.tsx",
+      "to": "next/link",
+      "import_path": "next/link"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\components\\demo-mode-switch.tsx",
+      "to": "@/hooks/use-demo-mode",
+      "import_path": "@/hooks/use-demo-mode"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\components\\event-stream.tsx",
+      "to": "react",
+      "import_path": "react"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\components\\event-stream.tsx",
+      "to": "@/lib/cn",
+      "import_path": "@/lib/cn"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\components\\event-stream.tsx",
+      "to": "@/lib/constants",
+      "import_path": "@/lib/constants"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\components\\event-stream.tsx",
+      "to": "@/lib/format",
+      "import_path": "@/lib/format"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\components\\event-stream.tsx",
+      "to": "@/core/events/types",
+      "import_path": "@/core/events/types"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\components\\floating-progress.tsx",
+      "to": "react",
+      "import_path": "react"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\components\\floating-progress.tsx",
+      "to": "framer-motion",
+      "import_path": "framer-motion"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\components\\floating-progress.tsx",
+      "to": "@/lib/constants",
+      "import_path": "@/lib/constants"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\components\\floating-progress.tsx",
+      "to": "@/lib/progress",
+      "import_path": "@/lib/progress"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\components\\global-progress.tsx",
+      "to": "framer-motion",
+      "import_path": "framer-motion"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\components\\global-progress.tsx",
+      "to": "@/lib/progress",
+      "import_path": "@/lib/progress"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\components\\inline-task-input.tsx",
+      "to": "react",
+      "import_path": "react"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\components\\inline-task-input.tsx",
+      "to": "@/lib/cn",
+      "import_path": "@/lib/cn"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\components\\narrative-panel.tsx",
+      "to": "react",
+      "import_path": "react"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\components\\narrative-panel.tsx",
+      "to": "framer-motion",
+      "import_path": "framer-motion"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\components\\narrative-panel.tsx",
+      "to": "@/lib/cn",
+      "import_path": "@/lib/cn"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\components\\narrative-panel.tsx",
+      "to": "@/lib/format",
+      "import_path": "@/lib/format"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\components\\narrative-panel.tsx",
+      "to": "@/lib/narrative",
+      "import_path": "@/lib/narrative"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\components\\narrative-panel.tsx",
+      "to": "@/lib/animation-variants",
+      "import_path": "@/lib/animation-variants"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\components\\outputs-panel.tsx",
+      "to": "@/lib/constants",
+      "import_path": "@/lib/constants"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\components\\outputs-panel.tsx",
+      "to": "@/core/events/types",
+      "import_path": "@/core/events/types"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\components\\reasoning-panel.tsx",
+      "to": "react",
+      "import_path": "react"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\components\\reasoning-panel.tsx",
+      "to": "@/lib/cn",
+      "import_path": "@/lib/cn"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\components\\reasoning-panel.tsx",
+      "to": "@/lib/constants",
+      "import_path": "@/lib/constants"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\components\\reasoning-panel.tsx",
+      "to": "@/lib/format",
+      "import_path": "@/lib/format"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\components\\reasoning-panel.tsx",
+      "to": "@/core/events/types",
+      "import_path": "@/core/events/types"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\components\\right-panel.tsx",
+      "to": "react",
+      "import_path": "react"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\components\\right-panel.tsx",
+      "to": "@/lib/cn",
+      "import_path": "@/lib/cn"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\components\\right-panel.tsx",
+      "to": "@/components/narrative-panel",
+      "import_path": "@/components/narrative-panel"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\components\\right-panel.tsx",
+      "to": "@/components/event-stream",
+      "import_path": "@/components/event-stream"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\components\\right-panel.tsx",
+      "to": "@/components/outputs-panel",
+      "import_path": "@/components/outputs-panel"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\components\\right-panel.tsx",
+      "to": "@/lib/narrative",
+      "import_path": "@/lib/narrative"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\components\\right-panel.tsx",
+      "to": "@/core/events/types",
+      "import_path": "@/core/events/types"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\components\\run-pipeline-dialog.tsx",
+      "to": "react",
+      "import_path": "react"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\components\\run-pipeline-dialog.tsx",
+      "to": "@/lib/cn",
+      "import_path": "@/lib/cn"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\components\\run-pipeline-dialog.tsx",
+      "to": "@/lib/run-pipeline",
+      "import_path": "@/lib/run-pipeline"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\components\\status-banners.tsx",
+      "to": "@/hooks/use-agent-events",
+      "import_path": "@/hooks/use-agent-events"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\components\\task-list.tsx",
+      "to": "@/lib/cn",
+      "import_path": "@/lib/cn"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\config\\__tests__\\env.test.ts",
+      "to": "vitest",
+      "import_path": "vitest"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\config\\__tests__\\env.test.ts",
+      "to": "@/config/env",
+      "import_path": "@/config/env"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\core\\events\\agent-event-bus.ts",
+      "to": "events",
+      "import_path": "events"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\core\\events\\agent-event-bus.ts",
+      "to": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\core\\events\\types.ts",
+      "import_path": "./types"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\core\\events\\session-persistence.ts",
+      "to": "fs/promises",
+      "import_path": "fs/promises"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\core\\events\\session-persistence.ts",
+      "to": "path",
+      "import_path": "path"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\core\\events\\session-persistence.ts",
+      "to": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\core\\events\\types.ts",
+      "import_path": "./types"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\core\\events\\types.ts",
+      "to": "@/lib/constants",
+      "import_path": "@/lib/constants"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\core\\events\\__tests__\\agent-event-bus.test.ts",
+      "to": "vitest",
+      "import_path": "vitest"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\core\\events\\__tests__\\agent-event-bus.test.ts",
+      "to": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\core\\events\\agent-event-bus.ts",
+      "import_path": "../agent-event-bus"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\core\\events\\__tests__\\agent-event-bus.test.ts",
+      "to": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\core\\events\\types.ts",
+      "import_path": "../types"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\core\\events\\__tests__\\agent-event-bus.test.ts",
+      "to": "@/lib/constants",
+      "import_path": "@/lib/constants"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\core\\events\\__tests__\\agent-event-bus.test.ts",
+      "to": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\core\\events\\types.ts",
+      "import_path": "../types"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\core\\observability\\event-middleware.ts",
+      "to": "@/core/events/agent-event-bus",
+      "import_path": "@/core/events/agent-event-bus"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\core\\observability\\event-middleware.ts",
+      "to": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\core\\observability\\logger.ts",
+      "import_path": "./logger"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\core\\observability\\event-middleware.ts",
+      "to": "@/core/events/types",
+      "import_path": "@/core/events/types"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\core\\observability\\index.ts",
+      "to": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\core\\observability\\logger.ts",
+      "import_path": "./logger"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\core\\observability\\index.ts",
+      "to": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\core\\observability\\trace.ts",
+      "import_path": "./trace"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\core\\observability\\index.ts",
+      "to": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\core\\observability\\event-middleware.ts",
+      "import_path": "./event-middleware"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\core\\observability\\logger.ts",
+      "to": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\core\\observability\\trace.ts",
+      "import_path": "./trace"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\core\\observability\\__tests__\\observability.test.ts",
+      "to": "vitest",
+      "import_path": "vitest"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\core\\observability\\__tests__\\observability.test.ts",
+      "to": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\core\\observability\\logger.ts",
+      "import_path": "../logger"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\core\\observability\\__tests__\\observability.test.ts",
+      "to": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\core\\observability\\trace.ts",
+      "import_path": "../trace"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\healing\\AutoDebugLoop.ts",
+      "to": "@/lib/response-parser",
+      "import_path": "@/lib/response-parser"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\healing\\AutoDebugLoop.ts",
+      "to": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\healing\\SelfHealingEngine.ts",
+      "import_path": "./SelfHealingEngine"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\healing\\AutoDebugLoop.ts",
+      "to": "@/core/events/agent-event-bus",
+      "import_path": "@/core/events/agent-event-bus"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\healing\\AutoDebugLoop.ts",
+      "to": "@/core/events/types",
+      "import_path": "@/core/events/types"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\healing\\AutoDebugLoop.ts",
+      "to": "@/lib/constants",
+      "import_path": "@/lib/constants"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\healing\\AutoDebugLoop.ts",
+      "to": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\healing\\types.ts",
+      "import_path": "./types"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\healing\\AutoDebugLoop.ts",
+      "to": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\healing\\types.ts",
+      "import_path": "./types"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\healing\\SelfHealingEngine.ts",
+      "to": "@/lib/response-parser",
+      "import_path": "@/lib/response-parser"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\healing\\SelfHealingEngine.ts",
+      "to": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\healing\\types.ts",
+      "import_path": "./types"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\healing\\SelfHealingEngine.ts",
+      "to": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\healing\\types.ts",
+      "import_path": "./types"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\hooks\\use-agent-events.ts",
+      "to": "react",
+      "import_path": "react"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\hooks\\use-agent-events.ts",
+      "to": "@/core/events/types",
+      "import_path": "@/core/events/types"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\hooks\\use-demo-mode.ts",
+      "to": "react",
+      "import_path": "react"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\hooks\\use-demo-mode.ts",
+      "to": "react",
+      "import_path": "react"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\job-system\\cover-letter-generator.ts",
+      "to": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\job-system\\types.ts",
+      "import_path": "./types"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\job-system\\resume-generator.ts",
+      "to": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\job-system\\types.ts",
+      "import_path": "./types"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\job-system\\store.ts",
+      "to": "fs",
+      "import_path": "fs"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\job-system\\store.ts",
+      "to": "path",
+      "import_path": "path"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\job-system\\store.ts",
+      "to": "crypto",
+      "import_path": "crypto"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\job-system\\store.ts",
+      "to": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\job-system\\types.ts",
+      "import_path": "./types"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\lib\\animation-variants.ts",
+      "to": "framer-motion",
+      "import_path": "framer-motion"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\lib\\cn.ts",
+      "to": "clsx",
+      "import_path": "clsx"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\lib\\cn.ts",
+      "to": "tailwind-merge",
+      "import_path": "tailwind-merge"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\lib\\markdown-sync.ts",
+      "to": "node:fs/promises",
+      "import_path": "node:fs/promises"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\lib\\markdown-sync.ts",
+      "to": "node:path",
+      "import_path": "node:path"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\lib\\markdown-sync.ts",
+      "to": "node:fs",
+      "import_path": "node:fs"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\lib\\narrative.ts",
+      "to": "@/core/events/types",
+      "import_path": "@/core/events/types"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\lib\\narrative.ts",
+      "to": "@/lib/constants",
+      "import_path": "@/lib/constants"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\lib\\pipeline-runner.ts",
+      "to": "child_process",
+      "import_path": "child_process"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\lib\\pipeline-runner.ts",
+      "to": "fs",
+      "import_path": "fs"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\lib\\pipeline-runner.ts",
+      "to": "@/config/env",
+      "import_path": "@/config/env"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\lib\\progress.ts",
+      "to": "@/core/events/types",
+      "import_path": "@/core/events/types"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\lib\\sanitize.ts",
+      "to": "@/job-system/types",
+      "import_path": "@/job-system/types"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\lib\\__tests__\\failure-injection.test.ts",
+      "to": "vitest",
+      "import_path": "vitest"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\lib\\__tests__\\failure-injection.test.ts",
+      "to": "@/core/interfaces/Agent",
+      "import_path": "@/core/interfaces/Agent"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\lib\\__tests__\\failure-injection.test.ts",
+      "to": "@/backend/execution/ExecutionBackend",
+      "import_path": "@/backend/execution/ExecutionBackend"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\lib\\__tests__\\failure-injection.test.ts",
+      "to": "@/core/entities/Task",
+      "import_path": "@/core/entities/Task"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\lib\\__tests__\\failure-injection.test.ts",
+      "to": "@/core/events/types",
+      "import_path": "@/core/events/types"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\lib\\__tests__\\failure-injection.test.ts",
+      "to": "@/backend/services/ObservableOrchestrator",
+      "import_path": "@/backend/services/ObservableOrchestrator"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\lib\\__tests__\\failure-injection.test.ts",
+      "to": "@/core/events/agent-event-bus",
+      "import_path": "@/core/events/agent-event-bus"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\lib\\__tests__\\failure-injection.test.ts",
+      "to": "@/safety/kill-switch",
+      "import_path": "@/safety/kill-switch"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\lib\\__tests__\\failure-injection.test.ts",
+      "to": "@/agents/planner/PlannerAgent",
+      "import_path": "@/agents/planner/PlannerAgent"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\lib\\__tests__\\failure-injection.test.ts",
+      "to": "@/agents/builder/BuilderAgent",
+      "import_path": "@/agents/builder/BuilderAgent"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\lib\\__tests__\\failure-injection.test.ts",
+      "to": "@/agents/reviewer/ReviewerAgent",
+      "import_path": "@/agents/reviewer/ReviewerAgent"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\lib\\__tests__\\failure-injection.test.ts",
+      "to": "@/lib/response-parser",
+      "import_path": "@/lib/response-parser"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\lib\\__tests__\\failure-injection.test.ts",
+      "to": "@/agents/schemas",
+      "import_path": "@/agents/schemas"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\lib\\__tests__\\gmail-agents.test.ts",
+      "to": "vitest",
+      "import_path": "vitest"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\lib\\__tests__\\gmail-agents.test.ts",
+      "to": "@/agents/gmail",
+      "import_path": "@/agents/gmail"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\lib\\__tests__\\gmail-agents.test.ts",
+      "to": "@/safety",
+      "import_path": "@/safety"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\lib\\__tests__\\job-system.test.ts",
+      "to": "vitest",
+      "import_path": "vitest"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\lib\\__tests__\\job-system.test.ts",
+      "to": "@/job-system/store",
+      "import_path": "@/job-system/store"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\lib\\__tests__\\job-system.test.ts",
+      "to": "@/job-system/types",
+      "import_path": "@/job-system/types"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\lib\\__tests__\\narrative.test.ts",
+      "to": "vitest",
+      "import_path": "vitest"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\lib\\__tests__\\narrative.test.ts",
+      "to": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\lib\\narrative.ts",
+      "import_path": "../narrative"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\lib\\__tests__\\narrative.test.ts",
+      "to": "@/core/events/types",
+      "import_path": "@/core/events/types"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\lib\\__tests__\\progress.test.ts",
+      "to": "vitest",
+      "import_path": "vitest"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\lib\\__tests__\\progress.test.ts",
+      "to": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\lib\\progress.ts",
+      "import_path": "../progress"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\lib\\__tests__\\progress.test.ts",
+      "to": "@/core/events/types",
+      "import_path": "@/core/events/types"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\lib\\__tests__\\real-llm-pipeline.test.ts",
+      "to": "vitest",
+      "import_path": "vitest"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\lib\\__tests__\\real-llm-pipeline.test.ts",
+      "to": "@/agents/registry",
+      "import_path": "@/agents/registry"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\lib\\__tests__\\real-llm-pipeline.test.ts",
+      "to": "@/backend/services/ObservableOrchestrator",
+      "import_path": "@/backend/services/ObservableOrchestrator"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\lib\\__tests__\\real-llm-pipeline.test.ts",
+      "to": "@/backend/execution/SimulatedBackend",
+      "import_path": "@/backend/execution/SimulatedBackend"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\lib\\__tests__\\real-llm-pipeline.test.ts",
+      "to": "@/core/events/agent-event-bus",
+      "import_path": "@/core/events/agent-event-bus"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\lib\\__tests__\\real-llm-pipeline.test.ts",
+      "to": "@/core/events/types",
+      "import_path": "@/core/events/types"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\lib\\__tests__\\response-parser.test.ts",
+      "to": "vitest",
+      "import_path": "vitest"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\lib\\__tests__\\response-parser.test.ts",
+      "to": "@/lib/response-parser",
+      "import_path": "@/lib/response-parser"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\lib\\__tests__\\safety-integration.test.ts",
+      "to": "vitest",
+      "import_path": "vitest"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\lib\\__tests__\\safety-integration.test.ts",
+      "to": "@/backend/services/ObservableOrchestrator",
+      "import_path": "@/backend/services/ObservableOrchestrator"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\lib\\__tests__\\safety-integration.test.ts",
+      "to": "@/backend/execution/SimulatedBackend",
+      "import_path": "@/backend/execution/SimulatedBackend"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\lib\\__tests__\\safety-integration.test.ts",
+      "to": "@/agents/registry",
+      "import_path": "@/agents/registry"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\lib\\__tests__\\safety-integration.test.ts",
+      "to": "@/safety/kill-switch",
+      "import_path": "@/safety/kill-switch"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\lib\\__tests__\\safety.test.ts",
+      "to": "vitest",
+      "import_path": "vitest"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\lib\\__tests__\\safety.test.ts",
+      "to": "@/safety",
+      "import_path": "@/safety"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\lib\\__tests__\\structured-output.test.ts",
+      "to": "vitest",
+      "import_path": "vitest"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\lib\\__tests__\\structured-output.test.ts",
+      "to": "@/core/interfaces/Agent",
+      "import_path": "@/core/interfaces/Agent"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\lib\\__tests__\\structured-output.test.ts",
+      "to": "@/backend/execution/ExecutionBackend",
+      "import_path": "@/backend/execution/ExecutionBackend"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\lib\\__tests__\\structured-output.test.ts",
+      "to": "@/core/entities/Task",
+      "import_path": "@/core/entities/Task"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\lib\\__tests__\\structured-output.test.ts",
+      "to": "@/agents/planner/PlannerAgent",
+      "import_path": "@/agents/planner/PlannerAgent"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\lib\\__tests__\\structured-output.test.ts",
+      "to": "@/agents/builder/BuilderAgent",
+      "import_path": "@/agents/builder/BuilderAgent"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\lib\\__tests__\\structured-output.test.ts",
+      "to": "@/agents/reviewer/ReviewerAgent",
+      "import_path": "@/agents/reviewer/ReviewerAgent"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\lib\\__tests__\\structured-output.test.ts",
+      "to": "@/agents/tester/TesterAgent",
+      "import_path": "@/agents/tester/TesterAgent"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\lib\\__tests__\\structured-output.test.ts",
+      "to": "@/agents/learning/LearningAgent",
+      "import_path": "@/agents/learning/LearningAgent"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\orchestrator\\SupervisorOrchestrator.ts",
+      "to": "@/core/interfaces/Agent",
+      "import_path": "@/core/interfaces/Agent"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\orchestrator\\SupervisorOrchestrator.ts",
+      "to": "@/core/events/agent-event-bus",
+      "import_path": "@/core/events/agent-event-bus"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\orchestrator\\SupervisorOrchestrator.ts",
+      "to": "@/core/events/types",
+      "import_path": "@/core/events/types"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\orchestrator\\SupervisorOrchestrator.ts",
+      "to": "@/lib/constants",
+      "import_path": "@/lib/constants"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\orchestrator\\SupervisorOrchestrator.ts",
+      "to": "@/core/observability/trace",
+      "import_path": "@/core/observability/trace"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\orchestrator\\SupervisorOrchestrator.ts",
+      "to": "@/core/observability/logger",
+      "import_path": "@/core/observability/logger"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\orchestrator\\SupervisorOrchestrator.ts",
+      "to": "@/safety/safety-guard",
+      "import_path": "@/safety/safety-guard"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\orchestrator\\SupervisorOrchestrator.ts",
+      "to": "@/routing/ModelRouter",
+      "import_path": "@/routing/ModelRouter"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\orchestrator\\SupervisorOrchestrator.ts",
+      "to": "@/healing/SelfHealingEngine",
+      "import_path": "@/healing/SelfHealingEngine"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\orchestrator\\SupervisorOrchestrator.ts",
+      "to": "@/lib/response-parser",
+      "import_path": "@/lib/response-parser"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\orchestrator\\SupervisorOrchestrator.ts",
+      "to": "@/routing/types",
+      "import_path": "@/routing/types"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\orchestrator\\SupervisorOrchestrator.ts",
+      "to": "@/healing/types",
+      "import_path": "@/healing/types"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\orchestrator\\SupervisorOrchestrator.ts",
+      "to": "@/core/events/types",
+      "import_path": "@/core/events/types"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\orchestrator\\__tests__\\self-healing.test.ts",
+      "to": "vitest",
+      "import_path": "vitest"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\orchestrator\\__tests__\\self-healing.test.ts",
+      "to": "@/routing/ModelRouter",
+      "import_path": "@/routing/ModelRouter"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\orchestrator\\__tests__\\self-healing.test.ts",
+      "to": "@/healing/SelfHealingEngine",
+      "import_path": "@/healing/SelfHealingEngine"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\orchestrator\\__tests__\\self-healing.test.ts",
+      "to": "@/healing/AutoDebugLoop",
+      "import_path": "@/healing/AutoDebugLoop"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\orchestrator\\__tests__\\self-healing.test.ts",
+      "to": "@/orchestrator/SupervisorOrchestrator",
+      "import_path": "@/orchestrator/SupervisorOrchestrator"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\orchestrator\\__tests__\\self-healing.test.ts",
+      "to": "@/core/events/agent-event-bus",
+      "import_path": "@/core/events/agent-event-bus"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\orchestrator\\__tests__\\self-healing.test.ts",
+      "to": "@/safety/kill-switch",
+      "import_path": "@/safety/kill-switch"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\orchestrator\\__tests__\\self-healing.test.ts",
+      "to": "@/config/env",
+      "import_path": "@/config/env"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\orchestrator\\__tests__\\self-healing.test.ts",
+      "to": "@/core/interfaces/Agent",
+      "import_path": "@/core/interfaces/Agent"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\orchestrator\\__tests__\\self-healing.test.ts",
+      "to": "@/core/events/types",
+      "import_path": "@/core/events/types"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\routing\\ModelRouter.ts",
+      "to": "@/config/env",
+      "import_path": "@/config/env"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\routing\\ModelRouter.ts",
+      "to": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\routing\\types.ts",
+      "import_path": "./types"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\routing\\ModelRouter.ts",
+      "to": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\routing\\types.ts",
+      "import_path": "./types"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\safety\\approval-service.ts",
+      "to": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\safety\\types.ts",
+      "import_path": "./types"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\safety\\audit-logger.ts",
+      "to": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\safety\\types.ts",
+      "import_path": "./types"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\safety\\index.ts",
+      "to": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\safety\\types.ts",
+      "import_path": "./types"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\safety\\index.ts",
+      "to": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\safety\\kill-switch.ts",
+      "import_path": "./kill-switch"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\safety\\index.ts",
+      "to": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\safety\\policy-engine.ts",
+      "import_path": "./policy-engine"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\safety\\index.ts",
+      "to": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\safety\\approval-service.ts",
+      "import_path": "./approval-service"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\safety\\index.ts",
+      "to": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\safety\\audit-logger.ts",
+      "import_path": "./audit-logger"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\safety\\index.ts",
+      "to": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\safety\\safety-guard.ts",
+      "import_path": "./safety-guard"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\safety\\policy-engine.ts",
+      "to": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\safety\\types.ts",
+      "import_path": "./types"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\safety\\safety-guard.ts",
+      "to": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\safety\\kill-switch.ts",
+      "import_path": "./kill-switch"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\safety\\safety-guard.ts",
+      "to": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\safety\\policy-engine.ts",
+      "import_path": "./policy-engine"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\safety\\safety-guard.ts",
+      "to": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\safety\\approval-service.ts",
+      "import_path": "./approval-service"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\safety\\safety-guard.ts",
+      "to": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\safety\\audit-logger.ts",
+      "import_path": "./audit-logger"
+    },
+    {
+      "from": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\safety\\safety-guard.ts",
+      "to": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\safety\\types.ts",
+      "import_path": "./types"
+    }
+  ]
+}

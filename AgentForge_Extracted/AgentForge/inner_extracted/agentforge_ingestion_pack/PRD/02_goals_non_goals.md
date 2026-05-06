@@ -1,0 +1,3 @@
+# Goals
+- Modular
+- Event-driven

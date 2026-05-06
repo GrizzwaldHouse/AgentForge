@@ -1,0 +1,1166 @@
+{
+  "interfaces": [
+    {
+      "name": "GraphNode",
+      "file": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\AgentForge\\contracts\\graph.ts",
+      "fields": [
+        "id",
+        "label",
+        "type",
+        "metadata"
+      ]
+    },
+    {
+      "name": "GraphEdge",
+      "file": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\AgentForge\\contracts\\graph.ts",
+      "fields": [
+        "id",
+        "source",
+        "target",
+        "label"
+      ]
+    },
+    {
+      "name": "EventBus",
+      "file": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\AgentForge\\runtime\\event-bus.interface.ts",
+      "fields": [
+        "event",
+        "type",
+        "handler"
+      ]
+    },
+    {
+      "name": "ForgeState",
+      "file": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\AgentForge\\schemas\\forge-state.schema.ts",
+      "fields": [
+        "id"
+      ]
+    },
+    {
+      "name": "PlanStep",
+      "file": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\agents\\schemas.ts",
+      "fields": [
+        "id",
+        "action",
+        "details"
+      ]
+    },
+    {
+      "name": "PlannerOutput",
+      "file": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\agents\\schemas.ts",
+      "fields": [
+        "steps",
+        "summary",
+        "estimatedFiles"
+      ]
+    },
+    {
+      "name": "BuildFile",
+      "file": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\agents\\schemas.ts",
+      "fields": [
+        "path",
+        "content",
+        "action"
+      ]
+    },
+    {
+      "name": "BuilderOutput",
+      "file": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\agents\\schemas.ts",
+      "fields": [
+        "files",
+        "summary"
+      ]
+    },
+    {
+      "name": "ReviewIssue",
+      "file": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\agents\\schemas.ts",
+      "fields": [
+        "severity",
+        "file",
+        "line",
+        "message"
+      ]
+    },
+    {
+      "name": "ReviewerOutput",
+      "file": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\agents\\schemas.ts",
+      "fields": [
+        "issues",
+        "approved",
+        "summary"
+      ]
+    },
+    {
+      "name": "TestCase",
+      "file": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\agents\\schemas.ts",
+      "fields": [
+        "name",
+        "file",
+        "type",
+        "code"
+      ]
+    },
+    {
+      "name": "TestCoverage",
+      "file": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\agents\\schemas.ts",
+      "fields": [
+        "estimated",
+        "notes"
+      ]
+    },
+    {
+      "name": "TesterOutput",
+      "file": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\agents\\schemas.ts",
+      "fields": [
+        "tests",
+        "coverage",
+        "summary"
+      ]
+    },
+    {
+      "name": "LearnedPattern",
+      "file": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\agents\\schemas.ts",
+      "fields": [
+        "pattern",
+        "source",
+        "confidence"
+      ]
+    },
+    {
+      "name": "AntiPattern",
+      "file": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\agents\\schemas.ts",
+      "fields": [
+        "pattern",
+        "reason"
+      ]
+    },
+    {
+      "name": "LearningOutput",
+      "file": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\agents\\schemas.ts",
+      "fields": [
+        "patterns",
+        "antiPatterns",
+        "recommendations",
+        "summary"
+      ]
+    },
+    {
+      "name": "ContextOutput",
+      "file": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\agents\\schemas.ts",
+      "fields": [
+        "prunedKeys",
+        "logsBefore",
+        "logsAfter",
+        "historyBefore",
+        "historyAfter",
+        "summary"
+      ]
+    },
+    {
+      "name": "BrainstormOption",
+      "file": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\agents\\brainstorm\\types.ts",
+      "fields": [
+        "id",
+        "label",
+        "rationale",
+        "locked"
+      ]
+    },
+    {
+      "name": "BrainstormQuestion",
+      "file": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\agents\\brainstorm\\types.ts",
+      "fields": [
+        "id",
+        "text",
+        "type",
+        "options"
+      ]
+    },
+    {
+      "name": "BrainstormSection",
+      "file": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\agents\\brainstorm\\types.ts",
+      "fields": [
+        "id",
+        "title",
+        "questions"
+      ]
+    },
+    {
+      "name": "BrainstormArtifact",
+      "file": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\agents\\brainstorm\\types.ts",
+      "fields": [
+        "title",
+        "theme",
+        "sections",
+        "metadata",
+        "capturedAt",
+        "projectSlug"
+      ]
+    },
+    {
+      "name": "GmailMessage",
+      "file": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\agents\\gmail\\types.ts",
+      "fields": [
+        "messageId",
+        "threadId",
+        "from",
+        "to",
+        "subject",
+        "body",
+        "timestamp",
+        "historyId"
+      ]
+    },
+    {
+      "name": "ClassificationResult",
+      "file": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\agents\\gmail\\types.ts",
+      "fields": [
+        "labels",
+        "confidence",
+        "summary"
+      ]
+    },
+    {
+      "name": "PriorityResult",
+      "file": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\agents\\gmail\\types.ts",
+      "fields": [
+        "priority",
+        "score",
+        "reason"
+      ]
+    },
+    {
+      "name": "ResponseDraft",
+      "file": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\agents\\gmail\\types.ts",
+      "fields": [
+        "draft",
+        "tone",
+        "suggestedSubject"
+      ]
+    },
+    {
+      "name": "PubSubEnvelope",
+      "file": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\app\\api\\gmail\\webhook\\route.ts",
+      "fields": [
+        "message",
+        "data",
+        "messageId",
+        "publishTime"
+      ]
+    },
+    {
+      "name": "KillSwitchStatus",
+      "file": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\app\\safety\\page.tsx",
+      "fields": [
+        "active",
+        "activatedAt",
+        "reason"
+      ]
+    },
+    {
+      "name": "SafetyState",
+      "file": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\app\\safety\\page.tsx",
+      "fields": [
+        "killSwitch",
+        "pendingApprovals",
+        "recentAudit"
+      ]
+    },
+    {
+      "name": "BackendConfig",
+      "file": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\backend\\execution\\ExecutionBackend.ts",
+      "fields": [
+        "type",
+        "timeoutMs",
+        "retryCount",
+        "ollamaBaseUrl",
+        "ollamaModel"
+      ]
+    },
+    {
+      "name": "ExecutionBackend",
+      "file": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\backend\\execution\\ExecutionBackend.ts",
+      "fields": [
+        "type",
+        "task",
+        "input",
+        "taskId",
+        "taskId"
+      ]
+    },
+    {
+      "name": "OllamaGenerateResponse",
+      "file": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\backend\\execution\\OllamaBackend.ts",
+      "fields": [
+        "response",
+        "done",
+        "total_duration",
+        "eval_count"
+      ]
+    },
+    {
+      "name": "ProviderConfig",
+      "file": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\backend\\services\\LLMProviderChain.ts",
+      "fields": [
+        "name",
+        "type",
+        "baseUrl",
+        "apiKey",
+        "model",
+        "maxTokens",
+        "costPerToken",
+        "priority"
+      ]
+    },
+    {
+      "name": "ProviderResult",
+      "file": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\backend\\services\\LLMProviderChain.ts",
+      "fields": [
+        "provider",
+        "response",
+        "tokensUsed",
+        "cost",
+        "latencyMs"
+      ]
+    },
+    {
+      "name": "HealthCheckCache",
+      "file": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\backend\\services\\LLMProviderChain.ts",
+      "fields": [
+        "healthy",
+        "checkedAt"
+      ]
+    },
+    {
+      "name": "DailyUsage",
+      "file": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\backend\\services\\LLMProviderChain.ts",
+      "fields": [
+        "date",
+        "costUsd",
+        "requests",
+        "tokens"
+      ]
+    },
+    {
+      "name": "OllamaModel",
+      "file": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\backend\\services\\ModelService.ts",
+      "fields": [
+        "name",
+        "modified_at",
+        "size"
+      ]
+    },
+    {
+      "name": "OllamaTagsResponse",
+      "file": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\backend\\services\\ModelService.ts",
+      "fields": [
+        "models"
+      ]
+    },
+    {
+      "name": "OrchestratorConfig",
+      "file": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\backend\\services\\ObservableOrchestrator.ts",
+      "fields": [
+        "parallel",
+        "default",
+        "safetyEnabled",
+        "default",
+        "safetyPolicy"
+      ]
+    },
+    {
+      "name": "SessionResult",
+      "file": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\backend\\services\\ObservableOrchestrator.ts",
+      "fields": [
+        "sessionId",
+        "taskId",
+        "traceId",
+        "totalDurationMs",
+        "agentResults"
+      ]
+    },
+    {
+      "name": "ActivityFeedProps",
+      "file": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\components\\activity-feed.tsx",
+      "fields": [
+        "entries"
+      ]
+    },
+    {
+      "name": "AgentCardProps",
+      "file": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\components\\agent-card.tsx",
+      "fields": [
+        "id",
+        "name",
+        "status",
+        "lastRunAt",
+        "lastDurationMs",
+        "progress"
+      ]
+    },
+    {
+      "name": "AgentFlowNode",
+      "file": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\components\\agent-flow-view.tsx",
+      "fields": [
+        "id",
+        "label",
+        "status"
+      ]
+    },
+    {
+      "name": "AgentFlowViewProps",
+      "file": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\components\\agent-flow-view.tsx",
+      "fields": [
+        "agentIds",
+        "completedIds",
+        "activeId",
+        "errorIds",
+        "hasRun"
+      ]
+    },
+    {
+      "name": "DashboardHeaderProps",
+      "file": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\components\\dashboard-header.tsx",
+      "fields": [
+        "connectionStatus",
+        "eventCount",
+        "pipelineRunning",
+        "onClear"
+      ]
+    },
+    {
+      "name": "EventStreamProps",
+      "file": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\components\\event-stream.tsx",
+      "fields": [
+        "events",
+        "maxVisible"
+      ]
+    },
+    {
+      "name": "FloatingProgressProps",
+      "file": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\components\\floating-progress.tsx",
+      "fields": [
+        "progress"
+      ]
+    },
+    {
+      "name": "GlobalProgressBarProps",
+      "file": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\components\\global-progress.tsx",
+      "fields": [
+        "progress"
+      ]
+    },
+    {
+      "name": "InlineTaskInputProps",
+      "file": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\components\\inline-task-input.tsx",
+      "fields": [
+        "onSubmit",
+        "description"
+      ]
+    },
+    {
+      "name": "NarrativePanelProps",
+      "file": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\components\\narrative-panel.tsx",
+      "fields": [
+        "entries"
+      ]
+    },
+    {
+      "name": "OutputsPanelProps",
+      "file": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\components\\outputs-panel.tsx",
+      "fields": [
+        "events"
+      ]
+    },
+    {
+      "name": "ReasoningPanelProps",
+      "file": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\components\\reasoning-panel.tsx",
+      "fields": [
+        "events"
+      ]
+    },
+    {
+      "name": "RightPanelProps",
+      "file": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\components\\right-panel.tsx",
+      "fields": [
+        "narrativeEntries",
+        "events"
+      ]
+    },
+    {
+      "name": "RunPipelineDialogProps",
+      "file": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\components\\run-pipeline-dialog.tsx",
+      "fields": [
+        "open",
+        "onClose",
+        "onSubmit",
+        "description",
+        "backend"
+      ]
+    },
+    {
+      "name": "StatusBannersProps",
+      "file": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\components\\status-banners.tsx",
+      "fields": [
+        "connectionStatus",
+        "pipelineStarting",
+        "lastError",
+        "agentId",
+        "error"
+      ]
+    },
+    {
+      "name": "TaskItem",
+      "file": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\components\\task-list.tsx",
+      "fields": [
+        "id",
+        "label",
+        "status",
+        "agentId"
+      ]
+    },
+    {
+      "name": "TaskListPanelProps",
+      "file": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\components\\task-list.tsx",
+      "fields": [
+        "tasks",
+        "filter",
+        "onFilterChange",
+        "status"
+      ]
+    },
+    {
+      "name": "EnvConfig",
+      "file": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\config\\env.ts",
+      "fields": [
+        "ollamaBaseUrl",
+        "groqApiKey",
+        "cerebrasApiKey",
+        "togetherApiKey",
+        "mistralApiKey",
+        "claudeApiKey",
+        "openaiApiKey",
+        "openrouterApiKey",
+        "agentToken",
+        "dailyBudgetUsd"
+      ]
+    },
+    {
+      "name": "Task",
+      "file": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\core\\entities\\Task.ts",
+      "fields": [
+        "id",
+        "context"
+      ]
+    },
+    {
+      "name": "BaseEvent",
+      "file": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\core\\events\\types.ts",
+      "fields": [
+        "id",
+        "timestamp",
+        "sessionId"
+      ]
+    },
+    {
+      "name": "AgentStartEvent",
+      "file": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\core\\events\\types.ts",
+      "fields": [
+        "type",
+        "agentId",
+        "taskId",
+        "humanMessage",
+        "stepName",
+        "stepIndex",
+        "totalSteps"
+      ]
+    },
+    {
+      "name": "AgentProgressEvent",
+      "file": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\core\\events\\types.ts",
+      "fields": [
+        "type",
+        "agentId",
+        "taskId",
+        "progress",
+        "message",
+        "humanMessage",
+        "stepName"
+      ]
+    },
+    {
+      "name": "AgentLogEvent",
+      "file": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\core\\events\\types.ts",
+      "fields": [
+        "type",
+        "agentId",
+        "taskId",
+        "message",
+        "level",
+        "humanMessage"
+      ]
+    },
+    {
+      "name": "AgentCompleteEvent",
+      "file": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\core\\events\\types.ts",
+      "fields": [
+        "type",
+        "agentId",
+        "taskId",
+        "durationMs",
+        "success",
+        "data",
+        "humanMessage",
+        "stepName"
+      ]
+    },
+    {
+      "name": "AgentErrorEvent",
+      "file": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\core\\events\\types.ts",
+      "fields": [
+        "type",
+        "agentId",
+        "taskId",
+        "error",
+        "stack",
+        "humanMessage"
+      ]
+    },
+    {
+      "name": "SessionStartEvent",
+      "file": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\core\\events\\types.ts",
+      "fields": [
+        "type",
+        "agentIds",
+        "taskId",
+        "humanMessage"
+      ]
+    },
+    {
+      "name": "SessionEndEvent",
+      "file": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\core\\events\\types.ts",
+      "fields": [
+        "type",
+        "totalDurationMs",
+        "agentResults",
+        "agentId",
+        "success",
+        "durationMs"
+      ]
+    },
+    {
+      "name": "HeartbeatEvent",
+      "file": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\core\\events\\types.ts",
+      "fields": [
+        "type"
+      ]
+    },
+    {
+      "name": "AgentInput",
+      "file": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\core\\interfaces\\Agent.ts",
+      "fields": [
+        "taskId",
+        "context"
+      ]
+    },
+    {
+      "name": "AgentOutput",
+      "file": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\core\\interfaces\\Agent.ts",
+      "fields": [
+        "success",
+        "data",
+        "logs"
+      ]
+    },
+    {
+      "name": "Agent",
+      "file": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\core\\interfaces\\Agent.ts",
+      "fields": [
+        "id",
+        "name",
+        "input"
+      ]
+    },
+    {
+      "name": "LogEntry",
+      "file": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\core\\observability\\logger.ts",
+      "fields": [
+        "timestamp",
+        "level",
+        "message",
+        "traceId",
+        "spanId",
+        "agentId",
+        "taskId",
+        "durationMs",
+        "data"
+      ]
+    },
+    {
+      "name": "TraceContext",
+      "file": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\core\\observability\\trace.ts",
+      "fields": [
+        "traceId",
+        "spanId",
+        "parentSpanId",
+        "startedAt"
+      ]
+    },
+    {
+      "name": "DebugLoopResult",
+      "file": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\healing\\AutoDebugLoop.ts",
+      "fields": [
+        "success",
+        "output",
+        "attempts",
+        "errors",
+        "strategy"
+      ]
+    },
+    {
+      "name": "SchemaField",
+      "file": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\healing\\AutoDebugLoop.ts",
+      "fields": [
+        "name",
+        "type",
+        "required"
+      ]
+    },
+    {
+      "name": "FailureAnalysis",
+      "file": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\healing\\types.ts",
+      "fields": [
+        "category",
+        "message",
+        "recoverable",
+        "suggestedStrategy",
+        "details"
+      ]
+    },
+    {
+      "name": "RecoveryAttempt",
+      "file": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\healing\\types.ts",
+      "fields": [
+        "strategy",
+        "attemptNumber",
+        "success",
+        "durationMs",
+        "error"
+      ]
+    },
+    {
+      "name": "HealingResult",
+      "file": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\healing\\types.ts",
+      "fields": [
+        "recovered",
+        "totalAttempts",
+        "strategies",
+        "finalOutput",
+        "failureChain"
+      ]
+    },
+    {
+      "name": "HealingConfig",
+      "file": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\healing\\types.ts",
+      "fields": [
+        "maxRetries",
+        "retryDelayMs",
+        "enablePromptRepair",
+        "enableModelSwitching",
+        "enableTaskDecomposition"
+      ]
+    },
+    {
+      "name": "DemoModeContextValue",
+      "file": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\hooks\\use-demo-mode.ts",
+      "fields": [
+        "isDemoMode",
+        "toggleDemoMode"
+      ]
+    },
+    {
+      "name": "ResumeData",
+      "file": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\job-system\\resume-generator.ts",
+      "fields": [
+        "name",
+        "contact",
+        "email",
+        "github"
+      ]
+    },
+    {
+      "name": "JobApplication",
+      "file": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\job-system\\types.ts",
+      "fields": [
+        "id",
+        "company",
+        "role",
+        "url",
+        "status",
+        "appliedAt",
+        "savedAt",
+        "source",
+        "resumeVariant",
+        "notes",
+        "followUps",
+        "keywords"
+      ]
+    },
+    {
+      "name": "FollowUp",
+      "file": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\job-system\\types.ts",
+      "fields": [
+        "id",
+        "date",
+        "type",
+        "completed",
+        "notes"
+      ]
+    },
+    {
+      "name": "WeeklyStats",
+      "file": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\job-system\\types.ts",
+      "fields": [
+        "weekStart",
+        "total",
+        "byStatus",
+        "goalTarget",
+        "goalMet"
+      ]
+    },
+    {
+      "name": "NarrativeEntry",
+      "file": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\lib\\narrative.ts",
+      "fields": [
+        "id",
+        "timestamp",
+        "phase",
+        "message",
+        "agentId",
+        "color",
+        "level"
+      ]
+    },
+    {
+      "name": "PipelineResult",
+      "file": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\lib\\pipeline-runner.ts",
+      "fields": [
+        "success",
+        "output",
+        "exitCode",
+        "durationMs"
+      ]
+    },
+    {
+      "name": "AgentProgressState",
+      "file": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\lib\\progress.ts",
+      "fields": [
+        "status",
+        "progress",
+        "stepName"
+      ]
+    },
+    {
+      "name": "ProgressState",
+      "file": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\lib\\progress.ts",
+      "fields": [
+        "globalProgress",
+        "currentStep",
+        "totalSteps",
+        "currentAgentId",
+        "currentStepName",
+        "agentProgress",
+        "isRunning",
+        "isComplete"
+      ]
+    },
+    {
+      "name": "SupervisorConfig",
+      "file": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\orchestrator\\SupervisorOrchestrator.ts",
+      "fields": [
+        "parallel",
+        "safetyEnabled",
+        "routing",
+        "healing"
+      ]
+    },
+    {
+      "name": "SupervisorResult",
+      "file": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\orchestrator\\SupervisorOrchestrator.ts",
+      "fields": [
+        "sessionId",
+        "taskId",
+        "traceId",
+        "totalDurationMs",
+        "agentResults",
+        "agentId",
+        "success",
+        "durationMs",
+        "healingAttempts",
+        "provider"
+      ]
+    },
+    {
+      "name": "ProviderSpec",
+      "file": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\routing\\ModelRouter.ts",
+      "fields": [
+        "name",
+        "model",
+        "costPerKToken",
+        "capabilities",
+        "maxTokens",
+        "priority"
+      ]
+    },
+    {
+      "name": "TaskProfile",
+      "file": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\routing\\types.ts",
+      "fields": [
+        "domain",
+        "complexity",
+        "estimatedTokens",
+        "requiresStructuredOutput"
+      ]
+    },
+    {
+      "name": "ProviderHealth",
+      "file": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\routing\\types.ts",
+      "fields": [
+        "name",
+        "healthy",
+        "latencyMs",
+        "lastCheckedAt",
+        "consecutiveFailures",
+        "hasApiKey"
+      ]
+    },
+    {
+      "name": "RoutingDecision",
+      "file": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\routing\\types.ts",
+      "fields": [
+        "provider",
+        "model",
+        "reason",
+        "fallbacks"
+      ]
+    },
+    {
+      "name": "RoutingConfig",
+      "file": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\routing\\types.ts",
+      "fields": [
+        "mode",
+        "maxRetries",
+        "timeoutMs",
+        "preferLocal",
+        "costCeiling"
+      ]
+    },
+    {
+      "name": "GuardResult",
+      "file": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\safety\\safety-guard.ts",
+      "fields": [
+        "allowed",
+        "reason",
+        "requiresApproval",
+        "actionId"
+      ]
+    },
+    {
+      "name": "SafetyAction",
+      "file": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\safety\\types.ts",
+      "fields": [
+        "id",
+        "type",
+        "agentId",
+        "taskId",
+        "payload",
+        "timestamp"
+      ]
+    },
+    {
+      "name": "PolicyResult",
+      "file": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\safety\\types.ts",
+      "fields": [
+        "decision",
+        "reason",
+        "ruleId"
+      ]
+    },
+    {
+      "name": "PolicyConfig",
+      "file": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\safety\\types.ts",
+      "fields": [
+        "allowedDomains",
+        "blockedDomains",
+        "maxRecipients",
+        "maxMessageLength",
+        "requireApprovalForExternalSend",
+        "killSwitchEnabled"
+      ]
+    },
+    {
+      "name": "ApprovalRecord",
+      "file": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\safety\\types.ts",
+      "fields": [
+        "actionId",
+        "action",
+        "status",
+        "requestedAt",
+        "resolvedAt",
+        "resolvedBy"
+      ]
+    },
+    {
+      "name": "AuditEntry",
+      "file": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\safety\\types.ts",
+      "fields": [
+        "timestamp",
+        "actionId",
+        "actionType",
+        "agentId",
+        "status",
+        "reason",
+        "details"
+      ]
+    }
+  ],
+  "event_types": [
+    {
+      "name": "EventId",
+      "file": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\AgentForge\\contracts\\base-event.ts"
+    },
+    {
+      "name": "ISO8601",
+      "file": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\AgentForge\\contracts\\base-event.ts"
+    },
+    {
+      "name": "SystemEvent",
+      "file": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\AgentForge\\contracts\\system-events.ts"
+    },
+    {
+      "name": "ForgeEventType",
+      "file": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\AgentForge\\schemas\\forge-event.schema.ts"
+    },
+    {
+      "name": "QuestionType",
+      "file": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\agents\\brainstorm\\types.ts"
+    },
+    {
+      "name": "EmailLabel",
+      "file": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\agents\\gmail\\types.ts"
+    },
+    {
+      "name": "EmailPriority",
+      "file": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\agents\\gmail\\types.ts"
+    },
+    {
+      "name": "ExecutionErrorCode",
+      "file": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\backend\\execution\\ExecutionBackend.ts"
+    },
+    {
+      "name": "BackendType",
+      "file": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\backend\\execution\\ExecutionBackend.ts"
+    },
+    {
+      "name": "TaskStatus",
+      "file": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\backend\\execution\\ExecutionBackend.ts"
+    },
+    {
+      "name": "BackendFactory",
+      "file": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\backend\\execution\\ExecutionBackend.ts"
+    },
+    {
+      "name": "AgentStatus",
+      "file": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\components\\agent-card.tsx"
+    },
+    {
+      "name": "AgentFlowStatus",
+      "file": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\components\\agent-flow-view.tsx"
+    },
+    {
+      "name": "Tab",
+      "file": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\components\\right-panel.tsx"
+    },
+    {
+      "name": "TaskStatus",
+      "file": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\components\\task-list.tsx"
+    },
+    {
+      "name": "AgentEvent",
+      "file": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\core\\events\\types.ts"
+    },
+    {
+      "name": "AgentEventType",
+      "file": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\core\\events\\types.ts"
+    },
+    {
+      "name": "LogLevel",
+      "file": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\core\\observability\\logger.ts"
+    },
+    {
+      "name": "LogSink",
+      "file": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\core\\observability\\logger.ts"
+    },
+    {
+      "name": "FailureCategory",
+      "file": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\healing\\types.ts"
+    },
+    {
+      "name": "RecoveryStrategy",
+      "file": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\healing\\types.ts"
+    },
+    {
+      "name": "ConnectionStatus",
+      "file": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\hooks\\use-agent-events.ts"
+    },
+    {
+      "name": "ApplicationStatus",
+      "file": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\job-system\\types.ts"
+    },
+    {
+      "name": "ResumeVariant",
+      "file": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\job-system\\types.ts"
+    },
+    {
+      "name": "TrackingFile",
+      "file": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\lib\\markdown-sync.ts"
+    },
+    {
+      "name": "NarrativePhase",
+      "file": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\lib\\narrative.ts"
+    },
+    {
+      "name": "PipelineCommand",
+      "file": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\lib\\pipeline-runner.ts"
+    },
+    {
+      "name": "BackendMode",
+      "file": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\lib\\run-pipeline.ts"
+    },
+    {
+      "name": "TaskComplexity",
+      "file": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\routing\\types.ts"
+    },
+    {
+      "name": "TaskDomain",
+      "file": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\routing\\types.ts"
+    },
+    {
+      "name": "ProviderName",
+      "file": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\routing\\types.ts"
+    },
+    {
+      "name": "ExecutionMode",
+      "file": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\routing\\types.ts"
+    },
+    {
+      "name": "ActionType",
+      "file": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\safety\\types.ts"
+    },
+    {
+      "name": "PolicyDecision",
+      "file": "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\safety\\types.ts"
+    }
+  ],
+  "schemas": []
+}

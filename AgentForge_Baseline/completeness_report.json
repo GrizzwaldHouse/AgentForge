@@ -1,0 +1,114 @@
+{
+  "organs": {
+    "Heart": {
+      "status": "PARTIAL",
+      "files": [
+        "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\AgentForge\\runtime\\container.ts",
+        "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\AgentForge\\runtime\\event-guard.ts",
+        "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\archive\\AgentOrchestrator-duplicate.ts.bak",
+        "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\archive\\AgentOrchestrator.ts.bak",
+        "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\backend\\services\\ObservableOrchestrator.ts",
+        "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\backend\\services\\__tests__\\ObservableOrchestrator.test.ts",
+        "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\orchestrator\\SupervisorOrchestrator.ts",
+        "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\orchestrator\\__tests__\\self-healing.test.ts"
+      ],
+      "notes": "5 stub/placeholder files out of 6 TS files"
+    },
+    "Nervous_System": {
+      "status": "EXISTS",
+      "files": [
+        "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\AgentForge\\runtime\\event-bus.interface.ts",
+        "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\AgentForge\\runtime\\in-memory-event-bus.ts",
+        "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\AgentForge\\runtime\\sse-event-bus.ts",
+        "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\AgentForge\\runtime\\websocket-event-bus.ts",
+        "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\core\\events\\agent-event-bus.ts",
+        "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\core\\events\\session-persistence.ts",
+        "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\core\\events\\types.ts",
+        "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\core\\events\\__tests__\\agent-event-bus.test.ts"
+      ],
+      "notes": "8 total files, 8 TypeScript"
+    },
+    "Brain": {
+      "status": "EXISTS",
+      "files": [
+        "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\AgentForge\\contracts\\graph.ts",
+        "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\AgentForge\\docs\\DEPENDENCY_GRAPH.md",
+        "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\agents\\brainstorm\\BrainstormAgent.ts",
+        "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\agents\\brainstorm\\types.ts",
+        "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\agents\\__tests__\\brainstorm.test.ts",
+        "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\app\\api\\brainstorm\\route.ts"
+      ],
+      "notes": "6 total files, 5 TypeScript"
+    },
+    "Muscles": {
+      "status": "EXISTS",
+      "files": [
+        "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\AgentForge\\docs\\playwright_layer.md",
+        "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\AgentForge\\docs\\sequence_execution_flow.md",
+        "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\backend\\execution\\ExecutionBackend.ts",
+        "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\backend\\execution\\index.ts",
+        "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\backend\\execution\\OllamaBackend.ts",
+        "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\backend\\execution\\ProviderChainBackend.ts",
+        "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\backend\\execution\\SimulatedBackend.ts",
+        "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\backend\\execution\\__tests__\\ExecutionBackend.test.ts",
+        "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\backend\\execution\\__tests__\\SimulatedBackend.test.ts"
+      ],
+      "notes": "9 total files, 7 TypeScript"
+    },
+    "Skin": {
+      "status": "EXISTS",
+      "files": [
+        "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\backend\\services\\__tests__\\validation.test.ts",
+        "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\safety\\approval-service.ts",
+        "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\safety\\audit-logger.ts",
+        "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\safety\\index.ts",
+        "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\safety\\kill-switch.ts",
+        "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\safety\\policy-engine.ts",
+        "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\safety\\safety-guard.ts",
+        "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\safety\\types.ts"
+      ],
+      "notes": "8 total files, 8 TypeScript"
+    },
+    "Endocrine": {
+      "status": "EXISTS",
+      "files": [
+        "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\config\\env.ts",
+        "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\config\\__tests__\\env.test.ts",
+        "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\lib\\constants.ts"
+      ],
+      "notes": "3 total files, 3 TypeScript"
+    },
+    "Skeletal": {
+      "status": "EXISTS",
+      "files": [
+        "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\AgentForge\\contracts\\base-event.ts",
+        "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\AgentForge\\contracts\\index.ts",
+        "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\AgentForge\\contracts\\system-events.ts",
+        "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\AgentForge\\schemas\\config_schema.json",
+        "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\AgentForge\\schemas\\DSL_SCHEMA.md",
+        "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\AgentForge\\schemas\\DSL_v2.json",
+        "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\AgentForge\\schemas\\forge-event.schema.ts",
+        "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\AgentForge\\schemas\\forge-state.schema.ts",
+        "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\core\\interfaces\\Agent.ts"
+      ],
+      "notes": "9 total files, 6 TypeScript"
+    },
+    "Lymphatic": {
+      "status": "EXISTS",
+      "files": [
+        "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\components\\run-pipeline-dialog.tsx",
+        "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\core\\observability\\event-middleware.ts",
+        "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\core\\observability\\index.ts",
+        "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\core\\observability\\logger.ts",
+        "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\core\\observability\\trace.ts",
+        "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\core\\observability\\__tests__\\observability.test.ts",
+        "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\healing\\AutoDebugLoop.ts",
+        "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\healing\\SelfHealingEngine.ts",
+        "C:\\Users\\daley\\Projects\\SeniorDevBuddy\\agentforge_autonomous\\src\\healing\\types.ts"
+      ],
+      "notes": "9 total files, 9 TypeScript"
+    }
+  },
+  "overall_completeness_pct": 88,
+  "assessed_at": "2026-05-03T21:49:29.199394"
+}

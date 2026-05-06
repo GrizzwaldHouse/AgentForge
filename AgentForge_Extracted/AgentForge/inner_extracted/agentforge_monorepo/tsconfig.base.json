@@ -1,0 +1,26 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "lib": ["ES2022", "DOM"],
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    "strict": true,
+    "skipLibCheck": true,
+    "declaration": true,
+    "declarationMap": true,
+    "sourceMap": true,
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "baseUrl": ".",
+    "paths": {
+      "@agentforge/contracts/*": ["packages/contracts/*"],
+      "@agentforge/event-bus/*": ["packages/event-bus/*"],
+      "@agentforge/graph-engine/*": ["packages/graph-engine/*"],
+      "@agentforge/validation/*": ["packages/validation/*"],
+      "@agentforge/config/*": ["packages/config/*"],
+      "@agentforge/observability/*": ["packages/observability/*"],
+      "@agentforge/di/*": ["packages/di-container/*"]
+    }
+  }
+}

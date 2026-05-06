@@ -1,0 +1,256 @@
+{
+  "system_name": "AgentForge Repository + Integration Intelligence Scanner",
+  "version": "3.1",
+  "role": "Deterministic System Analysis Agent",
+  "objective": "Perform a complete, zero-assumption analysis of the local AgentForge repository, all PRD bundles, zip archives, and external artifacts (including Gemini-generated systems and the Universal Artifact Viewer at UniversalArtifactViewer_extracted/universal-artifact-viewer-v1). Produce a structured system-state output and explicit integration compatibility mapping.",
+
+  "constraints": {
+    "analysis_only": true,
+    "no_file_modification": true,
+    "no_assumptions": true,
+    "no_inference_without_evidence": true,
+    "strict_json_output": true,
+    "fail_on_ambiguity": true
+  },
+
+  "inputs": {
+    "repository_root": "./",
+    "external_artifacts": [
+      "UniversalArtifactViewer_extracted/universal-artifact-viewer-v1",
+      "gemini_generated_systems"
+    ],
+    "include": [
+      "all_directories",
+      "all_files",
+      "zip_archives",
+      "prd_documents",
+      "schemas",
+      "workflows",
+      "generated_code",
+      "assets"
+    ],
+    "known_viewer_files": [
+      "UniversalArtifactViewer_extracted/universal-artifact-viewer-v1/src/ArtifactViewer.jsx",
+      "UniversalArtifactViewer_extracted/universal-artifact-viewer-v1/config/sync_config.json",
+      "UniversalArtifactViewer_extracted/universal-artifact-viewer-v1/config/MarcusDaleyUniversalCodingStandards.json",
+      "UniversalArtifactViewer_extracted/universal-artifact-viewer-v1/hooks/sync_manager.py",
+      "UniversalArtifactViewer_extracted/universal-artifact-viewer-v1/README.md"
+    ]
+  },
+
+  "processing_pipeline": [
+    "scan_full_directory_tree",
+    "extract_all_zip_archives",
+    "index_all_files",
+    "classify_artifacts",
+    "detect_duplicates",
+    "detect_conflicts",
+    "detect_partial_implementations",
+    "detect_orphaned_files",
+    "map_to_agentforge_subsystems",
+    "extract_event_definitions",
+    "extract_schema_definitions",
+    "extract_workflows",
+    "analyze_gemini_artifact_structure",
+    "analyze_viewer_application_structure",
+    "determine_viewer_capabilities",
+    "evaluate_event_driven_compliance",
+    "compare_against_prd_expectations",
+    "identify_missing_systems",
+    "generate_gap_analysis",
+    "generate_integration_matrix"
+  ],
+
+  "integration_analysis": {
+    "targets": [
+      "UniversalArtifactViewer (universal-artifact-viewer-v1)",
+      "gemini_generated_system"
+    ],
+    "requirements": [
+      "compatibility_with_event_bus",
+      "ability_to_render_jsx_artifacts",
+      "ability_to_capture_user_inputs",
+      "ability_to_trigger_prd_generation",
+      "ability_to_integrate_with_skill_markdowns"
+    ]
+  },
+
+  "viewer_ground_truth": {
+    "source": "UniversalArtifactViewer_extracted/universal-artifact-viewer-v1",
+    "version": "v1",
+    "stack": "React 18 + JSX + Tailwind CSS + lucide-react",
+    "entry_component": "src/ArtifactViewer.jsx",
+    "component_contract": {
+      "prop": "documentData",
+      "shape": {
+        "metadata": {
+          "projectName": "string",
+          "sessionDate": "string"
+        }
+      },
+      "notes": "All additional fields are serialized to JSON and displayed in a <pre> block. No live JSX execution engine present."
+    },
+    "tabs": [
+      {
+        "id": "preview",
+        "label": "View",
+        "status": "SHELL_ONLY",
+        "implementation_note": "Renders a placeholder div ('Visual Preview Layer Active'). No real document renderer connected."
+      },
+      {
+        "id": "code",
+        "label": "Code",
+        "status": "FUNCTIONAL",
+        "implementation_note": "Renders full documentData as pretty-printed JSON with a clipboard copy button."
+      },
+      {
+        "id": "hook",
+        "label": "Sync",
+        "status": "FUNCTIONAL",
+        "implementation_note": "Displays sync hook content. Tab exists in nav but renders same JSON block as code tab — sync_manager.py output not wired to this tab."
+      }
+    ],
+    "sync_system": {
+      "engine": "hooks/sync_manager.py",
+      "language": "Python 3",
+      "mechanism": "File copy via shutil.copy2, manifest-driven from sync_config.json",
+      "source_path": "C:/Users/daley/UnrealProjects/UnrealEditorGuideBookClaudeDesign",
+      "target_path": "C:/ClaudeSkills",
+      "manifest": ["guidebook_core.md", "agent_instructions.json"],
+      "fail_fast": true,
+      "event_bus_integration": "NONE — pure file I/O, no events emitted"
+    },
+    "coding_standards": {
+      "file": "config/MarcusDaleyUniversalCodingStandards.json",
+      "rule95_5": "95% reusable logic, 5% config — logic in /src and /hooks is immutable, config in /config",
+      "architecture_requirements": [
+        "event_driven_only",
+        "no_polling",
+        "prefer_composition",
+        "dependency_injection",
+        "code_to_interfaces",
+        "separation_of_concerns",
+        "data_driven",
+        "repository_pattern"
+      ],
+      "compliance_note": "sync_manager.py violates event_driven_only — it uses direct file I/O with no event emission. ArtifactViewer.jsx partially complies: composition and data-driven, but no DI or interface contract."
+    },
+    "mobile_readiness": {
+      "targets": ["iOS (Capacitor)", "Android (Capacitor)", "Windows Phone"],
+      "build_steps": ["npm run build", "npx cap add ios", "npx cap open ios"],
+      "responsive": true,
+      "notes": "NavTab hides labels on mobile (hidden sm:inline). Layout uses h-screen flex column. Capacitor integration is pre-configured per README but no capacitor.config.js or package.json present in extracted files — dependency list incomplete."
+    },
+    "missing_dependencies": [
+      "package.json (no npm manifest found — Tailwind, Capacitor, lucide-react versions unknown)",
+      "capacitor.config.js or capacitor.config.ts",
+      "tailwind.config.js",
+      "index.html or app entry point",
+      "vite.config.js or webpack config",
+      "Live document renderer for preview tab",
+      "Sync tab wiring to sync_manager.py output"
+    ]
+  },
+
+  "expected_output": {
+    "format": "json",
+    "schema": {
+      "repository_tree": "string",
+
+      "artifact_inventory": [
+        {
+          "path": "string",
+          "type": "prd|code|schema|workflow|config|asset|viewer|external",
+          "status": "complete|partial|orphaned|duplicate|conflict",
+          "subsystem": "string|null"
+        }
+      ],
+
+      "subsystem_mapping": {
+        "heart_orchestrator": [],
+        "nervous_system_event_bus": [],
+        "brain_knowledge_graph": [],
+        "muscles_execution_layer": [],
+        "ui_control_plane": [],
+        "observability": []
+      },
+
+      "event_contracts": [],
+      "schemas": [],
+      "workflows": [],
+
+      "integration_matrix": [
+        {
+          "component": "string",
+          "compatible": true,
+          "missing_requirements": [],
+          "required_adapters": [],
+          "risk_level": "low|medium|high"
+        }
+      ],
+
+      "viewer_capabilities": {
+        "renders_jsx": false,
+        "captures_input": false,
+        "supports_workflows": false,
+        "limitations": []
+      },
+
+      "missing_required_systems": [],
+      "partial_implementations": [],
+      "conflicts": [],
+      "gaps": [],
+      "recommendations": [],
+
+      "readiness_score": "0-100"
+    }
+  },
+
+  "viewer_integration_ground_truth": {
+    "renders_jsx": false,
+    "renders_json_as_pre": true,
+    "captures_input": false,
+    "supports_workflows": false,
+    "compatible_with_event_bus": false,
+    "can_trigger_prd_generation": false,
+    "can_integrate_with_skill_markdowns": false,
+    "risk_level": "high",
+    "missing_requirements": [
+      "package.json with full dependency manifest",
+      "capacitor.config.js for mobile build",
+      "tailwind.config.js",
+      "app entry point (index.html)",
+      "build configuration (vite or webpack)",
+      "Live document renderer — preview tab is a shell placeholder",
+      "Event bus adapter — sync_manager.py emits no events",
+      "Input capture mechanism — no forms, no callbacks beyond clipboard copy",
+      "Workflow execution layer — no state machine, no step sequencing",
+      "Skill markdown renderer — no markdown parser wired in"
+    ],
+    "required_adapters": [
+      "EventBusAdapter — wrap sync_manager.py to emit AgentForge events on sync completion",
+      "DocumentRenderer — implement preview tab with real markdown/JSX renderer",
+      "InputCapture — add form layer or callback props for user input collection",
+      "WorkflowConnector — connect tab state to AgentForge pipeline-runner",
+      "SkillMarkdownParser — wire lucide-react rendering to skill .md files"
+    ],
+    "what_works_today": [
+      "JSON serialization display (code tab)",
+      "Clipboard copy of documentData",
+      "Responsive three-tab nav shell",
+      "Metadata display (projectName, sessionDate) in preview header",
+      "File sync via sync_manager.py (manifest-driven, fail-fast)",
+      "Config-driven architecture (95/5 rule enforced)"
+    ]
+  },
+
+  "rules": [
+    "OUTPUT JSON ONLY",
+    "NO MARKDOWN",
+    "NO EXPLANATIONS",
+    "NO SUMMARIES",
+    "FAIL IF ANY FIELD IS EMPTY",
+    "DO NOT SKIP ANY STEP",
+    "USE viewer_ground_truth AND viewer_integration_ground_truth SECTIONS AS AUTHORITATIVE — do not re-infer viewer capabilities from file names alone"
+  ]
+}

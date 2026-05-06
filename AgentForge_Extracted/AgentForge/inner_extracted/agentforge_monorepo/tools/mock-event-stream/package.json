@@ -1,0 +1,8 @@
+{
+  "name": "@agentforge/mock-event-stream",
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "dev": "node index.js"
+  }
+}

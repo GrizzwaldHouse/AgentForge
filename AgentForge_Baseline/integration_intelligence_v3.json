@@ -1,0 +1,361 @@
+{
+  "repository_tree": "SeniorDevBuddy/\n  AgentForge/\n  AgentForge_Baseline/\n  AgentForge_Extracted/\n  UniversalArtifactViewer_extracted/\n  agentforge_autonomous/\n  grizz_modular_system/\n  grizz_modular_system_fixed/",
+  "artifact_inventory": [
+    {
+      "path": "AgentForge/contracts/system-events.ts",
+      "type": "code",
+      "status": "complete",
+      "subsystem": "nervous_system_event_bus"
+    },
+    {
+      "path": "AgentForge/runtime/sse-event-bus.ts",
+      "type": "code",
+      "status": "complete",
+      "subsystem": "nervous_system_event_bus"
+    },
+    {
+      "path": "AgentForge/runtime/websocket-event-bus.ts",
+      "type": "code",
+      "status": "complete",
+      "subsystem": "nervous_system_event_bus"
+    },
+    {
+      "path": "AgentForge/runtime/container.ts",
+      "type": "code",
+      "status": "partial",
+      "subsystem": "heart_orchestrator"
+    },
+    {
+      "path": "AgentForge/contracts/graph.ts",
+      "type": "code",
+      "status": "complete",
+      "subsystem": "brain_knowledge_graph"
+    },
+    {
+      "path": "AgentForge/schemas/forge-event.schema.ts",
+      "type": "schema",
+      "status": "complete",
+      "subsystem": "skeletal"
+    },
+    {
+      "path": "AgentForge/schemas/forge-state.schema.ts",
+      "type": "schema",
+      "status": "complete",
+      "subsystem": "skeletal"
+    },
+    {
+      "path": "agentforge_autonomous/src/orchestrator/SupervisorOrchestrator.ts",
+      "type": "code",
+      "status": "complete",
+      "subsystem": "heart_orchestrator"
+    },
+    {
+      "path": "agentforge_autonomous/src/backend/services/ObservableOrchestrator.ts",
+      "type": "code",
+      "status": "complete",
+      "subsystem": "heart_orchestrator"
+    },
+    {
+      "path": "agentforge_autonomous/src/core/events/agent-event-bus.ts",
+      "type": "code",
+      "status": "complete",
+      "subsystem": "nervous_system_event_bus"
+    },
+    {
+      "path": "agentforge_autonomous/src/core/events/types.ts",
+      "type": "code",
+      "status": "complete",
+      "subsystem": "nervous_system_event_bus"
+    },
+    {
+      "path": "agentforge_autonomous/src/backend/execution/ExecutionBackend.ts",
+      "type": "code",
+      "status": "complete",
+      "subsystem": "muscles_execution_layer"
+    },
+    {
+      "path": "agentforge_autonomous/src/backend/execution/OllamaBackend.ts",
+      "type": "code",
+      "status": "complete",
+      "subsystem": "muscles_execution_layer"
+    },
+    {
+      "path": "agentforge_autonomous/src/components/agent-flow-view.tsx",
+      "type": "code",
+      "status": "complete",
+      "subsystem": "ui_control_plane"
+    },
+    {
+      "path": "agentforge_autonomous/src/components/activity-feed.tsx",
+      "type": "code",
+      "status": "complete",
+      "subsystem": "observability"
+    },
+    {
+      "path": "UniversalArtifactViewer_extracted/universal-artifact-viewer-v1/src/ArtifactViewer.jsx",
+      "type": "viewer",
+      "status": "partial",
+      "subsystem": "ui_control_plane"
+    },
+    {
+      "path": "UniversalArtifactViewer_extracted/universal-artifact-viewer-v1/hooks/sync_manager.py",
+      "type": "workflow",
+      "status": "complete",
+      "subsystem": "ui_control_plane"
+    },
+    {
+      "path": "AgentForge_Extracted/AgentForge/inner_extracted/agentforge_full_production_pack/schemas/forge-event.ts",
+      "type": "schema",
+      "status": "partial_stub",
+      "subsystem": "skeletal"
+    }
+  ],
+  "subsystem_mapping": {
+    "heart_orchestrator": [
+      "AgentForge/runtime/container.ts",
+      "agentforge_autonomous/src/backend/services/ObservableOrchestrator.ts",
+      "agentforge_autonomous/src/orchestrator/SupervisorOrchestrator.ts"
+    ],
+    "nervous_system_event_bus": [
+      "AgentForge/contracts/system-events.ts",
+      "AgentForge/runtime/in-memory-event-bus.ts",
+      "AgentForge/runtime/sse-event-bus.ts",
+      "AgentForge/runtime/websocket-event-bus.ts",
+      "agentforge_autonomous/src/core/events/agent-event-bus.ts",
+      "agentforge_autonomous/src/core/events/types.ts"
+    ],
+    "brain_knowledge_graph": [
+      "AgentForge/contracts/graph.ts",
+      "AgentForge/docs/DEPENDENCY_GRAPH.md",
+      "agentforge_autonomous/src/components/agent-flow-view.tsx"
+    ],
+    "muscles_execution_layer": [
+      "agentforge_autonomous/src/backend/execution/ExecutionBackend.ts",
+      "agentforge_autonomous/src/backend/execution/OllamaBackend.ts",
+      "agentforge_autonomous/src/backend/execution/ProviderChainBackend.ts",
+      "agentforge_autonomous/src/backend/execution/SimulatedBackend.ts"
+    ],
+    "ui_control_plane": [
+      "agentforge_autonomous/src/app/dashboard/page.tsx",
+      "agentforge_autonomous/src/components/dashboard-header.tsx",
+      "UniversalArtifactViewer_extracted/universal-artifact-viewer-v1/src/ArtifactViewer.jsx",
+      "UniversalArtifactViewer_extracted/universal-artifact-viewer-v1/hooks/sync_manager.py"
+    ],
+    "observability": [
+      "agentforge_autonomous/src/core/observability/event-middleware.ts",
+      "agentforge_autonomous/src/core/observability/logger.ts",
+      "agentforge_autonomous/src/components/activity-feed.tsx"
+    ]
+  },
+  "event_contracts": [
+    {
+      "source": "AgentForge/contracts/system-events.ts",
+      "event_types": [
+        "system.state.changed",
+        "agent.executed",
+        "graph.updated",
+        "config.changed",
+        "log.emitted"
+      ],
+      "transport_bindings": [
+        "AgentForge/runtime/in-memory-event-bus.ts",
+        "AgentForge/runtime/sse-event-bus.ts",
+        "AgentForge/runtime/websocket-event-bus.ts"
+      ]
+    },
+    {
+      "source": "agentforge_autonomous/src/core/events/types.ts",
+      "event_types": [
+        "session.start",
+        "agent.start",
+        "agent.progress",
+        "agent.log",
+        "agent.complete",
+        "agent.error",
+        "session.end",
+        "heartbeat"
+      ],
+      "transport_bindings": [
+        "agentforge_autonomous/src/core/events/agent-event-bus.ts",
+        "agentforge_autonomous/src/app/api/agent/events/route.ts"
+      ]
+    }
+  ],
+  "schemas": [
+    {
+      "path": "AgentForge/schemas/forge-event.schema.ts",
+      "summary": "ForgeEventType union AGENT_START | AGENT_COMPLETE",
+      "status": "complete"
+    },
+    {
+      "path": "AgentForge/schemas/forge-state.schema.ts",
+      "summary": "ForgeState with id field",
+      "status": "complete"
+    },
+    {
+      "path": "AgentForge_Extracted/AgentForge/inner_extracted/agentforge_full_production_pack/schemas/forge-event.ts",
+      "summary": "Stub type export only",
+      "status": "partial_stub"
+    },
+    {
+      "path": "AgentForge/schemas/config_schema.json",
+      "summary": "Top-level config schema",
+      "status": "complete"
+    }
+  ],
+  "workflows": [
+    {
+      "path": "AgentForge/prompts/AGENTFORGE_WORKFLOWS.md",
+      "role": "workflow documentation"
+    },
+    {
+      "path": "AgentForge/tasks/claude_tasks.json",
+      "role": "task definitions"
+    },
+    {
+      "path": "AgentForge/tasks/TASK_BREAKDOWN.md",
+      "role": "task breakdown"
+    },
+    {
+      "path": "UniversalArtifactViewer_extracted/universal-artifact-viewer-v1/hooks/sync_manager.py",
+      "role": "artifact sync workflow"
+    }
+  ],
+  "integration_matrix": [
+    {
+      "component": "gemini_generated_systems",
+      "compatible": false,
+      "missing_requirements": [
+        "compatibility_with_event_bus",
+        "ability_to_render_jsx_artifacts",
+        "ability_to_capture_user_inputs",
+        "ability_to_trigger_prd_generation",
+        "ability_to_integrate_with_skill_markdowns"
+      ],
+      "required_adapters": [
+        "entire subsystem missing"
+      ],
+      "risk_level": "high"
+    },
+    {
+      "component": "UniversalArtifactViewer_extracted/universal-artifact-viewer-v1",
+      "compatible": false,
+      "missing_requirements": [
+        "compatibility_with_event_bus",
+        "ability_to_render_jsx_artifacts",
+        "ability_to_capture_user_inputs",
+        "ability_to_trigger_prd_generation",
+        "ability_to_integrate_with_skill_markdowns"
+      ],
+      "required_adapters": [
+        "event bus bridge",
+        "safe JSX runtime/sandbox",
+        "input capture state layer",
+        "PRD generation trigger adapter",
+        "skills markdown ingestion pipeline"
+      ],
+      "risk_level": "medium"
+    }
+  ],
+  "viewer_capabilities": {
+    "target": "UniversalArtifactViewer_extracted/universal-artifact-viewer-v1",
+    "renders_jsx_artifacts": false,
+    "captures_user_input": false,
+    "event_bus_integration": false,
+    "observed_capabilities": [
+      "renders static metadata header",
+      "shows placeholder preview",
+      "shows raw JSON in code tab",
+      "copies JSON payload to clipboard",
+      "sync manager copies manifest files"
+    ],
+    "limitations": [
+      "no arbitrary JSX artifact rendering pipeline",
+      "no form capture flow for brainstorming/PRD answers",
+      "no runtime event subscription to AgentForge buses"
+    ]
+  },
+  "missing_required_systems": [
+    {
+      "id": "gemini_generated_systems",
+      "reason": "required by plan but not present in scanned repository",
+      "evidence": "no matching files/directories in workspace scan"
+    }
+  ],
+  "partial_implementations": [
+    {
+      "path": "AgentForge_Extracted/AgentForge/inner_extracted/agentforge_full_production_pack/schemas/forge-event.ts",
+      "evidence": "single-line event stub"
+    },
+    {
+      "area": "Heart",
+      "evidence": "completeness report marks Heart as PARTIAL"
+    },
+    {
+      "path": "UniversalArtifactViewer_extracted/universal-artifact-viewer-v1/src/ArtifactViewer.jsx",
+      "evidence": "preview tab placeholder only, not artifact execution"
+    }
+  ],
+  "conflicts": [
+    {
+      "id": "CROSS_SOURCE_INDEX_TS",
+      "severity": "medium",
+      "description": "index.ts appears across unrelated modules and can cause naming confusion",
+      "evidence_files": [
+        "AgentForge/contracts/index.ts",
+        "agentforge_autonomous/src/safety/index.ts",
+        "agentforge_autonomous/src/backend/execution/index.ts",
+        "agentforge_autonomous/src/core/observability/index.ts",
+        "agentforge_autonomous/src/agents/gmail/index.ts"
+      ]
+    },
+    {
+      "id": "MULTIPLE_PRD_VERSIONS",
+      "severity": "high",
+      "description": "multiple PRD variants without one enforced canonical path",
+      "evidence_files": [
+        "AgentForge/docs/prd/AGENTFORGE_PRD_v2.md",
+        "AgentForge/docs/prd/PRD_v2.md",
+        "AgentForge/docs/prd/PRD_v3.md",
+        "AgentForge/docs/prd/PRD_v3_FULL.md"
+      ]
+    },
+    {
+      "id": "EVENT_MODEL_DIVERGENCE",
+      "severity": "medium",
+      "description": "AgentForge SystemEvent model and autonomous AgentEvent model are separate and unadapted",
+      "evidence_files": [
+        "AgentForge/contracts/system-events.ts",
+        "agentforge_autonomous/src/core/events/types.ts",
+        "agentforge_autonomous/src/core/events/agent-event-bus.ts"
+      ]
+    }
+  ],
+  "gaps": [
+    {
+      "topic": "zip_archives_unextracted",
+      "detail": "root archive set exists and may contain additional integration sources not merged into baseline"
+    },
+    {
+      "topic": "unified_event_contract",
+      "detail": "no adapter standardizing SystemEvent and AgentEvent payload contracts"
+    },
+    {
+      "topic": "viewer_artifact_execution",
+      "detail": "viewer does not execute/render artifact JSX payloads"
+    },
+    {
+      "topic": "plan_file_traceability",
+      "detail": "plan file identifier provided by parent context was not present in workspace filesystem"
+    }
+  ],
+  "recommendations": [
+    "define one canonical PRD path and enforce in CI",
+    "add a contract adapter between SystemEvent and AgentEvent models",
+    "implement sandboxed JSX/MDX artifact runtime for UniversalArtifactViewer",
+    "add structured input capture in viewer for brainstorming and PRD collection",
+    "extract and index remaining root zip archives into baseline inputs",
+    "implement gemini_generated_systems or document approved replacement architecture"
+  ],
+  "readiness_score": "65"
+}

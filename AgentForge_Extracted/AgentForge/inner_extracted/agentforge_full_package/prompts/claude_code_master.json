@@ -1,0 +1,27 @@
+{
+  "mission": "agentforge_build",
+  "objective": "build revenue system in phases",
+  "constraints": {
+    "event_driven": true,
+    "no_polling": true,
+    "config_driven": true
+  },
+  "phases": [
+    "ingestion",
+    "processing",
+    "matching",
+    "proposal_generation",
+    "logging"
+  ],
+  "models": {
+    "primary": "local",
+    "secondary": "codex",
+    "fallback": "claude"
+  },
+  "instructions": [
+    "scan repo first",
+    "build integration plan",
+    "implement in phases",
+    "log everything"
+  ]
+}

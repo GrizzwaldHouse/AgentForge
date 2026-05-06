@@ -1,0 +1,2 @@
+# Layout Spec
+Core centered.
