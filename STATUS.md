@@ -4,7 +4,7 @@
 <!-- Do NOT edit manually — overwritten on each audit run -->
 
 **Repo:** AgentForge
-**Last Audit:** 2026-05-04T07:54:03.782850+00:00
+**Last Audit:** 2026-05-07T15:49:34.680165+00:00
 **AgentForge Role:** HEART + NERVOUS_SYSTEM + SKELETAL
 **Integration Status:** STANDALONE
 **AgentForge Readiness:** NOT_READY
@@ -16,12 +16,12 @@
 
 | Check | Result |
 |---|---|
-| No polling loops | PASS |
-| No hardcoded values | PASS |
+| No polling loops | FAIL |
+| No hardcoded values | FAIL (7 found) |
 | Config file present | FAIL |
 | Observer/event pattern | FAIL |
 | VRAM watchdog | N/A |
-| No EM dashes | PASS |
+| No EM dashes | FAIL (128 found) |
 | .env.example present | FAIL |
 
 ## OPEN TODOs
@@ -32,7 +32,17 @@ Found 0 open TODO/FIXME items.
 ### Missing Components (must build)
 - [ ] **OwlWatcher integration** [NERVOUS_SYSTEM] — No event bus or observer pattern detected. Required by PRD v2.
 - [ ] **Config module** [ENDOCRINE] — No config file detected. All values must be config-driven per PRD v2.
-- [ ] **SESSION_HANDOFF.md** [LYMPHATIC] — Required by Marcus Check-In Protocol for session continuity
+
+### PRD Violations
+- [ ] **POLLING_LOOP** in `C` — Fix: Replace with event listener on OwlWatcher event bus
+- [ ] **POLLING_LOOP** in `C` — Fix: Replace with event listener on OwlWatcher event bus
+- [ ] **POLLING_LOOP** in `C` — Fix: Replace with event listener on OwlWatcher event bus
+- [ ] **POLLING_LOOP** in `C` — Fix: Replace with event listener on OwlWatcher event bus
+- [ ] **HARDCODED_VALUE** in `C` — Fix: Move to config file or .env
+- [ ] **HARDCODED_VALUE** in `C` — Fix: Move to config file or .env
+- [ ] **HARDCODED_VALUE** in `C` — Fix: Move to config file or .env
+- [ ] **HARDCODED_VALUE** in `C` — Fix: Move to config file or .env
+- [ ] **HARDCODED_VALUE** in `C` — Fix: Move to config file or .env
 
 ### Config Files Needed
 - [ ] `config.json or config.py` — All tunable values, API endpoints, model names, thresholds
