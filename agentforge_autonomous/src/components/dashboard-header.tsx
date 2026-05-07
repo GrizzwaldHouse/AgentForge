@@ -57,6 +57,13 @@ export function DashboardHeader({ connectionStatus, eventCount, pipelineRunning,
           </button>
 
           <Link
+            href="/workflows"
+            className="px-3 py-1.5 text-xs rounded border border-[var(--accent-purple)] text-[var(--accent-purple)] hover:bg-[var(--accent-purple)] hover:text-[var(--bg-primary)] transition-colors"
+          >
+            Workflows
+          </Link>
+
+          <Link
             href="/jobs"
             className="px-3 py-1.5 text-xs rounded border border-[var(--accent-blue)] text-[var(--accent-blue)] hover:bg-[var(--accent-blue)] hover:text-[var(--bg-primary)] transition-colors"
           >

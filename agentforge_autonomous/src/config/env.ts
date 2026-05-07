@@ -28,6 +28,10 @@ export interface EnvConfig {
 
   // Runtime
   nodeEnv: string;
+
+  // Temporal workflow backend
+  temporalAddress: string;
+  temporalNamespace: string;
 }
 
 let cachedConfig: EnvConfig | null = null;
@@ -51,6 +55,8 @@ export function getEnvConfig(): EnvConfig {
     agentToken: process.env.AGENT_TOKEN || undefined,
     dailyBudgetUsd: parseFloat(process.env.DAILY_BUDGET_USD ?? "1.00"),
     nodeEnv: process.env.NODE_ENV ?? "development",
+    temporalAddress: process.env.TEMPORAL_ADDRESS ?? "localhost:7233",
+    temporalNamespace: process.env.TEMPORAL_NAMESPACE ?? "default",
   };
 
   // Validate budget is a positive number

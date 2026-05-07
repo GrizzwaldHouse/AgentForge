@@ -1,0 +1,243 @@
+{
+  "ticket_id": "AGENTFORGE-SPLIT-HISTORY-001",
+  "title": "Reconcile unrelated histories between SeniorDevBuddy local main and AgentForge canonical remote",
+  "version": "1.0",
+  "created": "2026-05-07",
+  "author": "Marcus Daley",
+  "status": "OPEN",
+  "priority": "P1",
+  "system_name": "Split-History Reconciliation Agent",
+  "role": "Deterministic Diagnostic + Merge Agent",
+  "objective": "Detect and reconcile divergent main branches between a local feature/working repo (SeniorDevBuddy at https://github.com/GrizzwaldHouse/SeniorDevBuddy.git or local-only) and the canonical AgentForge scaffold remote (https://github.com/GrizzwaldHouse/AgentForge.git), preserving both histories via merge (--allow-unrelated-histories), surfacing conflicts for human decision rather than auto-resolving, and producing a clean push-ready main.",
+
+  "context": {
+    "discovered_state_2026_05_07": {
+      "local_repo_path": "c:/Users/daley/Projects/SeniorDevBuddy",
+      "local_head": "dedaf177e88925564b4124544d05be1f493dcef0",
+      "local_head_message": "docs(agentforge): add universal bootstrap prompt",
+      "remote_url": "https://github.com/GrizzwaldHouse/AgentForge.git",
+      "remote_head": "47a14e99e0bed1ce19949c8c89d99f0b776d2eea",
+      "remote_head_message": "Initialize AgentForge canonical repo",
+      "common_ancestor": null,
+      "merge_base_result": "no common ancestor (unrelated histories)",
+      "conflict_files_detected": [".gitignore", "AGENTS.md", "README.md"],
+      "auto_merge_candidates_count": 36,
+      "remote_total_files": 39,
+      "active_worktree_count": 4,
+      "active_worktree_paths": [
+        ".claude/worktrees/agent-a3544a5895da3dc16",
+        ".claude/worktrees/agent-a3c7d1f8b3a1dc856",
+        ".claude/worktrees/agent-a5e6d939f72a1c20c",
+        ".claude/worktrees/agent-adcadd95caeaedcff"
+      ]
+    },
+    "why_this_happened": "Local SeniorDevBuddy was an unpublished working tree containing AgentForge experimentation, prototypes, extracted bundles, and the agentforge_autonomous/ TypeScript implementation. A separate canonical repo (https://github.com/GrizzwaldHouse/AgentForge.git) was initialized independently on 2026-05-03 with an architectural skeleton (contracts/, runtime/, schemas/, prompts/, docs/prd/, tasks/). When local main was first connected to the canonical remote on 2026-05-07, the two histories had no common ancestor."
+  },
+
+  "constraints": {
+    "preserve_user_changes": true,
+    "no_destructive_git": true,
+    "no_force_push_without_explicit_authorization": true,
+    "no_auto_conflict_resolution": true,
+    "stop_on_uncertain_state": true,
+    "merge_required_flag": "--allow-unrelated-histories",
+    "merge_style": "merge_commit_only_no_rebase",
+    "rationale_for_no_rebase": "Rebasing across unrelated roots replays each remote commit individually and forces hand-resolution per commit; a single merge commit with --no-ff produces a cleaner audit trail and preserves both DAGs intact."
+  },
+
+  "inputs": {
+    "local_repo_path": "c:/Users/daley/Projects/SeniorDevBuddy",
+    "local_branch": "main",
+    "remote_url": "https://github.com/GrizzwaldHouse/AgentForge.git",
+    "remote_branch": "main",
+    "expected_conflicts": [".gitignore", "AGENTS.md", "README.md"],
+    "conflict_resolution_policy_default": "ASK_USER",
+    "conflict_resolution_policy_options": ["OURS", "THEIRS", "MANUAL", "ASK_USER"],
+    "per_file_resolution_overrides": {
+      ".gitignore": "MANUAL_UNION",
+      "AGENTS.md": "ASK_USER",
+      "README.md": "ASK_USER"
+    },
+    "merge_message_template": "Merge canonical AgentForge scaffold into local main\n\nReconciles unrelated histories: local feature work (origin: SeniorDevBuddy working tree) with canonical scaffold (origin: github.com/GrizzwaldHouse/AgentForge).\n\nLocal HEAD before merge: {LOCAL_HEAD_SHORT}\nRemote HEAD before merge: {REMOTE_HEAD_SHORT}\nConflicts resolved: {CONFLICT_FILES}\n\nResolution policy applied: {POLICY_SUMMARY}"
+  },
+
+  "diagnostic_pipeline": [
+    "verify_shell_liveness",
+    "verify_repo_path_and_cwd",
+    "check_git_binary_and_version",
+    "check_for_index_lock",
+    "check_for_running_git_processes",
+    "list_active_worktrees",
+    "snapshot_local_head_and_branch",
+    "probe_remote_with_ls_remote_readonly",
+    "abort_if_remote_unreachable",
+    "verify_or_add_origin_remote",
+    "fetch_origin_with_timeout",
+    "compute_merge_base_local_vs_remote",
+    "detect_unrelated_histories",
+    "list_remote_files_and_predict_overlap",
+    "dry_run_merge_with_no_commit_no_ff",
+    "enumerate_conflicts",
+    "abort_dry_run_merge",
+    "request_per_file_resolution_decision",
+    "perform_real_merge_with_resolutions",
+    "verify_post_merge_index_clean",
+    "verify_no_orphaned_conflict_markers_in_files",
+    "run_project_health_checks",
+    "push_with_upstream_tracking",
+    "final_verification_against_remote"
+  ],
+
+  "detection_rules": {
+    "unrelated_histories_indicator": "git merge-base HEAD origin/main returns empty string AND exit code is non-zero",
+    "conflict_indicator": "git status --porcelain shows entries with U[A-Z]|UU|AA|DD codes",
+    "index_lock_indicator": ".git/index.lock exists",
+    "stale_index_indicator": "git status --porcelain shows entries that disappear after a no-op git reset HEAD",
+    "concurrent_worktree_indicator": "git worktree list reports more than one worktree, especially under .claude/worktrees/agent-*",
+    "must_report_on_completion": [
+      "local_head_before",
+      "remote_head_before",
+      "merge_base_result",
+      "conflict_files_and_resolutions",
+      "auto_merged_file_count",
+      "merge_commit_sha",
+      "push_result",
+      "final_local_head",
+      "final_remote_head"
+    ]
+  },
+
+  "safe_fix_actions": [
+    "Run git ls-remote against remote URL before any local config change to confirm reachability and probe HEAD",
+    "Use git remote add origin <URL> only after confirming origin does not already exist or already points elsewhere",
+    "Use git fetch origin with bounded timeout (120s)",
+    "Use git merge --allow-unrelated-histories --no-commit --no-ff for dry run; abort with git merge --abort before requesting decisions",
+    "Use git checkout --ours <file> or git checkout --theirs <file> only when policy says OURS or THEIRS for that specific file",
+    "For MANUAL or MANUAL_UNION resolutions, present the per-file diff and ask user to author the merged content; never invent merged content silently",
+    "After resolution, run git add <resolved-files> and git commit with the merge_message_template",
+    "Run git push -u origin main to set upstream tracking on first push",
+    "Never use --force or --force-with-lease without explicit authorization line in inputs"
+  ],
+
+  "stop_conditions": [
+    "Remote unreachable or returns non-zero from ls-remote",
+    "Existing origin points to a different URL than inputs.remote_url",
+    "Working tree has uncommitted changes that are not the merge in progress",
+    "Active worktree under .claude/worktrees/ has same branch checked out (would block branch operations)",
+    "Conflict count exceeds inputs.expected_conflicts AND no per_file_resolution_overrides exists for the new files",
+    "Any conflict marker (<<<<<<<, =======, >>>>>>>) remains in any file after resolution",
+    "Push is rejected as non-fast-forward AND force authorization is not present"
+  ],
+
+  "success_criteria": [
+    "git merge-base HEAD origin/main returns a non-empty SHA after merge",
+    "git status reports working tree clean",
+    "No file contains conflict markers",
+    "Merge commit exists with two parents (local prior HEAD and origin/main HEAD)",
+    "git push -u origin main exits 0",
+    "Post-push: local main and origin/main point to the same SHA",
+    "All originally-tracked files from local main remain accessible on disk",
+    "All originally-tracked files from origin/main are now in the local working tree"
+  ],
+
+  "output_schema": {
+    "diagnostics": {
+      "shell_ok": "boolean",
+      "git_ok": "boolean",
+      "remote_reachable": "boolean",
+      "histories_unrelated": "boolean",
+      "active_worktree_count": "number",
+      "root_cause": "string"
+    },
+    "merge_state": {
+      "local_head_before": "string",
+      "remote_head_before": "string",
+      "merge_base": "string|null",
+      "auto_merged_file_count": "number",
+      "conflict_files": ["string"],
+      "resolutions_applied": [
+        {
+          "file": "string",
+          "policy": "OURS|THEIRS|MANUAL|MANUAL_UNION",
+          "resolution_summary": "string"
+        }
+      ]
+    },
+    "actions_taken": [
+      {
+        "step": "string",
+        "command": "string",
+        "result": "string",
+        "exit_code": "number"
+      }
+    ],
+    "commit_result": {
+      "merge_commit_sha": "string",
+      "merge_commit_message": "string",
+      "parent_count": "number"
+    },
+    "push_result": {
+      "command": "string",
+      "exit_code": "number",
+      "remote_main_sha_after": "string",
+      "upstream_set": "boolean"
+    },
+    "final_status": "success|blocked|aborted",
+    "blockers": ["string"]
+  },
+
+  "reference_workflow_yaml": {
+    "filename_suggestion": ".github/workflows/reconcile-split-history.yml",
+    "trigger_options": ["workflow_dispatch", "issue_with_label:reconcile-split-history"],
+    "yaml_sketch": "name: Reconcile Split History\non:\n  workflow_dispatch:\n    inputs:\n      remote_url:\n        description: 'Canonical remote URL to reconcile against'\n        required: true\n        default: 'https://github.com/GrizzwaldHouse/AgentForge.git'\n      remote_branch:\n        description: 'Remote branch to merge from'\n        required: true\n        default: 'main'\n      conflict_policy:\n        description: 'OURS | THEIRS | MANUAL | ASK_USER'\n        required: true\n        default: 'ASK_USER'\n      authorize_push:\n        description: 'Type ALLOW to authorize the final push'\n        required: true\n        default: 'DENY'\n\njobs:\n  reconcile:\n    runs-on: ubuntu-latest\n    permissions:\n      contents: write\n      pull-requests: write\n    steps:\n      - name: Checkout local main\n        uses: actions/checkout@v4\n        with:\n          fetch-depth: 0\n\n      - name: Probe remote (read-only)\n        run: git ls-remote ${{ inputs.remote_url }} ${{ inputs.remote_branch }}\n\n      - name: Add canonical remote\n        run: |\n          git remote add canonical ${{ inputs.remote_url }} || git remote set-url canonical ${{ inputs.remote_url }}\n          git fetch canonical ${{ inputs.remote_branch }}\n\n      - name: Detect unrelated histories\n        id: detect\n        run: |\n          BASE=$(git merge-base HEAD canonical/${{ inputs.remote_branch }} || echo '')\n          echo \"merge_base=$BASE\" >> $GITHUB_OUTPUT\n          if [ -z \"$BASE\" ]; then\n            echo \"histories_unrelated=true\" >> $GITHUB_OUTPUT\n          else\n            echo \"histories_unrelated=false\" >> $GITHUB_OUTPUT\n          fi\n\n      - name: Dry-run merge\n        if: steps.detect.outputs.histories_unrelated == 'true'\n        run: |\n          git config user.name 'agentforge-reconciler'\n          git config user.email 'agentforge-reconciler@users.noreply.github.com'\n          git merge --allow-unrelated-histories --no-commit --no-ff canonical/${{ inputs.remote_branch }} || true\n          git status --porcelain | grep -E '^(UU|AA|DD|AU|UA|DU|UD)' > /tmp/conflicts.txt || true\n          echo '--- Conflicts detected ---'\n          cat /tmp/conflicts.txt\n          git merge --abort || true\n\n      - name: Open reconciliation PR\n        if: inputs.authorize_push != 'ALLOW'\n        run: |\n          BRANCH=reconcile/split-history-$(date +%s)\n          git checkout -b $BRANCH\n          git merge --allow-unrelated-histories --no-ff -m 'Reconcile canonical scaffold (auto-merge, conflicts pending)' canonical/${{ inputs.remote_branch }} || true\n          git push -u origin $BRANCH\n          gh pr create --base main --head $BRANCH --title 'Reconcile split history with canonical scaffold' --body-file /tmp/conflicts.txt\n        env:\n          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}\n\n      - name: Direct merge and push (only if explicitly authorized)\n        if: inputs.authorize_push == 'ALLOW'\n        run: |\n          git merge --allow-unrelated-histories --no-ff -m 'Reconcile canonical scaffold' canonical/${{ inputs.remote_branch }}\n          git push origin main"
+  },
+
+  "human_decisions_required": [
+    {
+      "decision_id": "D1_gitignore",
+      "file": ".gitignore",
+      "policy_default": "MANUAL_UNION",
+      "rationale": "Both versions likely contain valid ignore rules; the union (deduped) is almost always correct.",
+      "action": "Show user diff. Default action: produce union of both files, deduped, with section headers preserving origin attribution. User confirms or edits."
+    },
+    {
+      "decision_id": "D2_AGENTS_md",
+      "file": "AGENTS.md",
+      "policy_default": "ASK_USER",
+      "rationale": "Local AGENTS.md (427 bytes) and canonical AGENTS.md may describe different agent rosters or different-generation systems. Cannot mechanically merge.",
+      "action": "Show user both versions side-by-side; user picks one or authors a combined version."
+    },
+    {
+      "decision_id": "D3_README",
+      "file": "README.md",
+      "policy_default": "ASK_USER",
+      "rationale": "Local README (17 KB, SeniorDevBuddy-focused) and canonical README likely describe different products. Loss-of-information risk if mechanical merge.",
+      "action": "Show user both versions; user picks one or authors a combined README that covers the unified repo."
+    },
+    {
+      "decision_id": "D4_remote_topology",
+      "file": "(repo-level)",
+      "policy_default": "ASK_USER",
+      "rationale": "After merging, the unified repo will contain two product surfaces (SeniorDevBuddy orchestration + AgentForge canonical). Decide whether the unified repo lives at the AgentForge URL, at SeniorDevBuddy URL, or splits into a monorepo with subpackages.",
+      "action": "User chooses one of: (a) keep AgentForge.git as canonical and push unified main there; (b) create a new SeniorDevBuddy.git and push there, leaving AgentForge.git as scaffold-only; (c) restructure into a monorepo and push only the agentforge_autonomous subpath into AgentForge.git via subtree."
+    }
+  ],
+
+  "remaining_risks": [
+    "CRLF/LF normalization on Windows: git rewrites line endings on checkout, producing spurious 'modified' files in working tree after any merge or checkout. Cosmetic, but creates noise in git status.",
+    "Four parallel worktrees under .claude/worktrees/agent-* may race on .git/index. Recommend confirming all four are idle (or pruning them with git worktree prune) before reconciliation.",
+    "If decision D4 chooses option (c) monorepo split via git subtree, the strategy in this ticket does not cover it; a separate ticket is required for subtree extraction.",
+    "Conflict resolution for AGENTS.md and README.md may surface naming/identity differences between SeniorDevBuddy and AgentForge that warrant a project-rename or product-merge discussion separately.",
+    "Until D4 is decided, do NOT push the merge result anywhere — the destination remote depends on D4."
+  ],
+
+  "next_actions_for_executing_agent": [
+    "1. Read this ticket end to end before running any git command.",
+    "2. Confirm the constraints block has not been overridden by user override fields elsewhere.",
+    "3. Run the diagnostic_pipeline in order; halt on any stop_condition.",
+    "4. Surface the four human_decisions_required to the user in a single batch and wait for answers.",
+    "5. Only after D1-D4 are answered, perform the real merge with the user-supplied resolutions.",
+    "6. Run project health checks (npm install / npm run build / npm run lint in agentforge_autonomous/) post-merge before pushing.",
+    "7. Push only after authorize_push is explicitly granted by the user."
+  ]
+}

@@ -8,6 +8,7 @@ import { LearningAgent } from "./learning/LearningAgent";
 import { ContextManagerAgent } from "./context/ContextManagerAgent";
 import { PipelineAgent } from "./pipeline/PipelineAgent";
 import { BrainstormAgent } from "./brainstorm/BrainstormAgent";
+import { ValidationAgent } from "./validation/ValidationAgent";
 
 // Default: no backend injected (prompt-only mode)
 // Call createAgents(backend) to inject a real backend
@@ -21,6 +22,7 @@ export function createAgents(backend?: ExecutionBackend): Agent[] {
     new ContextManagerAgent(backend),
     new PipelineAgent(),
     new BrainstormAgent(),
+    new ValidationAgent(backend),
   ];
 }
 
@@ -34,6 +36,7 @@ export const allAgents: Agent[] = [
   new ContextManagerAgent(),
   new PipelineAgent(),
   new BrainstormAgent(),
+  new ValidationAgent(),
 ];
 
 export const agentRegistry = new Map<string, Agent>(

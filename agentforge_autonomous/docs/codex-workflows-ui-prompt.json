@@ -1,0 +1,216 @@
+{
+  "meta": {
+    "prompt_format": "nano-banana-v1",
+    "target": "codex",
+    "component": "AgentForge /workflows Control Plane UI",
+    "framework": "Next.js 15 + React 19 + Tailwind CSS v4 + Framer Motion + Spline 3D",
+    "design_language": "Apple 2026 Liquid Glass / visionOS Spatial UI",
+    "aesthetic": "rich, layered, graphically advanced — NOT minimal"
+  },
+
+  "design_philosophy": {
+    "never": [
+      "flat cards with plain borders",
+      "default blue/gray AI color palette",
+      "minimal white-space-heavy layouts",
+      "stock Tailwind default colors",
+      "bare unstyled components"
+    ],
+    "always": [
+      "Spline 3D scene as living background layer",
+      "liquid glassmorphism panels (backdrop-blur + translucent fills)",
+      "layered depth with soft ambient glow shadows",
+      "calm soothing color palette — NOT tech blue",
+      "micro-animations on every interaction",
+      "spatial floating card hierarchy",
+      "gradient mesh backgrounds",
+      "rich iconography (Lucide or Phosphor)"
+    ]
+  },
+
+  "color_tokens": {
+    "background": {
+      "base": "#0d0a14",
+      "surface_1": "rgba(255,255,255,0.04)",
+      "surface_2": "rgba(255,255,255,0.07)",
+      "surface_3": "rgba(255,255,255,0.11)"
+    },
+    "glass": {
+      "fill": "rgba(255,255,255,0.06)",
+      "border": "rgba(255,255,255,0.12)",
+      "blur": "blur(24px)",
+      "glow": "0 0 40px rgba(180,150,255,0.08)"
+    },
+    "accent": {
+      "primary": "#c4a8ff",
+      "secondary": "#a8d8c8",
+      "warm": "#f0c9a0",
+      "danger": "#f0a0a8",
+      "success": "#a0f0c0",
+      "warn": "#f0dba0"
+    },
+    "text": {
+      "primary": "rgba(255,255,255,0.92)",
+      "secondary": "rgba(255,255,255,0.55)",
+      "muted": "rgba(255,255,255,0.30)"
+    },
+    "gradient_mesh": [
+      "radial-gradient(ellipse at 20% 20%, rgba(140,100,255,0.15) 0%, transparent 60%)",
+      "radial-gradient(ellipse at 80% 80%, rgba(100,200,180,0.12) 0%, transparent 60%)",
+      "radial-gradient(ellipse at 50% 0%, rgba(200,160,255,0.10) 0%, transparent 50%)"
+    ]
+  },
+
+  "typography": {
+    "font_sans": "'SF Pro Display', 'Inter Variable', system-ui",
+    "font_mono": "'SF Mono', 'JetBrains Mono', monospace",
+    "scale": {
+      "display": "clamp(2rem, 4vw, 3rem) / font-weight: 700 / letter-spacing: -0.03em",
+      "heading": "1.25rem / font-weight: 600 / letter-spacing: -0.02em",
+      "body": "0.875rem / font-weight: 400 / line-height: 1.6",
+      "caption": "0.75rem / font-weight: 400 / color: text.secondary",
+      "mono": "0.8125rem / font-weight: 400"
+    }
+  },
+
+  "spline_3d": {
+    "scene_role": "full-viewport background layer, z-index: 0, pointer-events: none",
+    "scene_concept": "slow-rotating soft mesh orbs — lavender, sage, warm pearl — with particle field. Depth of field blur at edges.",
+    "implementation": "@splinetool/react-spline or @splinetool/runtime",
+    "fallback": "CSS gradient-mesh animated with @keyframes for browsers without WebGL",
+    "performance": "load lazily after LCP, suspend with React Suspense, reduce motion respected",
+    "embed_pattern": "<Spline scene='...' style={{ position:'fixed', inset:0, zIndex:0, opacity:0.6 }} />"
+  },
+
+  "glass_panel_spec": {
+    "base_classes": "relative rounded-2xl border backdrop-blur-2xl overflow-hidden",
+    "background": "bg-white/[0.06]",
+    "border": "border-white/[0.10]",
+    "shadow": "shadow-[0_8px_32px_rgba(0,0,0,0.4),inset_0_1px_0_rgba(255,255,255,0.08)]",
+    "glow_variant": "before:absolute before:inset-0 before:rounded-2xl before:bg-gradient-to-br before:from-white/[0.08] before:to-transparent before:pointer-events-none",
+    "hover_effect": "hover:border-white/[0.18] hover:bg-white/[0.09] transition-all duration-300"
+  },
+
+  "components": {
+    "WorkflowList": {
+      "layout": "left column, full height, scrollable",
+      "card_style": "glass panel, 12px gap between cards, selected state: accent primary border glow",
+      "status_badge": {
+        "running": "bg-accent.primary/20 text-accent.primary border border-accent.primary/30 animate-pulse",
+        "success": "bg-accent.success/20 text-accent.success",
+        "failed": "bg-accent.danger/20 text-accent.danger",
+        "idle": "bg-white/10 text-text.secondary"
+      },
+      "trigger_badge": "pill shape, glass fill, icon + label",
+      "hover": "scale(1.01) + glow shadow on card",
+      "empty_state": "centered floating orb animation + 'No workflows yet' in text.muted"
+    },
+
+    "WorkflowDetail": {
+      "layout": "center column top, 60% height",
+      "step_nodes": {
+        "style": "horizontal timeline with connecting lines, nodes are 36px circles",
+        "completed": "filled accent.success, soft glow ring",
+        "running": "animated pulse ring in accent.primary, inner dot",
+        "failed": "accent.danger with shake micro-animation on mount",
+        "pending": "white/20 unfilled"
+      },
+      "expand_detail": "AnimatePresence slide-down card below the node, glass panel",
+      "re_run_button": "glass button, accent.primary border, hover: glow + scale(1.02)"
+    },
+
+    "VoiceInput": {
+      "mic_button": {
+        "idle": "64px circle, glass panel, lavender icon",
+        "recording": "pulsing 3-ring animation in accent.primary, scale bounces on audio peaks",
+        "waveform": "5 animated bars with spring physics height based on audio amplitude"
+      },
+      "transcript": "glass textarea, mono font, character count in corner",
+      "intent_chips": "horizontal scroll row, glass pills, icon + label",
+      "generate_button": "full-width glass button, gradient border accent.primary → accent.secondary, disabled state: opacity-40",
+      "fallback_textarea": "same glass style but with keyboard icon instead of mic"
+    },
+
+    "ValidationPanel": {
+      "check_row": {
+        "pass": "left border accent.success, checkmark icon, fade-in on mount",
+        "warn": "left border accent.warn, triangle icon",
+        "fail": "left border accent.danger, X icon, subtle red bg tint"
+      },
+      "approve_button": "gradient fill accent.primary → accent.secondary, white text, ripple on click",
+      "overall_verdict": "large pill badge top of panel, animated score meter"
+    },
+
+    "EventStreamFeed": {
+      "event_row": "slide-in from right (AnimatePresence), monospace timestamp, color-coded event type pill",
+      "event_colors": {
+        "WORKFLOW_REQUESTED": "accent.warm",
+        "WORKFLOW_GENERATED": "accent.primary",
+        "WORKFLOW_VALIDATED": "accent.success",
+        "WORKFLOW_EXECUTED": "accent.secondary",
+        "WORKFLOW_FAILED": "accent.danger",
+        "agent:start": "white/60",
+        "agent:complete": "accent.success/80"
+      },
+      "scroll_behavior": "auto-scroll to bottom, pause on hover, 'scroll to latest' button appears when paused"
+    },
+
+    "StatusBadge": {
+      "shape": "rounded-full px-2.5 py-0.5 text-xs font-medium",
+      "glow": "box-shadow: 0 0 8px currentColor at 40% opacity"
+    }
+  },
+
+  "animations": {
+    "page_enter": "fade up 400ms ease-out, stagger children 60ms",
+    "card_hover": "translateY(-2px) + shadow intensify, 200ms ease",
+    "tab_switch": "crossfade 200ms + slight y-slide",
+    "event_appear": "slide-in-right 300ms spring(stiffness:300, damping:30)",
+    "step_complete": "checkmark draw + success ring pulse",
+    "mic_recording": "3 expanding rings, 1.5s loop, ease-in-out",
+    "reduce_motion": "all animations respect prefers-reduced-motion"
+  },
+
+  "layout": {
+    "page_grid": "grid grid-cols-[280px_1fr_320px] gap-4 h-screen p-4",
+    "background_layers": [
+      "layer 0: Spline 3D scene (fixed, full viewport)",
+      "layer 1: gradient mesh overlay (fixed, pointer-events-none)",
+      "layer 2: page content (relative, z-10)"
+    ],
+    "column_structure": {
+      "left": "WorkflowList — scrollable, glass panel wrapper",
+      "center": "WorkflowDetail (flex-1) + tabbed panel (VoiceInput|WorkflowGenerator)",
+      "right": "tabbed panel (ValidationPanel|EventStreamFeed)"
+    }
+  },
+
+  "codex_instruction": {
+    "task": "Generate the complete /workflows page and all 6 sub-components as described. Use Next.js 15 App Router, React 19, Tailwind CSS v4, Framer Motion. Implement Spline 3D background. Apply every glass panel, color token, animation, and component spec above exactly. Do NOT simplify. Do NOT use minimal design. Every component must feel premium, spatial, and graphically rich.",
+    "file_outputs": [
+      "src/app/workflows/page.tsx",
+      "src/app/workflows/layout.tsx",
+      "src/components/workflows/WorkflowList.tsx",
+      "src/components/workflows/WorkflowDetail.tsx",
+      "src/components/workflows/VoiceInput.tsx",
+      "src/components/workflows/WorkflowGenerator.tsx",
+      "src/components/workflows/ValidationPanel.tsx",
+      "src/components/workflows/EventStreamFeed.tsx"
+    ],
+    "constraints": [
+      "ESM only — no CommonJS",
+      "No hardcoded data — fetch from /api/workflows",
+      "No business logic in components",
+      "'use client' on all interactive components",
+      "Respect prefers-reduced-motion",
+      "Spline scene loads lazily with React Suspense fallback"
+    ]
+  },
+
+  "model_recommendation": {
+    "best_for_this_ui": "GPT-4o (Codex)",
+    "reasoning": "GPT-4o via Codex excels at following dense JSON design specs and producing pixel-accurate component code. It handles the Spline integration, Framer Motion animation specs, and Tailwind v4 glass morphism patterns reliably when given a structured prompt like this one.",
+    "alternative": "Claude Sonnet 4.6 — better for architectural consistency and making sure the component interacts correctly with the existing AgentForge event bus and API patterns. Use Sonnet for the backend wiring, GPT-4o/Codex for the visual layer.",
+    "recommended_workflow": "1. Feed this JSON to Codex → get rich visual components. 2. Pass those components to Claude Sonnet → wire up the API calls, useAgentEvents hook, and type safety. 3. Spline scene: design at spline.design, export as viewer URL, embed with @splinetool/react-spline."
+  }
+}
