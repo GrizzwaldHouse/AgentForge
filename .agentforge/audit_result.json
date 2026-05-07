@@ -1,29 +1,34 @@
 {
   "repo": "AgentForge",
-  "auditTimestamp": "2026-05-07T15:58:05.458052+00:00",
+  "auditTimestamp": "2026-05-07T15:59:42.401346+00:00",
   "agentforgeRole": "HEART + NERVOUS_SYSTEM + SKELETAL",
   "integrationStatus": "STANDALONE",
   "readiness": "NOT_READY",
   "compliance": {
-    "no_polling_loops": true,
-    "polling_violations": [],
-    "no_hardcoded_values": true,
-    "hardcoded_count": 0,
+    "no_polling_loops": false,
+    "polling_violations": [
+      "C:\\Users\\daley\\Projects\\AgentForge/src/app/api/agent/events/route.ts:9:  let heartbeatInterval: ReturnType<typeof setInterval> | null = null;",
+      "C:\\Users\\daley\\Projects\\AgentForge/src/app/api/agent/events/route.ts:35:      heartbeatInterval = setInterval(() => {",
+      "C:\\Users\\daley\\Projects\\AgentForge/src/app/safety/page.tsx:78:  // Initial fetch + polling",
+      "C:\\Users\\daley\\Projects\\AgentForge/src/app/safety/page.tsx:81:    const interval = setInterval(fetchState, POLL_INTERVAL_MS);"
+    ],
+    "no_hardcoded_values": false,
+    "hardcoded_count": 7,
     "config_file_present": false,
     "config_files": [],
     "observer_pattern_used": false,
     "observer_evidence": [],
     "vram_watchdog_present": false,
-    "no_em_dashes": true,
-    "em_dash_count": 0,
+    "no_em_dashes": false,
+    "em_dash_count": 128,
     "env_example_present": false
   },
   "stats": {
     "filesScanned": 136,
-    "functionsFound": 0,
+    "functionsFound": 358,
     "openTodos": 0,
     "testFiles": 22,
-    "prdViolations": 0,
+    "prdViolations": 139,
     "stack": [
       "TypeScript/React",
       "Node"
@@ -59,8 +64,54 @@
         "reason": "Need to define what events this repo emits/consumes"
       }
     ],
-    "prd_violations": []
+    "prd_violations": [
+      {
+        "type": "POLLING_LOOP",
+        "location": "C",
+        "fix": "Replace with event listener on OwlWatcher event bus"
+      },
+      {
+        "type": "POLLING_LOOP",
+        "location": "C",
+        "fix": "Replace with event listener on OwlWatcher event bus"
+      },
+      {
+        "type": "POLLING_LOOP",
+        "location": "C",
+        "fix": "Replace with event listener on OwlWatcher event bus"
+      },
+      {
+        "type": "POLLING_LOOP",
+        "location": "C",
+        "fix": "Replace with event listener on OwlWatcher event bus"
+      },
+      {
+        "type": "HARDCODED_VALUE",
+        "location": "C",
+        "fix": "Move to config file or .env"
+      },
+      {
+        "type": "HARDCODED_VALUE",
+        "location": "C",
+        "fix": "Move to config file or .env"
+      },
+      {
+        "type": "HARDCODED_VALUE",
+        "location": "C",
+        "fix": "Move to config file or .env"
+      },
+      {
+        "type": "HARDCODED_VALUE",
+        "location": "C",
+        "fix": "Move to config file or .env"
+      },
+      {
+        "type": "HARDCODED_VALUE",
+        "location": "C",
+        "fix": "Move to config file or .env"
+      }
+    ]
   },
   "claudeCodeUsed": true,
-  "elapsedSeconds": 233.2
+  "elapsedSeconds": 175.8
 }
