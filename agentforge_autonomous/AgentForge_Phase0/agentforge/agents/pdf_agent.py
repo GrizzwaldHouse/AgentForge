@@ -96,13 +96,23 @@ class PDFAgent:
 
     def _render(self, out_path: Path, title: str, subtitle: str, lessons: List[Dict]) -> None:
         if self.renderer == "weasyprint":
-            self._render_weasyprint(out_path, title, subtitle, lessons)
+            try:
+                self._render_weasyprint(out_path, title, subtitle, lessons)
+            except (ImportError, OSError) as exc:
+                # WeasyPrint needs Pango, GObject, and HarfBuzz on the host. Windows CI
+                # and minimal installs often lack these; keep the pipeline usable.
+                logger.warning(
+                    "WeasyPrint unavailable (%s); falling back to reportlab for this run.",
+                    exc,
+                )
+                self._render_reportlab(out_path, title, subtitle, lessons)
         else:
             self._render_reportlab(out_path, title, subtitle, lessons)
 
     def _render_weasyprint(self, out_path: Path, title: str, subtitle: str,
                            lessons: List[Dict]) -> None:
         from weasyprint import HTML, CSS  # type: ignore
+
         html = self._build_html(title, subtitle, lessons)
         css = self._build_css()
         HTML(string=html).write_pdf(str(out_path), stylesheets=[CSS(string=css)])
@@ -162,21 +172,26 @@ class PDFAgent:
 
     @staticmethod
     def _strip_em_dashes(text: str) -> str:
-        return text.replace("—", ", ").replace("–", "-")
+        text = str(text).replace("\u2014", ", ")
+        text = text.replace("\u2013", "-")
+        return text
 
     def _build_html(self, title: str, subtitle: str, lessons: List[Dict]) -> str:
+        def _normalize_dashes(t: str) -> str:
+            return str(t).replace("\u2014", ", ").replace("\u2013", "-")
+
         sections = []
         for i, lesson in enumerate(lessons, start=1):
             code_html = "".join(
-                f"<pre><code>{self._escape(self._strip_em_dashes(s))}</code></pre>"
+                f"<pre><code>{self._escape(_normalize_dashes(self._strip_em_dashes(s)))}</code></pre>"
                 for s in lesson.get("code_snippets", [])
             )
             tags_html = "".join(
-                f"<span class='tag'>{self._escape(t)}</span>"
+                f"<span class='tag'>{self._escape(_normalize_dashes(t))}</span>"
                 for t in lesson.get("tags", [])
             )
             lesson_id = f"lesson-{i:03d}"
-            s = self._strip_em_dashes
+            s = lambda x: _normalize_dashes(self._strip_em_dashes(x))
             sections.append(f"""
           <section class='lesson' id='{lesson_id}' data-title='{self._escape(s(lesson.get("title", "")))}'>
             <div class='lesson-number'>Lesson {i:03d}</div>
@@ -192,7 +207,7 @@ class PDFAgent:
         """)
 
         toc_items = "".join(
-            f"<li><a href='#lesson-{i:03d}'>{self._escape(self._strip_em_dashes(lesson.get('title', '')))}</a></li>"
+            f"<li><a href='#lesson-{i:03d}'>{self._escape(_normalize_dashes(self._strip_em_dashes(lesson.get('title', ''))))}</a></li>"
             for i, lesson in enumerate(lessons, start=1)
         )
 
@@ -218,9 +233,31 @@ class PDFAgent:
     @staticmethod
     def _build_css() -> str:
         return """
-        /* GrizzwaldHouse Academic PDF Stylesheet
-           For WeasyPrint 63+.
-           Author: Marcus Daley | Date: 2026-05-08 */
+        /* GrizzwaldHouse academic PDF stylesheet for WeasyPrint 63+.
+           Palette tokens only in this block, body uses var(--color-*). */
+
+        :root {
+          --color-ink: #1a1a1a;
+          --color-ink-muted: #455a64;
+          --color-heading: #0a1929;
+          --color-rule: #888888;
+          --color-rule-soft: #cfd8dc;
+          --color-margin-text: #555555;
+          --color-margin-faint: #888888;
+          --color-toc-heading-border: #333333;
+          --color-cover-bg-0: #0a1929;
+          --color-cover-bg-1: #1a3a52;
+          --color-cover-text: #f4f4f0;
+          --color-cover-subtitle: #c4d4e0;
+          --color-cover-imprint: #8aa4b8;
+          --color-lesson-number: #6b8a99;
+          --color-summary-border: #6b8a99;
+          --color-pre-bg: #f4f6f8;
+          --color-pre-border: #455a64;
+          --color-code-bg: #eef1f4;
+          --color-tag-bg: #eef1f4;
+          --color-tag-text: #455a64;
+        }
 
         @page {
           size: Letter;
@@ -230,8 +267,8 @@ class PDFAgent:
             content: string(book-title);
             font-family: 'Georgia', 'Times New Roman', serif;
             font-size: 9pt;
-            color: #555;
-            border-bottom: 0.5pt solid #888;
+            color: var(--color-margin-text);
+            border-bottom: 0.5pt solid var(--color-rule);
             padding-bottom: 4pt;
           }
           @top-right {
@@ -239,28 +276,22 @@ class PDFAgent:
             font-family: 'Georgia', 'Times New Roman', serif;
             font-size: 9pt;
             font-style: italic;
-            color: #555;
-            border-bottom: 0.5pt solid #888;
+            color: var(--color-margin-text);
+            border-bottom: 0.5pt solid var(--color-rule);
             padding-bottom: 4pt;
-          }
-          @bottom-center {
-            content: counter(page);
-            font-family: 'Georgia', serif;
-            font-size: 9pt;
-            color: #555;
           }
           @bottom-left {
             content: "GrizzwaldHouse";
             font-family: 'Georgia', serif;
             font-size: 8pt;
-            color: #888;
+            color: var(--color-margin-faint);
             letter-spacing: 0.05em;
           }
           @bottom-right {
-            content: "Marcus Daley";
+            content: counter(page);
             font-family: 'Georgia', serif;
-            font-size: 8pt;
-            color: #888;
+            font-size: 9pt;
+            color: var(--color-margin-text);
           }
         }
 
@@ -268,7 +299,6 @@ class PDFAgent:
           margin: 0;
           @top-left { content: none; }
           @top-right { content: none; }
-          @bottom-center { content: none; }
           @bottom-left { content: none; }
           @bottom-right { content: none; }
         }
@@ -282,13 +312,12 @@ class PDFAgent:
           font-family: 'Georgia', 'Times New Roman', serif;
           font-size: 11pt;
           line-height: 1.55;
-          color: #1a1a1a;
+          color: var(--color-ink);
           margin: 0;
           padding: 0;
           hyphens: auto;
         }
 
-        /* COVER PAGE */
         .cover {
           page-break-after: always;
           height: 100vh;
@@ -297,8 +326,12 @@ class PDFAgent:
           justify-content: center;
           align-items: center;
           text-align: center;
-          background: linear-gradient(180deg, #0a1929 0%, #1a3a52 100%);
-          color: #f4f4f0;
+          background: linear-gradient(
+            180deg,
+            var(--color-cover-bg-0) 0%,
+            var(--color-cover-bg-1) 100%
+          );
+          color: var(--color-cover-text);
           padding: 0 1in;
         }
         .cover h1 {
@@ -313,23 +346,22 @@ class PDFAgent:
           font-family: 'Georgia', serif;
           font-size: 16pt;
           font-style: italic;
-          color: #c4d4e0;
+          color: var(--color-cover-subtitle);
           margin: 0 0 1in 0;
         }
         .cover .author {
           font-size: 13pt;
           letter-spacing: 0.1em;
           text-transform: uppercase;
-          color: #f4f4f0;
+          color: var(--color-cover-text);
         }
         .cover .imprint {
           font-size: 9pt;
           letter-spacing: 0.2em;
-          color: #8aa4b8;
+          color: var(--color-cover-imprint);
           margin-top: 0.5in;
         }
 
-        /* TABLE OF CONTENTS */
         .toc {
           page: toc;
           page-break-after: always;
@@ -339,7 +371,7 @@ class PDFAgent:
           font-family: 'Helvetica Neue', sans-serif;
           font-size: 22pt;
           font-weight: 300;
-          border-bottom: 1pt solid #333;
+          border-bottom: 1pt solid var(--color-toc-heading-border);
           padding-bottom: 0.15in;
           margin-bottom: 0.3in;
         }
@@ -356,26 +388,24 @@ class PDFAgent:
         .toc li::before {
           content: counter(toc-counter, decimal-leading-zero) ".  ";
           font-family: 'Courier', monospace;
-          color: #888;
+          color: var(--color-margin-faint);
         }
         .toc a {
-          color: #1a1a1a;
+          color: var(--color-ink);
           text-decoration: none;
         }
         .toc a::after {
           content: leader('.') target-counter(attr(href), page);
-          color: #888;
+          color: var(--color-margin-faint);
           font-family: 'Courier', monospace;
           font-size: 10pt;
         }
 
-        /* MAIN TITLE STRING SET */
         header.book-meta {
           string-set: book-title content();
           display: none;
         }
 
-        /* LESSON SECTIONS */
         section.lesson {
           page-break-before: always;
           page-break-inside: avoid;
@@ -385,8 +415,8 @@ class PDFAgent:
           font-family: 'Helvetica Neue', 'Arial', sans-serif;
           font-size: 18pt;
           font-weight: 400;
-          color: #0a1929;
-          border-bottom: 1pt solid #cfd8dc;
+          color: var(--color-heading);
+          border-bottom: 1pt solid var(--color-rule-soft);
           padding-bottom: 0.1in;
           margin: 0 0 0.2in 0;
           page-break-after: avoid;
@@ -394,7 +424,7 @@ class PDFAgent:
         section.lesson .lesson-number {
           font-family: 'Courier', monospace;
           font-size: 9pt;
-          color: #6b8a99;
+          color: var(--color-lesson-number);
           letter-spacing: 0.15em;
           text-transform: uppercase;
           margin-bottom: 4pt;
@@ -403,7 +433,7 @@ class PDFAgent:
           font-family: 'Helvetica Neue', sans-serif;
           font-size: 11pt;
           font-weight: 600;
-          color: #0a1929;
+          color: var(--color-heading);
           text-transform: uppercase;
           letter-spacing: 0.1em;
           margin: 0.25in 0 0.1in 0;
@@ -411,8 +441,8 @@ class PDFAgent:
         }
         section.lesson .summary {
           font-style: italic;
-          color: #455a64;
-          border-left: 3pt solid #6b8a99;
+          color: var(--color-ink-muted);
+          border-left: 3pt solid var(--color-summary-border);
           padding-left: 0.2in;
           margin: 0 0 0.25in 0;
         }
@@ -421,15 +451,14 @@ class PDFAgent:
           text-align: justify;
         }
 
-        /* CODE BLOCKS */
         pre {
-          background: #f4f6f8;
-          border-left: 3pt solid #455a64;
+          background: var(--color-pre-bg);
+          border-left: 3pt solid var(--color-pre-border);
           padding: 0.15in 0.2in;
           font-family: 'Menlo', 'Consolas', 'Courier New', monospace;
           font-size: 9pt;
           line-height: 1.4;
-          color: #1a1a1a;
+          color: var(--color-ink);
           page-break-inside: avoid;
           white-space: pre-wrap;
           word-wrap: break-word;
@@ -438,24 +467,23 @@ class PDFAgent:
         code {
           font-family: 'Menlo', 'Consolas', monospace;
           font-size: 9.5pt;
-          background: #eef1f4;
+          background: var(--color-code-bg);
           padding: 1pt 4pt;
           border-radius: 2pt;
         }
 
-        /* TAGS */
         .tags {
           margin-top: 0.3in;
           padding-top: 0.1in;
-          border-top: 0.5pt solid #cfd8dc;
+          border-top: 0.5pt solid var(--color-rule-soft);
           font-size: 9pt;
-          color: #6b8a99;
+          color: var(--color-lesson-number);
           font-style: italic;
         }
         .tag {
           display: inline-block;
-          background: #eef1f4;
-          color: #455a64;
+          background: var(--color-tag-bg);
+          color: var(--color-tag-text);
           padding: 1pt 6pt;
           margin-right: 4pt;
           border-radius: 2pt;

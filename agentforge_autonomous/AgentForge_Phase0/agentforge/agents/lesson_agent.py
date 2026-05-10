@@ -32,7 +32,9 @@ class HeuristicLessonExtractor:
 
     @staticmethod
     def _strip_em_dashes(text: str) -> str:
-        return text.replace("—", ", ").replace("–", "-")
+        text = text.replace("\u2014", ", ")
+        text = text.replace("\u2013", "-")
+        return text
 
     def extract(self, conv: Conversation) -> Optional[Lesson]:
         joined = "\n".join(m.text for m in conv.messages)
@@ -95,7 +97,9 @@ class ClaudeLessonExtractor:
 
     @staticmethod
     def _strip_em_dashes(text: str) -> str:
-        return text.replace("—", ", ").replace("–", "-")
+        text = text.replace("\u2014", ", ")
+        text = text.replace("\u2013", "-")
+        return text
 
     def extract(self, conv: Conversation) -> Optional[Lesson]:
         try:
