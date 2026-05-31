@@ -1,0 +1,69 @@
+{
+  "version": "1.0",
+  "updatedAt": "2026-05-31",
+  "projects": [
+    {
+      "id": "agentforge",
+      "name": "AgentForge",
+      "path": "C:\\Users\\daley\\Projects\\AgentForge",
+      "role": "hub",
+      "claudeMd": "C:\\Users\\daley\\Projects\\AgentForge\\CLAUDE.md",
+      "skills": ["agentforge-autopilot", "impeccable", "ollama-audit-training"],
+      "active": true
+    },
+    {
+      "id": "badgerheart",
+      "name": "BadgerHeart",
+      "path": "C:\\Users\\daley\\Projects\\BadgerHeart",
+      "role": "asset-pipeline",
+      "claudeMd": null,
+      "skills": ["badgerheart-store-ops", "ue5-asset-pipeline"],
+      "active": true
+    },
+    {
+      "id": "bob-aicompanion",
+      "name": "Bob-AICompanion",
+      "path": "C:\\Users\\daley\\Projects\\Bob-AICompanion",
+      "role": "automation",
+      "claudeMd": "C:\\Users\\daley\\Projects\\Bob-AICompanion\\CLAUDE.md",
+      "skills": [],
+      "active": true
+    },
+    {
+      "id": "portfolio",
+      "name": "Portfolio Website",
+      "path": "D:\\portfolio-website",
+      "role": "marketing",
+      "claudeMd": null,
+      "skills": ["frontend-design"],
+      "active": true
+    },
+    {
+      "id": "basegame",
+      "name": "WizardJam 2.0",
+      "path": "C:\\Users\\daley\\UnrealProjects\\BaseGame",
+      "role": "game",
+      "claudeMd": "C:\\Users\\daley\\UnrealProjects\\BaseGame\\Documentation\\CLAUDE.md",
+      "skills": ["game-dev-helper", "ue5-asset-pipeline"],
+      "active": true
+    },
+    {
+      "id": "islandescape",
+      "name": "IslandEscape",
+      "path": "D:\\FSO\\Capstone Project\\IslandEscape",
+      "role": "game",
+      "claudeMd": null,
+      "skills": ["game-dev-helper"],
+      "active": true
+    },
+    {
+      "id": "seniordevbuddy",
+      "name": "SeniorDevBuddy",
+      "path": "C:\\Users\\daley\\Projects\\SeniorDevBuddy",
+      "role": "system-prompts",
+      "claudeMd": null,
+      "skills": [],
+      "active": true
+    }
+  ]
+}
