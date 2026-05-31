@@ -96,3 +96,17 @@ Run: python3 C:\Users\daley\Projects\agentforge-control\agentforge_control.py
 | Lymphatic | EXISTS |
 
 Next priority: Implement Heart (SupervisorOrchestrator) as a real DSL state machine.
+
+## Skills
+
+Skills available for this project (loaded from C:\ClaudeSkills via list_omc_skills at session start):
+
+- agentforge-autopilot: Use for autonomous multi-step AgentForge OS tasks
+- impeccable: Use before any PR submission to verify the quality gate
+- ollama-audit-training: Use when adding or modifying Ollama model routing
+
+## PDR Documents
+
+Per-subsystem design records live in `docs/PDR/`. Read `docs/PDR/README.md` first for the index.
+These are the authoritative source for architecture decisions, file paths, and acceptance criteria.
+Both Cursor (via `.cursor/rules/`) and Claude Code use these files as shared context.
