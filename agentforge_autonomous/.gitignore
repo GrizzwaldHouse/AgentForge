@@ -4,3 +4,9 @@ node_modules/
 data/
 tsconfig.tsbuildinfo
 memory-index.json
+
+# A5 VMock auth session (contains cookies -- never commit)
+agents/A5-auto-apply/vmock-auth.json
+
+# A5 job output directory (runtime artifacts)
+agents/A5-auto-apply/jobs/
