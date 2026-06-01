@@ -1,55 +1,54 @@
-# Session Handoff - AgentForge Observability
+# Session Handoff - AgentForge
 
-## Current Project Phase
-**Phase 2: Event System — COMPLETE**
-**Infrastructure: Context-aware execution system — COMPLETE**
+## Current Phase
+**Phase 9+ — Job Pipeline + A5 Resume VMock Pipeline (active as of 2026-06)**
 
-## Completed This Session
+Phases 1-8 (Foundation through Integration) are complete or superseded. The system is no longer following the original Phase 3-8 plan (SimulatedBackend, ObservableOrchestrator). That architecture was replaced by the job pipeline in April-May 2026.
 
-### Phase 2 Files (6 files)
-1. `src/core/events/types.ts` — 8 discriminated union event types + createEventId
-2. `src/core/events/agent-event-bus.ts` — EventEmitter singleton, 200-event buffer
-3. `src/app/api/agent/events/route.ts` — SSE endpoint, 30s heartbeat, catch-up
-4. `src/app/api/agent/run/route.ts` — POST runs all 6 agents, emits events
-5. `src/hooks/use-agent-events.ts` — React hook, EventSource, auto-reconnect
-6. `src/agents/registry.ts` — allAgents array + agentRegistry Map
+## Completed Phases
 
-### Infrastructure Files (5 files)
-1. `CONTEXT_AWARE_EXECUTION.json` — Reusable prompt for context-aware sessions
-2. `memory-index.json` — Machine-readable file inventory with exports/deps
-3. `task-queue.json` — Persistent task queue with dependency graph
-4. `scripts/ollama-resume.mjs` — Background Ollama agent for eligible tasks
-5. `scripts/session-resume.mjs` — Generates paste-ready resume prompt
+| Phase | Description | Status |
+|---|---|---|
+| 1 | Foundation: core interfaces, event bus, agent registry | COMPLETE |
+| 2 | Event System: SSE endpoint, run/route.ts, React hook | COMPLETE |
+| 3-8 | Execution backends, orchestrator, session persistence, UI | SUPERSEDED by job pipeline |
+| 9 | Job pipeline (A1-A4): ingestion, matching, proposal, critic, output | COMPLETE |
+| A5 | Resume VMock pipeline: HF selection, Playwright scorer, iteration loop | COMPLETE (2026-06-01) |
 
-### npm Scripts Added
-- `npm run resume` — Generate Claude Code resume prompt
-- `npm run ollama:resume` — Run Ollama on eligible tasks
-- `npm run ollama:dry-run` — Preview without executing
+## Active Files (current session)
+
+### A5 Resume Pipeline (new as of 2026-06-01)
+- `src/agents/resume-pipeline/resume-pipeline-events.ts`
+- `src/agents/resume-pipeline/ResumeSelectionAgent.ts`
+- `src/agents/resume-pipeline/VmockRunnerAgent.ts`
+- `src/agents/resume-pipeline/ResumePipelineOrchestrator.ts`
+- `agents/A5-auto-apply/config.ts`
+- `agents/A5-auto-apply/setup-vmock-auth.mjs`
+- `agents/A5-auto-apply/corpus/jd-keywords.json`
+- `agents/A5-auto-apply/corpus/resume-vocab.json`
+
+### Job Pipeline (Phase 9, complete)
+- `src/agents/job-pipeline/` -- A1-A4 agents + orchestrator + events
+- `apps/job-agent/config/` -- settings.json, config-loader.ts
+- `src/core/events/agent-event-bus.ts` -- singleton event bus
 
 ## Build Status
-`npm run build` — PASS (0 errors)
+- `npx vitest run src/agents/resume-pipeline/` -- 16/16 tests pass
+- `npm run build` -- PASS
 
-## What Remains
-
-### Phase 3: Execution Backends + ObservableOrchestrator
-- P3-1: ExecutionBackend interface
-- P3-2: SimulatedBackend (ollama-eligible)
-- P3-3: OllamaBackend
-- P3-4: ObservableOrchestrator
-- P3-5: Refactor run/route.ts
-
-### Phase 4-8: See task-queue.json for full dependency graph
-
-## Known Issues
-- Next.js lockfile warning (cosmetic)
-- Orchestration logic inlined in run/route.ts (extract in P3-4)
-- No session persistence yet (P4-1)
+## Blockers Before A5 Can Run End-to-End
+1. Resume vault path confirmed (default: `C:/Users/daley/Resumes`)
+2. VMock DOM selectors replaced in `apps/job-agent/config/settings.json` after live inspection
+3. `HF_BEARER_TOKEN` added to `.env`
+4. VMock login method confirmed (SSO vs email/password) -- run `setup-vmock-auth.mjs` once
 
 ## How to Resume
 ```bash
 cd agentforge_autonomous
-npm run resume    # Generates paste-ready Claude Code prompt
+npm run dev          # Start Next.js dashboard
+npm run resume       # Generate Claude Code resume prompt
+npx vitest run       # Run all tests
 ```
 
-Or paste CONTEXT_AWARE_EXECUTION.json at session start with:
-"Resume work on SeniorDevBuddy using this execution protocol."
+## Branch
+`feat/pdf-session-1-weasyprint` (A5 work committed here, merge to main when blockers cleared)
