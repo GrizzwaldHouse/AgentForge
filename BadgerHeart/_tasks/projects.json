@@ -1,0 +1,12 @@
+{
+  "badgerheart": {
+    "id": "badgerheart",
+    "root": "C:/Users/daley/Projects/SeniorDevBuddy/BadgerHeart",
+    "tasks_root": "C:/Users/daley/Projects/SeniorDevBuddy/BadgerHeart/_tasks",
+    "store_root": "C:/Users/daley/Projects/BadgerHeart",
+    "standup_config": "docs/store-ops/standup-agent-master.v2.1.0.json",
+    "monday_board": "18415603630",
+    "todoist_root": "6gm9QW8r3pmJjM4h",
+    "linear_team_key": "BAD"
+  }
+}
