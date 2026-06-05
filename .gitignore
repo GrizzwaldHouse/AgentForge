@@ -22,3 +22,6 @@ graphify-out/
 nul
 
 reference-pdfs/
+
+# Instruction source audit working dir (added 2026-06-04 safe-commit-prep)
+instruction_source_audit/
